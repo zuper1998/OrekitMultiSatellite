@@ -118,6 +118,7 @@ public class SatOrbitProbagation {
             //TODO: check for visibility inter satellites
             for(Map.Entry<String, SpacecraftState> spaceState_outer : curState.entrySet()){
                 for(Map.Entry<String, SpacecraftState> spaceState_inner : curState.entrySet()){
+                    if(spaceState_inner!=spaceState_outer)
                     if(Utility.SatVisible(spaceState_outer.getValue(),spaceState_inner.getValue())){
                         System.out.println(spaceState_outer.getKey()+" can see  "+spaceState_inner.getKey());
                     }
