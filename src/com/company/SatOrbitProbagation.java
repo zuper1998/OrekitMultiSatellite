@@ -59,11 +59,11 @@ public class SatOrbitProbagation {
     final double mu = 3.986004415e+14; // gravitation coefficient
     final Frame inertialFrame = FramesFactory.getEME2000(); // inertial frame for orbit definition
     ArrayList<Satellite_Sajat> sats = Satellite_Sajat.SatLoader(
-            "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\StarlinkOrb1.txt");
+            "C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\StarlinkOrb2.txt");
 
     Map<String, Propagator> orbits = new HashMap<>();
     for (Satellite_Sajat s1 : sats) {
-        final Orbit initialOrbitE = new KeplerianOrbit(s1.a, s1.e, s1.i, s1.omega, s1.raan, s1.raan, PositionAngle.MEAN,
+        final Orbit initialOrbitE = new KeplerianOrbit(s1.a, s1.e, s1.i, s1.omega, s1.raan, s1.lM, PositionAngle.MEAN,
                inertialFrame, initialDate, mu);
         final Orbit initialOrbit = new EquinoctialOrbit(initialOrbitE);
 
@@ -74,9 +74,19 @@ public class SatOrbitProbagation {
     cities.add(new City());
     cities.add(new City(52.520008, 13.404954, 43, "Berlin"));
     final Frame earthFrame = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
+
         var ref = new Object() {
-            String gloBString = "";
+            String GlobalKey = "";
         };
+    Map<String,SatTimeline> timelines = new HashMap<>();
+    //prepare timelines
+    for(Map.Entry<String, Propagator> p : orbits.entrySet()){
+        timelines.put(p.getKey(),new SatTimeline(p.getKey()));
+    }
+    for(City c : cities){
+        timelines.put(c.name,new SatTimeline(c.name));
+    }
+
 
     final BodyShape earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
             Constants.WGS84_EARTH_FLATTENING,
@@ -91,8 +101,8 @@ public class SatOrbitProbagation {
             final double elevation = FastMath.toRadians(20.0);
             EventDetector a = new ElevationDetector(maxcheck, threshold, sta1Frame).
                     withConstantElevation(elevation).
-                    withHandler((s, detector, increasing) -> {
-                        System.out.println(ref.gloBString);
+                    withHandler((s, detector, increasing) -> { //TODO: fill the interval
+                        timelines.get(detector.getTopocentricFrame().getName()).AddElement(s.getDate(),timelines.get(ref.GlobalKey));
                         return Action.CONTINUE;
                     });
             for(Map.Entry<String, Propagator> p : orbits.entrySet()){
@@ -106,32 +116,29 @@ public class SatOrbitProbagation {
         final AbsoluteDate finalDate = initialDate.shiftedBy(duration);
 
 
+
         for (AbsoluteDate extrapDate = initialDate;
              extrapDate.compareTo(finalDate) <= 0;
              extrapDate = extrapDate.shiftedBy(stepT)) {
             Map<String,SpacecraftState> curState= new HashMap<>();
             for(Map.Entry<String, Propagator> p : orbits.entrySet()){
-                ref.gloBString = p.getKey();
+                ref.GlobalKey = p.getKey();
                 curState.put(p.getKey(), p.getValue().propagate(extrapDate)); // Use HashMap to store the cur state
             }
 
-            //TODO: check for visibility inter satellites
+            // check for visibility inter satellites
             for(Map.Entry<String, SpacecraftState> spaceState_outer : curState.entrySet()){
                 for(Map.Entry<String, SpacecraftState> spaceState_inner : curState.entrySet()){
                     if(spaceState_inner!=spaceState_outer)
                     if(Utility.SatVisible(spaceState_outer.getValue(),spaceState_inner.getValue())){
-                        System.out.println(spaceState_outer.getKey()+" can see  "+spaceState_inner.getKey());
+                        timelines.get(spaceState_outer.getKey()).AddElement(extrapDate,timelines.get(spaceState_inner.getKey()));
                     }
                 }
 
             }
 
-
-
-            //System.out.format(Locale.US, "step %2d %s %s%n %s",
-            //        cpt++, currentState.getDate(), currentState.getOrbit(), currentState.getPVCoordinates());
-
         }
+        timelines.forEach((s, satTimeline) -> {satTimeline.print();});
     }
 
 }

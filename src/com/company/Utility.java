@@ -5,6 +5,8 @@ import org.hipparchus.util.FastMath;
 import org.orekit.attitudes.Attitude;
 import org.orekit.propagation.SpacecraftState;
 
+import java.awt.*;
+
 
 public class Utility {
     public static boolean SatVisible(SpacecraftState spaceState_outer, SpacecraftState spaceState_inner) {
@@ -14,8 +16,9 @@ public class Utility {
         Vector3D earthCore = new Vector3D(0,0,0);
         Vector3D closestP = getClosestP(pos_inner,pos_outer,earthCore);
 
-
-        return closestP.distance(earthCore)>((6371+200)*1000);
+        double tmp = closestP.distance(earthCore);
+        //System.out.print(tmp+" , ");
+        return tmp>((6371+500)*1000);
 
     }
     //https://math.stackexchange.com/questions/2193720/find-a-point-on-a-line-segment-which-is-the-closest-to-other-point-not-on-the-li

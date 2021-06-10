@@ -52,7 +52,7 @@ public class Satellite_Sajat {
             double omega = FastMath.toRadians(Double.parseDouble(st.nextToken()));
             // Mean Anomaly
             //double lM = FastMath.toRadians( Double.parseDouble(st.nextToken())); //FastMath.toDegrees(Math.sqrt(mu/(semi*semi*semi)) * Double.parseDouble(st.nextToken()) % 360);
-            double lM = FastMath.toRadians(Math.sqrt(mu/(semi*semi*semi)) * Double.parseDouble(st.nextToken()) % 360);
+            double lM = FastMath.toRadians( Double.parseDouble(st.nextToken()));
             //System.out.println(lM);
             sats.add(new Satellite_Sajat(semi,ecc,inc,raas,omega,lM,st.nextToken().strip()));
 
