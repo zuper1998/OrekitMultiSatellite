@@ -29,6 +29,10 @@ public class SatTimeline {
         return false;
     }
 
+    public AbsoluteDate getLast(SatTimeline st){
+        return timelineList.get(st).get(timelineList.get(st).size()-1);
+    }
+
     public void print(){
         final AbsoluteDate start = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
         final AbsoluteDate end = start.shiftedBy(SatOrbitProbagation.duration);
@@ -46,5 +50,29 @@ public class SatTimeline {
             }
             System.out.println();
         }
+    }
+
+    public double getMaxWindow() {
+        final AbsoluteDate start = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
+        final AbsoluteDate end = start.shiftedBy(SatOrbitProbagation.duration);
+        double max=0;
+        double cnt=0;
+        for(Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> a : timelineList.entrySet()){
+            boolean first = false;
+
+            for (AbsoluteDate extrapDate = start;
+                 extrapDate.compareTo(end) <= 0;
+                 extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+                if (a.getValue().contains(extrapDate)) {
+                    cnt += 1;
+                    first = true;
+                } else if (first) {
+                    max = Math.max(cnt, max);
+                    first = false;
+                    cnt = 0;
+                }
+            }
+            }
+        return max;
     }
 }

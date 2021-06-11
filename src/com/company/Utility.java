@@ -6,6 +6,7 @@ import org.orekit.attitudes.Attitude;
 import org.orekit.propagation.SpacecraftState;
 
 import java.awt.*;
+import java.util.Map;
 
 
 public class Utility {
@@ -38,5 +39,9 @@ public class Utility {
 
         }
         return A.scalarMultiply(1-t).add(B.scalarMultiply(t)); //(1−t)A+tB
+    }
+
+    public static double GetMaxWindow(SatTimeline a) {
+        return a.getMaxWindow();
     }
 }

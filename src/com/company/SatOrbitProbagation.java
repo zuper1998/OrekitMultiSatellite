@@ -39,7 +39,7 @@ public class SatOrbitProbagation {
     // configure Orekit
     public static final double stepT = 1;
     public static double duration = 3600*6;
-    public static void Generate(){
+    public static Map<String,SatTimeline> Generate(){
     final File home = new File(System.getProperty("user.home"));
     final File orekitData = new File(home, "orekit-data");
                 if (!orekitData.exists()) {
@@ -59,7 +59,7 @@ public class SatOrbitProbagation {
     final double mu = 3.986004415e+14; // gravitation coefficient
     final Frame inertialFrame = FramesFactory.getEME2000(); // inertial frame for orbit definition
     ArrayList<Satellite_Sajat> sats = Satellite_Sajat.SatLoader(
-            "C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\StarlinkOrb2.txt");
+            "src/Data/StarlinkOrb2.txt");
 
     Map<String, Propagator> orbits = new HashMap<>();
     for (Satellite_Sajat s1 : sats) {
@@ -86,7 +86,9 @@ public class SatOrbitProbagation {
     for(City c : cities){
         timelines.put(c.name,new SatTimeline(c.name));
     }
-
+        var ref1 = new Object() {
+            AbsoluteDate globDate = initialDate;
+        };
 
     final BodyShape earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
             Constants.WGS84_EARTH_FLATTENING,
@@ -101,8 +103,21 @@ public class SatOrbitProbagation {
             final double elevation = FastMath.toRadians(20.0);
             EventDetector a = new ElevationDetector(maxcheck, threshold, sta1Frame).
                     withConstantElevation(elevation).
-                    withHandler((s, detector, increasing) -> { //TODO: fill the interval
-                        timelines.get(detector.getTopocentricFrame().getName()).AddElement(s.getDate(),timelines.get(ref.GlobalKey));
+                    withHandler((s, detector, increasing) -> { //TODO: fill the interval TODO2: refactor so the interval filling is in the main branch use only atomic bool here
+                        if(increasing) {
+                            timelines.get(detector.getTopocentricFrame().getName()).AddElement(ref1.globDate, timelines.get(ref.GlobalKey));
+                            timelines.get(ref.GlobalKey).AddElement(ref1.globDate, timelines.get(detector.getTopocentricFrame().getName()));
+                        } else {
+                            AbsoluteDate startP = initialDate;
+                            for (AbsoluteDate extrapDate = startP;
+                                 extrapDate.compareTo(s.getDate()) <= 0;
+                                 extrapDate = extrapDate.shiftedBy(stepT)) {
+                                if(extrapDate.isAfter(timelines.get(detector.getTopocentricFrame().getName()).getLast(timelines.get(ref.GlobalKey)))) {
+                                    timelines.get(detector.getTopocentricFrame().getName()).AddElement(extrapDate, timelines.get(ref.GlobalKey));
+                                    timelines.get(ref.GlobalKey).AddElement(extrapDate, timelines.get(detector.getTopocentricFrame().getName()));
+                                }
+                            }
+                        }
                         return Action.CONTINUE;
                     });
             for(Map.Entry<String, Propagator> p : orbits.entrySet()){
@@ -123,7 +138,9 @@ public class SatOrbitProbagation {
             Map<String,SpacecraftState> curState= new HashMap<>();
             for(Map.Entry<String, Propagator> p : orbits.entrySet()){
                 ref.GlobalKey = p.getKey();
+                ref1.globDate =extrapDate;
                 curState.put(p.getKey(), p.getValue().propagate(extrapDate)); // Use HashMap to store the cur state
+
             }
 
             // check for visibility inter satellites
@@ -138,7 +155,21 @@ public class SatOrbitProbagation {
             }
 
         }
-        timelines.forEach((s, satTimeline) -> {satTimeline.print();});
+        //timelines.forEach((s, satTimeline) -> {satTimeline.print();});
+        timelines.get("Budapest").print();
+        return timelines;
     }
 
+    public static void GenerateGraph(Map<String, SatTimeline> timelineMap, String city1,String city2) {
+        double MAX_WINDOW_SIZE = 0;
+        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
+            if (a.getKey().equals(city1) || a.getKey().equals(city2)) {
+                double tmp_max = Utility.GetMaxWindow(a.getValue());
+                if (tmp_max > MAX_WINDOW_SIZE)
+                    MAX_WINDOW_SIZE = tmp_max;
+            }
+        }
+        System.out.println(MAX_WINDOW_SIZE);
+
+    }
 }
