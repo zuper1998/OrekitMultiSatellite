@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.Graph.Graph;
 import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScalesFactory;
 
@@ -7,9 +8,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.company.SatOrbitProbagation.MAX_TIME;
+
 public class SatTimeline {
-    String name;
-    Map<SatTimeline, ArrayList<AbsoluteDate>> timelineList = new HashMap<>();
+    public String name;
+    public Map<SatTimeline, ArrayList<AbsoluteDate>> timelineList = new HashMap<>();
 
     public SatTimeline(String n){
         name=n;
@@ -49,6 +52,39 @@ public class SatTimeline {
                     }
             }
             System.out.println();
+        }
+    }
+
+    public void recursiveStuff(AbsoluteDate startDate, double MAX_TIME, double MAX_WINDOW){
+        if(MAX_TIME<0) return;
+        for(Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : timelineList.entrySet()) {
+            ArrayList<TimeInterval> intervals = Utility.getTimeIntervalsSetTimeWithMAXWindow(timeline.getValue(),startDate,MAX_WINDOW);
+            for(TimeInterval t : intervals){
+                if(t.end.durationFrom(t.start)>100) {
+                    System.out.println(name + "->" + timeline.getKey().name + " [label=" + t.end.durationFrom(t.start) + "]"); //  duration: " + t.end.durationFrom(t.start) + " START:" + t.start );
+                    timeline.getKey().recursiveStuff(t.end.shiftedBy(10), MAX_TIME - t.end.durationFrom(startDate), t.end.durationFrom(t.start));
+                }
+            }
+        }
+    }
+
+    public void recursiveGraphBuilding(AbsoluteDate startDate, double MAX_TIME, double MAX_WINDOW, Graph g, ArrayList<SatTimeline> used){
+        if(MAX_TIME<100) return;
+        for(Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : timelineList.entrySet()) {
+            ArrayList<TimeInterval> intervals = Utility.getTimeIntervalsSetTimeWithMAXWindow(timeline.getValue(),startDate,MAX_WINDOW);
+            if(!used.contains(this)){
+                used.add(this);
+
+            }
+            for(TimeInterval t : intervals){
+                if(t.end.durationFrom(t.start)>100) {
+                    System.out.println(name + "->" + timeline.getKey().name + "  duration: " + t.end.durationFrom(t.start)+ " start "+ t.start+ "end "+ t.end + " time remaining:" + MAX_TIME); //  duration: " + t.end.durationFrom(t.start) + " START:" + t.start );
+                    g.nodes.get(name).addEdge(g.nodes.get(timeline.getKey().name),t.start,t.end);
+                    if(!used.contains(timeline.getKey())) {
+                        timeline.getKey().recursiveGraphBuilding(t.end.shiftedBy(100), MAX_TIME - t.end.durationFrom(startDate), t.end.durationFrom(t.start), g, used);
+                    }
+                }
+            }
         }
     }
 

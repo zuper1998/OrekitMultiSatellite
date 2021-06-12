@@ -39,6 +39,7 @@ public class SatOrbitProbagation {
     // configure Orekit
     public static final double stepT = 1;
     public static double duration = 3600*6;
+    public static double MAX_TIME = 3600;
     public static Map<String,SatTimeline> Generate(){
     final File home = new File(System.getProperty("user.home"));
     final File orekitData = new File(home, "orekit-data");
@@ -156,12 +157,15 @@ public class SatOrbitProbagation {
 
         }
         //timelines.forEach((s, satTimeline) -> {satTimeline.print();});
-        timelines.get("Budapest").print();
+        //timelines.get("Starlink-8").print();
+        //timelines.get("Starlink-2").print();
         return timelines;
     }
 
     public static void GenerateGraph(Map<String, SatTimeline> timelineMap, String city1,String city2) {
         double MAX_WINDOW_SIZE = 0;
+        final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
+
         for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
             if (a.getKey().equals(city1) || a.getKey().equals(city2)) {
                 double tmp_max = Utility.GetMaxWindow(a.getValue());
@@ -169,7 +173,23 @@ public class SatOrbitProbagation {
                     MAX_WINDOW_SIZE = tmp_max;
             }
         }
-        System.out.println(MAX_WINDOW_SIZE);
+        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
+            System.out.println(a.getKey()+ "[shape=circle]");
+        }
+
+
+            for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
+            if (a.getKey().equals(city1) || a.getKey().equals(city2)) {
+               //a.getValue().recursiveStuff(initialDate, MAX_TIME,MAX_WINDOW_SIZE);
+                for(Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : a.getValue().timelineList.entrySet()) {
+                    ArrayList<TimeInterval> intervals = Utility.getTimeIntervals(timeline.getValue());
+                    for(TimeInterval t : intervals){
+                        System.out.println(a.getKey() + "->" + timeline.getKey().name + " [label=" + t.end.durationFrom(t.start) + "]");
+                        timeline.getKey().recursiveStuff(t.end.shiftedBy(10),MAX_TIME,t.end.durationFrom(t.start));
+                    }
+            }
+        }
 
     }
+}
 }

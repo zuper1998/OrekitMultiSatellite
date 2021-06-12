@@ -4,8 +4,12 @@ import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.hipparchus.util.FastMath;
 import org.orekit.attitudes.Attitude;
 import org.orekit.propagation.SpacecraftState;
+import org.orekit.time.AbsoluteDate;
+import org.orekit.time.TimeScalesFactory;
 
 import java.awt.*;
+import java.util.AbstractSet;
+import java.util.ArrayList;
 import java.util.Map;
 
 
@@ -43,5 +47,94 @@ public class Utility {
 
     public static double GetMaxWindow(SatTimeline a) {
         return a.getMaxWindow();
+    }
+
+
+
+    public static ArrayList<TimeInterval> getTimeIntervals(ArrayList<AbsoluteDate> timeSet) {
+        ArrayList<TimeInterval> out = new ArrayList<>();
+        AbsoluteDate start  =  new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC()) ;
+        AbsoluteDate tmp_start = null;
+        AbsoluteDate tmp_end = null;
+        boolean first = true;
+        boolean last = false;
+        for (AbsoluteDate extrapDate =start;
+             extrapDate.compareTo(start.shiftedBy(SatOrbitProbagation.duration)) <= 0;
+             extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+
+            if(timeSet.contains(extrapDate)){
+                if(first) {
+                    tmp_start = extrapDate;
+                    first = false;
+                    last = true;
+                }
+                tmp_end=extrapDate;
+            } else if(last){
+                first = true;
+                last= false;
+                out.add(new TimeInterval(tmp_start,tmp_end));
+            }
+        }
+        return out;
+    }
+    public static ArrayList<TimeInterval> getTimeIntervalsSetTime(ArrayList<AbsoluteDate> timeSet,AbsoluteDate startDate) {
+        ArrayList<TimeInterval> out = new ArrayList<>();
+        AbsoluteDate tmp_start = null;
+        AbsoluteDate tmp_end = null;
+        boolean first = true;
+        boolean last = false;
+        for (AbsoluteDate extrapDate = startDate;
+             extrapDate.compareTo(timeSet.get(timeSet.size()-1)) <= 0;
+             extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+
+            if(timeSet.contains(extrapDate)){
+                if(first) {
+                    tmp_start = extrapDate;
+                    first = false;
+                    last = true;
+                }
+                tmp_end=extrapDate;
+            } else if(last){
+                first = true;
+                last= false;
+                out.add(new TimeInterval(tmp_start,tmp_end));
+            }
+        }
+        return out;
+    }
+    public static ArrayList<TimeInterval> getTimeIntervalsSetTimeWithMAXWindow(ArrayList<AbsoluteDate> timeSet,AbsoluteDate startDate, double MAX_WINDOW) {
+        ArrayList<TimeInterval> out = new ArrayList<>();
+        AbsoluteDate tmp_start = null;
+        AbsoluteDate tmp_end = null;
+        boolean first = true;
+        boolean last = false;
+        double cnt = 0; //FOR MAX_WINDOW
+        for (AbsoluteDate extrapDate = startDate;
+             extrapDate.compareTo(timeSet.get(timeSet.size()-1)) <= 0;
+             extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+
+            if(cnt>=MAX_WINDOW){
+                first = true;
+                last= false;
+                out.add(new TimeInterval(tmp_start,tmp_end));
+                cnt=0;
+            } else if(timeSet.contains(extrapDate)){
+                cnt++;
+                if(first) {
+                    tmp_start = extrapDate;
+                    first = false;
+                    last = true;
+                }
+                tmp_end=extrapDate;
+            } else if(last){
+                first = true;
+                last= false;
+                out.add(new TimeInterval(tmp_start,tmp_end));
+                cnt=0;
+            }
+
+
+        }
+        return out;
     }
 }
