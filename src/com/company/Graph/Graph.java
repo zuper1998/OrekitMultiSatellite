@@ -39,22 +39,48 @@ public class Graph {
                 //a.getValue().recursiveStuff(initialDate, MAX_TIME,MAX_WINDOW_SIZE);
                 for(Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : a.getValue().timelineList.entrySet()) {
                     ArrayList<TimeInterval> intervals = Utility.getTimeIntervals(timeline.getValue());
-                    ArrayList<SatTimeline> used = new ArrayList<>();
-                    used.add(a.getValue());
+
                     for(TimeInterval t : intervals){
-                        System.out.println(a.getKey() + "->" + timeline.getKey().name + "  duration: " + t.end.durationFrom(t.start) + "] time remaining:" + MAX_TIME);
+                        ArrayList<SatTimeline> used = new ArrayList<>();
+                        used.add(a.getValue());
+                        //System.out.println(a.getKey() + "->" + timeline.getKey().name + "  duration: " + t.end.durationFrom(t.start) + " time remaining:" + MAX_TIME);
                         nodes.get(a.getKey()).addEdge(nodes.get(timeline.getKey().name),t.start,t.end);
                         timeline.getKey().recursiveGraphBuilding(t.end.shiftedBy(100), MAX_TIME,t.end.durationFrom(t.start),this,used);
-                        break;//SO it only runs the first intervak (it is geting fucking slow xd)
+                        //break;//SO it only runs the first intervak (it is geting fucking slow xd)
+                        //used.forEach(us -> System.out.print(us.name+ "  "));
+                        //System.out.println();
                     }
+
                 }
             }
 
         }
-        System.out.println("START PRINTING");
 
-        for(Map.Entry<String, Node> a :  nodes.entrySet()){
-            a.getValue().printDotEdges();
+
+        System.out.println("digraph G{");
+        System.out.println("graph [ dpi = 300 ];");
+        System.out.println("rankdir=LR;");
+
+
+
+        for(Edge edge : nodes.get("Budapest").edges) {
+            int index = nodes.get("Budapest").edges.indexOf(edge);
+            ArrayList<Edge> e =  GraphUtility.findPathTo(this,edge.end,nodes.get("Berlin"),edge.getDataEnd());
+            if(!e.isEmpty()) {
+                e.add(edge);
+            }
+            e.forEach(aaaa -> aaaa.printColorLabelDurationFromStart(index,initialDate));
         }
+
+        /*ArrayList<Edge> e =  GraphUtility.findPathTo(this,nodes.get("Budapest"),nodes.get("Berlin"),initialDate);
+        for(Edge edge : e){
+            edge.printNoLabel();
+        }*/
+
+        /*for(Map.Entry<String, Node> a :  nodes.entrySet()){
+            a.getValue().printDotEdges();
+        }*/
+
+        System.out.println("}");
     }
 }

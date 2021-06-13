@@ -24,6 +24,13 @@ public class Node {
     }
 
     public void printDotEdges() {
-        //TODO: print in dot format (graphviz)
+        for(Edge e : edges){
+            e.print();
+        }
+    }
+    public void printDotEdgesNoLabel() {
+        for(Edge e : edges){
+            e.printNoLabel();
+        }
     }
 }

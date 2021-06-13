@@ -74,15 +74,13 @@ public class SatTimeline {
             ArrayList<TimeInterval> intervals = Utility.getTimeIntervalsSetTimeWithMAXWindow(timeline.getValue(),startDate,MAX_WINDOW);
             if(!used.contains(this)){
                 used.add(this);
-
             }
             for(TimeInterval t : intervals){
-                if(t.end.durationFrom(t.start)>100) {
-                    System.out.println(name + "->" + timeline.getKey().name + "  duration: " + t.end.durationFrom(t.start)+ " start "+ t.start+ "end "+ t.end + " time remaining:" + MAX_TIME); //  duration: " + t.end.durationFrom(t.start) + " START:" + t.start );
+                if(t.end.durationFrom(t.start)>100 && !used.contains(timeline.getKey())) {
+                    //System.out.println(name + "->" + timeline.getKey().name + "  duration: " + t.end.durationFrom(t.start)+ " start "+ t.start+ "end "+ t.end + " time remaining:" + MAX_TIME); //  duration: " + t.end.durationFrom(t.start) + " START:" + t.start );
                     g.nodes.get(name).addEdge(g.nodes.get(timeline.getKey().name),t.start,t.end);
-                    if(!used.contains(timeline.getKey())) {
-                        timeline.getKey().recursiveGraphBuilding(t.end.shiftedBy(100), MAX_TIME - t.end.durationFrom(startDate), t.end.durationFrom(t.start), g, used);
-                    }
+                    timeline.getKey().recursiveGraphBuilding(t.end.shiftedBy(100), MAX_TIME - t.end.durationFrom(startDate), t.end.durationFrom(t.start), g, used);
+
                 }
             }
         }
