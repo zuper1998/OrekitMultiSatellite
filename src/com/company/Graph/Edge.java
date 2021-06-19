@@ -53,7 +53,7 @@ public class Edge {
     public void printColorLabelDurationFromStart(int index, AbsoluteDate s){
         ColorsForEdge color = ColorsForEdge.values()[index];
 
-        String out = String.format("\"%s V%d\"->\"%s V%d\" [color=%s label=\"Dur: %.1fs, TimeSinceStart:%.1f [min] \"];",start.name,index,end.name,index,color,data.duration,data.start.durationFrom(s)/60);
+        String out = String.format("\"%s\"->\"%s\" [color=%s label=\"Dur: %.1fs, TimeSinceStart:%.1f [min] \"];",start.name,end.name,color,data.duration,data.start.durationFrom(s)/60);
         System.out.println(out);
     }
 

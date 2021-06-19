@@ -58,23 +58,27 @@ public class Utility {
         AbsoluteDate tmp_end = null;
         boolean first = true;
         boolean last = false;
-        for (AbsoluteDate extrapDate =start;
-             extrapDate.compareTo(start.shiftedBy(SatOrbitProbagation.duration)) <= 0;
-             extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+        AbsoluteDate lastDate = timeSet.get(0);
+        for(AbsoluteDate date : timeSet){
+            if(first) {
+                tmp_start = date;
+                first = false;
+            }
 
-            if(timeSet.contains(extrapDate)){
-                if(first) {
-                    tmp_start = extrapDate;
-                    first = false;
-                    last = true;
-                }
-                tmp_end=extrapDate;
-            } else if(last){
+            if(last){
+                tmp_end=lastDate;
                 first = true;
-                last= false;
+                last = false;
                 out.add(new TimeInterval(tmp_start,tmp_end));
             }
+
+            if(date.durationFrom(lastDate)>5){
+                last=true;
+            }
+
+            lastDate=date;
         }
+
         return out;
     }
     public static ArrayList<TimeInterval> getTimeIntervalsSetTime(ArrayList<AbsoluteDate> timeSet,AbsoluteDate startDate) {

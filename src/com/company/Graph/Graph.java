@@ -6,6 +6,7 @@ import com.company.Utility;
 import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScalesFactory;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +19,39 @@ public class Graph {
 
 
     public void GenerateGraph(Map<String, SatTimeline> timelineMap, String city1, String city2) {
+        final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
+
+        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
+            nodes.put(a.getKey(),new Node(a.getKey()));
+        }
+
+        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
+
+            for (Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : a.getValue().timelineList.entrySet()) {
+                ArrayList<TimeInterval> intervals = Utility.getTimeIntervals(timeline.getValue());
+                for(TimeInterval t : intervals) {
+                    nodes.get(a.getKey()).addEdge(nodes.get(timeline.getKey().name), t.start, t.end);
+                }
+            }
+
+        }
+
+        System.out.println("digraph G{");
+        System.out.println("graph [ dpi = 300 ];");
+        System.out.println("rankdir=LR;");
+        for(Map.Entry<String, Node> n : nodes.entrySet()){
+
+            for(Edge e : n.getValue().edges){
+                int index = n.getValue().edges.indexOf(e);
+                if(index>=ColorsForEdge.values().length) index = 1;
+                e.printColorLabelDurationFromStart(index,initialDate);
+            }
+        }
+        System.out.println("}");
+
+    }
+
+    public void GenerateGraphRecursive(Map<String, SatTimeline> timelineMap, String city1, String city2) {
         double MAX_WINDOW_SIZE = 0;
         final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
 
