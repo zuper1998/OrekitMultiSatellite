@@ -26,20 +26,48 @@ public class Graph {
         }
 
         for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
-
+            int aaaaaaa;
             for (Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : a.getValue().timelineList.entrySet()) {
+                if(a.getValue().name.equals("Budapest"))
+                     aaaaaaa= 0;
                 ArrayList<TimeInterval> intervals = Utility.getTimeIntervals(timeline.getValue());
                 for(TimeInterval t : intervals) {
                     nodes.get(a.getKey()).addEdge(nodes.get(timeline.getKey().name), t.start, t.end);
                 }
+
             }
 
         }
 
         System.out.println("digraph G{");
+        System.out.println("layouit=dot");
         System.out.println("graph [ dpi = 300 ];");
         System.out.println("rankdir=LR;");
+        System.out.println(city1);
+
         for(Map.Entry<String, Node> n : nodes.entrySet()){
+            if(!n.getKey().equals(city1) ||!n.getKey().equals(city2) ){
+                System.out.println(n.getKey());
+            }
+        }
+        System.out.println(city2);
+
+        for(Edge edge : nodes.get("Budapest").edges) {
+            int index = nodes.get("Budapest").edges.indexOf(edge);
+            ArrayList<Edge> e =  GraphUtility.findPathTo(this,edge.end,nodes.get("Berlin"),edge.getDataStart());
+            if(!e.isEmpty()) {
+                e.add(edge);
+            }
+            //TODO: calculate best values for edges
+            e.forEach(aaaa -> aaaa.printColorLabelDurationFromStart(index,initialDate));
+        }
+
+        System.out.println("}");
+
+    }
+
+    /*
+         for(Map.Entry<String, Node> n : nodes.entrySet()){
 
             for(Edge e : n.getValue().edges){
                 int index = n.getValue().edges.indexOf(e);
@@ -47,9 +75,8 @@ public class Graph {
                 e.printColorLabelDurationFromStart(index,initialDate);
             }
         }
-        System.out.println("}");
+     */
 
-    }
 
     public void GenerateGraphRecursive(Map<String, SatTimeline> timelineMap, String city1, String city2) {
         double MAX_WINDOW_SIZE = 0;

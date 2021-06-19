@@ -57,7 +57,6 @@ public class Utility {
         AbsoluteDate tmp_start = null;
         AbsoluteDate tmp_end = null;
         boolean first = true;
-        boolean last = false;
         AbsoluteDate lastDate = timeSet.get(0);
         for(AbsoluteDate date : timeSet){
             if(first) {
@@ -65,16 +64,11 @@ public class Utility {
                 first = false;
             }
 
-            if(last){
+
+            if(date.durationFrom(lastDate)>2 || timeSet.indexOf(date)==timeSet.size()-1){
                 tmp_end=lastDate;
                 first = true;
-                last = false;
-                out.add(new TimeInterval(tmp_start,tmp_end));
-            }
-
-            if(date.durationFrom(lastDate)>5){
-                last=true;
-            }
+                out.add(new TimeInterval(tmp_start,tmp_end));            }
 
             lastDate=date;
         }
