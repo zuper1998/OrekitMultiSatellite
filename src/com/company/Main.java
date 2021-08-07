@@ -9,7 +9,7 @@ public class Main {
         SatOrbitProbagation.loadStuff();
         g.GenerateGraph(SatOrbitProbagation.Generate(),"Budapest","Berlin");
         g.loadFromFile();
-        g.printG("Budapest","Berlin");
+        g.printBest("Budapest","Berlin");
         //g.printAllEdges("Budapest","Berlin");
 
 
