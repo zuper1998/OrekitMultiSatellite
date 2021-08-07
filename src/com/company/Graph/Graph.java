@@ -233,6 +233,8 @@ public class Graph {
                                 if (Max < curBest) {
                                     Max = curBest;
                                     out = curP.getPath();
+                                    running = true;
+
                                 }
                             }else if (curP.getDur()<MAX_TIME){
                                 nextRound.add(curP);
