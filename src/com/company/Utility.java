@@ -8,6 +8,7 @@ import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScalesFactory;
 
 import java.awt.*;
+import java.awt.desktop.AboutEvent;
 import java.util.AbstractSet;
 import java.util.ArrayList;
 import java.util.Map;
@@ -63,14 +64,26 @@ public class Utility {
                 tmp_start = date;
                 first = false;
             }
-
-
             if(date.durationFrom(lastDate)>2 || timeSet.indexOf(date)==timeSet.size()-1){
                 tmp_end=lastDate;
                 first = true;
                 out.add(new TimeInterval(tmp_start,tmp_end));            }
 
             lastDate=date;
+        }
+
+        return out;
+    }
+    public static ArrayList<TimeInterval> getTimeIntervalIterative(ArrayList<AbsoluteDate> timeSet) {
+        ArrayList<TimeInterval> out = new ArrayList<>();
+        AbsoluteDate start = timeSet.get(0);
+        for(int i = 1;i<timeSet.size();i++){
+            AbsoluteDate curr = timeSet.get(i);
+            AbsoluteDate prev = timeSet.get(i-1);
+            if(curr.durationFrom(prev)>SatOrbitProbagation.stepT){
+                out.add(new TimeInterval(start,prev));
+                start = curr;
+            }
         }
 
         return out;

@@ -3,9 +3,13 @@ package com.company.Graph;
 import com.company.SatTimeline;
 import org.orekit.time.AbsoluteDate;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Node {
+public class Node implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     ArrayList<Edge> edges = new ArrayList<>();
     String name;
     public Node(String n){

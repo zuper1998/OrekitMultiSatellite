@@ -1,11 +1,13 @@
 package com.company.Graph;
 
+import com.company.SatFlightData;
 import com.company.SatTimeline;
 import com.company.TimeInterval;
 import com.company.Utility;
 import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScalesFactory;
 
+import java.io.*;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,26 +20,67 @@ public class Graph {
     public Map<String,Node> nodes = new HashMap<>();
 
 
-    public void GenerateGraph(Map<String, SatTimeline> timelineMap, String city1, String city2) {
-        final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
+    public void GenerateGraph(Map<String, ArrayList<SatFlightData>> timelineMap, String city1, String city2) {
 
-        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
-            nodes.put(a.getKey(),new Node(a.getKey()));
+       for( Map.Entry<String, ArrayList<SatFlightData>> tlm :  timelineMap.entrySet()){
+            nodes.put(tlm.getKey(),new Node(tlm.getKey()));
+       }
+       // add edges
+       for( Map.Entry<String, ArrayList<SatFlightData>> tlm :  timelineMap.entrySet()){
+           for(SatFlightData sfd : tlm.getValue()) {
+               for(TimeInterval t : sfd.Interval) {
+                   nodes.get(tlm.getKey()).addEdge(nodes.get(sfd.Dest),t.start,t.end);
+               }
+           }
         }
 
-        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
-            int aaaaaaa;
-            for (Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : a.getValue().timelineList.entrySet()) {
-                if(a.getValue().name.equals("Budapest"))
-                     aaaaaaa= 0;
-                ArrayList<TimeInterval> intervals = Utility.getTimeIntervals(timeline.getValue());
-                for(TimeInterval t : intervals) {
-                    nodes.get(a.getKey()).addEdge(nodes.get(timeline.getKey().name), t.start, t.end);
-                }
 
+
+        //Save data to dat.ser
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(nodes);
+            oos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void printAllEdges(String city1, String city2) {
+        final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
+
+        System.out.println("digraph G{");
+        System.out.println("layouit=dot");
+        System.out.println("graph [ dpi = 300 ];");
+        System.out.println("rankdir=LR;");
+        System.out.println(city1);
+
+
+        for (Map.Entry<String, Node> n : nodes.entrySet()) {
+            if (!n.getKey().equals(city1) || !n.getKey().equals(city2)) {
+                System.out.println(n.getKey());
             }
 
         }
+        System.out.println(city2);
+        int ind = 0;
+        for (Map.Entry<String, Node> n : nodes.entrySet()) {
+            for(Edge e : n.getValue().edges){
+                e.printColorLabelDurationFromStart(ind,initialDate);
+            }
+            ind++;
+        }
+
+        System.out.println("}");
+
+    }
+
+
+    public void printG(String city1, String city2){
+        final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
 
         System.out.println("digraph G{");
         System.out.println("layouit=dot");
@@ -58,12 +101,38 @@ public class Graph {
             if(!e.isEmpty()) {
                 e.add(edge);
             }
-            //TODO: calculate best values for edges
-            e.forEach(aaaa -> aaaa.printColorLabelDurationFromStart(index,initialDate));
+            //find best route for each iter:
+            //we need another graph for this -- by graph i mean nodes
+            Map<String,Node> local_nodes = new HashMap<>();
+
+            for(Map.Entry<String, Node> n : nodes.entrySet()){
+                local_nodes.put(n.getKey(),new Node(n.getKey()));
+            }
+            for(Edge loc_edge : e) {
+                local_nodes.get(loc_edge.start.name).addEdge(local_nodes.get(loc_edge.end.name),edge.getDataStart(),loc_edge.getDataEnd());
+            }
+
+
+
+            ArrayList<Edge> best = GraphUtility.findBestPath(local_nodes.get(city1), local_nodes.get(city2));
+
+
+            best.forEach(aaaa -> aaaa.printColorLabelDurationFromStart(index,initialDate));
         }
 
         System.out.println("}");
 
+    }
+
+    public void loadFromFile(){
+        try {
+            FileInputStream fis = new FileInputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            nodes = (HashMap<String,Node>) ois.readObject();
+            ois.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /*

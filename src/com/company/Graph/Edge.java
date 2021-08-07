@@ -3,7 +3,12 @@ package com.company.Graph;
 import org.hipparchus.analysis.function.Abs;
 import org.orekit.time.AbsoluteDate;
 
-public class Edge {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Edge implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     Node start;
     Node end;
     EdgeData data;
@@ -11,7 +16,7 @@ public class Edge {
     public Edge(Node s, Node e, AbsoluteDate ds, AbsoluteDate de) {
         start = s;
         end = e;
-        data = new EdgeData(ds,de);
+        data = new EdgeData(ds, de);
     }
     @Override
     public boolean equals(Object o){
@@ -51,13 +56,23 @@ public class Edge {
         System.out.println(out);
     }
     public void printColorLabelDurationFromStart(int index, AbsoluteDate s){
+        if(index>12) index =12;
         ColorsForEdge color = ColorsForEdge.values()[index];
 
         String out = String.format("\"%s\"->\"%s\" [color=%s label=\"Dur: %.1fs, TimeSinceStart:%.1f [min] \"];",start.name,end.name,color,data.duration,data.start.durationFrom(s)/60);
         System.out.println(out);
     }
+    public void printCostumLabel(int index, String label){
+        ColorsForEdge color = ColorsForEdge.values()[index];
 
-    private class EdgeData {
+        String out = String.format("\"%s\"->\"%s\" [color=%s label=\" %s \"];",start.name,end.name,color,label);
+        System.out.println(out);
+    }
+
+
+    private static class EdgeData implements Serializable {
+        @Serial
+        private static final long serialVersionUID = 1L;
         public AbsoluteDate start;
         public AbsoluteDate end;
 
