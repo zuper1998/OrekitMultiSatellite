@@ -1,6 +1,7 @@
 package com.company.Graph;
 
 import com.company.*;
+import com.company.Graph.DynamicHelper.AllPathsReturn;
 import com.company.Graph.DynamicHelper.Path;
 import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScalesFactory;
@@ -37,7 +38,9 @@ public class Graph {
         //Save data to dat.ser
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
+            //fos = new FileOutputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
+            fos = new FileOutputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
+
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(nodes);
             oos.close();
@@ -137,8 +140,9 @@ public class Graph {
             }
         }
         System.out.println(city2);
-        dynamicGenerateBetweenCity(city1,city2).forEach(Edge::print);
-
+        dynamicGenerateBetweenCity(city1,city2).get(0).print("Red");
+        // TODO: Colored for all version, maybe multiple files.
+        // Showing the Troughput is a must :/
         System.out.println("}");
 
     }
@@ -157,18 +161,13 @@ public class Graph {
     }
 
 
-    public ArrayList<Edge> dynamicGenerateBetweenCity(String city1, String city2){
+    public ArrayList<AllPathsReturn> dynamicGenerateBetweenCity(String city1, String city2){
 
 
-        ArrayList<Edge> allOtherEdge= new ArrayList<>();
-        for(Node n : nodes.values()){
-            if(!n.name.equals(city1)||!n.name.equals(city2)){
-                allOtherEdge.addAll(n.edges);
-            }
+        ArrayList<AllPathsReturn> out = new ArrayList<>();
+        for(Edge e : nodes.get(city1).edges) {
+            out.add(dynamicAlgo(e, city2));
         }
-
-        ArrayList<Edge> out = dynamicAlgo(nodes.get(city1).edges, allOtherEdge,city2);
-
 
 
 
@@ -176,40 +175,14 @@ public class Graph {
     }
 
 
-    public ArrayList<Edge> dynamicAlgo(ArrayList<Edge> in, ArrayList<Edge> AllOther, String target){
+    public AllPathsReturn dynamicAlgo(Edge in,  String target){
 
-        Path[] paths = new Path[in.size()];
-        for(int i = 0 ; i < in.size();i++){
-            paths[i] = new Path(in.get(i));
-        }
+
         double Max=0;
-        ArrayList<Edge> out = new ArrayList<>();
+        ArrayList<Path> otherPaths = new ArrayList<>();
+        Path best = null;
         ArrayList<Path> nextRound = new ArrayList<>();
-        for(int i = 0 ; i < in.size();i++){
-            for (Edge outerEdge : paths[i].getLastEdge().end.edges) {
-                if (outerEdge.getDataStart().isAfter(paths[i].getLastEdge().getDataStart())) {
-                    Path curP = null;
-                    try {
-                        curP = paths[i].generateNewWith(outerEdge);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (curP != null) {
-                        double curBest = curP.computeBest();
-
-                        if (curP.getLastEdge().end.name.equals(target)) { // its the target city
-                            if (Max < curBest) {
-                                Max = curBest;
-                                out = curP.getPath();
-                            }
-                        }else if (curP.getDur()<MAX_TIME){
-                            nextRound.add(curP);
-                        }
-                    }
-                }
-            }
-        }
-
+        nextRound.add(new Path(in));
 
         boolean running = true;
         while (running){
@@ -232,9 +205,12 @@ public class Graph {
                             if (curP.getLastEdge().end.name.equals(target)) { // its the target city
                                 if (Max < curBest) {
                                     Max = curBest;
-                                    out = curP.getPath();
-                                    running = true;
-
+                                    if(best!=null) {
+                                        otherPaths.add(best); //adding older best path to the other paths
+                                    }
+                                    best = curP;
+                                }else {
+                                    otherPaths.add(curP);
                                 }
                             }else if (curP.getDur()<MAX_TIME){
                                 nextRound.add(curP);
@@ -242,20 +218,17 @@ public class Graph {
                             }
                         }
 
-
                     }
                 }
             }
+
 
 
         }
 
 
 
-
-
-
-        return out;
+        return  new AllPathsReturn(best,otherPaths);
     }
 
 
