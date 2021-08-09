@@ -1,0 +1,10 @@
+digraph G{
+layouit=dot
+graph [ dpi = 300 ];
+rankdir=LR;
+Budapest
+Berlin
+Budapest->Starlink_1 [color=darkviolet label=" 568.0 "]
+Starlink_1->Starlink_4 [color=darkviolet label=" 568.0 "]
+Starlink_4->Berlin [color=darkviolet label=" 568.0 "]
+}

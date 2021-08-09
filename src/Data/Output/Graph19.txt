@@ -1,0 +1,36 @@
+digraph G{
+layouit=dot
+graph [ dpi = 300 ];
+rankdir=LR;
+Budapest
+Berlin
+Budapest->Starlink_6 [color=goldenrod1 label=" 314.0 "]
+Starlink_6->Berlin [color=goldenrod1 label=" 314.0 "]
+Budapest->Starlink_6 [color=Black label=" 154.0 "]
+Starlink_6->Berlin [color=Black label=" 154.0 "]
+Budapest->Starlink_6 [color=Black label=" 314.0 "]
+Starlink_6->Berlin [color=Black label=" 314.0 "]
+Budapest->Starlink_6 [color=Black label=" 314.0 "]
+Starlink_6->Berlin [color=Black label=" 314.0 "]
+Budapest->Starlink_6 [color=Black label=" 180.0 "]
+Starlink_6->Starlink_2 [color=Black label=" 180.0 "]
+Starlink_2->Berlin [color=Black label=" 180.0 "]
+Budapest->Starlink_6 [color=Black label=" 180.0 "]
+Starlink_6->Starlink_2 [color=Black label=" 180.0 "]
+Starlink_2->Berlin [color=Black label=" 180.0 "]
+Budapest->Starlink_6 [color=Black label=" 314.0 "]
+Starlink_6->Starlink_3 [color=Black label=" 314.0 "]
+Starlink_3->Berlin [color=Black label=" 314.0 "]
+Budapest->Starlink_6 [color=Black label=" 314.0 "]
+Starlink_6->Starlink_3 [color=Black label=" 314.0 "]
+Starlink_3->Starlink_7 [color=Black label=" 314.0 "]
+Starlink_7->Berlin [color=Black label=" 314.0 "]
+Budapest->Starlink_6 [color=Black label=" 162.0 "]
+Starlink_6->Starlink_3 [color=Black label=" 162.0 "]
+Starlink_3->Starlink_7 [color=Black label=" 162.0 "]
+Starlink_7->Berlin [color=Black label=" 162.0 "]
+Budapest->Starlink_6 [color=Black label=" 314.0 "]
+Starlink_6->Starlink_3 [color=Black label=" 314.0 "]
+Starlink_3->Starlink_7 [color=Black label=" 314.0 "]
+Starlink_7->Berlin [color=Black label=" 314.0 "]
+}

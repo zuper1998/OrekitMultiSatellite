@@ -8,7 +8,7 @@ public class Main {
         Graph g = new Graph();
         SatOrbitProbagation.loadStuff();
         g.GenerateGraph(SatOrbitProbagation.Generate(),"Budapest","Berlin");
-        //g.loadFromFile();
+        g.loadFromFile();
         g.printBest("Budapest","Berlin");
         //g.printAllEdges("Budapest","Berlin");
 

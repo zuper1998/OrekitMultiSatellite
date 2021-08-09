@@ -3,6 +3,7 @@ package com.company.Graph;
 import com.company.*;
 import com.company.Graph.DynamicHelper.AllPathsReturn;
 import com.company.Graph.DynamicHelper.Path;
+import com.sun.tools.jconsole.JConsoleContext;
 import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScalesFactory;
 
@@ -128,22 +129,40 @@ public class Graph {
     public void printBest(String city1, String city2) {
         final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
 
-        System.out.println("digraph G{");
-        System.out.println("layouit=dot");
-        System.out.println("graph [ dpi = 300 ];");
-        System.out.println("rankdir=LR;");
-        System.out.println(city1);
 
-        for (Map.Entry<String, Node> n : nodes.entrySet()) {
-            if (!n.getKey().equals(city1) || !n.getKey().equals(city2)) {
-                System.out.println(n.getKey());
+        ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
+        PrintStream console = System.out;
+
+        for (int i = 0 ; i< allp.size();i++){
+            try {
+                PrintStream o = new PrintStream(new File("src\\data\\Output\\Graph"+i+".txt"));
+                System.setOut(o);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
+
+
+            System.out.println("digraph G{");
+            System.out.println("layouit=dot");
+            System.out.println("graph [ dpi = 300 ];");
+            System.out.println("rankdir=LR;");
+            System.out.println(city1);
+            AllPathsReturn cur  =  allp.get(i);
+
+            /*for (Map.Entry<String, Node> n : nodes.entrySet()) {
+                if (!n.getKey().equals(city1) || !n.getKey().equals(city2)) {
+                    System.out.println(n.getKey());
+                }
+            }*/
+            System.out.println(city2);
+            cur.print(i);
+            System.out.println("}");
+
         }
-        System.out.println(city2);
-        dynamicGenerateBetweenCity(city1,city2).get(0).print("Red");
+
+        System.setOut(console);
         // TODO: Colored for all version, maybe multiple files.
         // Showing the Troughput is a must :/
-        System.out.println("}");
 
     }
 
@@ -166,7 +185,9 @@ public class Graph {
 
         ArrayList<AllPathsReturn> out = new ArrayList<>();
         for(Edge e : nodes.get(city1).edges) {
-            out.add(dynamicAlgo(e, city2));
+            AllPathsReturn cur = dynamicAlgo(e, city2);
+            if(cur!=null)
+            out.add(cur);
         }
 
 
@@ -227,8 +248,11 @@ public class Graph {
         }
 
 
-
-        return  new AllPathsReturn(best,otherPaths);
+        if(best!=null) {
+            return new AllPathsReturn(best, otherPaths);
+        } else {
+            return null;
+        }
     }
 
 

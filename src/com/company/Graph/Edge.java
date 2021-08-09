@@ -70,6 +70,11 @@ public class Edge implements Serializable {
     }
 
 
+    public void printColorAndThrougput(String color, double Tr){
+        String out = String.format("%s->%s [color=%s label=\" %.1f \"]",start.name,end.name,color,Tr);
+        System.out.println(out);
+    }
+
     private static class EdgeData implements Serializable {
         @Serial
         private static final long serialVersionUID = 1L;
