@@ -135,7 +135,9 @@ public class Graph {
 
         for (int i = 0 ; i< allp.size();i++){
             try {
-                PrintStream o = new PrintStream(new File("src\\data\\Output\\Graph"+i+".txt"));
+                String file = String.format("src\\data\\Output\\%s_%s",city1,city2);
+                new File(file).mkdir(); // creat folder
+                PrintStream o = new PrintStream(new File(file+"\\Graph_"+i+".txt"));
                 System.setOut(o);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

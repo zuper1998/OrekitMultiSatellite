@@ -1,0 +1,22 @@
+digraph G{
+layouit=dot
+graph [ dpi = 300 ];
+rankdir=LR;
+Budapest
+NewYork
+Budapest->Starlink_7 [color=darkorange label=" 423.0 "]
+Starlink_7->Starlink_4 [color=darkorange label=" 423.0 "]
+Starlink_4->NewYork [color=darkorange label=" 423.0 "]
+Budapest->Starlink_7 [color=Black label=" 399.0 "]
+Starlink_7->NewYork [color=Black label=" 399.0 "]
+Budapest->Starlink_7 [color=Black label=" 388.0 "]
+Starlink_7->Starlink_4 [color=Black label=" 388.0 "]
+Starlink_4->Starlink_8 [color=Black label=" 388.0 "]
+Starlink_8->NewYork [color=Black label=" 388.0 "]
+Budapest->Starlink_7 [color=Black label=" 146.0 "]
+Starlink_7->Berlin [color=Black label=" 146.0 "]
+Berlin->Starlink_6 [color=Black label=" 146.0 "]
+Starlink_6->Starlink_3 [color=Black label=" 146.0 "]
+Starlink_3->Starlink_7 [color=Black label=" 146.0 "]
+Starlink_7->NewYork [color=Black label=" 146.0 "]
+}

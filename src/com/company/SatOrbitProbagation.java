@@ -39,7 +39,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class SatOrbitProbagation {
     // configure Orekit
     public static final double stepT = 1;
-    public static double duration = 3600*24;
+    public static double duration = 3600*12;
     public static double MAX_TIME = 3600;
 
 
@@ -80,6 +80,7 @@ public class SatOrbitProbagation {
     ArrayList<City> cities = new ArrayList<>();
     cities.add(new City());
     cities.add(new City(52.520008, 13.404954, 43, "Berlin"));
+    cities.add(new City(-74,40.69,43,"NewYork"));
     final Frame earthFrame = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
 
         var ref = new Object() {
