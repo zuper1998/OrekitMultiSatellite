@@ -65,4 +65,5 @@ public class Path {
     public double getDur() {
         return getLastEdge().getDataEnd().durationFrom(path.get(0).getDataStart());
     }
+
 }

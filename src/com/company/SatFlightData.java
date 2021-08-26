@@ -26,14 +26,16 @@ public class SatFlightData {
     public void addInterval(TimeInterval t){
         Interval.add(t);
     }
+    public void addIntervalWithData(TimeInterval t,IntervalData id){
+        Interval.add(t);
+        data.add(id);
+    }
 
     public SatFlightDataRetunVal getDataAt(int index){
         return new SatFlightDataRetunVal(Interval.get(index), data.get(index));
     }
 
-    static class IntervalData{
-        ArrayList<Double> stuff; // wont be used just made to be usable for future expansions of the prject
-    }
+
 
     public static class SatFlightDataRetunVal{
         TimeInterval t;
@@ -41,6 +43,12 @@ public class SatFlightData {
         SatFlightDataRetunVal(TimeInterval t,IntervalData iD){
             this.t=t;
             this.iD=iD;
+        }
+        public TimeInterval getTimeInterval(){
+            return t;
+        }
+        public IntervalData getIntervalData(){
+            return iD;
         }
     }
 }

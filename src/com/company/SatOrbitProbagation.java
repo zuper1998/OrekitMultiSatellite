@@ -86,8 +86,9 @@ public class SatOrbitProbagation {
         var ref = new Object() {
             String GlobalKey = "";
         };
-    Map<String,ArrayList< SatFlightData>> timelines = new HashMap<>();
-    HashMap<String, AbsoluteDate> timelineHelperMap = new HashMap<>(); // absolut date is also a bool --> false if null xd
+        Map<String,ArrayList< SatFlightData>> timelines = new HashMap<>();
+        HashMap<String, AbsoluteDate> timelineHelperMap = new HashMap<>(); // absolut date is also a bool --> false if null
+        HashMap<String, ArrayList<Double>> dataMap = new HashMap<>();
     //prepare timelines
     for(Map.Entry<String, Propagator> p : orbits.entrySet()){
         timelines.put(p.getKey(),new ArrayList<>());
@@ -95,19 +96,26 @@ public class SatOrbitProbagation {
     for(City c : cities){
         timelines.put(c.name,new ArrayList<>());
     }
+
     var ref1 = new Object() {
         AbsoluteDate globDate = initialDate;
     };
 
 
-
+    ArrayList<TopocentricFrame> cityFrames = new ArrayList<>();
 
 
     final BodyShape earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
             Constants.WGS84_EARTH_FLATTENING,
             earthFrame);
-    //Overpass ddetection
+
         for (City c: cities) {
+            final GeodeticPoint station1 = new GeodeticPoint(c.latitude, c.longitude, c.altitude);
+            final TopocentricFrame sta1Frame = new TopocentricFrame(earth, station1, c.name);
+            cityFrames.add(sta1Frame);
+
+
+            /*
             final GeodeticPoint station1 = new GeodeticPoint(c.latitude, c.longitude, c.altitude);
             final TopocentricFrame sta1Frame = new TopocentricFrame(earth, station1, c.name);
             // Event definition
@@ -145,7 +153,7 @@ public class SatOrbitProbagation {
                 p.getValue().addEventDetector(a);
             }
 
-
+            */
 
         }
 
@@ -164,6 +172,22 @@ public class SatOrbitProbagation {
 
             }
 
+            //check visibility for cities
+            for(TopocentricFrame c : cityFrames){
+                Vector3D coord = c.getPVCoordinates(extrapDate,earthFrame).getPosition(); // 99% the basis of the vector system is earth itself so it wont realy move xd
+
+
+                for(Map.Entry<String, SpacecraftState> Sat : curState.entrySet()){
+                    SpacecraftState ss = Sat.getValue();
+                    double degree = Math.abs(Math.toDegrees(c.getElevation(ss.getPVCoordinates().getPosition() , ss.getFrame(),extrapDate)));
+                    double distance = coord.distance(ss.getPVCoordinates().getPosition());
+                    //TODO: implement the interval gen as below
+                }
+
+
+            }
+
+
             // check for visibility inter satellites
             for(Map.Entry<String, SpacecraftState> spaceState_outer : curState.entrySet()){
                 for(Map.Entry<String, SpacecraftState> spaceState_inner : curState.entrySet()){
@@ -172,15 +196,22 @@ public class SatOrbitProbagation {
 
                     if(Utility.SatVisible(spaceState_outer.getValue(),spaceState_inner.getValue())){
                             timelineHelperMap.putIfAbsent(name, extrapDate);
-
+                            dataMap.putIfAbsent(name,new ArrayList<>());
+                            Vector3D posOuter = spaceState_outer.getValue().getPVCoordinates().getPosition();
+                            Vector3D posInner = spaceState_inner.getValue().getPVCoordinates().getPosition();
+                            double distance = posInner.distance(posOuter);
+                            dataMap.get(name).add(distance);
                     } else if(timelineHelperMap.get(name)!=null) { // end: first time iteration when there is no visibility
                         AbsoluteDate start = timelineHelperMap.get(name);
-                        timelineHelperMap.put(name,null);
+
                         if(!timelines.get(spaceState_outer.getKey()).contains(new SatFlightData(spaceState_inner.getKey()))){
                             timelines.get(spaceState_outer.getKey()).add(new SatFlightData(spaceState_inner.getKey()));
                         }
                         int index = timelines.get(spaceState_outer.getKey()).indexOf(new SatFlightData(spaceState_inner.getKey()));
-                        timelines.get(spaceState_outer.getKey()).get(index).addInterval(new TimeInterval(start,extrapDate));
+                        timelines.get(spaceState_outer.getKey()).get(index).addIntervalWithData(new TimeInterval(start,extrapDate),new IntervalData(dataMap.get(name)));
+                        // clean helpers
+                        dataMap.put(name,null);
+                        timelineHelperMap.put(name,null);
                     }
                 }
             }

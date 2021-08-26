@@ -1,6 +1,8 @@
 package com.company.Graph;
 
+import com.company.IntervalData;
 import org.hipparchus.analysis.function.Abs;
+import org.hipparchus.distribution.IntegerDistribution;
 import org.orekit.time.AbsoluteDate;
 
 import java.io.Serial;
@@ -13,10 +15,10 @@ public class Edge implements Serializable {
     Node end;
     EdgeData data;
 
-    public Edge(Node s, Node e, AbsoluteDate ds, AbsoluteDate de) {
+    public Edge(Node s, Node e, AbsoluteDate ds, AbsoluteDate de, IntervalData dat) {
         start = s;
         end = e;
-        data = new EdgeData(ds, de);
+        data = new EdgeData(ds, de,dat);
     }
     @Override
     public boolean equals(Object o){
@@ -80,12 +82,13 @@ public class Edge implements Serializable {
         private static final long serialVersionUID = 1L;
         public AbsoluteDate start;
         public AbsoluteDate end;
-
         public double duration;
-        public EdgeData(AbsoluteDate s, AbsoluteDate e){
+        public IntervalData orbitData;
+        public EdgeData(AbsoluteDate s, AbsoluteDate e, IntervalData dat){
             start = s;
             end = e;
             duration = e.durationFrom(s);
+            orbitData = dat;
         }
         @Override
         public boolean equals(Object o){

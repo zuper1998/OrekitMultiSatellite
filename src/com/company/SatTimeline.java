@@ -45,7 +45,7 @@ public class SatTimeline {
             }
         }
     }
-
+/*
     public void recursiveGraphBuilding(AbsoluteDate startDate, double MAX_TIME, double MAX_WINDOW, Graph g, ArrayList<SatTimeline> used){
         if(MAX_TIME<100) return;
         for(Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : timelineList.entrySet()) {
@@ -63,7 +63,7 @@ public class SatTimeline {
             }
         }
     }
-
+*/
     public double getMaxWindow() {
         final AbsoluteDate start = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
         final AbsoluteDate end = start.shiftedBy(SatOrbitProbagation.duration);
