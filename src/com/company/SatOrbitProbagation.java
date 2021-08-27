@@ -182,6 +182,26 @@ public class SatOrbitProbagation {
                     double degree = Math.abs(Math.toDegrees(c.getElevation(ss.getPVCoordinates().getPosition() , ss.getFrame(),extrapDate)));
                     double distance = coord.distance(ss.getPVCoordinates().getPosition());
                     //TODO: implement the interval gen as below
+                    String name = String.format("%s->%s",c.getName(),Sat.getKey());
+
+                    if(degree>20){
+                        timelineHelperMap.putIfAbsent(name,extrapDate);
+                        dataMap.putIfAbsent(name,new ArrayList<>());
+                        dataMap.get(name).add(distance);
+                    } else if(timelineHelperMap.get(name)!=null) { // end: first time iteration when there is no visibility
+                        AbsoluteDate start = timelineHelperMap.get(name);
+                        //add SatFlight Data
+                        if(!timelines.get(c.getName()).contains(new SatFlightData(Sat.getKey()))){
+                            timelines.get(c.getName()).add(new SatFlightData(Sat.getKey()));
+                        }
+                        int index = timelines.get(c.getName()).indexOf(new SatFlightData(Sat.getKey()));
+
+                        timelines.get(c.getName()).get(index).addIntervalWithData(new TimeInterval(start,extrapDate),new IntervalData(dataMap.get(name)));
+
+                        // clean helpers
+                        dataMap.put(name,null);
+                        timelineHelperMap.put(name,null);
+                    }
                 }
 
 
