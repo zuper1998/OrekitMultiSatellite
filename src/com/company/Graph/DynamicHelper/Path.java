@@ -1,8 +1,10 @@
 package com.company.Graph.DynamicHelper;
 
+import com.company.City;
 import com.company.Graph.Edge;
 import com.company.IntervalData;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
+import org.hipparchus.util.FastMath;
 
 import java.util.ArrayList;
 
@@ -57,32 +59,34 @@ public class Path {
     }
 
 
-    public ArrayList<Double> qbitsGenerated(){
+    public double qbitsGenerated(){
         //TODO: nem jo mert a foldi allomasokj miniomuma lesz a teljes qbit termeles
-        ArrayList<Double> out = new ArrayList<>();
         double Tr = this.computeBest();
-        for(int i = 0 ; i < path.size();i++){
-            Edge current = path.get(i);
-            for(int k = 0;k<Tr;k++){ // We dont try to optimize witch part of the orbit we use
-                IntervalData curdat= current.getOrbitData();
-                if(curdat.angle!=null){
-                    out.add(calcQbitCity(curdat.Distance.get(i),curdat.angle.get(i)));
-                } else {
-                    out.add(calcQbitSat(curdat.Distance.get(i)));
-                }
 
-            }
+        Edge first = path.get(0);
+        Edge last = this.getLastEdge();
+        double min;
+        double curMin=0;
+        for(int i =0;i<Tr;i++){
+            curMin+= calcQbitCity(first.getOrbitData().Distance.get(i),first.getOrbitData().angle.get(i),0);
         }
+        min = curMin;
+        curMin = 0;
+        for(int i =0;i<Tr;i++){
+            curMin+= calcQbitCity(last.getOrbitData().Distance.get(i),last.getOrbitData().angle.get(i),0);
+        }
+        min = FastMath.min(min,curMin);
 
-        return out;
+
+        return min;
     }
 
     public double calcQbitSat(double distance){
         return QuantumBitTransmitanceCalculator.calculateQBITSUMSat(distance);
     }
 
-    public double calcQbitCity(double distance, double elevation){
-        return QuantumBitTransmitanceCalculator.calculateQBITSUMCity(elevation,distance*Math.sin(elevation),0);
+    public double calcQbitCity(double distance, double elevation,int dir){ // dir 0 -> ; dir 2 <-
+        return QuantumBitTransmitanceCalculator.calculateQBITSUMCity(elevation,distance*FastMath.sin(FastMath.toRadians(elevation)),dir);
     }
 
     public Path generateNewWith(Edge edge) throws Exception {

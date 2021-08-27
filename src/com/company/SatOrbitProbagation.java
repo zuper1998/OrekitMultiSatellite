@@ -188,7 +188,6 @@ public class SatOrbitProbagation {
                     PVCoordinates pv = t.transformPVCoordinates(ss.getPVCoordinates());
                     double degree =  FastMath.toDegrees(pv.getPosition().getDelta());
 
-                    //TODO: implement the interval gen as below
                     String name = String.format("%s->%s",c.getName(),Sat.getKey());
                     String name_backwards = String.format("%s->%s",Sat.getKey(),c.getName());
                     //if(Sat.getKey().equals("Starlink_8")&&c.getName().equals("Budapest"))

@@ -14,7 +14,7 @@ public class QuantumBitTransmitanceCalculator {
         DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
         DefaultValues.zenithAngle = 90-elevation;
         //DefaultValues.groundSpaceChannelLength = 0; // Should be in KMs IDK what it does
-        DefaultValues.heightAboveSeaLevel = height_above_sea;
+        DefaultValues.heightAboveSeaLevel = height_above_sea/1000; //correct to km and remove the earth
         DefaultValues.quantumEfficiencyOfDetector = 0.7;  //WARNING
         DefaultValues.season = Season.summer;
         DefaultValues.weather = Weather.clear;

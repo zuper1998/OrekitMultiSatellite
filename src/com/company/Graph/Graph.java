@@ -124,8 +124,9 @@ public class Graph {
 
         System.setOut(console);
 
-        for(Double d : allp.get(0).getBest().qbitsGenerated()){
-            System.out.println(d);
+        for(int i =0;i<allp.size();i++){
+            String tmp = String.format("%d iteration: %f qubits",i,allp.get(i).getBest().qbitsGenerated());
+            System.out.println(tmp);
         }
 
     }
