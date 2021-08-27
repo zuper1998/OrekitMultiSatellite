@@ -23,11 +23,13 @@ import org.orekit.propagation.SpacecraftState;
 import org.orekit.propagation.analytical.KeplerianPropagator;
 import org.orekit.propagation.events.ElevationDetector;
 import org.orekit.propagation.events.EventDetector;
+import org.orekit.propagation.events.InterSatDirectViewDetector;
 import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScale;
 import org.orekit.time.TimeScalesFactory;
 import org.orekit.utils.Constants;
 import org.orekit.utils.IERSConventions;
+import org.orekit.utils.PVCoordinates;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -89,6 +91,7 @@ public class SatOrbitProbagation {
         Map<String,ArrayList< SatFlightData>> timelines = new HashMap<>();
         HashMap<String, AbsoluteDate> timelineHelperMap = new HashMap<>(); // absolut date is also a bool --> false if null
         HashMap<String, ArrayList<Double>> dataMap = new HashMap<>();
+        HashMap<String, ArrayList<Double>> dataAngleMap = new HashMap<>();
     //prepare timelines
     for(Map.Entry<String, Propagator> p : orbits.entrySet()){
         timelines.put(p.getKey(),new ArrayList<>());
@@ -113,7 +116,6 @@ public class SatOrbitProbagation {
             final GeodeticPoint station1 = new GeodeticPoint(c.latitude, c.longitude, c.altitude);
             final TopocentricFrame sta1Frame = new TopocentricFrame(earth, station1, c.name);
             cityFrames.add(sta1Frame);
-
 
             /*
             final GeodeticPoint station1 = new GeodeticPoint(c.latitude, c.longitude, c.altitude);
@@ -166,41 +168,76 @@ public class SatOrbitProbagation {
              extrapDate = extrapDate.shiftedBy(stepT)) {
             Map<String,SpacecraftState> curState= new HashMap<>();
             for(Map.Entry<String, Propagator> p : orbits.entrySet()){
-                ref.GlobalKey = p.getKey();
-                ref1.globDate =extrapDate;
+
                 curState.put(p.getKey(), p.getValue().propagate(extrapDate)); // Use HashMap to store the cur state
 
             }
 
-            //check visibility for cities
+            //check visibility for cities also backwards
             for(TopocentricFrame c : cityFrames){
                 Vector3D coord = c.getPVCoordinates(extrapDate,earthFrame).getPosition(); // 99% the basis of the vector system is earth itself so it wont realy move xd
 
 
                 for(Map.Entry<String, SpacecraftState> Sat : curState.entrySet()){
                     SpacecraftState ss = Sat.getValue();
-                    double degree = Math.abs(Math.toDegrees(c.getElevation(ss.getPVCoordinates().getPosition() , ss.getFrame(),extrapDate)));
+                    //double degree = Math.abs(Math.toDegrees(c.getElevation(ss.getPVCoordinates().getPosition() , ss.getFrame(),extrapDate)));
                     double distance = coord.distance(ss.getPVCoordinates().getPosition());
+
+                    //https://www.orekit.org/mailing-list-archives/orekit-users/msg00625.html
+                    Transform t = ss.getFrame().getTransformTo(c,ss.getDate());
+                    PVCoordinates pv = t.transformPVCoordinates(ss.getPVCoordinates());
+                    double degree =  FastMath.toDegrees(pv.getPosition().getDelta());
+
                     //TODO: implement the interval gen as below
                     String name = String.format("%s->%s",c.getName(),Sat.getKey());
-
+                    String name_backwards = String.format("%s->%s",Sat.getKey(),c.getName());
+                    //if(Sat.getKey().equals("Starlink_8")&&c.getName().equals("Budapest"))
+                    //    System.out.println(degree);
                     if(degree>20){
+                        // ->
                         timelineHelperMap.putIfAbsent(name,extrapDate);
                         dataMap.putIfAbsent(name,new ArrayList<>());
+                        dataAngleMap.putIfAbsent(name,new ArrayList<>());
                         dataMap.get(name).add(distance);
+                        dataAngleMap.get(name).add(degree);
+                        // <-
+                        timelineHelperMap.putIfAbsent(name_backwards,extrapDate);
+                        dataMap.putIfAbsent(name_backwards,new ArrayList<>());
+                        dataAngleMap.putIfAbsent(name_backwards,new ArrayList<>());
+                        dataMap.get(name_backwards).add(distance);
+                        dataAngleMap.get(name_backwards).add(degree);
+
+
+
                     } else if(timelineHelperMap.get(name)!=null) { // end: first time iteration when there is no visibility
                         AbsoluteDate start = timelineHelperMap.get(name);
+                        // ->
                         //add SatFlight Data
                         if(!timelines.get(c.getName()).contains(new SatFlightData(Sat.getKey()))){
                             timelines.get(c.getName()).add(new SatFlightData(Sat.getKey()));
                         }
                         int index = timelines.get(c.getName()).indexOf(new SatFlightData(Sat.getKey()));
+                        timelines.get(c.getName()).get(index).addIntervalWithData(new TimeInterval(start,extrapDate),new IntervalData(dataMap.get(name),dataAngleMap.get(name)));
 
-                        timelines.get(c.getName()).get(index).addIntervalWithData(new TimeInterval(start,extrapDate),new IntervalData(dataMap.get(name)));
+                        // <-
+                        //add SatFlight Data
+                        if(!timelines.get(Sat.getKey()).contains(new SatFlightData(c.getName()))){
+                            timelines.get(Sat.getKey()).add(new SatFlightData(c.getName()));
+                        }
+                        int index_back = timelines.get(Sat.getKey()).indexOf(new SatFlightData(c.getName()));
+                        timelines.get(Sat.getKey()).get(index_back).addIntervalWithData(new TimeInterval(start,extrapDate),new IntervalData(dataMap.get(name_backwards),dataAngleMap.get(name_backwards)));
+
+
 
                         // clean helpers
                         dataMap.put(name,null);
+                        dataAngleMap.put(name,null);
                         timelineHelperMap.put(name,null);
+                        dataMap.put(name_backwards,null);
+                        dataAngleMap.put(name_backwards,null);
+                        timelineHelperMap.put(name_backwards,null);
+
+
                     }
                 }
 

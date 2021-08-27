@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class IntervalData implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    ArrayList<Double> Distance;
-        ArrayList<Double> angle;
+        public ArrayList<Double> Distance;
+        public ArrayList<Double> angle;
         public IntervalData(ArrayList<Double> dist){
             Distance=dist;
 
@@ -17,5 +17,6 @@ public class IntervalData implements Serializable {
             Distance=dist;
             this.angle = angle;
         }
+
 
 }

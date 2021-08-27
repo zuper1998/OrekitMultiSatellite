@@ -123,8 +123,10 @@ public class Graph {
         }
 
         System.setOut(console);
-        // TODO: Colored for all version, maybe multiple files.
-        // Showing the Troughput is a must :/
+
+        for(Double d : allp.get(0).getBest().qbitsGenerated()){
+            System.out.println(d);
+        }
 
     }
 

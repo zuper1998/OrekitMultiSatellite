@@ -7,6 +7,7 @@ import org.orekit.time.AbsoluteDate;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Edge implements Serializable {
     @Serial
@@ -38,6 +39,7 @@ public class Edge implements Serializable {
     public double getDataDuration(){
         return data.duration;
     }
+    public IntervalData getOrbitData(){return data.orbitData;}
     public void print() {
         String out = String.format("%s->%s [label=%f]",start.name,end.name,data.duration);
         System.out.println(out);

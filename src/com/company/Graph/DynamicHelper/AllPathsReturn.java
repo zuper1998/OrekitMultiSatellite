@@ -13,7 +13,9 @@ public class AllPathsReturn {
         otherPaths=o;
     }
 
-
+    public Path getBest(){
+        return best;
+    }
     public void print(int index) {
         if(index>14) index =14;
         ColorsForEdge color = ColorsForEdge.values()[index];

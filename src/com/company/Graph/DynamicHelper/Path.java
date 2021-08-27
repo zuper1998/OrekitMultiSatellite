@@ -1,6 +1,8 @@
 package com.company.Graph.DynamicHelper;
 
 import com.company.Graph.Edge;
+import com.company.IntervalData;
+import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 
 import java.util.ArrayList;
 
@@ -52,6 +54,35 @@ public class Path {
             curB = Math.min(curB, Tr);
         }
         return curB;
+    }
+
+
+    public ArrayList<Double> qbitsGenerated(){
+        //TODO: nem jo mert a foldi allomasokj miniomuma lesz a teljes qbit termeles
+        ArrayList<Double> out = new ArrayList<>();
+        double Tr = this.computeBest();
+        for(int i = 0 ; i < path.size();i++){
+            Edge current = path.get(i);
+            for(int k = 0;k<Tr;k++){ // We dont try to optimize witch part of the orbit we use
+                IntervalData curdat= current.getOrbitData();
+                if(curdat.angle!=null){
+                    out.add(calcQbitCity(curdat.Distance.get(i),curdat.angle.get(i)));
+                } else {
+                    out.add(calcQbitSat(curdat.Distance.get(i)));
+                }
+
+            }
+        }
+
+        return out;
+    }
+
+    public double calcQbitSat(double distance){
+        return QuantumBitTransmitanceCalculator.calculateQBITSUMSat(distance);
+    }
+
+    public double calcQbitCity(double distance, double elevation){
+        return QuantumBitTransmitanceCalculator.calculateQBITSUMCity(elevation,distance*Math.sin(elevation),0);
     }
 
     public Path generateNewWith(Edge edge) throws Exception {
