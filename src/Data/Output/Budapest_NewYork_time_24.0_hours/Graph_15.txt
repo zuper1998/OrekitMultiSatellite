@@ -1,0 +1,10 @@
+digraph G{
+layouit=dot
+graph [ dpi = 300 ];
+rankdir=LR;
+Budapest
+label = "15 iteration: 2450.369752 qubits "NewYork
+Budapest->Starlink_4 [color=goldenrod1 label=" 278.0 "]
+Starlink_4->Starlink_8 [color=goldenrod1 label=" 278.0 "]
+Starlink_8->NewYork [color=goldenrod1 label=" 278.0 "]
+}

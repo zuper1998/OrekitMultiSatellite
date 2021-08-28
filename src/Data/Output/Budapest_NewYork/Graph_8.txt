@@ -3,7 +3,7 @@ layouit=dot
 graph [ dpi = 300 ];
 rankdir=LR;
 Budapest
-NewYork
+label = "8 iteration: 793.251269 qubits "NewYork
 Budapest->Starlink_3 [color=darkviolet label=" 519.0 "]
 Starlink_3->Starlink_6 [color=darkviolet label=" 519.0 "]
 Starlink_6->NewYork [color=darkviolet label=" 519.0 "]

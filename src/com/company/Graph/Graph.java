@@ -95,7 +95,7 @@ public class Graph {
 
         for (int i = 0 ; i< allp.size();i++){
             try {
-                String file = String.format("src\\data\\Output\\%s_%s",city1,city2);
+                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours",city1,city2,SatOrbitProbagation.duration/3600);
                 new File(file).mkdir(); // creat folder
                 PrintStream o = new PrintStream(new File(file+"\\Graph_"+i+".txt"));
                 System.setOut(o);
@@ -108,16 +108,15 @@ public class Graph {
             System.out.println("layouit=dot");
             System.out.println("graph [ dpi = 300 ];");
             System.out.println("rankdir=LR;");
+
+
             System.out.println(city1);
             AllPathsReturn cur  =  allp.get(i);
+            System.out.printf("label = \"%d iteration: %f qubits \"",i,cur.getBest().qbitsGenerated());
 
-            /*for (Map.Entry<String, Node> n : nodes.entrySet()) {
-                if (!n.getKey().equals(city1) || !n.getKey().equals(city2)) {
-                    System.out.println(n.getKey());
-                }
-            }*/
             System.out.println(city2);
             cur.print(i);
+
             System.out.println("}");
 
         }

@@ -41,7 +41,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class SatOrbitProbagation {
     // configure Orekit
     public static final double stepT = 1;
-    public static double duration = 3600*12;
+    public static double duration = 3600*24*4;
     public static double MAX_TIME = 3600;
 
 
