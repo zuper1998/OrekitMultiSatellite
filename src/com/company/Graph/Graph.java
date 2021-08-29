@@ -120,8 +120,25 @@ public class Graph {
             System.out.println("}");
 
         }
+        System.setOut(console);
+
+
+
+        for (int i = 0 ; i< allp.size();i++) {
+            try {
+                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SatOrbitProbagation.duration / 3600);
+                new File(file).mkdir(); // creat folder
+                PrintStream o = new PrintStream(new File(file + "\\Graph_" + i + ".txt"));
+                System.setOut(o);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+                allp.get(i).printEdgeData();
+
+        }
 
         System.setOut(console);
+
 
         for(int i =0;i<allp.size();i++){
             String tmp = String.format("%d iteration: %f qubits",i,allp.get(i).getBest().qbitsGenerated());

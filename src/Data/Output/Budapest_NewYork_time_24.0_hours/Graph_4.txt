@@ -4,8 +4,10 @@ graph [ dpi = 300 ];
 rankdir=LR;
 Budapest
 label = "4 iteration: 1047.601865 qubits "NewYork
-Budapest->Starlink_7 [color=firebrick2 label=" 473.0 "]
-Starlink_7->NewYork [color=firebrick2 label=" 473.0 "]
+Budapest->Starlink_7 [color=firebrick2 label=" Throughput: 473.0 seconds 
+ total duration usage: 100.0% "]
+Starlink_7->NewYork [color=firebrick2 label=" Throughput: 473.0 seconds 
+ total duration usage: 87.9% "]
 Budapest->Starlink_7 [color=Black label=" 399.0 "]
 Starlink_7->NewYork [color=Black label=" 399.0 "]
 Budapest->Starlink_7 [color=Black label=" 434.0 "]

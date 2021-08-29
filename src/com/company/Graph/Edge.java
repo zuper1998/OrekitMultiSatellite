@@ -78,6 +78,19 @@ public class Edge implements Serializable {
         String out = String.format("%s->%s [color=%s label=\" %.1f \"]",start.name,end.name,color,Tr);
         System.out.println(out);
     }
+    public void printColorThrougputAndUsedPercent(String color, double Tr){
+        String out = String.format("%s->%s [color=%s label=\" Throughput: %.1f seconds %n total duration usage: %.1f%% \"]",start.name,end.name,color,Tr,Tr/getDataDuration()*100);
+        System.out.println(out);
+    }
+
+    public void printData() {
+        if(data.orbitData.angle!=null) {
+            System.out.printf("# %s->%s%n",start.name,end.name);
+            for (int i = 0; i < data.orbitData.angle.size(); i++) {
+                System.out.printf("%.3f %.3f%n",getOrbitData().angle.get(i),getOrbitData().Distance.get(i));
+            }
+        }
+    }
 
     private static class EdgeData implements Serializable {
         @Serial

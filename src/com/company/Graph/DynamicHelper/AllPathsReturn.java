@@ -1,6 +1,7 @@
 package com.company.Graph.DynamicHelper;
 
 import com.company.Graph.ColorsForEdge;
+import com.company.Graph.Edge;
 
 import java.util.ArrayList;
 
@@ -19,10 +20,13 @@ public class AllPathsReturn {
     public void print(int index) {
         if(index>14) index =14;
         ColorsForEdge color = ColorsForEdge.values()[index];
-        best.getPath().forEach(edge -> edge.printColorAndThrougput(color.name(),best.computeBest()));
+        best.getPath().forEach(edge -> edge.printColorThrougputAndUsedPercent(color.name(),best.computeBest()));
         for(Path p : otherPaths){
             p.getPath().forEach(edge -> edge.printColorAndThrougput("Black",p.computeBest()));
         }
     }
 
+    public void printEdgeData() {
+        best.getPath().forEach(Edge::printData);
+    }
 }

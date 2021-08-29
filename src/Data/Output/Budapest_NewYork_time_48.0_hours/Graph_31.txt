@@ -4,8 +4,10 @@ graph [ dpi = 300 ];
 rankdir=LR;
 Budapest
 label = "31 iteration: 194.613851 qubits "NewYork
-Budapest->Starlink_4 [color=goldenrod1 label=" 157.0 "]
-Starlink_4->NewYork [color=goldenrod1 label=" 157.0 "]
+Budapest->Starlink_4 [color=goldenrod1 label=" Throughput: 157.0 seconds 
+ total duration usage: 100.0% "]
+Starlink_4->NewYork [color=goldenrod1 label=" Throughput: 157.0 seconds 
+ total duration usage: 28.3% "]
 Budapest->Starlink_4 [color=Black label=" 157.0 "]
 Starlink_4->NewYork [color=Black label=" 157.0 "]
 Budapest->Starlink_4 [color=Black label=" 157.0 "]
