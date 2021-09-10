@@ -81,6 +81,7 @@ public class Path {
         return min;
     }
 
+
     public double calcQbitSat(double distance){
         return QuantumBitTransmitanceCalculator.calculateQBITSUMSat(distance);
     }
