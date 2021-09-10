@@ -1,5 +1,8 @@
 package com.company;
 
+import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
+import org.hipparchus.util.FastMath;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,6 +16,7 @@ public class IntervalData implements Serializable {
             Distance=dist;
 
         }
+
         public IntervalData(ArrayList<Double> dist,ArrayList<Double> angle){
             Distance=dist;
             this.angle = angle;

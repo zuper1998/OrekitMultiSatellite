@@ -20,12 +20,38 @@ public class Path {
     }
     public Path addEdge(Edge e) throws Exception {
         if(getLastEdge().getDataStart().isBefore(e.getDataStart())) {
-            path.add(e);
+            Edge tE = getLastEdge();
+            path.remove(path.size()-1); //remove last edge so it can be "redesigned"
+            path.addAll(calculateBestTransition(tE,e));
         }
         else{
             throw new Exception("New Edge Must be after the last one (Check Data start and stuff)");
         }
         return this;
+    }
+    /*
+        Gives back 2 Edges, first one is the last of the current path before the new edge, second one is the new edge recalculated
+    */
+    private ArrayList<Edge> calculateBestTransition(Edge v1,Edge v2){
+        ArrayList<Edge> out = new ArrayList<>();
+        double delta = v1.getDataEnd().durationFrom(v2.getDataStart());
+        if(delta>0){
+            while (delta>0){
+                double sv1 = v1.getDurationScaledWithTransmitance();// the size * transmitance
+                double sv2= v2.getDurationScaledWithTransmitance();
+                if(sv1>sv2){
+                    //TODO: FINISH
+                }
+                delta--;
+            }
+        }else {
+            out.add(v1);
+            out.add(v2);
+        }
+
+
+
+        return out ;
     }
 
     public Edge getLastEdge(){
@@ -60,7 +86,6 @@ public class Path {
 
 
     public double qbitsGenerated(){
-        //TODO: nem jo mert a foldi allomasokj miniomuma lesz a teljes qbit termeles
         double Tr = this.computeBest();
 
         Edge first = path.get(0);

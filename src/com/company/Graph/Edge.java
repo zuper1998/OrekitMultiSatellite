@@ -1,8 +1,10 @@
 package com.company.Graph;
 
 import com.company.IntervalData;
+import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 import org.hipparchus.analysis.function.Abs;
 import org.hipparchus.distribution.IntegerDistribution;
+import org.hipparchus.util.FastMath;
 import org.orekit.time.AbsoluteDate;
 
 import java.io.Serial;
@@ -21,6 +23,26 @@ public class Edge implements Serializable {
         end = e;
         data = new EdgeData(ds, de,dat);
     }
+
+    public  double getDurationScaledWithTransmitance() {
+        double out=0;
+        if(start.isCity()|| end.isCity()){ //its a cit
+            for(int i=0;i<getOrbitData().angle.size();i++){
+                double a = getOrbitData().angle.get(i);
+                double d = getOrbitData().Distance.get(i);
+                int dir = 0;
+                if(end.isCity())
+                dir = 2;
+                out+=QuantumBitTransmitanceCalculator.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir);
+            }
+        } else {
+            for(Double d : getOrbitData().Distance){
+                out+= QuantumBitTransmitanceCalculator.calculateTransmitanceSat(d);
+            }
+        }
+        return out;
+    }
+
     @Override
     public boolean equals(Object o){
         if(o instanceof Edge){
