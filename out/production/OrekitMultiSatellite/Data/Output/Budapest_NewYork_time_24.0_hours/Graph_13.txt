@@ -1,0 +1,13 @@
+digraph G{
+layouit=dot
+graph [ dpi = 300 ];
+rankdir=LR;
+Budapest
+label = "13 iteration: 5804.598664 qubits "NewYork
+Budapest->Starlink_3 [color=darkred label=" Throughput: 351.0 seconds 
+ total duration usage: 95.9% "]
+Starlink_3->Starlink_7 [color=darkred label=" Throughput: 351.0 seconds 
+ total duration usage: 100.0% "]
+Starlink_7->NewYork [color=darkred label=" Throughput: 351.0 seconds 
+ total duration usage: 80.9% "]
+}
