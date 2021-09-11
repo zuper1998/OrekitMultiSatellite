@@ -1,8 +1,6 @@
 package com.company.Graph.DynamicHelper;
 
-import com.company.City;
 import com.company.Graph.Edge;
-import com.company.IntervalData;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 import org.hipparchus.util.FastMath;
 
@@ -40,8 +38,20 @@ public class Path {
                 double sv1 = v1.getDurationScaledWithTransmitance();// the size * transmitance
                 double sv2= v2.getDurationScaledWithTransmitance();
                 if(sv1>sv2){
-                    //TODO: FINISH
+                    v1.getOrbitData().popLastData();
+                } else if(sv1<sv2){
+                    v2.getOrbitData().popFirstData();
+                } else {
+                    if (v1.getLastTransmittance() < v2.getFirstTransmittance()) {
+                        v1.getOrbitData().popLastData();
+                    } else {
+                        v2.getOrbitData().popFirstData();
+                    }
+
                 }
+                out.add(v1);
+                out.add(v2);
+
                 delta--;
             }
         }else {
@@ -57,8 +67,10 @@ public class Path {
     public Edge getLastEdge(){
         return path.get(path.size()-1);
     }
-
-    public double computeBest(){
+/*
+    Outdated use overall transmitance for choosing path's
+ */
+    public double _computeBest(){
         double curB=path.get(0).getDataDuration();
         for(int i = 0 ; i < path.size()-1;i++){ // Feltetelezzuk hogy sorrendben vannak az intervallumok idorend szerint (Kezdes)!
             Edge first = path.get(i);
@@ -85,20 +97,28 @@ public class Path {
     }
 
 
+    public double computeOverallTransmittance(){
+        double outTR =0;
+        for(Edge e: path){
+            outTR += e.getDurationScaledWithTransmitance();
+        }
+        return outTR;
+    }
+
     public double qbitsGenerated(){
-        double Tr = this.computeBest();
+        double Tr = this._computeBest();
 
         Edge first = path.get(0);
         Edge last = this.getLastEdge();
         double min;
         double curMin=0;
         for(int i =0;i<Tr;i++){
-            curMin+= calcQbitCity(first.getOrbitData().Distance.get(i),first.getOrbitData().angle.get(i),0);
+            curMin+= calcQbitCity(first.getOrbitData().Distance.get(i),first.getOrbitData().Angle.get(i),0);
         }
         min = curMin;
         curMin = 0;
         for(int i =0;i<Tr;i++){
-            curMin+= calcQbitCity(last.getOrbitData().Distance.get(i),last.getOrbitData().angle.get(i),0);
+            curMin+= calcQbitCity(last.getOrbitData().Distance.get(i),last.getOrbitData().Angle.get(i),0);
         }
         min = FastMath.min(min,curMin);
 

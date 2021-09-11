@@ -202,7 +202,7 @@ public class Graph {
                         }
 
                         if (curP != null) {
-                            double curBest = curP.computeBest();
+                            double curBest = curP.computeOverallTransmittance();
 
                             if (curP.getLastEdge().end.name.equals(target)) { // its the target city
                                 if (Max < curBest) {

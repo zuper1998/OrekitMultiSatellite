@@ -20,9 +20,9 @@ public class AllPathsReturn {
     public void print(int index) {
         if(index>14) index =14;
         ColorsForEdge color = ColorsForEdge.values()[index];
-        best.getPath().forEach(edge -> edge.printColorThrougputAndUsedPercent(color.name(),best.computeBest()));
+        best.getPath().forEach(edge -> edge.printColorThrougputAndUsedPercent(color.name(),best._computeBest(),best.computeOverallTransmittance()));
         for(Path p : otherPaths){
-            p.getPath().forEach(edge -> edge.printColorAndThrougput("Black",p.computeBest()));
+            p.getPath().forEach(edge -> edge.printColorAndThrougput("Black",p._computeBest()));
         }
     }
 

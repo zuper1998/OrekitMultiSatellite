@@ -2,14 +2,11 @@ package com.company.Graph;
 
 import com.company.IntervalData;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
-import org.hipparchus.analysis.function.Abs;
-import org.hipparchus.distribution.IntegerDistribution;
 import org.hipparchus.util.FastMath;
 import org.orekit.time.AbsoluteDate;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Edge implements Serializable {
     @Serial
@@ -27,8 +24,8 @@ public class Edge implements Serializable {
     public  double getDurationScaledWithTransmitance() {
         double out=0;
         if(start.isCity()|| end.isCity()){ //its a cit
-            for(int i=0;i<getOrbitData().angle.size();i++){
-                double a = getOrbitData().angle.get(i);
+            for(int i = 0; i<getOrbitData().Angle.size(); i++){
+                double a = getOrbitData().Angle.get(i);
                 double d = getOrbitData().Distance.get(i);
                 int dir = 0;
                 if(end.isCity())
@@ -100,19 +97,52 @@ public class Edge implements Serializable {
         String out = String.format("%s->%s [color=%s label=\" %.1f \"]",start.name,end.name,color,Tr);
         System.out.println(out);
     }
-    public void printColorThrougputAndUsedPercent(String color, double Tr){
-        String out = String.format("%s->%s [color=%s label=\" Throughput: %.1f seconds %n total duration usage: %.1f%% \"]",start.name,end.name,color,Tr,Tr/getDataDuration()*100);
+    public void printColorThrougputAndUsedPercent(String color, double duration,double Tr){
+        String out = String.format("%s->%s [color=%s label=\" Throughput: %.1f seconds %n total duration usage: %.1f%% \"]",start.name,end.name,color,Tr,duration/getDataDuration()*100);
         System.out.println(out);
     }
 
     public void printData() {
-        if(data.orbitData.angle!=null) {
+        if(data.orbitData.Angle !=null) {
             System.out.printf("# %s->%s%n",start.name,end.name);
-            for (int i = 0; i < data.orbitData.angle.size(); i++) {
-                System.out.printf("%.3f %.3f%n",getOrbitData().angle.get(i),getOrbitData().Distance.get(i));
+            for (int i = 0; i < data.orbitData.Angle.size(); i++) {
+                System.out.printf("%.3f %.3f%n",getOrbitData().Angle.get(i),getOrbitData().Distance.get(i));
             }
         }
     }
+
+    public double getFirstTransmittance() {
+        if(getOrbitData().Distance.isEmpty()){
+            return 0;
+        }
+        if(start.isCity()|| end.isCity()){ //its a cit
+                double a = getOrbitData().Angle.get(0);
+                double d = getOrbitData().Distance.get(0);
+                int dir = 0;
+                if(end.isCity())
+                    dir = 2;
+                return QuantumBitTransmitanceCalculator.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir);
+            }else {
+            return QuantumBitTransmitanceCalculator.calculateTransmitanceSat(getOrbitData().Distance.get(0));
+        }
+    }
+
+    public double getLastTransmittance() {
+        if(getOrbitData().Distance.isEmpty()){
+            return 0;
+        }
+        if(start.isCity()|| end.isCity()){ //its a cit
+            double a = getOrbitData().Angle.get(getOrbitData().Angle.size()-1);
+            double d = getOrbitData().Distance.get(getOrbitData().Distance.size()-1);
+            int dir = 0;
+            if(end.isCity())
+                dir = 2;
+            return QuantumBitTransmitanceCalculator.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir);
+        }else {
+            return QuantumBitTransmitanceCalculator.calculateTransmitanceSat(getOrbitData().Distance.get(0));
+        }
+    }
+
 
     private static class EdgeData implements Serializable {
         @Serial
