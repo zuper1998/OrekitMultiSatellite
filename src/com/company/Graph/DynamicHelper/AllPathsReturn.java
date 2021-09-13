@@ -22,7 +22,7 @@ public class AllPathsReturn {
         ColorsForEdge color = ColorsForEdge.values()[index];
         best.getPath().forEach(edge -> edge.printColorThrougputAndUsedPercent(color.name(),best._computeBest(),best.computeOverallTransmittance()));
         for(Path p : otherPaths){
-            p.getPath().forEach(edge -> edge.printColorAndThrougput("Black",p._computeBest()));
+            p.getPath().forEach(edge -> edge.printColorAndThrougput("Black",p._computeBest(),p.computeOverallTransmittance()));
         }
     }
 

@@ -90,10 +90,11 @@ public class Graph {
         final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
 
 
-        ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
+        //ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
         PrintStream console = System.out;
+        ArrayList<AllPathsReturn> allp = new ArrayList<>();
+        for (int i = 0 ; i< nodes.get(city1).edges.size();i++){
 
-        for (int i = 0 ; i< allp.size();i++){
             try {
                 String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours",city1,city2,SatOrbitProbagation.duration/3600);
                 new File(file).mkdir(); // creat folder
@@ -102,7 +103,9 @@ public class Graph {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-
+            AllPathsReturn cur  =  dynamicGenerateBetweenCityIndexable(city1,city2,i);
+            allp.add(cur);
+            if(cur!=null) {
 
             System.out.println("digraph G{");
             System.out.println("layouit=dot");
@@ -111,19 +114,23 @@ public class Graph {
 
 
             System.out.println(city1);
-            AllPathsReturn cur  =  allp.get(i);
-            System.out.printf("label = \"%d iteration: %f qubits \"",i,cur.getBest().qbitsGenerated());
+
+            //System.out.printf("label = \"%d iteration: %f qubits \"", i, cur.getBest().qbitsGenerated());
 
             System.out.println(city2);
             cur.print(i);
 
             System.out.println("}");
+            }
 
         }
+
         System.setOut(console);
 
-
-
+        for(int i =0;i<allp.size();i++){
+            String tmp = String.format("%d iteration: %f qubits",i,allp.get(i).getBest().qbitsGenerated());
+            System.out.println(tmp);
+        }
         for (int i = 0 ; i< allp.size();i++) {
             try {
                 String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SatOrbitProbagation.duration / 3600);
@@ -140,10 +147,7 @@ public class Graph {
         System.setOut(console);
 
 
-        for(int i =0;i<allp.size();i++){
-            String tmp = String.format("%d iteration: %f qubits",i,allp.get(i).getBest().qbitsGenerated());
-            System.out.println(tmp);
-        }
+
 
     }
 
@@ -165,7 +169,9 @@ public class Graph {
 
 
         ArrayList<AllPathsReturn> out = new ArrayList<>();
+        double i = 0;
         for(Edge e : nodes.get(city1).edges) {
+            System.out.println(++i+" / "+nodes.get(city1).edges.size());
             AllPathsReturn cur = dynamicAlgo(e, city2);
             if(cur!=null)
             out.add(cur);
@@ -174,6 +180,11 @@ public class Graph {
 
 
         return out;
+    }
+    public AllPathsReturn dynamicGenerateBetweenCityIndexable(String city1, String city2,int i){
+
+        Edge e = nodes.get(city1).edges.get(i);
+        return dynamicAlgo(e, city2);
     }
 
 

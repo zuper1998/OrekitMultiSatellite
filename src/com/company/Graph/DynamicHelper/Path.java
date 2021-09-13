@@ -2,6 +2,7 @@ package com.company.Graph.DynamicHelper;
 
 import com.company.Graph.Edge;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
+import com.company.SatOrbitProbagation;
 import org.hipparchus.util.FastMath;
 
 import java.util.ArrayList;
@@ -30,7 +31,9 @@ public class Path {
     /*
         Gives back 2 Edges, first one is the last of the current path before the new edge, second one is the new edge recalculated
     */
-    private ArrayList<Edge> calculateBestTransition(Edge v1,Edge v2){
+    private ArrayList<Edge> calculateBestTransition(Edge _v1,Edge _v2){
+        Edge v1 = new Edge(_v1);
+        Edge v2 = new Edge((_v2));
         ArrayList<Edge> out = new ArrayList<>();
         double delta = v1.getDataEnd().durationFrom(v2.getDataStart());
         if(delta>0){
@@ -42,18 +45,20 @@ public class Path {
                 } else if(sv1<sv2){
                     v2.getOrbitData().popFirstData();
                 } else {
-                    if (v1.getLastTransmittance() < v2.getFirstTransmittance()) {
-                        v1.getOrbitData().popLastData();
+                    if (v1.getLastTransmittance() > v2.getFirstTransmittance()) {
+                        v1.popLastData();
+
                     } else {
-                        v2.getOrbitData().popFirstData();
+                        v2.popFirstData();
                     }
 
                 }
-                out.add(v1);
-                out.add(v2);
 
-                delta--;
+
+                delta-= SatOrbitProbagation.stepT;
             }
+            out.add(v1);
+            out.add(v2);
         }else {
             out.add(v1);
             out.add(v2);
@@ -96,7 +101,9 @@ public class Path {
         return curB;
     }
 
-
+    /*
+        Really resource heavy, TODO: speed up
+     */
     public double computeOverallTransmittance(){
         double outTR =0;
         for(Edge e: path){

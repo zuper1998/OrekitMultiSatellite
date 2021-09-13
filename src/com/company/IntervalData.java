@@ -13,10 +13,15 @@ public class IntervalData implements Serializable {
             Distance=dist;
 
         }
+        public IntervalData(IntervalData id){
+            Distance = new ArrayList<>(id.Distance);
+            if(id.Angle!=null)
+            Angle = new ArrayList<>(id.Angle);
+        }
 
         public IntervalData(ArrayList<Double> dist,ArrayList<Double> angle){
-            Distance=dist;
-            this.Angle = angle;
+            Distance= new ArrayList<>(dist);
+            Angle = new ArrayList<>( angle);
         }
 
 
@@ -24,6 +29,7 @@ public class IntervalData implements Serializable {
             Distance.remove(Distance.size()-1);
             if(Angle!=null)
             Angle.remove(Angle.size()-1);
+
     }
     public void popFirstData(){
         Distance.remove(0);
