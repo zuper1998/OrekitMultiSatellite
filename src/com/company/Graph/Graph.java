@@ -127,10 +127,7 @@ public class Graph {
 
         System.setOut(console);
 
-        for(int i =0;i<allp.size();i++){
-            String tmp = String.format("%d iteration: %f qubits",i,allp.get(i).getBest().qbitsGenerated());
-            System.out.println(tmp);
-        }
+
         for (int i = 0 ; i< allp.size();i++) {
             try {
                 String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SatOrbitProbagation.duration / 3600);
@@ -146,7 +143,10 @@ public class Graph {
 
         System.setOut(console);
 
-
+       /*for(int i =0;i<allp.size();i++){
+            String tmp = String.format("%d iteration: %f qubits",i,allp.get(i).getBest().qbitsGenerated());
+            System.out.println(tmp);
+        }*/
 
 
     }
@@ -212,7 +212,7 @@ public class Graph {
                             e.printStackTrace();
                         }
 
-                        if (curP != null) {
+                        if (curP != null&&curP.getDur()<MAX_TIME) {
                             double curBest = curP.computeOverallTransmittance();
 
                             if (curP.getLastEdge().end.name.equals(target)) { // its the target city
@@ -225,7 +225,7 @@ public class Graph {
                                 }else {
                                     otherPaths.add(curP);
                                 }
-                            }else if (curP.getDur()<MAX_TIME){
+                            }else {
                                 nextRound.add(curP);
                                 running = true;
                             }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Path {
 
     ArrayList<Edge> path = new ArrayList<>();
+    QuantumBitTransmitanceCalculator calc = new QuantumBitTransmitanceCalculator();
 
     public Path(Edge e){
         path.add(e);
@@ -39,7 +40,7 @@ public class Path {
         if(delta>0){
             while (delta>0){
                 double sv1 = v1.getDurationScaledWithTransmitance();// the size * transmitance
-                double sv2= v2.getDurationScaledWithTransmitance();
+                double sv2 = v2.getDurationScaledWithTransmitance();
                 if(sv1>sv2){
                     v1.getOrbitData().popLastData();
                 } else if(sv1<sv2){
@@ -135,11 +136,11 @@ public class Path {
 
 
     public double calcQbitSat(double distance){
-        return QuantumBitTransmitanceCalculator.calculateQBITSUMSat(distance);
+        return calc.calculateQBITSUMSat(distance);
     }
 
     public double calcQbitCity(double distance, double elevation,int dir){ // dir 0 -> ; dir 2 <-
-        return QuantumBitTransmitanceCalculator.calculateQBITSUMCity(elevation,distance*FastMath.sin(FastMath.toRadians(elevation)),dir);
+        return calc.calculateQBITSUMCity(elevation,distance*FastMath.sin(FastMath.toRadians(elevation)),dir);
     }
 
     public Path generateNewWith(Edge edge) throws Exception {

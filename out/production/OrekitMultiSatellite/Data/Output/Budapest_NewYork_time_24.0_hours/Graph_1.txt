@@ -3,7 +3,7 @@ layouit=dot
 graph [ dpi = 300 ];
 rankdir=LR;
 Budapest
-label = "1 iteration: 70.067109 qubits "NewYork
+NewYork
 Budapest->Starlink_8 [color=chartreuse label=" Transmittance: 28.3, duration: 47.0 seconds 
  total duration usage: 9.9% "]
 Starlink_8->Starlink_5 [color=chartreuse label=" Transmittance: 28.3, duration: 47.0 seconds 

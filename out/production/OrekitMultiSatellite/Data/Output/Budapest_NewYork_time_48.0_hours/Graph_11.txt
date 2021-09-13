@@ -3,34 +3,75 @@ layouit=dot
 graph [ dpi = 300 ];
 rankdir=LR;
 Budapest
-label = "11 iteration: 1391.086632 qubits "NewYork
-Budapest->Starlink_7 [color=firebrick3 label=" Throughput: 562.0 seconds 
+NewYork
+Budapest->Starlink_2 [color=firebrick3 label=" Transmittance: 28.3, duration: 180.0 seconds 
+ total duration usage: 41.2% "]
+Starlink_2->Starlink_6 [color=firebrick3 label=" Transmittance: 28.3, duration: 180.0 seconds 
  total duration usage: 100.0% "]
-Starlink_7->NewYork [color=firebrick3 label=" Throughput: 562.0 seconds 
- total duration usage: 98.6% "]
-Budapest->Starlink_7 [color=Black label=" 231.0 "]
-Starlink_7->NewYork [color=Black label=" 231.0 "]
-Budapest->Starlink_7 [color=Black label=" 312.0 "]
-Starlink_7->NewYork [color=Black label=" 312.0 "]
-Budapest->Starlink_7 [color=Black label=" 353.0 "]
-Starlink_7->Starlink_3 [color=Black label=" 353.0 "]
-Starlink_3->NewYork [color=Black label=" 353.0 "]
-Budapest->Starlink_7 [color=Black label=" 503.0 "]
-Starlink_7->Starlink_4 [color=Black label=" 503.0 "]
-Starlink_4->NewYork [color=Black label=" 503.0 "]
-Budapest->Starlink_7 [color=Black label=" 533.0 "]
-Starlink_7->Starlink_4 [color=Black label=" 533.0 "]
-Starlink_4->NewYork [color=Black label=" 533.0 "]
-Budapest->Starlink_7 [color=Black label=" 389.0 "]
-Starlink_7->Starlink_4 [color=Black label=" 389.0 "]
-Starlink_4->Starlink_8 [color=Black label=" 389.0 "]
-Starlink_8->NewYork [color=Black label=" 389.0 "]
-Budapest->Starlink_7 [color=Black label=" 384.0 "]
-Starlink_7->Starlink_4 [color=Black label=" 384.0 "]
-Starlink_4->Starlink_8 [color=Black label=" 384.0 "]
-Starlink_8->NewYork [color=Black label=" 384.0 "]
-Budapest->Starlink_7 [color=Black label=" 389.0 "]
-Starlink_7->Starlink_4 [color=Black label=" 389.0 "]
-Starlink_4->Starlink_8 [color=Black label=" 389.0 "]
-Starlink_8->NewYork [color=Black label=" 389.0 "]
+Starlink_6->NewYork [color=firebrick3 label=" Transmittance: 28.3, duration: 180.0 seconds 
+ total duration usage: 35.0% "]
+Budapest->Starlink_2 [color=Black label=" D: 355.0 
+ TR: 1.4 "]
+Starlink_2->NewYork [color=Black label=" D: 355.0 
+ TR: 1.4 "]
+Budapest->Starlink_2 [color=Black label=" D: 373.0 
+ TR: 1.7 "]
+Starlink_2->NewYork [color=Black label=" D: 373.0 
+ TR: 1.7 "]
+Budapest->Starlink_2 [color=Black label=" D: 433.0 
+ TR: 2.1 "]
+Starlink_2->NewYork [color=Black label=" D: 433.0 
+ TR: 2.1 "]
+Budapest->Starlink_2 [color=Black label=" D: 180.0 
+ TR: 1.6 "]
+Starlink_2->Starlink_6 [color=Black label=" D: 180.0 
+ TR: 1.6 "]
+Starlink_6->NewYork [color=Black label=" D: 180.0 
+ TR: 1.6 "]
+Budapest->Starlink_2 [color=Black label=" D: 180.0 
+ TR: 2.0 "]
+Starlink_2->Starlink_6 [color=Black label=" D: 180.0 
+ TR: 2.0 "]
+Starlink_6->NewYork [color=Black label=" D: 180.0 
+ TR: 2.0 "]
+Budapest->Starlink_2 [color=Black label=" D: 437.0 
+ TR: 2.2 "]
+Starlink_2->NewYork [color=Black label=" D: 437.0 
+ TR: 2.2 "]
+Budapest->Starlink_2 [color=Black label=" D: 180.0 
+ TR: 17.4 "]
+Starlink_2->Starlink_6 [color=Black label=" D: 180.0 
+ TR: 17.4 "]
+Starlink_6->NewYork [color=Black label=" D: 180.0 
+ TR: 17.4 "]
+Budapest->Starlink_2 [color=Black label=" D: 400.0 
+ TR: 1.3 "]
+Starlink_2->Starlink_5 [color=Black label=" D: 400.0 
+ TR: 1.3 "]
+Starlink_5->NewYork [color=Black label=" D: 400.0 
+ TR: 1.3 "]
+Budapest->Starlink_2 [color=Black label=" D: 437.0 
+ TR: 1.7 "]
+Starlink_2->Starlink_5 [color=Black label=" D: 437.0 
+ TR: 1.7 "]
+Starlink_5->NewYork [color=Black label=" D: 437.0 
+ TR: 1.7 "]
+Budapest->Starlink_2 [color=Black label=" D: 269.0 
+ TR: 1.4 "]
+Starlink_2->Starlink_5 [color=Black label=" D: 269.0 
+ TR: 1.4 "]
+Starlink_5->NewYork [color=Black label=" D: 269.0 
+ TR: 1.4 "]
+Budapest->Starlink_2 [color=Black label=" D: 437.0 
+ TR: 5.9 "]
+Starlink_2->Starlink_5 [color=Black label=" D: 437.0 
+ TR: 5.9 "]
+Starlink_5->NewYork [color=Black label=" D: 437.0 
+ TR: 5.9 "]
+Budapest->Starlink_2 [color=Black label=" D: 437.0 
+ TR: 9.8 "]
+Starlink_2->Starlink_5 [color=Black label=" D: 437.0 
+ TR: 9.8 "]
+Starlink_5->NewYork [color=Black label=" D: 437.0 
+ TR: 9.8 "]
 }
