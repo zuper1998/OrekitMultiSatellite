@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.company.SatOrbitProbagation.MAX_TIME;
+import static com.company.SatOrbitProbagation.SearchDepth;
 
 public class Graph {
 
@@ -188,9 +189,9 @@ public class Graph {
     }
 
 
+
+
     public AllPathsReturn dynamicAlgo(Edge in,  String target){
-
-
         double Max=0;
         ArrayList<Path> otherPaths = new ArrayList<>();
         Path best = null;
@@ -198,13 +199,16 @@ public class Graph {
         nextRound.add(new Path(in));
 
         boolean running = true;
-        while (running){
+        int cnt=0;
+        while(running){ // If there are no backward Edges in the paths there cant be more levels then there are nodes
+            if(++cnt>SearchDepth)
+                break;
             running = false;
             ArrayList<Path> TnextRound = new ArrayList<>(nextRound);
             nextRound = new ArrayList<>();
             for(Path p : TnextRound){
                 for (Edge outerEdge : p.getLastEdge().end.edges) {
-                    if(outerEdge.getDataStart().isAfter(p.getLastEdge().getDataStart())){
+                    if(outerEdge.getDataStart().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())){
                         Path curP = null;
                         try {
                             curP = p.generateNewWith(outerEdge);
@@ -212,10 +216,12 @@ public class Graph {
                             e.printStackTrace();
                         }
 
-                        if (curP != null&&curP.getDur()<MAX_TIME) {
-                            double curBest = curP.computeOverallTransmittance();
-
+                        if (curP != null) {
+                            if(curP.getDur()>MAX_TIME){
+                                continue;
+                            }
                             if (curP.getLastEdge().end.name.equals(target)) { // its the target city
+                                double curBest = curP.computeOverallTransmittance();
                                 if (Max < curBest) {
                                     Max = curBest;
                                     if(best!=null) {

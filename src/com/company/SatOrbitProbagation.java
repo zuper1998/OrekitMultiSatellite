@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 import org.hipparchus.analysis.function.Abs;
 import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.hipparchus.ode.events.Action;
@@ -40,10 +41,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SatOrbitProbagation {
     // configure Orekit
+    //TODO: outsorce to a values class
     public static final double stepT = 1;
-    public static double duration = 3600*24*1;
+    public static double duration = 3600*24*0.5;
     public static double MAX_TIME = 3600;
-
+    public static final QuantumBitTransmitanceCalculator calc =  new QuantumBitTransmitanceCalculator();
+    public static final int SearchDepth = 5;
 
     public void setDuration(double d){
         duration=d;

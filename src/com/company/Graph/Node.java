@@ -28,7 +28,9 @@ public class Node implements Serializable {
         }
         return false;
     }
-
+    public boolean stringEquals(Node n){
+        return name.equals(n.name);
+    }
     public void printDotEdges() {
         for(Edge e : edges){
             e.print();

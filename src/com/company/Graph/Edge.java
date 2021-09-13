@@ -9,12 +9,19 @@ import org.orekit.time.AbsoluteDate;
 
 import java.io.Serial;
 import java.io.Serializable;
+
+import static com.company.SatOrbitProbagation.calc;
+
 public class Edge implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     Node start;
     Node end;
     EdgeData data;
+
+    public Node getEndNode(){
+        return end;
+    }
 
     /**
      * @param s Start node
@@ -44,6 +51,7 @@ public class Edge implements Serializable {
      */
     public  double getDurationScaledWithTransmitance() {
         double out=0;
+
         if(start.isCity()|| end.isCity()){ //its a cit
             for(int i = 0; i<getOrbitData().Angle.size(); i++){
                 double a = getOrbitData().Angle.get(i);
@@ -51,11 +59,11 @@ public class Edge implements Serializable {
                 int dir = 0;
                 if(end.isCity())
                 dir = 2;
-                out+=QuantumBitTransmitanceCalculator.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir)*SatOrbitProbagation.stepT;
+                out+= calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir)*SatOrbitProbagation.stepT;
             }
         } else {
             for(Double d : getOrbitData().Distance){
-                out+= QuantumBitTransmitanceCalculator.calculateTransmitanceSat(d)*SatOrbitProbagation.stepT;
+                out+= calc.calculateTransmitanceSat(d)*SatOrbitProbagation.stepT;
             }
         }
         return out;
@@ -135,7 +143,7 @@ public class Edge implements Serializable {
                 int dir = 0;
                 if(end.isCity())
                     dir = 2;
-                System.out.printf("%.3f %.3f %.3f %n",a,d,QuantumBitTransmitanceCalculator.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir));
+                System.out.printf("%.3f %.3f %.3f %n",a,d, calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir));
             }
         }
     }
@@ -153,9 +161,9 @@ public class Edge implements Serializable {
                 int dir = 0;
                 if(end.isCity())
                     dir = 2;
-                return QuantumBitTransmitanceCalculator.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir);
+                return calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir);
             }else {
-            return QuantumBitTransmitanceCalculator.calculateTransmitanceSat(getOrbitData().Distance.get(0));
+            return calc.calculateTransmitanceSat(getOrbitData().Distance.get(0));
         }
     }
 
@@ -172,9 +180,9 @@ public class Edge implements Serializable {
             int dir = 0;
             if(end.isCity())
                 dir = 2;
-            return QuantumBitTransmitanceCalculator.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir);
+            return calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir);
         }else {
-            return QuantumBitTransmitanceCalculator.calculateTransmitanceSat(getOrbitData().Distance.get(0));
+            return calc.calculateTransmitanceSat(getOrbitData().Distance.get(0));
         }
     }
 

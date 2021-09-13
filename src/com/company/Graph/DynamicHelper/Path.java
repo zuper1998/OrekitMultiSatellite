@@ -1,6 +1,7 @@
 package com.company.Graph.DynamicHelper;
 
 import com.company.Graph.Edge;
+import com.company.Graph.Node;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 import com.company.SatOrbitProbagation;
 import org.hipparchus.util.FastMath;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public class Path {
 
     ArrayList<Edge> path = new ArrayList<>();
-    QuantumBitTransmitanceCalculator calc = new QuantumBitTransmitanceCalculator();
+    QuantumBitTransmitanceCalculator calc = SatOrbitProbagation.calc;
 
     public Path(Edge e){
         path.add(e);
@@ -19,16 +20,26 @@ public class Path {
         path.addAll(e);
     }
     public Path addEdge(Edge e) throws Exception {
-        if(getLastEdge().getDataStart().isBefore(e.getDataStart())) {
+        if(getLastEdge().getDataStart().isBefore(e.getDataStart()) || this.containsNode(e.getEndNode())) {
             Edge tE = getLastEdge();
             path.remove(path.size()-1); //remove last edge so it can be "redesigned"
             path.addAll(calculateBestTransition(tE,e));
         }
         else{
-            throw new Exception("New Edge Must be after the last one (Check Data start and stuff)");
+            throw new Exception("New Edge Must be after the last one, AND must note contain a node already visited (Check Data start and stuff)");
         }
         return this;
     }
+    //TODO: speedup by making an array with the nodes in the path
+    public boolean containsNode(Node node) {
+        for(Edge e :path){
+            if(e.getEndNode().stringEquals(node)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /*
         Gives back 2 Edges, first one is the last of the current path before the new edge, second one is the new edge recalculated
     */
@@ -142,7 +153,8 @@ public class Path {
     public double calcQbitCity(double distance, double elevation,int dir){ // dir 0 -> ; dir 2 <-
         return calc.calculateQBITSUMCity(elevation,distance*FastMath.sin(FastMath.toRadians(elevation)),dir);
     }
-
+    //TODO: check with max Length, maybe cut down so it will not be too long?
+    //TODO: check if already contains node
     public Path generateNewWith(Edge edge) throws Exception {
         return new Path(path).addEdge(edge);
     }
@@ -151,8 +163,16 @@ public class Path {
         return new ArrayList<>(path);
     }
 
+
+    /**
+     * @return the additiv duration of all edges in the path
+     */
     public double getDur() {
-        return getLastEdge().getDataEnd().durationFrom(path.get(0).getDataStart());
+        double out =0;
+        for (Edge e : path){
+            out+= e.getDataDuration();
+        }
+        return out;
     }
 
 }
