@@ -1,5 +1,6 @@
 package com.company.Graph.DynamicHelper;
 
+import Data.SimValues;
 import com.company.Graph.Edge;
 import com.company.Graph.Node;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
@@ -8,10 +9,12 @@ import org.hipparchus.util.FastMath;
 
 import java.util.ArrayList;
 
+import static Data.SimValues.stepT;
+
 public class Path {
 
     ArrayList<Edge> path = new ArrayList<>();
-    QuantumBitTransmitanceCalculator calc = SatOrbitProbagation.calc;
+    QuantumBitTransmitanceCalculator calc = SimValues.calc;
 
     public Path(Edge e){
         path.add(e);
@@ -40,6 +43,41 @@ public class Path {
         return false;
     }
 
+    public boolean trimToWindowSize(){
+        double delta = getDur()-SimValues.MAX_TIME;
+        Edge v1 = path.get(0);
+        Edge v2 = getLastEdge();
+        return EdgeTrimmer(delta, v1, v2);
+
+
+    }
+
+    private boolean EdgeTrimmer(double delta, Edge v1, Edge v2) {
+        while (delta>0){
+            double sv1 = v1.getDurationScaledWithTransmitance();// the size * transmitance
+            double sv2 = v2.getDurationScaledWithTransmitance();
+            if(sv1>sv2){
+                v1.popLastData();
+            } else if(sv1<sv2){
+                v2.popFirstData();
+            } else {
+                if (v1.getLastTransmittance() > v2.getFirstTransmittance()) {
+                    v1.popLastData();
+
+                } else {
+                    v2.popFirstData();
+                }
+
+            }
+            if(v1.getOrbitData().Distance.isEmpty()||v2.getOrbitData().Distance.isEmpty()){
+                return false;
+            }
+            delta-= stepT;
+
+        }
+        return true;
+    }
+
     /*
         Gives back 2 Edges, first one is the last of the current path before the new edge, second one is the new edge recalculated
     */
@@ -49,33 +87,10 @@ public class Path {
         ArrayList<Edge> out = new ArrayList<>();
         double delta = v1.getDataEnd().durationFrom(v2.getDataStart());
         if(delta>0){
-            while (delta>0){
-                double sv1 = v1.getDurationScaledWithTransmitance();// the size * transmitance
-                double sv2 = v2.getDurationScaledWithTransmitance();
-                if(sv1>sv2){
-                    v1.getOrbitData().popLastData();
-                } else if(sv1<sv2){
-                    v2.getOrbitData().popFirstData();
-                } else {
-                    if (v1.getLastTransmittance() > v2.getFirstTransmittance()) {
-                        v1.popLastData();
-
-                    } else {
-                        v2.popFirstData();
-                    }
-
-                }
-
-
-                delta-= SatOrbitProbagation.stepT;
-            }
-            out.add(v1);
-            out.add(v2);
-        }else {
-            out.add(v1);
-            out.add(v2);
+            EdgeTrimmer(delta, v1, v2);
         }
-
+        out.add(v1);
+        out.add(v2);
 
 
         return out ;
@@ -154,7 +169,6 @@ public class Path {
         return calc.calculateQBITSUMCity(elevation,distance*FastMath.sin(FastMath.toRadians(elevation)),dir);
     }
     //TODO: check with max Length, maybe cut down so it will not be too long?
-    //TODO: check if already contains node
     public Path generateNewWith(Edge edge) throws Exception {
         return new Path(path).addEdge(edge);
     }
@@ -165,14 +179,11 @@ public class Path {
 
 
     /**
-     * @return the additiv duration of all edges in the path
+     * @return the total time of the path
      */
     public double getDur() {
-        double out =0;
-        for (Edge e : path){
-            out+= e.getDataDuration();
-        }
-        return out;
+
+        return  getLastEdge().getDataEnd().durationFrom(path.get(0).getDataStart());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.company.Graph;
 
+import Data.SimValues;
 import com.company.*;
 import com.company.Graph.DynamicHelper.AllPathsReturn;
 import com.company.Graph.DynamicHelper.Path;
@@ -13,15 +14,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.company.SatOrbitProbagation.MAX_TIME;
-import static com.company.SatOrbitProbagation.SearchDepth;
+import static Data.SimValues.MAX_TIME;
+import static Data.SimValues.SearchDepth;
+
 
 public class Graph {
 
     public Map<String,Node> nodes = new HashMap<>();
 
 
-    public void GenerateGraph(Map<String, ArrayList<SatFlightData>> timelineMap, String city1, String city2) {
+    public void GenerateGraph(Map<String, ArrayList<SatFlightData>> timelineMap) {
 
        for( Map.Entry<String, ArrayList<SatFlightData>> tlm :  timelineMap.entrySet()){
             nodes.put(tlm.getKey(),new Node(tlm.getKey()));
@@ -97,7 +99,7 @@ public class Graph {
         for (int i = 0 ; i< nodes.get(city1).edges.size();i++){
 
             try {
-                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours",city1,city2,SatOrbitProbagation.duration/3600);
+                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours",city1,city2, SimValues.duration/3600);
                 new File(file).mkdir(); // creat folder
                 PrintStream o = new PrintStream(new File(file+"\\Graph_"+i+".txt"));
                 System.setOut(o);
@@ -105,8 +107,8 @@ public class Graph {
                 e.printStackTrace();
             }
             AllPathsReturn cur  =  dynamicGenerateBetweenCityIndexable(city1,city2,i);
-            allp.add(cur);
             if(cur!=null) {
+                allp.add(cur);
 
             System.out.println("digraph G{");
             System.out.println("layouit=dot");
@@ -116,7 +118,7 @@ public class Graph {
 
             System.out.println(city1);
 
-            //System.out.printf("label = \"%d iteration: %f qubits \"", i, cur.getBest().qbitsGenerated());
+            System.out.printf("label = \"%d iteration: total duration %.3f \"", i, cur.getBest().getDur() );
 
             System.out.println(city2);
             cur.print(i);
@@ -131,7 +133,7 @@ public class Graph {
 
         for (int i = 0 ; i< allp.size();i++) {
             try {
-                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SatOrbitProbagation.duration / 3600);
+                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SimValues.duration / 3600);
                 new File(file).mkdir(); // creat folder
                 PrintStream o = new PrintStream(new File(file + "\\Graph_" + i + ".txt"));
                 System.setOut(o);
@@ -201,8 +203,8 @@ public class Graph {
         boolean running = true;
         int cnt=0;
         while(running){ // If there are no backward Edges in the paths there cant be more levels then there are nodes
-            if(++cnt>SearchDepth)
-                break;
+            //if(++cnt>SearchDepth)
+            //    break;
             running = false;
             ArrayList<Path> TnextRound = new ArrayList<>(nextRound);
             nextRound = new ArrayList<>();
@@ -218,7 +220,10 @@ public class Graph {
 
                         if (curP != null) {
                             if(curP.getDur()>MAX_TIME){
-                                continue;
+                                if(!curP.trimToWindowSize()){
+                                    continue;
+                                }
+
                             }
                             if (curP.getLastEdge().end.name.equals(target)) { // its the target city
                                 double curBest = curP.computeOverallTransmittance();

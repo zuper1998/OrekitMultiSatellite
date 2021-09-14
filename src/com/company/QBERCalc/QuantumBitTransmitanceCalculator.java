@@ -78,13 +78,8 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
     //Since its sat->sat it doesnt need a lot of parameters
     public double  calculateQBITSUMSat(double distance){
         calc.setDirection(1);
-        DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
-        //DefaultValues.groundSpaceChannelLength = 0; // Should be in KMs IDK what it does
-        calc.setZenithAngle(DefaultValues.zenithAngle);
-
-        calc.setSpaceSpaceChannelLength(distance);
-
-        calc.setQber(); // if distance over sea is above 2000 it gets funky xd
+        calc.setSpaceSpaceChannelLength(distance/1000);
+        calc.setQber();
 
         double bits = 0.5 * calc.getFrequencyOfLaserFiring() * DefaultValues.quantumEfficiencyOfDetector * calc.getTransmittance() * calc.getMeanPhotonNumberOfSignal();
 
@@ -94,9 +89,8 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
     //Since its sat->sat it doesnt need a lot of parameters
     public double  calculateTransmitanceSat(double distance){
         calc.setDirection(1);
-        calc.setZenithAngle(DefaultValues.zenithAngle);
 
-        calc.setSpaceSpaceChannelLength(distance);
+        calc.setSpaceSpaceChannelLength(distance/1000);
 
         calc.setQber(); // if distance over sea is above 2000 it gets funky xd
 

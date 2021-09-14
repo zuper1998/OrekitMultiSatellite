@@ -4,56 +4,12 @@ graph [ dpi = 300 ];
 rankdir=LR;
 Budapest
 NewYork
-Budapest->Starlink_7 [color=dodgerblue3 label=" Transmittance: 52.4, duration: 317.0 seconds 
- total duration usage: 100.0% "]
-Starlink_7->NewYork [color=dodgerblue3 label=" Transmittance: 52.4, duration: 317.0 seconds 
- total duration usage: 58.9% "]
-Budapest->Starlink_7 [color=Black label=" D: 317.0 
- TR: 38.1 "]
-Starlink_7->NewYork [color=Black label=" D: 317.0 
- TR: 38.1 "]
-Budapest->Starlink_7 [color=Black label=" D: 290.0 
- TR: 2.1 "]
-Starlink_7->Starlink_3 [color=Black label=" D: 290.0 
- TR: 2.1 "]
-Starlink_3->NewYork [color=Black label=" D: 290.0 
- TR: 2.1 "]
-Budapest->Starlink_7 [color=Black label=" D: 317.0 
- TR: 4.7 "]
-Starlink_7->Starlink_4 [color=Black label=" D: 317.0 
- TR: 4.7 "]
-Starlink_4->NewYork [color=Black label=" D: 317.0 
- TR: 4.7 "]
-Budapest->Starlink_7 [color=Black label=" D: 205.0 
- TR: 1.8 "]
-Starlink_7->Starlink_4 [color=Black label=" D: 205.0 
- TR: 1.8 "]
-Starlink_4->Starlink_8 [color=Black label=" D: 205.0 
- TR: 1.8 "]
-Starlink_8->NewYork [color=Black label=" D: 205.0 
- TR: 1.8 "]
-Budapest->Starlink_7 [color=Black label=" D: 179.0 
- TR: 9.5 "]
-Starlink_7->Starlink_4 [color=Black label=" D: 179.0 
- TR: 9.5 "]
-Starlink_4->Starlink_8 [color=Black label=" D: 179.0 
- TR: 9.5 "]
-Starlink_8->NewYork [color=Black label=" D: 179.0 
- TR: 9.5 "]
-Budapest->Starlink_7 [color=Black label=" D: 317.0 
- TR: 22.7 "]
-Starlink_7->Starlink_4 [color=Black label=" D: 317.0 
- TR: 22.7 "]
-Starlink_4->Starlink_8 [color=Black label=" D: 317.0 
- TR: 22.7 "]
-Starlink_8->NewYork [color=Black label=" D: 317.0 
- TR: 22.7 "]
-Budapest->Starlink_7 [color=Black label=" D: 278.0 
- TR: 6.6 "]
-Starlink_7->Starlink_4 [color=Black label=" D: 278.0 
- TR: 6.6 "]
-Starlink_4->Starlink_8 [color=Black label=" D: 278.0 
- TR: 6.6 "]
-Starlink_8->NewYork [color=Black label=" D: 278.0 
- TR: 6.6 "]
+Budapest->Starlink_7 [color=dodgerblue3 label=" Transmittance: 2.6, duration: 0.0 seconds 
+ total duration usage: NaN% "]
+Starlink_7->Starlink_4 [color=dodgerblue3 label=" Transmittance: 2.6, duration: 0.0 seconds 
+ total duration usage: 0.0% "]
+Starlink_4->Starlink_8 [color=dodgerblue3 label=" Transmittance: 2.6, duration: 0.0 seconds 
+ total duration usage: 0.0% "]
+Starlink_8->NewYork [color=dodgerblue3 label=" Transmittance: 2.6, duration: 0.0 seconds 
+ total duration usage: 0.0% "]
 }

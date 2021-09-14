@@ -10,7 +10,8 @@ import org.orekit.time.AbsoluteDate;
 import java.io.Serial;
 import java.io.Serializable;
 
-import static com.company.SatOrbitProbagation.calc;
+import static Data.SimValues.calc;
+import static Data.SimValues.stepT;
 
 public class Edge implements Serializable {
     @Serial
@@ -59,11 +60,11 @@ public class Edge implements Serializable {
                 int dir = 0;
                 if(end.isCity())
                 dir = 2;
-                out+= calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir)*SatOrbitProbagation.stepT;
+                out+= calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir)*stepT;
             }
         } else {
             for(Double d : getOrbitData().Distance){
-                out+= calc.calculateTransmitanceSat(d)*SatOrbitProbagation.stepT;
+                out+= calc.calculateTransmitanceSat(d)*stepT;
             }
         }
         return out;
@@ -189,14 +190,14 @@ public class Edge implements Serializable {
 
     public void popLastData() {
        getOrbitData().popLastData();
-       data.end = data.end.shiftedBy(-1*SatOrbitProbagation.stepT);
-        data.recalcDur();
+       data.end = data.end.shiftedBy(-1*stepT);
+       data.recalcDur();
 
     }
 
     public void popFirstData() {
         getOrbitData().popFirstData();
-        data.start = data.start.shiftedBy(SatOrbitProbagation.stepT);
+        data.start = data.start.shiftedBy(stepT);
         data.recalcDur();
 
     }

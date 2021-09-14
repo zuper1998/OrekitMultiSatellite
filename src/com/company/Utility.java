@@ -13,6 +13,8 @@ import java.util.AbstractSet;
 import java.util.ArrayList;
 import java.util.Map;
 
+import static Data.SimValues.stepT;
+
 
 public class Utility {
     public static boolean SatVisible(SpacecraftState spaceState_outer, SpacecraftState spaceState_inner) {
@@ -80,7 +82,7 @@ public class Utility {
         for(int i = 1;i<timeSet.size();i++){
             AbsoluteDate curr = timeSet.get(i);
             AbsoluteDate prev = timeSet.get(i-1);
-            if(curr.durationFrom(prev)>SatOrbitProbagation.stepT){
+            if(curr.durationFrom(prev)>stepT){
                 out.add(new TimeInterval(start,prev));
                 start = curr;
             }
@@ -96,7 +98,7 @@ public class Utility {
         boolean last = false;
         for (AbsoluteDate extrapDate = startDate;
              extrapDate.compareTo(timeSet.get(timeSet.size()-1)) <= 0;
-             extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+             extrapDate = extrapDate.shiftedBy(stepT)) {
 
             if(timeSet.contains(extrapDate)){
                 if(first) {
@@ -122,7 +124,7 @@ public class Utility {
         double cnt = 0; //FOR MAX_WINDOW
         for (AbsoluteDate extrapDate = startDate;
              extrapDate.compareTo(timeSet.get(timeSet.size()-1)) <= 0;
-             extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+             extrapDate = extrapDate.shiftedBy(stepT)) {
 
             if(cnt>=MAX_WINDOW){
                 first = true;

@@ -38,19 +38,17 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
+import Data.SimValues;
+
+import static Data.SimValues.MAX_TIME;
+import static Data.SimValues.stepT;
+
 
 public class SatOrbitProbagation {
     // configure Orekit
     //TODO: outsorce to a values class
-    public static final double stepT = 1;
-    public static double duration = 3600*24*0.5;
-    public static double MAX_TIME = 3600;
-    public static final QuantumBitTransmitanceCalculator calc =  new QuantumBitTransmitanceCalculator();
-    public static final int SearchDepth = 5;
 
-    public void setDuration(double d){
-        duration=d;
-    }
+
 
 
     public static void loadStuff(){
@@ -93,9 +91,7 @@ public class SatOrbitProbagation {
     cities.add(new City(-74,40.69,43,"NewYork"));
     final Frame earthFrame = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
 
-        var ref = new Object() {
-            String GlobalKey = "";
-        };
+
         Map<String,ArrayList< SatFlightData>> timelines = new HashMap<>();
         HashMap<String, AbsoluteDate> timelineHelperMap = new HashMap<>(); // absolut date is also a bool --> false if null
         HashMap<String, ArrayList<Double>> dataMap = new HashMap<>();
@@ -108,9 +104,7 @@ public class SatOrbitProbagation {
         timelines.put(c.name,new ArrayList<>());
     }
 
-    var ref1 = new Object() {
-        AbsoluteDate globDate = initialDate;
-    };
+
 
 
     ArrayList<TopocentricFrame> cityFrames = new ArrayList<>();
@@ -125,49 +119,9 @@ public class SatOrbitProbagation {
             final TopocentricFrame sta1Frame = new TopocentricFrame(earth, station1, c.name);
             cityFrames.add(sta1Frame);
 
-            /*
-            final GeodeticPoint station1 = new GeodeticPoint(c.latitude, c.longitude, c.altitude);
-            final TopocentricFrame sta1Frame = new TopocentricFrame(earth, station1, c.name);
-            // Event definition
-            final double maxcheck = 60.0;
-            final double threshold = 0.001;
-            final double elevation = FastMath.toRadians(20.0);
-            EventDetector a = new ElevationDetector(maxcheck, threshold, sta1Frame).
-                    withConstantElevation(elevation).
-                    withHandler((s, detector, increasing) -> {
-                    String name = String.format("%s->%s",detector.getTopocentricFrame().getName(),ref.GlobalKey);
-                    String name_backwards = String.format("%s->%s",ref.GlobalKey,detector.getTopocentricFrame().getName());
-                        if(increasing) {
-                            // ->
-                            timelineHelperMap.put(name,ref1.globDate);
-                            // <-
-                            timelineHelperMap.put(name_backwards,ref1.globDate);
-                        } else {
-                            // ->
-                            AbsoluteDate start = timelineHelperMap.get(name);
-                            if(!timelines.get(detector.getTopocentricFrame().getName()).contains(new SatFlightData(ref.GlobalKey))){
-                                timelines.get(detector.getTopocentricFrame().getName()).add(new SatFlightData(ref.GlobalKey));
-                            }
-                            int index = timelines.get(detector.getTopocentricFrame().getName()).indexOf(new SatFlightData(ref.GlobalKey));
-                            timelines.get(detector.getTopocentricFrame().getName()).get(index).addInterval(new TimeInterval(start,ref1.globDate));
-                            // <-
-                            if(!timelines.get(ref.GlobalKey).contains(new SatFlightData(detector.getTopocentricFrame().getName()))){
-                                timelines.get(ref.GlobalKey).add(new SatFlightData(detector.getTopocentricFrame().getName()));
-                            }
-                            int index_backwards = timelines.get(ref.GlobalKey).indexOf(new SatFlightData(detector.getTopocentricFrame().getName()));
-                            timelines.get(ref.GlobalKey).get(index_backwards).addInterval(new TimeInterval(start,ref1.globDate));
-                        }
-                        return Action.CONTINUE;
-                    });
-            for(Map.Entry<String, Propagator> p : orbits.entrySet()){
-                p.getValue().addEventDetector(a);
-            }
-
-            */
-
         }
 
-        final AbsoluteDate finalDate = initialDate.shiftedBy(duration);
+        final AbsoluteDate finalDate = initialDate.shiftedBy(SimValues.duration);
 
 
 
@@ -183,23 +137,25 @@ public class SatOrbitProbagation {
 
             //check visibility for cities also backwards
             for(TopocentricFrame c : cityFrames){
-                Vector3D coord = c.getPVCoordinates(extrapDate,earthFrame).getPosition(); // 99% the basis of the vector system is earth itself so it wont realy move xd
+                 // 99% the basis of the vector system is earth itself so it wont realy move xd
 
 
                 for(Map.Entry<String, SpacecraftState> Sat : curState.entrySet()){
+                    Vector3D coord = c.getPVCoordinates(extrapDate,earthFrame).getPosition();
                     SpacecraftState ss = Sat.getValue();
                     //double degree = Math.abs(Math.toDegrees(c.getElevation(ss.getPVCoordinates().getPosition() , ss.getFrame(),extrapDate)));
                     double distance = coord.distance(ss.getPVCoordinates().getPosition());
 
-                    //https://www.orekit.org/mailing-list-archives/orekit-users/msg00625.html
-                    Transform t = ss.getFrame().getTransformTo(c,ss.getDate());
-                    PVCoordinates pv = t.transformPVCoordinates(ss.getPVCoordinates());
-                    double degree =  FastMath.toDegrees(pv.getPosition().getDelta());
-
+                    //https://www.orekit.org/mailing-list-archives/orekit-users/msg00625.html same as this,check the implementation of getElevation
+                    double degree1 =   FastMath.toDegrees(c.getElevation(ss.getPVCoordinates().getPosition(),c,ss.getDate()));
+                    //TODO:This is a terible hack, should be removed -- i gna make my elevation detector with blackjack and hookers!
+                    double degree  = FastMath.toDegrees(FastMath.asin((ss.getPVCoordinates().getPosition().distance(Vector3D.ZERO)-coord.distance(Vector3D.ZERO))/distance));
                     String name = String.format("%s->%s",c.getName(),Sat.getKey());
                     String name_backwards = String.format("%s->%s",Sat.getKey(),c.getName());
-                    //if(Sat.getKey().equals("Starlink_8")&&c.getName().equals("Budapest"))
+                    //if(c.getName().equals("Berlin")&&Sat.getKey().equals("Starlink_2"))
                     //    System.out.println(degree);
+
+
                     if(degree>20){
                         // ->
                         timelineHelperMap.putIfAbsent(name,extrapDate);
@@ -283,34 +239,4 @@ public class SatOrbitProbagation {
         return timelines;
     }
 
-    public static void GenerateGraph(Map<String, SatTimeline> timelineMap, String city1,String city2) {
-        double MAX_WINDOW_SIZE = 0;
-        final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
-
-        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
-            if (a.getKey().equals(city1) || a.getKey().equals(city2)) {
-                double tmp_max = Utility.GetMaxWindow(a.getValue());
-                if (tmp_max > MAX_WINDOW_SIZE)
-                    MAX_WINDOW_SIZE = tmp_max;
-            }
-        }
-        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
-            System.out.println(a.getKey()+ "[shape=circle]");
-        }
-
-
-            for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
-            if (a.getKey().equals(city1) || a.getKey().equals(city2)) {
-               //a.getValue().recursiveStuff(initialDate, MAX_TIME,MAX_WINDOW_SIZE);
-                for(Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : a.getValue().timelineList.entrySet()) {
-                    ArrayList<TimeInterval> intervals = Utility.getTimeIntervals(timeline.getValue());
-                    for(TimeInterval t : intervals){
-                        System.out.println(a.getKey() + "->" + timeline.getKey().name + " [label=" + t.end.durationFrom(t.start) + "]");
-                        timeline.getKey().recursiveStuff(t.end.shiftedBy(10),MAX_TIME,t.end.durationFrom(t.start));
-                    }
-            }
-        }
-
-    }
-}
 }

@@ -1,5 +1,6 @@
 package com.company;
 
+import Data.SimValues;
 import com.company.Graph.Graph;
 import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScalesFactory;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.company.SatOrbitProbagation.MAX_TIME;
+import static Data.SimValues.stepT;
 
 public class SatTimeline {
     public String name;
@@ -66,7 +67,7 @@ public class SatTimeline {
 */
     public double getMaxWindow() {
         final AbsoluteDate start = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
-        final AbsoluteDate end = start.shiftedBy(SatOrbitProbagation.duration);
+        final AbsoluteDate end = start.shiftedBy(SimValues.duration);
         double max=0;
         double cnt=0;
         for(Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> a : timelineList.entrySet()){
@@ -74,7 +75,7 @@ public class SatTimeline {
 
             for (AbsoluteDate extrapDate = start;
                  extrapDate.compareTo(end) <= 0;
-                 extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+                 extrapDate = extrapDate.shiftedBy(stepT)) {
                 if (a.getValue().contains(extrapDate)) {
                     cnt += 1;
                     first = true;

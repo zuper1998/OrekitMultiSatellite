@@ -43,6 +43,6 @@ public class Node implements Serializable {
     }
 
     public boolean isCity() {
-        return name.equals("NewYork")||name.equals("Budapest"); //TODO: make nicer way for this
+        return name.equals("NewYork")||name.equals("Budapest")||name.equals("Berlin"); //TODO: make nicer way for this
     }
 }
