@@ -23,7 +23,7 @@ public class Path {
         path.addAll(e);
     }
     public Path addEdge(Edge e) throws Exception {
-        if(getLastEdge().getDataStart().isBefore(e.getDataStart()) || this.containsNode(e.getEndNode())) {
+        if(e.getDataEnd().isAfter(getLastEdge().getDataStart()) || this.containsNode(e.getEndNode())) {
             Edge tE = getLastEdge();
             path.remove(path.size()-1); //remove last edge so it can be "redesigned"
             path.addAll(calculateBestTransition(tE,e));
@@ -69,7 +69,7 @@ public class Path {
                 }
 
             }
-            if(v1.getOrbitData().Distance.isEmpty()||v2.getOrbitData().Distance.isEmpty()){
+            if(v1.getOrbitData().Distance.size()<SimValues.MIN_WINDOW||v2.getOrbitData().Distance.size()<SimValues.MIN_WINDOW){
                 return false;
             }
             delta-= stepT;
@@ -170,7 +170,7 @@ public class Path {
     }
     //TODO: check with max Length, maybe cut down so it will not be too long?
     public Path generateNewWith(Edge edge) throws Exception {
-        return new Path(path).addEdge(edge);
+        return new Path(getPath()).addEdge(edge);
     }
 
     public ArrayList<Edge> getPath() {

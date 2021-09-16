@@ -24,17 +24,19 @@ public class Utility {
         Vector3D earthCore = new Vector3D(0,0,0);
         Vector3D closestP = getClosestP(pos_inner,pos_outer,earthCore);
 
+
+
+
         double tmp = closestP.distance(earthCore);
-        //System.out.print(tmp+" , ");
+
         return tmp>((6371+500)*1000);
 
     }
     //https://math.stackexchange.com/questions/2193720/find-a-point-on-a-line-segment-which-is-the-closest-to-other-point-not-on-the-li
     private static Vector3D getClosestP(Vector3D A, Vector3D B, Vector3D P) {
-        double t = 0;
         Vector3D v = B.subtract(A);
         Vector3D u = A.subtract(P);
-        t = -1*(v.dotProduct(u)/v.dotProduct(v));
+        double t = -1*(v.dotProduct(u)/v.dotProduct(v));
         if (t<0 || 1<t){
             t= 0;
             Vector3D a1 = A.scalarMultiply(1-t).add(B.scalarMultiply(t)).subtract(P); // (1−t)A+tB−P

@@ -202,15 +202,17 @@ public class Graph {
 
         boolean running = true;
         int cnt=0;
+        ;
         while(running){ // If there are no backward Edges in the paths there cant be more levels then there are nodes
-            //if(++cnt>SearchDepth)
-            //    break;
+            System.err.println(cnt+ "   Max:"+Max+"   Paths's in use:"+nextRound.size());
+            if(++cnt>SearchDepth)
+                break;
             running = false;
             ArrayList<Path> TnextRound = new ArrayList<>(nextRound);
             nextRound = new ArrayList<>();
             for(Path p : TnextRound){
                 for (Edge outerEdge : p.getLastEdge().end.edges) {
-                    if(outerEdge.getDataStart().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())){
+                    if(outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())){
                         Path curP = null;
                         try {
                             curP = p.generateNewWith(outerEdge);

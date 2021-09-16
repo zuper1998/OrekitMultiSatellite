@@ -69,12 +69,12 @@ public class SatOrbitProbagation {
     public static Map<String,ArrayList<SatFlightData>> Generate(){
 
     //  Initial state definition : date, orbit
-    final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC())
+    final AbsoluteDate initialDate = new AbsoluteDate(2021, 1, 1, 23, 30, 00.000, TimeScalesFactory.getUTC())
             .shiftedBy(0    );
     final double mu = 3.986004415e+14; // gravitation coefficient
     final Frame inertialFrame = FramesFactory.getEME2000(); // inertial frame for orbit definition
     ArrayList<Satellite_Sajat> sats = Satellite_Sajat.SatLoader(
-            "src/Data/StarlinkOrb2.txt");
+            "src/Data/QSAT.txt");
 
     Map<String, Propagator> orbits = new HashMap<>();
     for (Satellite_Sajat s1 : sats) {
@@ -143,13 +143,12 @@ public class SatOrbitProbagation {
                 for(Map.Entry<String, SpacecraftState> Sat : curState.entrySet()){
                     Vector3D coord = c.getPVCoordinates(extrapDate,earthFrame).getPosition();
                     SpacecraftState ss = Sat.getValue();
-                    //double degree = Math.abs(Math.toDegrees(c.getElevation(ss.getPVCoordinates().getPosition() , ss.getFrame(),extrapDate)));
-                    double distance = coord.distance(ss.getPVCoordinates().getPosition());
-
+                    //double distance = coord.distance(ss.getPVCoordinates().getPosition());
+                    double distance = c.getRange(ss.getPVCoordinates().getPosition(), ss.getFrame(), ss.getDate());
                     //https://www.orekit.org/mailing-list-archives/orekit-users/msg00625.html same as this,check the implementation of getElevation
-                    double degree1 =   FastMath.toDegrees(c.getElevation(ss.getPVCoordinates().getPosition(),c,ss.getDate()));
-                    //TODO:This is a terible hack, should be removed -- i gna make my elevation detector with blackjack and hookers!
-                    double degree  = FastMath.toDegrees(FastMath.asin((ss.getPVCoordinates().getPosition().distance(Vector3D.ZERO)-coord.distance(Vector3D.ZERO))/distance));
+                    double degree =   FastMath.toDegrees(c.getElevation(ss.getPVCoordinates().getPosition(), ss.getFrame(), ss.getDate()));
+                    //This is a terible hack, should be removed -- i gna make my elevation detector with blackjack and hookers! -- dont use
+                    //double degree  = FastMath.toDegrees(FastMath.asin((ss.getPVCoordinates().getPosition().distance(Vector3D.ZERO)-coord.distance(Vector3D.ZERO))/distance));
                     String name = String.format("%s->%s",c.getName(),Sat.getKey());
                     String name_backwards = String.format("%s->%s",Sat.getKey(),c.getName());
                     //if(c.getName().equals("Berlin")&&Sat.getKey().equals("Starlink_2"))

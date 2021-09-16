@@ -20,6 +20,7 @@ public class Satellite_Sajat {
     final static double mu =  3.986004415e+14;
 
     /**
+     * https://orbitalmechanics.info/ to see what each param does
      * @param _a Semi Major Axis of the satellite orbit
      * @param _e Eccentricity of the satellite orbit
      * @param _i Inclination of the satellite orbit
