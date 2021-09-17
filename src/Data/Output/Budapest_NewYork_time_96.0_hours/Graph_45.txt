@@ -1,0 +1,42 @@
+digraph G{
+layouit=dot
+graph [ dpi = 300 ];
+rankdir=LR;
+Budapest
+label = "45 iteration: 653.463464 qubits "NewYork
+Budapest->Starlink_2 [color=goldenrod1 label=" 462.0 "]
+Starlink_2->NewYork [color=goldenrod1 label=" 462.0 "]
+Budapest->Starlink_2 [color=Black label=" 362.0 "]
+Starlink_2->NewYork [color=Black label=" 362.0 "]
+Budapest->Starlink_2 [color=Black label=" 365.0 "]
+Starlink_2->NewYork [color=Black label=" 365.0 "]
+Budapest->Starlink_2 [color=Black label=" 454.0 "]
+Starlink_2->NewYork [color=Black label=" 454.0 "]
+Budapest->Starlink_2 [color=Black label=" 180.0 "]
+Starlink_2->Starlink_6 [color=Black label=" 180.0 "]
+Starlink_6->NewYork [color=Black label=" 180.0 "]
+Budapest->Starlink_2 [color=Black label=" 180.0 "]
+Starlink_2->Starlink_6 [color=Black label=" 180.0 "]
+Starlink_6->NewYork [color=Black label=" 180.0 "]
+Budapest->Starlink_2 [color=Black label=" 180.0 "]
+Starlink_2->Starlink_6 [color=Black label=" 180.0 "]
+Starlink_6->NewYork [color=Black label=" 180.0 "]
+Budapest->Starlink_2 [color=Black label=" 180.0 "]
+Starlink_2->Starlink_6 [color=Black label=" 180.0 "]
+Starlink_6->NewYork [color=Black label=" 180.0 "]
+Budapest->Starlink_2 [color=Black label=" 371.0 "]
+Starlink_2->Starlink_5 [color=Black label=" 371.0 "]
+Starlink_5->NewYork [color=Black label=" 371.0 "]
+Budapest->Starlink_2 [color=Black label=" 462.0 "]
+Starlink_2->Starlink_5 [color=Black label=" 462.0 "]
+Starlink_5->NewYork [color=Black label=" 462.0 "]
+Budapest->Starlink_2 [color=Black label=" 288.0 "]
+Starlink_2->Starlink_5 [color=Black label=" 288.0 "]
+Starlink_5->NewYork [color=Black label=" 288.0 "]
+Budapest->Starlink_2 [color=Black label=" 451.0 "]
+Starlink_2->Starlink_5 [color=Black label=" 451.0 "]
+Starlink_5->NewYork [color=Black label=" 451.0 "]
+Budapest->Starlink_2 [color=Black label=" 462.0 "]
+Starlink_2->Starlink_5 [color=Black label=" 462.0 "]
+Starlink_5->NewYork [color=Black label=" 462.0 "]
+}

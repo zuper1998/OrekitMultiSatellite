@@ -1,5 +1,6 @@
 package com.company.Graph;
 
+import com.company.IntervalData;
 import com.company.SatTimeline;
 import org.orekit.time.AbsoluteDate;
 
@@ -15,9 +16,10 @@ public class Node implements Serializable {
     public Node(String n){
         name = n;
     }
-    public void addEdge (Node e, AbsoluteDate ds, AbsoluteDate de) {
-        if(!edges.contains(new Edge(this,e,ds,de)))
-        edges.add(new Edge(this,e,ds,de));
+    public void addEdge (Node e, AbsoluteDate ds, AbsoluteDate de, IntervalData dat) {
+        Edge toAdd = new Edge(this,e,ds,de,dat);
+        if(!edges.contains(toAdd))
+        edges.add(toAdd);
     }
     @Override
     public boolean equals(Object o){
@@ -26,7 +28,9 @@ public class Node implements Serializable {
         }
         return false;
     }
-
+    public boolean stringEquals(Node n){
+        return name.equals(n.name);
+    }
     public void printDotEdges() {
         for(Edge e : edges){
             e.print();
@@ -36,5 +40,9 @@ public class Node implements Serializable {
         for(Edge e : edges){
             e.printNoLabel();
         }
+    }
+
+    public boolean isCity() {
+        return name.equals("NewYork")||name.equals("Budapest")||name.equals("Berlin"); //TODO: make nicer way for this
     }
 }

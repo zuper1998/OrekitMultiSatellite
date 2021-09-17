@@ -13,6 +13,8 @@ import java.util.AbstractSet;
 import java.util.ArrayList;
 import java.util.Map;
 
+import static Data.SimValues.stepT;
+
 
 public class Utility {
     public static boolean SatVisible(SpacecraftState spaceState_outer, SpacecraftState spaceState_inner) {
@@ -22,17 +24,19 @@ public class Utility {
         Vector3D earthCore = new Vector3D(0,0,0);
         Vector3D closestP = getClosestP(pos_inner,pos_outer,earthCore);
 
+
+
+
         double tmp = closestP.distance(earthCore);
-        //System.out.print(tmp+" , ");
+
         return tmp>((6371+500)*1000);
 
     }
     //https://math.stackexchange.com/questions/2193720/find-a-point-on-a-line-segment-which-is-the-closest-to-other-point-not-on-the-li
     private static Vector3D getClosestP(Vector3D A, Vector3D B, Vector3D P) {
-        double t = 0;
         Vector3D v = B.subtract(A);
         Vector3D u = A.subtract(P);
-        t = -1*(v.dotProduct(u)/v.dotProduct(v));
+        double t = -1*(v.dotProduct(u)/v.dotProduct(v));
         if (t<0 || 1<t){
             t= 0;
             Vector3D a1 = A.scalarMultiply(1-t).add(B.scalarMultiply(t)).subtract(P); // (1−t)A+tB−P
@@ -80,7 +84,7 @@ public class Utility {
         for(int i = 1;i<timeSet.size();i++){
             AbsoluteDate curr = timeSet.get(i);
             AbsoluteDate prev = timeSet.get(i-1);
-            if(curr.durationFrom(prev)>SatOrbitProbagation.stepT){
+            if(curr.durationFrom(prev)>stepT){
                 out.add(new TimeInterval(start,prev));
                 start = curr;
             }
@@ -96,7 +100,7 @@ public class Utility {
         boolean last = false;
         for (AbsoluteDate extrapDate = startDate;
              extrapDate.compareTo(timeSet.get(timeSet.size()-1)) <= 0;
-             extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+             extrapDate = extrapDate.shiftedBy(stepT)) {
 
             if(timeSet.contains(extrapDate)){
                 if(first) {
@@ -122,7 +126,7 @@ public class Utility {
         double cnt = 0; //FOR MAX_WINDOW
         for (AbsoluteDate extrapDate = startDate;
              extrapDate.compareTo(timeSet.get(timeSet.size()-1)) <= 0;
-             extrapDate = extrapDate.shiftedBy(SatOrbitProbagation.stepT)) {
+             extrapDate = extrapDate.shiftedBy(stepT)) {
 
             if(cnt>=MAX_WINDOW){
                 first = true;

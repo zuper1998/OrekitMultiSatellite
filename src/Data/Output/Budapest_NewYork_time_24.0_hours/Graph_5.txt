@@ -1,0 +1,15 @@
+digraph G{
+layouit=dot
+graph [ dpi = 300 ];
+rankdir=LR;
+Budapest
+NewYork
+Budapest->Starlink_7 [color=dodgerblue3 label=" Transmittance: 2.6, duration: 0.0 seconds 
+ total duration usage: NaN% "]
+Starlink_7->Starlink_4 [color=dodgerblue3 label=" Transmittance: 2.6, duration: 0.0 seconds 
+ total duration usage: 0.0% "]
+Starlink_4->Starlink_8 [color=dodgerblue3 label=" Transmittance: 2.6, duration: 0.0 seconds 
+ total duration usage: 0.0% "]
+Starlink_8->NewYork [color=dodgerblue3 label=" Transmittance: 2.6, duration: 0.0 seconds 
+ total duration usage: 0.0% "]
+}

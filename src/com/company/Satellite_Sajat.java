@@ -19,6 +19,16 @@ public class Satellite_Sajat {
     // gravitation coefficient
     final static double mu =  3.986004415e+14;
 
+    /**
+     * https://orbitalmechanics.info/ to see what each param does
+     * @param _a Semi Major Axis of the satellite orbit
+     * @param _e Eccentricity of the satellite orbit
+     * @param _i Inclination of the satellite orbit
+     * @param _omega Perigee argument of the satellite orbit
+     * @param _raan Right ascension of the ascending node of the satellite orbit
+     * @param _lM Mean anomaly of the satellite orbit
+     * @param _Name Name of the satellite
+     */
     Satellite_Sajat(double _a, double _e, double _i, double _omega, double _raan, double _lM, String _Name){
         a=_a;
         e=_e;
@@ -29,6 +39,11 @@ public class Satellite_Sajat {
         Name = _Name;
     }
 
+    /**
+     * @param FileName The name of the file to load the satellites from
+     * @return an array of satellites
+     *
+     */
     public static ArrayList<Satellite_Sajat> SatLoader(String FileName){
         File f = new File(FileName);
         ArrayList<Satellite_Sajat> sats = new ArrayList<>();

@@ -1,5 +1,6 @@
 package com.company.Graph;
 
+import Data.SimValues;
 import com.company.SatOrbitProbagation;
 import org.orekit.time.AbsoluteDate;
 
@@ -14,7 +15,7 @@ public class GraphUtility {
         //Ima use DFS bc i am lazy to implement anything more spicy
         ArrayList<Edge> EdgeOut =new ArrayList<Edge>();
 
-        RecursiveDFSSearch(s, e, EdgeOut, minDate, new ArrayList<Edge>(), SatOrbitProbagation.MAX_TIME);
+        RecursiveDFSSearch(s, e, EdgeOut, minDate, new ArrayList<Edge>(), SimValues.MAX_TIME);
 
         return EdgeOut;
     }

@@ -1,10 +1,17 @@
 package com.company.Graph;
 
-import org.hipparchus.analysis.function.Abs;
+import com.company.IntervalData;
+import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
+import com.company.SatOrbitProbagation;
+import net.jcip.annotations.Immutable;
+import org.hipparchus.util.FastMath;
 import org.orekit.time.AbsoluteDate;
 
 import java.io.Serial;
 import java.io.Serializable;
+
+import static Data.SimValues.calc;
+import static Data.SimValues.stepT;
 
 public class Edge implements Serializable {
     @Serial
@@ -13,11 +20,56 @@ public class Edge implements Serializable {
     Node end;
     EdgeData data;
 
-    public Edge(Node s, Node e, AbsoluteDate ds, AbsoluteDate de) {
+    public Node getEndNode(){
+        return end;
+    }
+
+    /**
+     * @param s Start node
+     * @param e End Node
+     * @param ds Start date
+     * @param de End Date
+     * @param dat Data for the edge timeline
+     */
+    public Edge(Node s, Node e, AbsoluteDate ds, AbsoluteDate de, IntervalData dat) {
         start = s;
         end = e;
-        data = new EdgeData(ds, de);
+        data = new EdgeData(ds, de,dat);
     }
+
+    /**
+     * @param e The Edge that should be copied
+     */
+    public Edge(Edge e){
+        start = e.start;
+        end = e.end;
+        data = new EdgeData(e.data);
+
+    }
+
+    /**
+     * @return the duration scaled with the transmittance of the timeline
+     */
+    public  double getDurationScaledWithTransmitance() {
+        double out=0;
+
+        if(start.isCity()|| end.isCity()){ //its a cit
+            for(int i = 0; i<getOrbitData().Angle.size(); i++){
+                double a = getOrbitData().Angle.get(i);
+                double d = getOrbitData().Distance.get(i);
+                int dir = 0;
+                if(end.isCity())
+                dir = 2;
+                out+= calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir)*stepT;
+            }
+        } else {
+            for(Double d : getOrbitData().Distance){
+                out+= calc.calculateTransmitanceSat(d)*stepT;
+            }
+        }
+        return out;
+    }
+
     @Override
     public boolean equals(Object o){
         if(o instanceof Edge){
@@ -36,6 +88,7 @@ public class Edge implements Serializable {
     public double getDataDuration(){
         return data.duration;
     }
+    public IntervalData getOrbitData(){return data.orbitData;}
     public void print() {
         String out = String.format("%s->%s [label=%f]",start.name,end.name,data.duration);
         System.out.println(out);
@@ -70,17 +123,109 @@ public class Edge implements Serializable {
     }
 
 
+    public void printColorAndThrougput(String color, double duration, double Tr){
+        String out = String.format("%s->%s [color=%s label=\" D: %.1f %n TR: %.1f \"]",start.name,end.name,color, duration,Tr);
+        System.out.println(out);
+    }
+    public void printColorThrougputAndUsedPercent(String color, double duration,double Tr){
+        String out = String.format("%s->%s [color=%s label=\" Transmittance: %.1f, duration: %.1f seconds %n total duration usage: %.1f%% \"]",start.name,end.name,color,Tr,duration,duration/getDataDuration()*100);
+        System.out.println(out);
+    }
+
+    /**
+     * Prints data in the following format: Angle Distance Transmitance
+     */
+    public void printData() {
+        if(data.orbitData.Angle !=null) {
+            System.out.printf("# %s->%s%n",start.name,end.name);
+            for (int i = 0; i < data.orbitData.Angle.size(); i++) {
+                double a = getOrbitData().Angle.get(i);
+                double d = getOrbitData().Distance.get(i);
+                int dir = 0;
+                if(end.isCity())
+                    dir = 2;
+                System.out.printf("%.3f %.3f %.3f %n",a,d, calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir));
+            }
+        }
+    }
+
+    /**
+     * @return the Transmittance of the first element in the list
+     */
+    public double getFirstTransmittance() {
+        if(getOrbitData().Distance.isEmpty()){
+            return 0;
+        }
+        if(start.isCity()|| end.isCity()){ //its a cit
+                double a = getOrbitData().Angle.get(0);
+                double d = getOrbitData().Distance.get(0);
+                int dir = 0;
+                if(end.isCity())
+                    dir = 2;
+                return calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir);
+            }else {
+            return calc.calculateTransmitanceSat(getOrbitData().Distance.get(0));
+        }
+    }
+
+    /**
+     * @return the Transmittance of the last element in the list
+     */
+    public double getLastTransmittance() {
+        if(getOrbitData().Distance.isEmpty()){
+            return 0;
+        }
+        if(start.isCity()|| end.isCity()){ //its a cit
+            double a = getOrbitData().Angle.get(getOrbitData().Angle.size()-1);
+            double d = getOrbitData().Distance.get(getOrbitData().Distance.size()-1);
+            int dir = 0;
+            if(end.isCity())
+                dir = 2;
+            return calc.calculateTransmitanceCity(a,d* FastMath.sin(FastMath.toRadians(a)),dir);
+        }else {
+            return calc.calculateTransmitanceSat(getOrbitData().Distance.get(0));
+        }
+    }
+
+
+    public void popLastData() {
+       getOrbitData().popLastData();
+       data.end = data.end.shiftedBy(-1*stepT);
+       data.recalcDur();
+
+    }
+
+    public void popFirstData() {
+        getOrbitData().popFirstData();
+        data.start = data.start.shiftedBy(stepT);
+        data.recalcDur();
+
+    }
+
     private static class EdgeData implements Serializable {
         @Serial
         private static final long serialVersionUID = 1L;
         public AbsoluteDate start;
         public AbsoluteDate end;
-
         public double duration;
-        public EdgeData(AbsoluteDate s, AbsoluteDate e){
+        public IntervalData orbitData;
+        public EdgeData(EdgeData ed){
+            start=ed.start;
+            end=ed.end;
+            duration=ed.duration;
+            orbitData= new IntervalData(ed.orbitData);
+        }
+
+        /**
+         * @param s Start date
+         * @param e End date
+         * @param dat Data for the timeline
+         */
+        public EdgeData(AbsoluteDate s, AbsoluteDate e, IntervalData dat){
             start = s;
             end = e;
             duration = e.durationFrom(s);
+            orbitData = dat;
         }
         @Override
         public boolean equals(Object o){
@@ -89,6 +234,10 @@ public class Edge implements Serializable {
                 return outer.start.equals(start) && outer.end.equals(end);
             }
             return false;
+        }
+
+        public void recalcDur() {
+            duration=end.durationFrom(start);
         }
     }
 }

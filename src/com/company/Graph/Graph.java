@@ -1,9 +1,10 @@
 package com.company.Graph;
 
-import com.company.SatFlightData;
-import com.company.SatTimeline;
-import com.company.TimeInterval;
-import com.company.Utility;
+import Data.SimValues;
+import com.company.*;
+import com.company.Graph.DynamicHelper.AllPathsReturn;
+import com.company.Graph.DynamicHelper.Path;
+import com.sun.tools.jconsole.JConsoleContext;
 import org.orekit.time.AbsoluteDate;
 import org.orekit.time.TimeScalesFactory;
 
@@ -13,14 +14,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.company.SatOrbitProbagation.MAX_TIME;
+import static Data.SimValues.MAX_TIME;
+import static Data.SimValues.SearchDepth;
+
 
 public class Graph {
 
     public Map<String,Node> nodes = new HashMap<>();
 
 
-    public void GenerateGraph(Map<String, ArrayList<SatFlightData>> timelineMap, String city1, String city2) {
+    public void GenerateGraph(Map<String, ArrayList<SatFlightData>> timelineMap) {
 
        for( Map.Entry<String, ArrayList<SatFlightData>> tlm :  timelineMap.entrySet()){
             nodes.put(tlm.getKey(),new Node(tlm.getKey()));
@@ -28,18 +31,23 @@ public class Graph {
        // add edges
        for( Map.Entry<String, ArrayList<SatFlightData>> tlm :  timelineMap.entrySet()){
            for(SatFlightData sfd : tlm.getValue()) {
-               for(TimeInterval t : sfd.Interval) {
-                   nodes.get(tlm.getKey()).addEdge(nodes.get(sfd.Dest),t.start,t.end);
-               }
+               //for(TimeInterval t : sfd.Interval) {
+               for(int i =0;i<sfd.Interval.size();i++){
+                   //Error comes from the ground states not giving data
+                   SatFlightData.SatFlightDataRetunVal satDat = sfd.getDataAt(i);
+                   nodes.get(tlm.getKey()).addEdge(nodes.get(sfd.Dest),satDat.getTimeInterval().start,satDat.getTimeInterval().end,satDat.getIntervalData());
+               }}
            }
-        }
+
 
 
 
         //Save data to dat.ser
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
+            //fos = new FileOutputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
+            fos = new FileOutputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
+
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(nodes);
             oos.close();
@@ -79,54 +87,78 @@ public class Graph {
     }
 
 
-    public void printG(String city1, String city2){
+
+
+    public void printBest(String city1, String city2) {
         final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
 
-        System.out.println("digraph G{");
-        System.out.println("layouit=dot");
-        System.out.println("graph [ dpi = 300 ];");
-        System.out.println("rankdir=LR;");
-        System.out.println(city1);
 
-        for(Map.Entry<String, Node> n : nodes.entrySet()){
-            if(!n.getKey().equals(city1) ||!n.getKey().equals(city2) ){
-                System.out.println(n.getKey());
+        //ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
+        PrintStream console = System.out;
+        ArrayList<AllPathsReturn> allp = new ArrayList<>();
+        for (int i = 0 ; i< nodes.get(city1).edges.size();i++){
+
+            try {
+                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours",city1,city2, SimValues.duration/3600);
+                new File(file).mkdir(); // creat folder
+                PrintStream o = new PrintStream(new File(file+"\\Graph_"+i+".txt"));
+                System.setOut(o);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
-        }
-        System.out.println(city2);
+            AllPathsReturn cur  =  dynamicGenerateBetweenCityIndexable(city1,city2,i);
+            if(cur!=null) {
+                allp.add(cur);
 
-        for(Edge edge : nodes.get("Budapest").edges) {
-            int index = nodes.get("Budapest").edges.indexOf(edge);
-            ArrayList<Edge> e =  GraphUtility.findPathTo(this,edge.end,nodes.get("Berlin"),edge.getDataStart());
-            if(!e.isEmpty()) {
-                e.add(edge);
+            System.out.println("digraph G{");
+            System.out.println("layouit=dot");
+            System.out.println("graph [ dpi = 300 ];");
+            System.out.println("rankdir=LR;");
+
+
+            System.out.println(city1);
+
+            System.out.printf("label = \"%d iteration: total duration %.3f \"", i, cur.getBest().getDur() );
+
+            System.out.println(city2);
+            cur.print(i);
+
+            System.out.println("}");
             }
-            //find best route for each iter:
-            //we need another graph for this -- by graph i mean nodes
-            Map<String,Node> local_nodes = new HashMap<>();
 
-            for(Map.Entry<String, Node> n : nodes.entrySet()){
-                local_nodes.put(n.getKey(),new Node(n.getKey()));
-            }
-            for(Edge loc_edge : e) {
-                local_nodes.get(loc_edge.start.name).addEdge(local_nodes.get(loc_edge.end.name),edge.getDataStart(),loc_edge.getDataEnd());
-            }
-
-
-
-            ArrayList<Edge> best = GraphUtility.findBestPath(local_nodes.get(city1), local_nodes.get(city2));
-
-
-            best.forEach(aaaa -> aaaa.printColorLabelDurationFromStart(index,initialDate));
         }
 
-        System.out.println("}");
+        System.setOut(console);
+
+
+        for (int i = 0 ; i< allp.size();i++) {
+            try {
+                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SimValues.duration / 3600);
+                new File(file).mkdir(); // creat folder
+                PrintStream o = new PrintStream(new File(file + "\\Graph_" + i + ".txt"));
+                System.setOut(o);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+                allp.get(i).printEdgeData();
+
+        }
+
+        System.setOut(console);
+
+       /*for(int i =0;i<allp.size();i++){
+            String tmp = String.format("%d iteration: %f qubits",i,allp.get(i).getBest().qbitsGenerated());
+            System.out.println(tmp);
+        }*/
+
 
     }
 
+
     public void loadFromFile(){
         try {
-            FileInputStream fis = new FileInputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
+            //FileInputStream fis = new FileInputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
+            FileInputStream fis = new FileInputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
             nodes = (HashMap<String,Node>) ois.readObject();
             ois.close();
@@ -135,82 +167,96 @@ public class Graph {
         }
     }
 
-    /*
-         for(Map.Entry<String, Node> n : nodes.entrySet()){
 
-            for(Edge e : n.getValue().edges){
-                int index = n.getValue().edges.indexOf(e);
-                if(index>=ColorsForEdge.values().length) index = 1;
-                e.printColorLabelDurationFromStart(index,initialDate);
-            }
-        }
-     */
+    public ArrayList<AllPathsReturn> dynamicGenerateBetweenCity(String city1, String city2){
 
 
-    public void GenerateGraphRecursive(Map<String, SatTimeline> timelineMap, String city1, String city2) {
-        double MAX_WINDOW_SIZE = 0;
-        final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
-
-        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
-            if (a.getKey().equals(city1) || a.getKey().equals(city2)) {
-                double tmp_max = Utility.GetMaxWindow(a.getValue());
-                if (tmp_max > MAX_WINDOW_SIZE)
-                    MAX_WINDOW_SIZE = tmp_max;
-            }
-        }
-        // Import Nodes
-        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
-           nodes.put(a.getKey(),new Node(a.getKey()));
+        ArrayList<AllPathsReturn> out = new ArrayList<>();
+        double i = 0;
+        for(Edge e : nodes.get(city1).edges) {
+            System.out.println(++i+" / "+nodes.get(city1).edges.size());
+            AllPathsReturn cur = dynamicAlgo(e, city2);
+            if(cur!=null)
+            out.add(cur);
         }
 
 
-        for(Map.Entry<String, SatTimeline> a : timelineMap.entrySet()) {
-            if (a.getKey().equals(city1) || a.getKey().equals(city2)) {
-                //a.getValue().recursiveStuff(initialDate, MAX_TIME,MAX_WINDOW_SIZE);
-                for(Map.Entry<SatTimeline, ArrayList<AbsoluteDate>> timeline : a.getValue().timelineList.entrySet()) {
-                    ArrayList<TimeInterval> intervals = Utility.getTimeIntervals(timeline.getValue());
 
-                    for(TimeInterval t : intervals){
-                        ArrayList<SatTimeline> used = new ArrayList<>();
-                        used.add(a.getValue());
-                        //System.out.println(a.getKey() + "->" + timeline.getKey().name + "  duration: " + t.end.durationFrom(t.start) + " time remaining:" + MAX_TIME);
-                        nodes.get(a.getKey()).addEdge(nodes.get(timeline.getKey().name),t.start,t.end);
-                        timeline.getKey().recursiveGraphBuilding(t.end.shiftedBy(100), MAX_TIME,t.end.durationFrom(t.start),this,used);
-                        //break;//SO it only runs the first intervak (it is geting fucking slow xd)
-                        //used.forEach(us -> System.out.print(us.name+ "  "));
-                        //System.out.println();
+        return out;
+    }
+    public AllPathsReturn dynamicGenerateBetweenCityIndexable(String city1, String city2,int i){
+
+        Edge e = nodes.get(city1).edges.get(i);
+        return dynamicAlgo(e, city2);
+    }
+
+
+
+
+    public AllPathsReturn dynamicAlgo(Edge in,  String target){
+        double Max=0;
+        ArrayList<Path> otherPaths = new ArrayList<>();
+        Path best = null;
+        ArrayList<Path> nextRound = new ArrayList<>();
+        nextRound.add(new Path(in));
+
+        boolean running = true;
+        int cnt=0;
+        ;
+        while(running){ // If there are no backward Edges in the paths there cant be more levels then there are nodes
+            System.err.println(cnt+ "   Max:"+Max+"   Paths's in use:"+nextRound.size());
+            if(++cnt>SearchDepth)
+                break;
+            running = false;
+            ArrayList<Path> TnextRound = new ArrayList<>(nextRound);
+            nextRound = new ArrayList<>();
+            for(Path p : TnextRound){
+                for (Edge outerEdge : p.getLastEdge().end.edges) {
+                    if(outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())){
+                        Path curP = null;
+                        try {
+                            curP = p.generateNewWith(outerEdge);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        if (curP != null) {
+                            if(curP.getDur()>MAX_TIME){
+                                if(!curP.trimToWindowSize()){
+                                    continue;
+                                }
+
+                            }
+                            if (curP.getLastEdge().end.name.equals(target)) { // its the target city
+                                double curBest = curP.computeOverallTransmittance();
+                                if (Max < curBest) {
+                                    Max = curBest;
+                                    if(best!=null) {
+                                        otherPaths.add(best); //adding older best path to the other paths
+                                    }
+                                    best = curP;
+                                }else {
+                                    otherPaths.add(curP);
+                                }
+                            }else {
+                                nextRound.add(curP);
+                                running = true;
+                            }
+                        }
+
                     }
-
                 }
             }
 
+
+
         }
 
 
-        System.out.println("digraph G{");
-        System.out.println("graph [ dpi = 300 ];");
-        System.out.println("rankdir=LR;");
-
-
-
-        for(Edge edge : nodes.get("Budapest").edges) {
-            int index = nodes.get("Budapest").edges.indexOf(edge);
-            ArrayList<Edge> e =  GraphUtility.findPathTo(this,edge.end,nodes.get("Berlin"),edge.getDataEnd());
-            if(!e.isEmpty()) {
-                e.add(edge);
-            }
-            e.forEach(aaaa -> aaaa.printColorLabelDurationFromStart(index,initialDate));
+        if(best!=null) {
+            return new AllPathsReturn(best, otherPaths);
+        } else {
+            return null;
         }
-
-        /*ArrayList<Edge> e =  GraphUtility.findPathTo(this,nodes.get("Budapest"),nodes.get("Berlin"),initialDate);
-        for(Edge edge : e){
-            edge.printNoLabel();
-        }*/
-
-        /*for(Map.Entry<String, Node> a :  nodes.entrySet()){
-            a.getValue().printDotEdges();
-        }*/
-
-        System.out.println("}");
     }
 }

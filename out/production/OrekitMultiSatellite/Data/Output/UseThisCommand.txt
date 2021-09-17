@@ -1,0 +1,1 @@
+forfiles /m "*.txt" /c "cmd /c dot -Tpng @file -o @fname.png"
