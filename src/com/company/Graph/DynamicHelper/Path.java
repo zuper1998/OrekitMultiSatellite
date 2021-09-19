@@ -119,9 +119,7 @@ public class Path {
             double a = first.getDataDuration();
             double b = next.getDataDuration();
             double delta = first.getDataEnd().durationFrom(next.getDataStart());
-            if(delta>a&&delta>b){
-                return 0;
-            }
+
             double Tr = 0;
             if(delta>0){
                 if(Math.abs((a-b) )>delta){
