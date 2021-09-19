@@ -1,9 +1,9 @@
 package com.company.Graph;
 
 import Data.SimValues;
-import com.company.*;
 import com.company.Graph.DynamicHelper.AllPathsReturn;
 import com.company.Graph.DynamicHelper.Path;
+import com.company.SatFlightData;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,26 +16,25 @@ import static Data.SimValues.SearchDepth;
 
 public class Graph {
 
-    public Map<String,Node> nodes = new HashMap<>();
+    public Map<String, Node> nodes = new HashMap<>();
 
 
     public void GenerateGraph(Map<String, ArrayList<SatFlightData>> timelineMap) {
 
-       for( Map.Entry<String, ArrayList<SatFlightData>> tlm :  timelineMap.entrySet()){
-            nodes.put(tlm.getKey(),new Node(tlm.getKey()));
-       }
-       // add edges
-       for( Map.Entry<String, ArrayList<SatFlightData>> tlm :  timelineMap.entrySet()){
-           for(SatFlightData sfd : tlm.getValue()) {
-               //for(TimeInterval t : sfd.Interval) {
-               for(int i =0;i<sfd.Interval.size();i++){
-                   //Error comes from the ground states not giving data
-                   SatFlightData.SatFlightDataRetunVal satDat = sfd.getDataAt(i);
-                   nodes.get(tlm.getKey()).addEdge(nodes.get(sfd.Dest),satDat.getTimeInterval().start,satDat.getTimeInterval().end,satDat.getIntervalData());
-               }}
-           }
-
-
+        for (Map.Entry<String, ArrayList<SatFlightData>> tlm : timelineMap.entrySet()) {
+            nodes.put(tlm.getKey(), new Node(tlm.getKey()));
+        }
+        // add edges
+        for (Map.Entry<String, ArrayList<SatFlightData>> tlm : timelineMap.entrySet()) {
+            for (SatFlightData sfd : tlm.getValue()) {
+                //for(TimeInterval t : sfd.Interval) {
+                for (int i = 0; i < sfd.Interval.size(); i++) {
+                    //Error comes from the ground states not giving data
+                    SatFlightData.SatFlightDataRetunVal satDat = sfd.getDataAt(i);
+                    nodes.get(tlm.getKey()).addEdge(nodes.get(sfd.Dest), satDat.getTimeInterval().start, satDat.getTimeInterval().end, satDat.getIntervalData());
+                }
+            }
+        }
 
 
         //Save data to dat.ser
@@ -54,42 +53,40 @@ public class Graph {
     }
 
 
-
-
     public void printBest(String city1, String city2) {
 
 
         //ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
         PrintStream console = System.out;
         ArrayList<AllPathsReturn> allp = new ArrayList<>();
-        for (int i = 0 ; i< nodes.get(city1).edges.size();i++){
+        for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
 
             try {
-                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours",city1,city2, SimValues.duration/3600);
+                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours", city1, city2, SimValues.duration / 3600);
                 new File(file).mkdir(); // creat folder
-                PrintStream o = new PrintStream(file+"\\Graph_"+i+".txt");
+                PrintStream o = new PrintStream(file + "\\Graph_" + i + ".txt");
                 System.setOut(o);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            AllPathsReturn cur  =  dynamicGenerateBetweenCityIndexable(city1,city2,i);
-            if(cur!=null) {
+            AllPathsReturn cur = dynamicGenerateBetweenCityIndexable(city1, city2, i);
+            if (cur != null) {
                 allp.add(cur);
 
-            System.out.println("digraph G{");
-            System.out.println("layouit=dot");
-            System.out.println("graph [ dpi = 100 ];");
-            System.out.println("rankdir=LR;");
+                System.out.println("digraph G{");
+                System.out.println("layouit=dot");
+                System.out.println("graph [ dpi = 100 ];");
+                System.out.println("rankdir=LR;");
 
 
-            System.out.println(city1);
+                System.out.println(city1);
 
-            System.out.printf("label = \"%d iteration: total duration %.3f \"", i, cur.getBest().getDur() );
+                System.out.printf("label = \"%d iteration: total duration %.3f \"", i, cur.getBest().getDur());
 
-            System.out.println(city2);
-            cur.print(i);
+                System.out.println(city2);
+                cur.print(i);
 
-            System.out.println("}");
+                System.out.println("}");
             }
 
         }
@@ -97,7 +94,7 @@ public class Graph {
         System.setOut(console);
 
 
-        for (int i = 0 ; i< allp.size();i++) {
+        for (int i = 0; i < allp.size(); i++) {
             try {
                 String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SimValues.duration / 3600);
                 new File(file).mkdir(); // creat folder
@@ -106,7 +103,7 @@ public class Graph {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-                allp.get(i).printEdgeData();
+            allp.get(i).printEdgeData();
 
         }
 
@@ -121,49 +118,46 @@ public class Graph {
     }
 
 
-    public void loadFromFile(){
+    public void loadFromFile() {
         try {
             //FileInputStream fis = new FileInputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
             FileInputStream fis = new FileInputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            nodes = (HashMap<String,Node>) ois.readObject();
+            nodes = (HashMap<String, Node>) ois.readObject();
             ois.close();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
-
-    public AllPathsReturn dynamicGenerateBetweenCityIndexable(String city1, String city2,int i){
+    public AllPathsReturn dynamicGenerateBetweenCityIndexable(String city1, String city2, int i) {
 
         Edge e = nodes.get(city1).edges.get(i);
         return dynamicAlgo(e, city2);
     }
 
 
-
-
-    public AllPathsReturn dynamicAlgo(Edge in,  String target){
-        double Max=0;
+    public AllPathsReturn dynamicAlgo(Edge in, String target) {
+        double Max = 0;
         ArrayList<Path> otherPaths = new ArrayList<>();
         Path best = null;
         ArrayList<Path> nextRound = new ArrayList<>();
         nextRound.add(new Path(in));
 
         boolean running = true;
-        int cnt=0;
+        int cnt = 0;
 
-        while(running){ // If there are no backward Edges in the paths there cant be more levels then there are nodes
-            System.err.println(cnt+ "   Max:"+Max+"   Paths's in use:"+nextRound.size());
-            if(++cnt>SearchDepth)
+        while (running) { // If there are no backward Edges in the paths there cant be more levels then there are nodes
+            System.err.println(cnt + "   Max:" + Max + "   Paths's in use:" + nextRound.size());
+            if (++cnt > SearchDepth)
                 break;
             running = false;
             ArrayList<Path> TnextRound = new ArrayList<>(nextRound);
             nextRound = new ArrayList<>();
-            for(Path p : TnextRound){
+            for (Path p : TnextRound) {
                 for (Edge outerEdge : p.getLastEdge().end.edges) {
-                    if(outerEdge.getDataStart().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())){
+                    if (outerEdge.getDataStart().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())) {
                         Path curP = null;
                         try {
                             curP = p.generateNewWith(outerEdge);
@@ -172,8 +166,8 @@ public class Graph {
                         }
 
                         if (curP != null) {
-                            if(curP.getDur()>MAX_TIME){
-                                if(!curP.trimToWindowSize()){
+                            if (curP.getDur() > MAX_TIME) {
+                                if (!curP.trimToWindowSize()) {
                                     continue;
                                 }
 
@@ -182,15 +176,15 @@ public class Graph {
                                 double curBest = curP.computeOverallTransmittance();
                                 if (Max < curBest) {
                                     Max = curBest;
-                                    if(best!=null) {
+                                    if (best != null) {
                                         otherPaths.add(best); //adding older best path to the other paths
                                     }
                                     best = curP;
-                                }else {
+                                } else {
                                     //addIfBestKind(curP,otherPaths);
                                     otherPaths.add(curP);
                                 }
-                            }else {
+                            } else {
                                 nextRound.add(curP);
                                 running = true;
                             }
@@ -201,11 +195,10 @@ public class Graph {
             }
 
 
-
         }
 
 
-        if(best!=null) {
+        if (best != null) {
             return new AllPathsReturn(best, otherPaths);
         } else {
             return null;
@@ -213,8 +206,8 @@ public class Graph {
     }
 
     private void addIfBestKind(Path curP, ArrayList<Path> otherPaths) {
-        for(Path p : otherPaths){
-            if(p.isSameKind(curP) && p.computeOverallTransmittance()<curP.computeOverallTransmittance()){
+        for (Path p : otherPaths) {
+            if (p.isSameKind(curP) && p.computeOverallTransmittance() < curP.computeOverallTransmittance()) {
                 otherPaths.remove(p);
                 otherPaths.add(curP);
             }
