@@ -25,7 +25,9 @@ public class AllPathsReturn {
             p.getPath().forEach(edge -> edge.printColorAndThrougput("Black",p._computeBest(),p.computeOverallTransmittance()));
         }
     }
-
+    public ArrayList<Path> getOtherPaths(){
+        return otherPaths;
+    }
     public void printEdgeData() {
         best.getPath().forEach(Edge::printData);
     }

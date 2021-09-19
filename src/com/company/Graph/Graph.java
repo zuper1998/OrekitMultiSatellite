@@ -4,12 +4,8 @@ import Data.SimValues;
 import com.company.*;
 import com.company.Graph.DynamicHelper.AllPathsReturn;
 import com.company.Graph.DynamicHelper.Path;
-import com.sun.tools.jconsole.JConsoleContext;
-import org.orekit.time.AbsoluteDate;
-import org.orekit.time.TimeScalesFactory;
 
 import java.io.*;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +39,7 @@ public class Graph {
 
 
         //Save data to dat.ser
-        FileOutputStream fos = null;
+        FileOutputStream fos;
         try {
             //fos = new FileOutputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
             fos = new FileOutputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
@@ -57,40 +53,10 @@ public class Graph {
         }
     }
 
-    public void printAllEdges(String city1, String city2) {
-        final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
-
-        System.out.println("digraph G{");
-        System.out.println("layouit=dot");
-        System.out.println("graph [ dpi = 300 ];");
-        System.out.println("rankdir=LR;");
-        System.out.println(city1);
-
-
-        for (Map.Entry<String, Node> n : nodes.entrySet()) {
-            if (!n.getKey().equals(city1) || !n.getKey().equals(city2)) {
-                System.out.println(n.getKey());
-            }
-
-        }
-        System.out.println(city2);
-        int ind = 0;
-        for (Map.Entry<String, Node> n : nodes.entrySet()) {
-            for(Edge e : n.getValue().edges){
-                e.printColorLabelDurationFromStart(ind,initialDate);
-            }
-            ind++;
-        }
-
-        System.out.println("}");
-
-    }
-
 
 
 
     public void printBest(String city1, String city2) {
-        final AbsoluteDate initialDate = new AbsoluteDate(2021, 01, 01, 23, 30, 00.000, TimeScalesFactory.getUTC());
 
 
         //ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
@@ -101,7 +67,7 @@ public class Graph {
             try {
                 String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours",city1,city2, SimValues.duration/3600);
                 new File(file).mkdir(); // creat folder
-                PrintStream o = new PrintStream(new File(file+"\\Graph_"+i+".txt"));
+                PrintStream o = new PrintStream(file+"\\Graph_"+i+".txt");
                 System.setOut(o);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -135,7 +101,7 @@ public class Graph {
             try {
                 String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SimValues.duration / 3600);
                 new File(file).mkdir(); // creat folder
-                PrintStream o = new PrintStream(new File(file + "\\Graph_" + i + ".txt"));
+                PrintStream o = new PrintStream(file + "\\Graph_" + i + ".txt");
                 System.setOut(o);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -168,22 +134,7 @@ public class Graph {
     }
 
 
-    public ArrayList<AllPathsReturn> dynamicGenerateBetweenCity(String city1, String city2){
 
-
-        ArrayList<AllPathsReturn> out = new ArrayList<>();
-        double i = 0;
-        for(Edge e : nodes.get(city1).edges) {
-            System.out.println(++i+" / "+nodes.get(city1).edges.size());
-            AllPathsReturn cur = dynamicAlgo(e, city2);
-            if(cur!=null)
-            out.add(cur);
-        }
-
-
-
-        return out;
-    }
     public AllPathsReturn dynamicGenerateBetweenCityIndexable(String city1, String city2,int i){
 
         Edge e = nodes.get(city1).edges.get(i);
@@ -202,7 +153,7 @@ public class Graph {
 
         boolean running = true;
         int cnt=0;
-        ;
+
         while(running){ // If there are no backward Edges in the paths there cant be more levels then there are nodes
             System.err.println(cnt+ "   Max:"+Max+"   Paths's in use:"+nextRound.size());
             if(++cnt>SearchDepth)
@@ -212,7 +163,7 @@ public class Graph {
             nextRound = new ArrayList<>();
             for(Path p : TnextRound){
                 for (Edge outerEdge : p.getLastEdge().end.edges) {
-                    if(outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())){
+                    if(outerEdge.getDataStart().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())){
                         Path curP = null;
                         try {
                             curP = p.generateNewWith(outerEdge);
@@ -236,6 +187,7 @@ public class Graph {
                                     }
                                     best = curP;
                                 }else {
+                                    //addIfBestKind(curP,otherPaths);
                                     otherPaths.add(curP);
                                 }
                             }else {
@@ -258,5 +210,15 @@ public class Graph {
         } else {
             return null;
         }
+    }
+
+    private void addIfBestKind(Path curP, ArrayList<Path> otherPaths) {
+        for(Path p : otherPaths){
+            if(p.isSameKind(curP) && p.computeOverallTransmittance()<curP.computeOverallTransmittance()){
+                otherPaths.remove(p);
+                otherPaths.add(curP);
+            }
+        }
+
     }
 }

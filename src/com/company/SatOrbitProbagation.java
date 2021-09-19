@@ -45,7 +45,6 @@ import static Data.SimValues.*;
 
 public class SatOrbitProbagation {
     // configure Orekit
-    //TODO: outsorce to a values class
 
 
 

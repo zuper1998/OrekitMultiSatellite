@@ -23,7 +23,7 @@ public class Path {
         path.addAll(e);
     }
     public Path addEdge(Edge e) throws Exception {
-        if(e.getDataEnd().isAfter(getLastEdge().getDataStart()) || this.containsNode(e.getEndNode())) {
+        if(e.getDataStart().isAfter(getLastEdge().getDataStart()) && !this.containsNode(e.getEndNode())) {
             Edge tE = getLastEdge();
             path.remove(path.size()-1); //remove last edge so it can be "redesigned"
             path.addAll(calculateBestTransition(tE,e));
@@ -33,7 +33,6 @@ public class Path {
         }
         return this;
     }
-    //TODO: speedup by making an array with the nodes in the path
     public boolean containsNode(Node node) {
         for(Edge e :path){
             if(e.getEndNode().stringEquals(node)) {
@@ -52,6 +51,16 @@ public class Path {
 
     }
 
+    public boolean isSameKind(Path p){
+        for(int i =0;i< FastMath.min(path.size(),p.path.size());i++){
+            Node a = path.get(i).getEndNode();
+            Node b = p.path.get(i).getEndNode();
+            if(!a.stringEquals(b))
+                return false;
+        }
+        return true;
+    }
+
     private boolean EdgeTrimmer(double delta, Edge v1, Edge v2) {
         while (delta>0){
             double sv1 = v1.getDurationScaledWithTransmitance();// the size * transmitance
@@ -61,7 +70,7 @@ public class Path {
             } else if(sv1<sv2){
                 v2.popFirstData();
             } else {
-                if (v1.getLastTransmittance() > v2.getFirstTransmittance()) {
+                if (v1.getLastTransmittance() < v2.getFirstTransmittance()) {
                     v1.popLastData();
 
                 } else {
@@ -110,6 +119,9 @@ public class Path {
             double a = first.getDataDuration();
             double b = next.getDataDuration();
             double delta = first.getDataEnd().durationFrom(next.getDataStart());
+            if(delta>a&&delta>b){
+                return 0;
+            }
             double Tr = 0;
             if(delta>0){
                 if(Math.abs((a-b) )>delta){
@@ -124,13 +136,12 @@ public class Path {
             }
 
             curB = Math.min(curB, Tr);
+
         }
+
         return curB;
     }
 
-    /*
-        Really resource heavy, TODO: speed up
-     */
     public double computeOverallTransmittance(){
         double outTR =0;
         for(Edge e: path){
@@ -168,7 +179,6 @@ public class Path {
     public double calcQbitCity(double distance, double elevation,int dir){ // dir 0 -> ; dir 2 <-
         return calc.calculateQBITSUMCity(elevation,distance*FastMath.sin(FastMath.toRadians(elevation)),dir);
     }
-    //TODO: check with max Length, maybe cut down so it will not be too long?
     public Path generateNewWith(Edge edge) throws Exception {
         return new Path(getPath()).addEdge(edge);
     }
