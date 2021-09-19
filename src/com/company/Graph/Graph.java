@@ -112,7 +112,7 @@ public class Graph {
 
             System.out.println("digraph G{");
             System.out.println("layouit=dot");
-            System.out.println("graph [ dpi = 300 ];");
+            System.out.println("graph [ dpi = 100 ];");
             System.out.println("rankdir=LR;");
 
 

@@ -40,8 +40,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import Data.SimValues;
 
-import static Data.SimValues.MAX_TIME;
-import static Data.SimValues.stepT;
+import static Data.SimValues.*;
 
 
 public class SatOrbitProbagation {
@@ -74,7 +73,7 @@ public class SatOrbitProbagation {
     final double mu = 3.986004415e+14; // gravitation coefficient
     final Frame inertialFrame = FramesFactory.getEME2000(); // inertial frame for orbit definition
     ArrayList<Satellite_Sajat> sats = Satellite_Sajat.SatLoader(
-            "src/Data/QSAT.txt");
+            satData);
 
     Map<String, Propagator> orbits = new HashMap<>();
     for (Satellite_Sajat s1 : sats) {

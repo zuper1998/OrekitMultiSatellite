@@ -9,5 +9,6 @@ public class SimValues {
     public static final double MIN_WINDOW = 50;
     public static final QuantumBitTransmitanceCalculator calc =  new QuantumBitTransmitanceCalculator();
     public static final int SearchDepth = 5;
+    public static final String satData = "src/Data/QSAT2.txt";
 
 }
