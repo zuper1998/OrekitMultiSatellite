@@ -96,12 +96,14 @@ public class Path {
         Edge v2 = new Edge((_v2));
         ArrayList<Edge> out = new ArrayList<>();
         double delta = v1.getDataEnd().durationFrom(v2.getDataStart());
+        boolean retVal = true;
         if (delta > 0) {
-            EdgeTrimmer(delta, v1, v2);
+            retVal  = EdgeTrimmer(delta, v1, v2);
         }
-        out.add(v1);
-        out.add(v2);
-
+        if(retVal) {
+            out.add(v1);
+            out.add(v2);
+        }
 
         return out;
     }
@@ -188,6 +190,9 @@ public class Path {
         return new ArrayList<>(path);
     }
 
+    public boolean isEmpty(){
+        return path.isEmpty();
+    }
 
     /**
      * @return the total time of the path

@@ -165,7 +165,7 @@ public class Graph {
                             e.printStackTrace();
                         }
 
-                        if (curP != null) {
+                        if (curP != null && !curP.isEmpty()) {
                             if (curP.getDur() > MAX_TIME) {
                                 if (!curP.trimToWindowSize()) {
                                     continue;
