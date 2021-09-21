@@ -27,7 +27,9 @@ public class Path {
         if (e.getDataEnd().isAfter(getLastEdge().getDataStart()) && !this.containsNode(e.getEndNode())) {
             Edge tE = getLastEdge();
             path.remove(path.size() - 1); //remove last edge so it can be "redesigned"
-            path.addAll(calculateBestTransition(tE, e));
+            ArrayList<Edge> nPair = calculateBestTransition(tE, e);
+            if(nPair.isEmpty()) return null;
+            path.addAll(nPair);
         } else {
             throw new Exception("New Edge Must be after the last one, AND must note contain a node already visited (Check Data start and stuff)");
         }

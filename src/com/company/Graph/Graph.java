@@ -40,8 +40,8 @@ public class Graph {
         //Save data to dat.ser
         FileOutputStream fos;
         try {
-            //fos = new FileOutputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
-            fos = new FileOutputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
+            fos = new FileOutputStream("src/Data/dat.ser");
+            //fos = new FileOutputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
 
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(nodes);
@@ -62,9 +62,9 @@ public class Graph {
         for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
 
             try {
-                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours", city1, city2, SimValues.duration / 3600);
+                String file = String.format("src/Data/Output/%s_%s_time_%.1f_hours", city1, city2, SimValues.duration / 3600);
                 new File(file).mkdir(); // creat folder
-                PrintStream o = new PrintStream(file + "\\Graph_" + i + ".txt");
+                PrintStream o = new PrintStream(file + "/Graph_" + i + ".txt");
                 System.setOut(o);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -96,9 +96,9 @@ public class Graph {
 
         for (int i = 0; i < allp.size(); i++) {
             try {
-                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SimValues.duration / 3600);
+                String file = String.format("src/Data/Output/%s_%s_time_%.1f_hours/Data", city1, city2, SimValues.duration / 3600);
                 new File(file).mkdir(); // creat folder
-                PrintStream o = new PrintStream(file + "\\Graph_" + i + ".txt");
+                PrintStream o = new PrintStream(file + "/Graph_" + i + ".txt");
                 System.setOut(o);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -121,7 +121,7 @@ public class Graph {
     public void loadFromFile() {
         try {
             //FileInputStream fis = new FileInputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
-            FileInputStream fis = new FileInputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
+            FileInputStream fis = new FileInputStream("src/Data/dat.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
             nodes = (HashMap<String, Node>) ois.readObject();
             ois.close();

@@ -1,0 +1,55 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = "18 iteration: total duration 3110.000 "NewYork
+Budapest->Starlink_39 [color=goldenrod1 label=" Transmittance: 95.2, duration: 320.0 seconds 
+ total duration usage: 100.0% "]
+Starlink_39->Starlink_40 [color=goldenrod1 label=" Transmittance: 95.2, duration: 320.0 seconds 
+ total duration usage: 55.2% "]
+Starlink_40->Starlink_13 [color=goldenrod1 label=" Transmittance: 95.2, duration: 320.0 seconds 
+ total duration usage: 47.8% "]
+Starlink_13->NewYork [color=goldenrod1 label=" Transmittance: 95.2, duration: 320.0 seconds 
+ total duration usage: 68.1% "]
+Budapest->Starlink_39 [color=Black label=" D: 320.0 
+ TR: 53.5 "]
+Starlink_39->Starlink_26 [color=Black label=" D: 320.0 
+ TR: 53.5 "]
+Starlink_26->Starlink_13 [color=Black label=" D: 320.0 
+ TR: 53.5 "]
+Starlink_13->NewYork [color=Black label=" D: 320.0 
+ TR: 53.5 "]
+Budapest->Starlink_39 [color=Black label=" D: 320.0 
+ TR: 61.0 "]
+Starlink_39->Starlink_34 [color=Black label=" D: 320.0 
+ TR: 61.0 "]
+Starlink_34->Starlink_13 [color=Black label=" D: 320.0 
+ TR: 61.0 "]
+Starlink_13->NewYork [color=Black label=" D: 320.0 
+ TR: 61.0 "]
+Budapest->Starlink_39 [color=Black label=" D: 320.0 
+ TR: 62.6 "]
+Starlink_39->Starlink_48 [color=Black label=" D: 320.0 
+ TR: 62.6 "]
+Starlink_48->Starlink_13 [color=Black label=" D: 320.0 
+ TR: 62.6 "]
+Starlink_13->NewYork [color=Black label=" D: 320.0 
+ TR: 62.6 "]
+Budapest->Starlink_39 [color=Black label=" D: 320.0 
+ TR: 53.5 "]
+Starlink_39->Starlink_18 [color=Black label=" D: 320.0 
+ TR: 53.5 "]
+Starlink_18->Starlink_13 [color=Black label=" D: 320.0 
+ TR: 53.5 "]
+Starlink_13->NewYork [color=Black label=" D: 320.0 
+ TR: 53.5 "]
+Budapest->Starlink_39 [color=Black label=" D: 320.0 
+ TR: 95.1 "]
+Starlink_39->Starlink_12 [color=Black label=" D: 320.0 
+ TR: 95.1 "]
+Starlink_12->Starlink_13 [color=Black label=" D: 320.0 
+ TR: 95.1 "]
+Starlink_13->NewYork [color=Black label=" D: 320.0 
+ TR: 95.1 "]
+}

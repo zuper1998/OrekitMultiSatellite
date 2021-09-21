@@ -1,0 +1,55 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = "0 iteration: total duration 3220.000 "NewYork
+Budapest->Starlink_33 [color=blueviolet label=" Transmittance: 104.2, duration: 330.0 seconds 
+ total duration usage: 100.0% "]
+Starlink_33->Starlink_52 [color=blueviolet label=" Transmittance: 104.2, duration: 330.0 seconds 
+ total duration usage: 48.5% "]
+Starlink_52->Starlink_53 [color=blueviolet label=" Transmittance: 104.2, duration: 330.0 seconds 
+ total duration usage: 42.3% "]
+Starlink_53->NewYork [color=blueviolet label=" Transmittance: 104.2, duration: 330.0 seconds 
+ total duration usage: 70.2% "]
+Budapest->Starlink_33 [color=Black label=" D: 230.0 
+ TR: 48.3 "]
+Starlink_33->Starlink_53 [color=Black label=" D: 230.0 
+ TR: 48.3 "]
+Starlink_53->NewYork [color=Black label=" D: 230.0 
+ TR: 48.3 "]
+Budapest->Starlink_33 [color=Black label=" D: 200.0 
+ TR: 52.8 "]
+Starlink_33->Starlink_60 [color=Black label=" D: 200.0 
+ TR: 52.8 "]
+Starlink_60->Starlink_53 [color=Black label=" D: 200.0 
+ TR: 52.8 "]
+Starlink_53->NewYork [color=Black label=" D: 200.0 
+ TR: 52.8 "]
+Budapest->Starlink_33 [color=Black label=" D: 330.0 
+ TR: 62.5 "]
+Starlink_33->Starlink_52 [color=Black label=" D: 330.0 
+ TR: 62.5 "]
+Starlink_52->Starlink_61 [color=Black label=" D: 330.0 
+ TR: 62.5 "]
+Starlink_61->NewYork [color=Black label=" D: 330.0 
+ TR: 62.5 "]
+Budapest->Starlink_33 [color=Black label=" D: 340.0 
+ TR: 101.4 "]
+Starlink_33->Starlink_44 [color=Black label=" D: 340.0 
+ TR: 101.4 "]
+Starlink_44->Starlink_53 [color=Black label=" D: 340.0 
+ TR: 101.4 "]
+Starlink_53->NewYork [color=Black label=" D: 340.0 
+ TR: 101.4 "]
+Budapest->Starlink_33 [color=Black label=" D: 330.0 
+ TR: 66.1 "]
+Starlink_33->Starlink_52 [color=Black label=" D: 330.0 
+ TR: 66.1 "]
+Starlink_52->Starlink_61 [color=Black label=" D: 330.0 
+ TR: 66.1 "]
+Starlink_61->Starlink_56 [color=Black label=" D: 330.0 
+ TR: 66.1 "]
+Starlink_56->NewYork [color=Black label=" D: 330.0 
+ TR: 66.1 "]
+}
