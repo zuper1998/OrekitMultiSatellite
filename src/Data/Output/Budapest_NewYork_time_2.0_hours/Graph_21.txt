@@ -1,0 +1,445 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = "21 iteration: total duration 2380.000 "NewYork
+Budapest->Starlink_31 [color=goldenrod1 label=" Transmittance: 222.3, duration: 160.0 seconds 
+ total duration usage: 47.1% "]
+Starlink_31->Starlink_21 [color=goldenrod1 label=" Transmittance: 222.3, duration: 160.0 seconds 
+ total duration usage: 12.2% "]
+Starlink_21->Starlink_40 [color=goldenrod1 label=" Transmittance: 222.3, duration: 160.0 seconds 
+ total duration usage: 32.7% "]
+Starlink_40->Starlink_4 [color=goldenrod1 label=" Transmittance: 222.3, duration: 160.0 seconds 
+ total duration usage: 32.7% "]
+Starlink_4->Starlink_13 [color=goldenrod1 label=" Transmittance: 222.3, duration: 160.0 seconds 
+ total duration usage: 18.6% "]
+Starlink_13->NewYork [color=goldenrod1 label=" Transmittance: 222.3, duration: 160.0 seconds 
+ total duration usage: 34.8% "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 58.6 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 340.0 
+ TR: 58.6 "]
+Starlink_21->NewYork [color=Black label=" D: 340.0 
+ TR: 58.6 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 60.2 "]
+Starlink_31->Starlink_10 [color=Black label=" D: 340.0 
+ TR: 60.2 "]
+Starlink_10->Starlink_13 [color=Black label=" D: 340.0 
+ TR: 60.2 "]
+Starlink_13->NewYork [color=Black label=" D: 340.0 
+ TR: 60.2 "]
+Budapest->Starlink_31 [color=Black label=" D: 200.0 
+ TR: 66.7 "]
+Starlink_31->Starlink_3 [color=Black label=" D: 200.0 
+ TR: 66.7 "]
+Starlink_3->Starlink_24 [color=Black label=" D: 200.0 
+ TR: 66.7 "]
+Starlink_24->NewYork [color=Black label=" D: 200.0 
+ TR: 66.7 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 120.3 "]
+Starlink_31->Starlink_32 [color=Black label=" D: 340.0 
+ TR: 120.3 "]
+Starlink_32->Starlink_13 [color=Black label=" D: 340.0 
+ TR: 120.3 "]
+Starlink_13->NewYork [color=Black label=" D: 340.0 
+ TR: 120.3 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 132.0 "]
+Starlink_31->Starlink_13 [color=Black label=" D: 340.0 
+ TR: 132.0 "]
+Starlink_13->NewYork [color=Black label=" D: 340.0 
+ TR: 132.0 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 96.7 "]
+Starlink_31->Starlink_34 [color=Black label=" D: 340.0 
+ TR: 96.7 "]
+Starlink_34->Starlink_13 [color=Black label=" D: 340.0 
+ TR: 96.7 "]
+Starlink_13->NewYork [color=Black label=" D: 340.0 
+ TR: 96.7 "]
+Budapest->Starlink_31 [color=Black label=" D: 170.0 
+ TR: 97.6 "]
+Starlink_31->Starlink_20 [color=Black label=" D: 170.0 
+ TR: 97.6 "]
+Starlink_20->Starlink_13 [color=Black label=" D: 170.0 
+ TR: 97.6 "]
+Starlink_13->NewYork [color=Black label=" D: 170.0 
+ TR: 97.6 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 60.9 "]
+Starlink_31->Starlink_26 [color=Black label=" D: 340.0 
+ TR: 60.9 "]
+Starlink_26->Starlink_13 [color=Black label=" D: 340.0 
+ TR: 60.9 "]
+Starlink_13->NewYork [color=Black label=" D: 340.0 
+ TR: 60.9 "]
+Budapest->Starlink_31 [color=Black label=" D: 240.0 
+ TR: 55.9 "]
+Starlink_31->Starlink_18 [color=Black label=" D: 240.0 
+ TR: 55.9 "]
+Starlink_18->Starlink_13 [color=Black label=" D: 240.0 
+ TR: 55.9 "]
+Starlink_13->NewYork [color=Black label=" D: 240.0 
+ TR: 55.9 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 78.9 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 340.0 
+ TR: 78.9 "]
+Starlink_21->Starlink_24 [color=Black label=" D: 340.0 
+ TR: 78.9 "]
+Starlink_24->NewYork [color=Black label=" D: 340.0 
+ TR: 78.9 "]
+Budapest->Starlink_31 [color=Black label=" D: 300.0 
+ TR: 65.2 "]
+Starlink_31->Starlink_40 [color=Black label=" D: 300.0 
+ TR: 65.2 "]
+Starlink_40->Starlink_13 [color=Black label=" D: 300.0 
+ TR: 65.2 "]
+Starlink_13->NewYork [color=Black label=" D: 300.0 
+ TR: 65.2 "]
+Budapest->Starlink_31 [color=Black label=" D: 90.0 
+ TR: 175.5 "]
+Starlink_31->Starlink_13 [color=Black label=" D: 90.0 
+ TR: 175.5 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 90.0 
+ TR: 175.5 "]
+Starlink_24->NewYork [color=Black label=" D: 90.0 
+ TR: 175.5 "]
+Budapest->Starlink_31 [color=Black label=" D: 150.0 
+ TR: 115.3 "]
+Starlink_31->Starlink_32 [color=Black label=" D: 150.0 
+ TR: 115.3 "]
+Starlink_32->Starlink_3 [color=Black label=" D: 150.0 
+ TR: 115.3 "]
+Starlink_3->Starlink_24 [color=Black label=" D: 150.0 
+ TR: 115.3 "]
+Starlink_24->NewYork [color=Black label=" D: 150.0 
+ TR: 115.3 "]
+Budapest->Starlink_31 [color=Black label=" D: 90.0 
+ TR: 155.4 "]
+Starlink_31->Starlink_34 [color=Black label=" D: 90.0 
+ TR: 155.4 "]
+Starlink_34->Starlink_13 [color=Black label=" D: 90.0 
+ TR: 155.4 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 90.0 
+ TR: 155.4 "]
+Starlink_24->NewYork [color=Black label=" D: 90.0 
+ TR: 155.4 "]
+Budapest->Starlink_31 [color=Black label=" D: 290.0 
+ TR: 143.9 "]
+Starlink_31->Starlink_34 [color=Black label=" D: 290.0 
+ TR: 143.9 "]
+Starlink_34->Starlink_23 [color=Black label=" D: 290.0 
+ TR: 143.9 "]
+Starlink_23->Starlink_13 [color=Black label=" D: 290.0 
+ TR: 143.9 "]
+Starlink_13->NewYork [color=Black label=" D: 290.0 
+ TR: 143.9 "]
+Budapest->Starlink_31 [color=Black label=" D: 150.0 
+ TR: 139.1 "]
+Starlink_31->Starlink_34 [color=Black label=" D: 150.0 
+ TR: 139.1 "]
+Starlink_34->Starlink_41 [color=Black label=" D: 150.0 
+ TR: 139.1 "]
+Starlink_41->Starlink_13 [color=Black label=" D: 150.0 
+ TR: 139.1 "]
+Starlink_13->NewYork [color=Black label=" D: 150.0 
+ TR: 139.1 "]
+Budapest->Starlink_31 [color=Black label=" D: 90.0 
+ TR: 156.2 "]
+Starlink_31->Starlink_20 [color=Black label=" D: 90.0 
+ TR: 156.2 "]
+Starlink_20->Starlink_13 [color=Black label=" D: 90.0 
+ TR: 156.2 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 90.0 
+ TR: 156.2 "]
+Starlink_24->NewYork [color=Black label=" D: 90.0 
+ TR: 156.2 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 112.2 "]
+Starlink_31->Starlink_20 [color=Black label=" D: 340.0 
+ TR: 112.2 "]
+Starlink_20->Starlink_23 [color=Black label=" D: 340.0 
+ TR: 112.2 "]
+Starlink_23->Starlink_13 [color=Black label=" D: 340.0 
+ TR: 112.2 "]
+Starlink_13->NewYork [color=Black label=" D: 340.0 
+ TR: 112.2 "]
+Budapest->Starlink_31 [color=Black label=" D: 150.0 
+ TR: 133.9 "]
+Starlink_31->Starlink_20 [color=Black label=" D: 150.0 
+ TR: 133.9 "]
+Starlink_20->Starlink_26 [color=Black label=" D: 150.0 
+ TR: 133.9 "]
+Starlink_26->Starlink_13 [color=Black label=" D: 150.0 
+ TR: 133.9 "]
+Starlink_13->NewYork [color=Black label=" D: 150.0 
+ TR: 133.9 "]
+Budapest->Starlink_31 [color=Black label=" D: 90.0 
+ TR: 119.5 "]
+Starlink_31->Starlink_26 [color=Black label=" D: 90.0 
+ TR: 119.5 "]
+Starlink_26->Starlink_13 [color=Black label=" D: 90.0 
+ TR: 119.5 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 90.0 
+ TR: 119.5 "]
+Starlink_24->NewYork [color=Black label=" D: 90.0 
+ TR: 119.5 "]
+Budapest->Starlink_31 [color=Black label=" D: 30.0 
+ TR: 100.9 "]
+Starlink_31->Starlink_12 [color=Black label=" D: 30.0 
+ TR: 100.9 "]
+Starlink_12->Starlink_26 [color=Black label=" D: 30.0 
+ TR: 100.9 "]
+Starlink_26->Starlink_13 [color=Black label=" D: 30.0 
+ TR: 100.9 "]
+Starlink_13->NewYork [color=Black label=" D: 30.0 
+ TR: 100.9 "]
+Budapest->Starlink_31 [color=Black label=" D: 80.0 
+ TR: 114.5 "]
+Starlink_31->Starlink_18 [color=Black label=" D: 80.0 
+ TR: 114.5 "]
+Starlink_18->Starlink_13 [color=Black label=" D: 80.0 
+ TR: 114.5 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 80.0 
+ TR: 114.5 "]
+Starlink_24->NewYork [color=Black label=" D: 80.0 
+ TR: 114.5 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 114.2 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 340.0 
+ TR: 114.2 "]
+Starlink_21->Starlink_10 [color=Black label=" D: 340.0 
+ TR: 114.2 "]
+Starlink_10->Starlink_13 [color=Black label=" D: 340.0 
+ TR: 114.2 "]
+Starlink_13->NewYork [color=Black label=" D: 340.0 
+ TR: 114.2 "]
+Budapest->Starlink_31 [color=Black label=" D: 130.0 
+ TR: 59.4 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 130.0 
+ TR: 59.4 "]
+Starlink_21->Starlink_26 [color=Black label=" D: 130.0 
+ TR: 59.4 "]
+Starlink_26->Starlink_13 [color=Black label=" D: 130.0 
+ TR: 59.4 "]
+Starlink_13->NewYork [color=Black label=" D: 130.0 
+ TR: 59.4 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 110.1 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 340.0 
+ TR: 110.1 "]
+Starlink_21->Starlink_40 [color=Black label=" D: 340.0 
+ TR: 110.1 "]
+Starlink_40->Starlink_13 [color=Black label=" D: 340.0 
+ TR: 110.1 "]
+Starlink_13->NewYork [color=Black label=" D: 340.0 
+ TR: 110.1 "]
+Budapest->Starlink_31 [color=Black label=" D: 320.0 
+ TR: 72.4 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 320.0 
+ TR: 72.4 "]
+Starlink_21->Starlink_18 [color=Black label=" D: 320.0 
+ TR: 72.4 "]
+Starlink_18->Starlink_13 [color=Black label=" D: 320.0 
+ TR: 72.4 "]
+Starlink_13->NewYork [color=Black label=" D: 320.0 
+ TR: 72.4 "]
+Budapest->Starlink_31 [color=Black label=" D: 340.0 
+ TR: 146.6 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 340.0 
+ TR: 146.6 "]
+Starlink_21->Starlink_32 [color=Black label=" D: 340.0 
+ TR: 146.6 "]
+Starlink_32->Starlink_13 [color=Black label=" D: 340.0 
+ TR: 146.6 "]
+Starlink_13->NewYork [color=Black label=" D: 340.0 
+ TR: 146.6 "]
+Budapest->Starlink_31 [color=Black label=" D: 20.0 
+ TR: 72.7 "]
+Starlink_31->Starlink_40 [color=Black label=" D: 20.0 
+ TR: 72.7 "]
+Starlink_40->Starlink_3 [color=Black label=" D: 20.0 
+ TR: 72.7 "]
+Starlink_3->Starlink_10 [color=Black label=" D: 20.0 
+ TR: 72.7 "]
+Starlink_10->NewYork [color=Black label=" D: 20.0 
+ TR: 72.7 "]
+Budapest->Starlink_31 [color=Black label=" D: 30.0 
+ TR: 77.0 "]
+Starlink_31->Starlink_40 [color=Black label=" D: 30.0 
+ TR: 77.0 "]
+Starlink_40->Starlink_3 [color=Black label=" D: 30.0 
+ TR: 77.0 "]
+Starlink_3->Starlink_24 [color=Black label=" D: 30.0 
+ TR: 77.0 "]
+Starlink_24->NewYork [color=Black label=" D: 30.0 
+ TR: 77.0 "]
+Budapest->Starlink_31 [color=Black label=" D: 90.0 
+ TR: 123.9 "]
+Starlink_31->Starlink_40 [color=Black label=" D: 90.0 
+ TR: 123.9 "]
+Starlink_40->Starlink_13 [color=Black label=" D: 90.0 
+ TR: 123.9 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 90.0 
+ TR: 123.9 "]
+Starlink_24->NewYork [color=Black label=" D: 90.0 
+ TR: 123.9 "]
+Budapest->Starlink_31 [color=Black label=" D: 70.0 
+ TR: 105.6 "]
+Starlink_31->Starlink_34 [color=Black label=" D: 70.0 
+ TR: 105.6 "]
+Starlink_34->Starlink_49 [color=Black label=" D: 70.0 
+ TR: 105.6 "]
+Starlink_49->Starlink_20 [color=Black label=" D: 70.0 
+ TR: 105.6 "]
+Starlink_20->Starlink_13 [color=Black label=" D: 70.0 
+ TR: 105.6 "]
+Starlink_13->NewYork [color=Black label=" D: 70.0 
+ TR: 105.6 "]
+Budapest->Starlink_31 [color=Black label=" D: 120.0 
+ TR: 118.5 "]
+Starlink_31->Starlink_34 [color=Black label=" D: 120.0 
+ TR: 118.5 "]
+Starlink_34->Starlink_49 [color=Black label=" D: 120.0 
+ TR: 118.5 "]
+Starlink_49->Starlink_4 [color=Black label=" D: 120.0 
+ TR: 118.5 "]
+Starlink_4->Starlink_13 [color=Black label=" D: 120.0 
+ TR: 118.5 "]
+Starlink_13->NewYork [color=Black label=" D: 120.0 
+ TR: 118.5 "]
+Budapest->Starlink_31 [color=Black label=" D: 80.0 
+ TR: 179.5 "]
+Starlink_31->Starlink_32 [color=Black label=" D: 80.0 
+ TR: 179.5 "]
+Starlink_32->Starlink_13 [color=Black label=" D: 80.0 
+ TR: 179.5 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 80.0 
+ TR: 179.5 "]
+Starlink_24->NewYork [color=Black label=" D: 80.0 
+ TR: 179.5 "]
+Budapest->Starlink_31 [color=Black label=" D: 90.0 
+ TR: 192.6 "]
+Starlink_31->Starlink_20 [color=Black label=" D: 90.0 
+ TR: 192.6 "]
+Starlink_20->Starlink_26 [color=Black label=" D: 90.0 
+ TR: 192.6 "]
+Starlink_26->Starlink_13 [color=Black label=" D: 90.0 
+ TR: 192.6 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 90.0 
+ TR: 192.6 "]
+Starlink_24->NewYork [color=Black label=" D: 90.0 
+ TR: 192.6 "]
+Budapest->Starlink_31 [color=Black label=" D: 30.0 
+ TR: 159.5 "]
+Starlink_31->Starlink_12 [color=Black label=" D: 30.0 
+ TR: 159.5 "]
+Starlink_12->Starlink_26 [color=Black label=" D: 30.0 
+ TR: 159.5 "]
+Starlink_26->Starlink_13 [color=Black label=" D: 30.0 
+ TR: 159.5 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 30.0 
+ TR: 159.5 "]
+Starlink_24->NewYork [color=Black label=" D: 30.0 
+ TR: 159.5 "]
+Budapest->Starlink_31 [color=Black label=" D: 90.0 
+ TR: 118.0 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 90.0 
+ TR: 118.0 "]
+Starlink_21->Starlink_26 [color=Black label=" D: 90.0 
+ TR: 118.0 "]
+Starlink_26->Starlink_13 [color=Black label=" D: 90.0 
+ TR: 118.0 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 90.0 
+ TR: 118.0 "]
+Starlink_24->NewYork [color=Black label=" D: 90.0 
+ TR: 118.0 "]
+Budapest->Starlink_31 [color=Black label=" D: 130.0 
+ TR: 113.6 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 130.0 
+ TR: 113.6 "]
+Starlink_21->Starlink_26 [color=Black label=" D: 130.0 
+ TR: 113.6 "]
+Starlink_26->Starlink_23 [color=Black label=" D: 130.0 
+ TR: 113.6 "]
+Starlink_23->Starlink_13 [color=Black label=" D: 130.0 
+ TR: 113.6 "]
+Starlink_13->NewYork [color=Black label=" D: 130.0 
+ TR: 113.6 "]
+Budapest->Starlink_31 [color=Black label=" D: 90.0 
+ TR: 197.7 "]
+Starlink_31->Starlink_34 [color=Black label=" D: 90.0 
+ TR: 197.7 "]
+Starlink_34->Starlink_41 [color=Black label=" D: 90.0 
+ TR: 197.7 "]
+Starlink_41->Starlink_13 [color=Black label=" D: 90.0 
+ TR: 197.7 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 90.0 
+ TR: 197.7 "]
+Starlink_24->NewYork [color=Black label=" D: 90.0 
+ TR: 197.7 "]
+Budapest->Starlink_31 [color=Black label=" D: 70.0 
+ TR: 115.9 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 70.0 
+ TR: 115.9 "]
+Starlink_21->Starlink_40 [color=Black label=" D: 70.0 
+ TR: 115.9 "]
+Starlink_40->Starlink_3 [color=Black label=" D: 70.0 
+ TR: 115.9 "]
+Starlink_3->Starlink_10 [color=Black label=" D: 70.0 
+ TR: 115.9 "]
+Starlink_10->NewYork [color=Black label=" D: 70.0 
+ TR: 115.9 "]
+Budapest->Starlink_31 [color=Black label=" D: 80.0 
+ TR: 120.1 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 80.0 
+ TR: 120.1 "]
+Starlink_21->Starlink_40 [color=Black label=" D: 80.0 
+ TR: 120.1 "]
+Starlink_40->Starlink_3 [color=Black label=" D: 80.0 
+ TR: 120.1 "]
+Starlink_3->Starlink_24 [color=Black label=" D: 80.0 
+ TR: 120.1 "]
+Starlink_24->NewYork [color=Black label=" D: 80.0 
+ TR: 120.1 "]
+Budapest->Starlink_31 [color=Black label=" D: 90.0 
+ TR: 168.8 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 90.0 
+ TR: 168.8 "]
+Starlink_21->Starlink_40 [color=Black label=" D: 90.0 
+ TR: 168.8 "]
+Starlink_40->Starlink_13 [color=Black label=" D: 90.0 
+ TR: 168.8 "]
+Starlink_13->Starlink_24 [color=Black label=" D: 90.0 
+ TR: 168.8 "]
+Starlink_24->NewYork [color=Black label=" D: 90.0 
+ TR: 168.8 "]
+Budapest->Starlink_31 [color=Black label=" D: 130.0 
+ TR: 121.9 "]
+Starlink_31->Starlink_21 [color=Black label=" D: 130.0 
+ TR: 121.9 "]
+Starlink_21->Starlink_32 [color=Black label=" D: 130.0 
+ TR: 121.9 "]
+Starlink_32->Starlink_3 [color=Black label=" D: 130.0 
+ TR: 121.9 "]
+Starlink_3->Starlink_24 [color=Black label=" D: 130.0 
+ TR: 121.9 "]
+Starlink_24->NewYork [color=Black label=" D: 130.0 
+ TR: 121.9 "]
+Budapest->Starlink_31 [color=Black label=" D: 20.0 
+ TR: 77.4 "]
+Starlink_31->Starlink_40 [color=Black label=" D: 20.0 
+ TR: 77.4 "]
+Starlink_40->Starlink_3 [color=Black label=" D: 20.0 
+ TR: 77.4 "]
+Starlink_3->Starlink_10 [color=Black label=" D: 20.0 
+ TR: 77.4 "]
+Starlink_10->Starlink_13 [color=Black label=" D: 20.0 
+ TR: 77.4 "]
+Starlink_13->NewYork [color=Black label=" D: 20.0 
+ TR: 77.4 "]
+}
