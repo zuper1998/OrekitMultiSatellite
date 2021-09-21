@@ -1,0 +1,11 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = "80 iteration: total duration 2100.000 "NewYork
+Budapest->Starlink_5 [color=goldenrod1 label=" Transmittance: 29.0, duration: 370.0 seconds 
+ total duration usage: 90.2% "]
+Starlink_5->NewYork [color=goldenrod1 label=" Transmittance: 29.0, duration: 370.0 seconds 
+ total duration usage: 100.0% "]
+}

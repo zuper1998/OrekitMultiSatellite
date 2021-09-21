@@ -59,12 +59,13 @@ public class Graph {
         //ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
         PrintStream console = System.out;
         ArrayList<AllPathsReturn> allp = new ArrayList<>();
+        String fileFolder = String.format("src/Data/Output/%s_%s_time_%.1f_hours_%s", city1, city2, SimValues.duration / 3600, new File(SimValues.satData).getName());
+
         for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
 
             try {
-                String file = String.format("src/Data/Output/%s_%s_time_%.1f_hours", city1, city2, SimValues.duration / 3600);
-                new File(file).mkdir(); // creat folder
-                PrintStream o = new PrintStream(file + "/Graph_" + i + ".txt");
+                new File(fileFolder).mkdir(); // creat folder
+                PrintStream o = new PrintStream(fileFolder + "/Graph_" + i + ".txt");
                 System.setOut(o);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -96,7 +97,7 @@ public class Graph {
 
         for (int i = 0; i < allp.size(); i++) {
             try {
-                String file = String.format("src/Data/Output/%s_%s_time_%.1f_hours/Data", city1, city2, SimValues.duration / 3600);
+                String file = fileFolder+"/Data";
                 new File(file).mkdir(); // creat folder
                 PrintStream o = new PrintStream(file + "/Graph_" + i + ".txt");
                 System.setOut(o);

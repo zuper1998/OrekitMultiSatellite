@@ -74,10 +74,9 @@ public class Path {
                 v2.popFirstData();
             } else {
                 if (v1.getLastTransmittance() < v2.getFirstTransmittance()) {
-                    v1.popLastData();
-
-                } else {
                     v2.popFirstData();
+                } else {
+                    v1.popLastData();
                 }
 
             }
