@@ -157,7 +157,7 @@ public class Graph {
             nextRound = new ArrayList<>();
             for (Path p : TnextRound) {
                 for (Edge outerEdge : p.getLastEdge().end.edges) {
-                    if (outerEdge.getDataStart().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())) {
+                    if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())) {
                         Path curP = null;
                         try {
                             curP = p.generateNewWith(outerEdge);

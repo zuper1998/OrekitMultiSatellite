@@ -24,7 +24,7 @@ public class Path {
     }
 
     public Path addEdge(Edge e) throws Exception {
-        if (e.getDataStart().isAfter(getLastEdge().getDataStart()) && !this.containsNode(e.getEndNode())) {
+        if (e.getDataEnd().isAfter(getLastEdge().getDataStart()) && !this.containsNode(e.getEndNode())) {
             Edge tE = getLastEdge();
             path.remove(path.size() - 1); //remove last edge so it can be "redesigned"
             path.addAll(calculateBestTransition(tE, e));

@@ -14,7 +14,8 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public QuantumBitTransmitanceCalculator(){
-        DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
+        //DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
+        DefaultValues.absorptionAndScatteringPath ="/home/narcano/Documents/asv_860.csv";
         //DefaultValues.groundSpaceChannelLength = 0; // Should be in KMs IDK what it does
 
         DefaultValues.quantumEfficiencyOfDetector = 0.7;  //WARNING
