@@ -1,0 +1,105 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = "17 iteration: total duration 2570.000 "NewYork
+Budapest->Starlink_57 [color=goldenrod1 label=" Overall Transmittance: 1.5, duration: 470.0 seconds 
+ Transmittance usage 100.0% Duration usage: 92.2% "]
+Starlink_57->Starlink_21 [color=goldenrod1 label=" Overall Transmittance: 1.5, duration: 470.0 seconds 
+ Transmittance usage 0.8% Duration usage: 49.0% "]
+Starlink_21->NewYork [color=goldenrod1 label=" Overall Transmittance: 1.5, duration: 470.0 seconds 
+ Transmittance usage 3.9% Duration usage: 100.0% "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 470.0 
+ TR: 45.0 "]
+Starlink_57->Starlink_13 [color=Black label=" Total Dur: 470.0 
+ TR: 45.0 "]
+Starlink_13->NewYork [color=Black label=" Total Dur: 470.0 
+ TR: 45.0 "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 460.0 
+ TR: 49.4 "]
+Starlink_57->Starlink_20 [color=Black label=" Total Dur: 460.0 
+ TR: 49.4 "]
+Starlink_20->Starlink_13 [color=Black label=" Total Dur: 460.0 
+ TR: 49.4 "]
+Starlink_13->NewYork [color=Black label=" Total Dur: 460.0 
+ TR: 49.4 "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 470.0 
+ TR: 100.5 "]
+Starlink_57->Starlink_12 [color=Black label=" Total Dur: 470.0 
+ TR: 100.5 "]
+Starlink_12->Starlink_13 [color=Black label=" Total Dur: 470.0 
+ TR: 100.5 "]
+Starlink_13->NewYork [color=Black label=" Total Dur: 470.0 
+ TR: 100.5 "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Starlink_57->Starlink_39 [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Starlink_39->Starlink_26 [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Starlink_26->Starlink_13 [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Starlink_13->NewYork [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 510.0 
+ TR: 76.0 "]
+Starlink_57->Starlink_39 [color=Black label=" Total Dur: 510.0 
+ TR: 76.0 "]
+Starlink_39->Starlink_29 [color=Black label=" Total Dur: 510.0 
+ TR: 76.0 "]
+Starlink_29->Starlink_24 [color=Black label=" Total Dur: 510.0 
+ TR: 76.0 "]
+Starlink_24->NewYork [color=Black label=" Total Dur: 510.0 
+ TR: 76.0 "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 470.0 
+ TR: 64.4 "]
+Starlink_57->Starlink_39 [color=Black label=" Total Dur: 470.0 
+ TR: 64.4 "]
+Starlink_39->Starlink_48 [color=Black label=" Total Dur: 470.0 
+ TR: 64.4 "]
+Starlink_48->Starlink_13 [color=Black label=" Total Dur: 470.0 
+ TR: 64.4 "]
+Starlink_13->NewYork [color=Black label=" Total Dur: 470.0 
+ TR: 64.4 "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 470.0 
+ TR: 97.7 "]
+Starlink_57->Starlink_39 [color=Black label=" Total Dur: 470.0 
+ TR: 97.7 "]
+Starlink_39->Starlink_12 [color=Black label=" Total Dur: 470.0 
+ TR: 97.7 "]
+Starlink_12->Starlink_13 [color=Black label=" Total Dur: 470.0 
+ TR: 97.7 "]
+Starlink_13->NewYork [color=Black label=" Total Dur: 470.0 
+ TR: 97.7 "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Starlink_57->Starlink_39 [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Starlink_39->Starlink_18 [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Starlink_18->Starlink_13 [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Starlink_13->NewYork [color=Black label=" Total Dur: 370.0 
+ TR: 56.2 "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 470.0 
+ TR: 97.9 "]
+Starlink_57->Starlink_39 [color=Black label=" Total Dur: 470.0 
+ TR: 97.9 "]
+Starlink_39->Starlink_40 [color=Black label=" Total Dur: 470.0 
+ TR: 97.9 "]
+Starlink_40->Starlink_13 [color=Black label=" Total Dur: 470.0 
+ TR: 97.9 "]
+Starlink_13->NewYork [color=Black label=" Total Dur: 470.0 
+ TR: 97.9 "]
+Budapest->Starlink_57 [color=Black label=" Total Dur: 470.0 
+ TR: 112.8 "]
+Starlink_57->Starlink_3 [color=Black label=" Total Dur: 470.0 
+ TR: 112.8 "]
+Starlink_3->Starlink_12 [color=Black label=" Total Dur: 470.0 
+ TR: 112.8 "]
+Starlink_12->Starlink_13 [color=Black label=" Total Dur: 470.0 
+ TR: 112.8 "]
+Starlink_13->NewYork [color=Black label=" Total Dur: 470.0 
+ TR: 112.8 "]
+}

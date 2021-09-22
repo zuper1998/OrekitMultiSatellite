@@ -211,6 +211,21 @@ public class Path {
         return path.isEmpty();
     }
 
+
+    public void printData(){
+        for(int i = 0;i<path.size();i++){
+            path.get(i).printData();
+            if(i!=path.size()-1){
+                double delta =  path.get(i+1).getDataStart().durationFrom(path.get(i).getDataEnd());
+                if(delta>0){
+                    for(int k = 0;k<delta;k++){
+                        System.out.println("0.0 0.0 0.0");
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * @return the total time of the path
      */

@@ -44,6 +44,10 @@ public class Edge implements Serializable {
 
     }
 
+    public String getEdgeWay(){
+        return String.format("%s->%s",start.name,end.name);
+    }
+
     /**
      * @return the duration scaled with the transmittance of the timeline
      */
@@ -149,15 +153,20 @@ public class Edge implements Serializable {
      * Prints data in the following format: Angle Distance Transmitance
      */
     public void printData() {
-        if (data.orbitData.Angle != null) {
-            System.out.printf("# %s->%s%n", start.name, end.name);
-            for (int i = 0; i < data.orbitData.Angle.size(); i++) {
+        if(end.isCity()||start.isCity()){
+            for (int i = 0; i < getOrbitData().Angle.size(); i++) {
                 double a = getOrbitData().Angle.get(i);
                 double d = getOrbitData().Distance.get(i);
                 int dir = 0;
                 if (end.isCity())
                     dir = 2;
-                System.out.printf("%.3f %.3f %.3f %n", a, d, calc.calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir));
+                double tr =  calc.calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir) * stepT;
+                System.out.printf("%.3f %.3f %.3f%n",a,d,tr);
+            }
+        } else {
+            for (Double d : getOrbitData().Distance) {
+                double tr = calc.calculateTransmitanceSat(d) * stepT;
+                System.out.printf("%.3f %.3f%n",d,tr);
             }
         }
     }
