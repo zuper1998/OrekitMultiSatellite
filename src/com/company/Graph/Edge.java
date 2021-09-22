@@ -130,7 +130,7 @@ public class Edge implements Serializable {
 
 
     public void printColorAndThrougput(String color, double duration, double Tr) {
-        String out = String.format("%s->%s [color=%s label=\" D: %.1f %n TR: %.1f \"]", start.name, end.name, color, duration, Tr);
+        String out = String.format("%s->%s [color=%s label=\" Total Dur: %.1f %n TR: %.1f \"]", start.name, end.name, color, duration, Tr);
         System.out.println(out);
     }
 
@@ -138,6 +138,12 @@ public class Edge implements Serializable {
         String out = String.format("%s->%s [color=%s label=\" Transmittance: %.1f, duration: %.1f seconds %n total duration usage: %.1f%% \"]", start.name, end.name, color, Tr, duration, duration / getDataDuration() * 100);
         System.out.println(out);
     }
+
+    public void printColorTransmitanceDurationAndPercentUsed(String color, double duration, double Tr) {
+        String out = String.format("%s->%s [color=%s label=\" Overall Transmittance: %.1f, duration: %.1f seconds %n Transmittance usage %.1f%% Duration usage: %.1f%% \"]", start.name, end.name, color, Tr, duration, Tr/this.getDurationScaledWithTransmitance()*100, duration / getDataDuration() * 100);
+        System.out.println(out);
+    }
+
 
     /**
      * Prints data in the following format: Angle Distance Transmitance

@@ -174,7 +174,7 @@ public class Graph {
 
                             }
                             if (curP.getLastEdge().end.name.equals(target)) { // its the target city
-                                double curBest = curP.computeOverallTransmittance();
+                                double curBest = curP.computeBestTransmittance();
                                 if (Max < curBest) {
                                     Max = curBest;
                                     if (best != null) {
@@ -206,13 +206,4 @@ public class Graph {
         }
     }
 
-    private void addIfBestKind(Path curP, ArrayList<Path> otherPaths) {
-        for (Path p : otherPaths) {
-            if (p.isSameKind(curP) && p.computeOverallTransmittance() < curP.computeOverallTransmittance()) {
-                otherPaths.remove(p);
-                otherPaths.add(curP);
-            }
-        }
-
-    }
 }

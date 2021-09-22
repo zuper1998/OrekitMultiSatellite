@@ -28,7 +28,7 @@ public class Path {
             Edge tE = getLastEdge();
             path.remove(path.size() - 1); //remove last edge so it can be "redesigned"
             ArrayList<Edge> nPair = calculateBestTransition(tE, e);
-            if(nPair.isEmpty()) return null;
+            if (nPair.isEmpty()) return null;
             path.addAll(nPair);
         } else {
             throw new Exception("New Edge Must be after the last one, AND must note contain a node already visited (Check Data start and stuff)");
@@ -99,9 +99,9 @@ public class Path {
         double delta = v1.getDataEnd().durationFrom(v2.getDataStart());
         boolean retVal = true;
         if (delta > 0) {
-            retVal  = EdgeTrimmer(delta, v1, v2);
+            retVal = EdgeTrimmer(delta, v1, v2);
         }
-        if(retVal) {
+        if (retVal) {
             out.add(v1);
             out.add(v2);
         }
@@ -152,6 +152,22 @@ public class Path {
         }
         return outTR;
     }
+    /*
+        Get Minimal transmittance over the edge
+     */
+    public double computeBestTransmittance() {
+        double min = 0;
+        for (Edge e : path) {
+            if (min == 0) {
+                min = e.getDurationScaledWithTransmitance();
+            } else {
+                min = FastMath.min(min,e.getDurationScaledWithTransmitance());
+            }
+        }
+
+
+        return min;
+    }
 
     public double qbitsGenerated() {
         double Tr = this._computeBest();
@@ -191,7 +207,7 @@ public class Path {
         return new ArrayList<>(path);
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return path.isEmpty();
     }
 
