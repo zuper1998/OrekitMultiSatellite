@@ -1,0 +1,55 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = "0 iteration: total duration 3220.000 "NewYork
+Budapest->Starlink_33 [color=blueviolet label=" Transmittance: 103.5, duration: 90.0 seconds 
+ total duration usage: 100.0% "]
+Starlink_33->Starlink_52 [color=blueviolet label=" Transmittance: 103.5, duration: 90.0 seconds 
+ total duration usage: 13.2% "]
+Starlink_52->Starlink_53 [color=blueviolet label=" Transmittance: 103.5, duration: 90.0 seconds 
+ total duration usage: 11.5% "]
+Starlink_53->NewYork [color=blueviolet label=" Transmittance: 103.5, duration: 90.0 seconds 
+ total duration usage: 19.1% "]
+Budapest->Starlink_33 [color=Black label=" D: 40.0 
+ TR: 47.8 "]
+Starlink_33->Starlink_53 [color=Black label=" D: 40.0 
+ TR: 47.8 "]
+Starlink_53->NewYork [color=Black label=" D: 40.0 
+ TR: 47.8 "]
+Budapest->Starlink_33 [color=Black label=" D: 40.0 
+ TR: 52.3 "]
+Starlink_33->Starlink_60 [color=Black label=" D: 40.0 
+ TR: 52.3 "]
+Starlink_60->Starlink_53 [color=Black label=" D: 40.0 
+ TR: 52.3 "]
+Starlink_53->NewYork [color=Black label=" D: 40.0 
+ TR: 52.3 "]
+Budapest->Starlink_33 [color=Black label=" D: 90.0 
+ TR: 61.8 "]
+Starlink_33->Starlink_52 [color=Black label=" D: 90.0 
+ TR: 61.8 "]
+Starlink_52->Starlink_61 [color=Black label=" D: 90.0 
+ TR: 61.8 "]
+Starlink_61->NewYork [color=Black label=" D: 90.0 
+ TR: 61.8 "]
+Budapest->Starlink_33 [color=Black label=" D: 320.0 
+ TR: 101.3 "]
+Starlink_33->Starlink_44 [color=Black label=" D: 320.0 
+ TR: 101.3 "]
+Starlink_44->Starlink_53 [color=Black label=" D: 320.0 
+ TR: 101.3 "]
+Starlink_53->NewYork [color=Black label=" D: 320.0 
+ TR: 101.3 "]
+Budapest->Starlink_33 [color=Black label=" D: 90.0 
+ TR: 65.5 "]
+Starlink_33->Starlink_52 [color=Black label=" D: 90.0 
+ TR: 65.5 "]
+Starlink_52->Starlink_61 [color=Black label=" D: 90.0 
+ TR: 65.5 "]
+Starlink_61->Starlink_56 [color=Black label=" D: 90.0 
+ TR: 65.5 "]
+Starlink_56->NewYork [color=Black label=" D: 90.0 
+ TR: 65.5 "]
+}

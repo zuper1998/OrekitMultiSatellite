@@ -1,0 +1,31 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = "2 iteration: total duration 3400.000 "NewYork
+Budapest->Starlink_2 [color=darkgoldenrod1 label=" Transmittance: 84.8, duration: 400.0 seconds 
+ total duration usage: 100.0% "]
+Starlink_2->Starlink_7 [color=darkgoldenrod1 label=" Transmittance: 84.8, duration: 400.0 seconds 
+ total duration usage: 46.5% "]
+Starlink_7->Starlink_12 [color=darkgoldenrod1 label=" Transmittance: 84.8, duration: 400.0 seconds 
+ total duration usage: 71.4% "]
+Starlink_12->Starlink_17 [color=darkgoldenrod1 label=" Transmittance: 84.8, duration: 400.0 seconds 
+ total duration usage: 71.4% "]
+Starlink_17->NewYork [color=darkgoldenrod1 label=" Transmittance: 84.8, duration: 400.0 seconds 
+ total duration usage: 85.1% "]
+Budapest->Starlink_2 [color=Black label=" D: 400.0 
+ TR: 57.0 "]
+Starlink_2->Starlink_17 [color=Black label=" D: 400.0 
+ TR: 57.0 "]
+Starlink_17->NewYork [color=Black label=" D: 400.0 
+ TR: 57.0 "]
+Budapest->Starlink_2 [color=Black label=" D: 400.0 
+ TR: 71.4 "]
+Starlink_2->Starlink_7 [color=Black label=" D: 400.0 
+ TR: 71.4 "]
+Starlink_7->Starlink_17 [color=Black label=" D: 400.0 
+ TR: 71.4 "]
+Starlink_17->NewYork [color=Black label=" D: 400.0 
+ TR: 71.4 "]
+}
