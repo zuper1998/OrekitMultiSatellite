@@ -1,0 +1,19 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Copenhagen
+label = "13 iteration: total duration 1700.000 "Berlin
+Copenhagen->Starlink_41 [color=darkred label=" Overall Transmittance: 0.7, duration: 440.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% "]
+Starlink_41->Starlink_26 [color=darkred label=" Overall Transmittance: 0.7, duration: 440.0 seconds 
+ Transmittance usage 15.5% Duration usage: 95.7% "]
+Starlink_26->Berlin [color=darkred label=" Overall Transmittance: 0.7, duration: 440.0 seconds 
+ Transmittance usage 1.3% Duration usage: 78.6% "]
+Copenhagen->Starlink_41 [color=Black label=" Total Dur: 360.0 
+ TR: 27.8 "]
+Starlink_41->Starlink_62 [color=Black label=" Total Dur: 360.0 
+ TR: 27.8 "]
+Starlink_62->Berlin [color=Black label=" Total Dur: 360.0 
+ TR: 27.8 "]
+}

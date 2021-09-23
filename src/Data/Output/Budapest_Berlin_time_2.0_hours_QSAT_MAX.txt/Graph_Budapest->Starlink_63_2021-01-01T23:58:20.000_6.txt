@@ -1,0 +1,211 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = "6 iteration: total duration 3460.000 "Berlin
+Budapest->Starlink_63 [color=deepskyblue4 label=" Overall Transmittance: 0.2, duration: 220.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% "]
+Starlink_63->Starlink_42 [color=deepskyblue4 label=" Overall Transmittance: 0.2, duration: 220.0 seconds 
+ Transmittance usage 4.3% Duration usage: 57.9% "]
+Starlink_42->Berlin [color=deepskyblue4 label=" Overall Transmittance: 0.2, duration: 220.0 seconds 
+ Transmittance usage 0.3% Duration usage: 39.3% "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 47.8 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 47.8 "]
+Starlink_58->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 47.8 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 180.0 
+ TR: 51.1 "]
+Starlink_63->Starlink_50 [color=Black label=" Total Dur: 180.0 
+ TR: 51.1 "]
+Starlink_50->Berlin [color=Black label=" Total Dur: 180.0 
+ TR: 51.1 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 220.0 
+ TR: 115.2 "]
+Starlink_63->Starlink_36 [color=Black label=" Total Dur: 220.0 
+ TR: 115.2 "]
+Starlink_36->Starlink_42 [color=Black label=" Total Dur: 220.0 
+ TR: 115.2 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 220.0 
+ TR: 115.2 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 180.0 
+ TR: 134.9 "]
+Starlink_63->Starlink_44 [color=Black label=" Total Dur: 180.0 
+ TR: 134.9 "]
+Starlink_44->Starlink_50 [color=Black label=" Total Dur: 180.0 
+ TR: 134.9 "]
+Starlink_50->Berlin [color=Black label=" Total Dur: 180.0 
+ TR: 134.9 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 180.0 
+ TR: 101.6 "]
+Starlink_63->Starlink_44 [color=Black label=" Total Dur: 180.0 
+ TR: 101.6 "]
+Starlink_44->Starlink_49 [color=Black label=" Total Dur: 180.0 
+ TR: 101.6 "]
+Starlink_49->Berlin [color=Black label=" Total Dur: 180.0 
+ TR: 101.6 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 81.8 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 81.8 "]
+Starlink_58->Starlink_44 [color=Black label=" Total Dur: 150.0 
+ TR: 81.8 "]
+Starlink_44->Starlink_49 [color=Black label=" Total Dur: 150.0 
+ TR: 81.8 "]
+Starlink_49->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 81.8 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 126.8 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 126.8 "]
+Starlink_58->Starlink_47 [color=Black label=" Total Dur: 150.0 
+ TR: 126.8 "]
+Starlink_47->Starlink_42 [color=Black label=" Total Dur: 150.0 
+ TR: 126.8 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 126.8 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 112.4 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 112.4 "]
+Starlink_58->Starlink_38 [color=Black label=" Total Dur: 150.0 
+ TR: 112.4 "]
+Starlink_38->Starlink_49 [color=Black label=" Total Dur: 150.0 
+ TR: 112.4 "]
+Starlink_49->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 112.4 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 77.5 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 77.5 "]
+Starlink_58->Starlink_29 [color=Black label=" Total Dur: 150.0 
+ TR: 77.5 "]
+Starlink_29->Starlink_42 [color=Black label=" Total Dur: 150.0 
+ TR: 77.5 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 77.5 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 89.0 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 89.0 "]
+Starlink_58->Starlink_57 [color=Black label=" Total Dur: 150.0 
+ TR: 89.0 "]
+Starlink_57->Starlink_42 [color=Black label=" Total Dur: 150.0 
+ TR: 89.0 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 89.0 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 117.3 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 117.3 "]
+Starlink_58->Starlink_52 [color=Black label=" Total Dur: 150.0 
+ TR: 117.3 "]
+Starlink_52->Starlink_49 [color=Black label=" Total Dur: 150.0 
+ TR: 117.3 "]
+Starlink_49->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 117.3 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 65.6 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 65.6 "]
+Starlink_58->Starlink_37 [color=Black label=" Total Dur: 150.0 
+ TR: 65.6 "]
+Starlink_37->Starlink_50 [color=Black label=" Total Dur: 150.0 
+ TR: 65.6 "]
+Starlink_50->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 65.6 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 77.7 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 77.7 "]
+Starlink_58->Starlink_37 [color=Black label=" Total Dur: 150.0 
+ TR: 77.7 "]
+Starlink_37->Starlink_42 [color=Black label=" Total Dur: 150.0 
+ TR: 77.7 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 77.7 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 180.0 
+ TR: 126.0 "]
+Starlink_63->Starlink_44 [color=Black label=" Total Dur: 180.0 
+ TR: 126.0 "]
+Starlink_44->Starlink_47 [color=Black label=" Total Dur: 180.0 
+ TR: 126.0 "]
+Starlink_47->Starlink_42 [color=Black label=" Total Dur: 180.0 
+ TR: 126.0 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 180.0 
+ TR: 126.0 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 180.0 
+ TR: 110.4 "]
+Starlink_63->Starlink_44 [color=Black label=" Total Dur: 180.0 
+ TR: 110.4 "]
+Starlink_44->Starlink_57 [color=Black label=" Total Dur: 180.0 
+ TR: 110.4 "]
+Starlink_57->Starlink_42 [color=Black label=" Total Dur: 180.0 
+ TR: 110.4 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 180.0 
+ TR: 110.4 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 180.0 
+ TR: 102.4 "]
+Starlink_63->Starlink_50 [color=Black label=" Total Dur: 180.0 
+ TR: 102.4 "]
+Starlink_50->Starlink_44 [color=Black label=" Total Dur: 180.0 
+ TR: 102.4 "]
+Starlink_44->Starlink_49 [color=Black label=" Total Dur: 180.0 
+ TR: 102.4 "]
+Starlink_49->Berlin [color=Black label=" Total Dur: 180.0 
+ TR: 102.4 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 180.0 
+ TR: 67.8 "]
+Starlink_63->Starlink_50 [color=Black label=" Total Dur: 180.0 
+ TR: 67.8 "]
+Starlink_50->Starlink_29 [color=Black label=" Total Dur: 180.0 
+ TR: 67.8 "]
+Starlink_29->Starlink_42 [color=Black label=" Total Dur: 180.0 
+ TR: 67.8 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 180.0 
+ TR: 67.8 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 180.0 
+ TR: 88.2 "]
+Starlink_63->Starlink_50 [color=Black label=" Total Dur: 180.0 
+ TR: 88.2 "]
+Starlink_50->Starlink_36 [color=Black label=" Total Dur: 180.0 
+ TR: 88.2 "]
+Starlink_36->Starlink_42 [color=Black label=" Total Dur: 180.0 
+ TR: 88.2 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 180.0 
+ TR: 88.2 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 210.0 
+ TR: 79.6 "]
+Starlink_63->Starlink_8 [color=Black label=" Total Dur: 210.0 
+ TR: 79.6 "]
+Starlink_8->Starlink_37 [color=Black label=" Total Dur: 210.0 
+ TR: 79.6 "]
+Starlink_37->Starlink_42 [color=Black label=" Total Dur: 210.0 
+ TR: 79.6 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 210.0 
+ TR: 79.6 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 210.0 
+ TR: 78.0 "]
+Starlink_63->Starlink_8 [color=Black label=" Total Dur: 210.0 
+ TR: 78.0 "]
+Starlink_8->Starlink_29 [color=Black label=" Total Dur: 210.0 
+ TR: 78.0 "]
+Starlink_29->Starlink_42 [color=Black label=" Total Dur: 210.0 
+ TR: 78.0 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 210.0 
+ TR: 78.0 "]
+Budapest->Starlink_63 [color=Black label=" Total Dur: 150.0 
+ TR: 89.7 "]
+Starlink_63->Starlink_58 [color=Black label=" Total Dur: 150.0 
+ TR: 89.7 "]
+Starlink_58->Starlink_44 [color=Black label=" Total Dur: 150.0 
+ TR: 89.7 "]
+Starlink_44->Starlink_57 [color=Black label=" Total Dur: 150.0 
+ TR: 89.7 "]
+Starlink_57->Starlink_42 [color=Black label=" Total Dur: 150.0 
+ TR: 89.7 "]
+Starlink_42->Berlin [color=Black label=" Total Dur: 150.0 
+ TR: 89.7 "]
+}

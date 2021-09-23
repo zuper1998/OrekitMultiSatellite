@@ -7,6 +7,7 @@ import com.company.SatFlightData;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,21 +54,23 @@ public class Graph {
     }
 
 
+
     public void printBest(String city1, String city2) {
 
 
         //ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
         PrintStream console = System.out;
-        ArrayList<AllPathsReturn> allp = new ArrayList<>();
+            ArrayList<AllPathsReturn> allp = new ArrayList<>();
         String fileFolder = String.format("src/Data/Output/%s_%s_time_%.1f_hours_%s", city1, city2, SimValues.duration / 3600, new File(SimValues.satData).getName());
 
+        nodes.get(city1).edges.sort(Comparator.comparing(Edge::getDataStart));
         for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
             AllPathsReturn cur = dynamicGenerateBetweenCityIndexable(city1, city2, i);
             if (cur != null) {
 
                 try {
                     new File(fileFolder).mkdir(); // creat folder
-                    PrintStream o = new PrintStream(fileFolder + "/Graph_" + cur.getBest().getPath().get(0).getEdgeWay() + "_" + i + ".txt");
+                    PrintStream o = new PrintStream(fileFolder + "/Graph_" + cur.getBest().getPath().get(0).getEdgeWay()+ "_"+ cur.getBest().getPath().get(0).getDataStart().toString() + "_" + i + ".txt");
                     System.setOut(o);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -142,7 +145,7 @@ public class Graph {
         ArrayList<Path> otherPaths = new ArrayList<>();
         Path best = null;
         ArrayList<Path> nextRound = new ArrayList<>();
-        nextRound.add(new Path(in));
+        nextRound.add(new Path(new Edge(in)));
 
         boolean running = true;
         int cnt = 0;
@@ -159,7 +162,7 @@ public class Graph {
                     if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())) {
                         Path curP = null;
                         try {
-                            curP = p.generateNewWith(outerEdge);
+                            curP = p.generateNewWith(new Edge(outerEdge));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

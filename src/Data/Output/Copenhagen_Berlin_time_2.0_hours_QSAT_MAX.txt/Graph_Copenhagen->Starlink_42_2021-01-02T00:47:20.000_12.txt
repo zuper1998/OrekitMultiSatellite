@@ -1,0 +1,49 @@
+digraph G{
+layouit=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Copenhagen
+label = "12 iteration: total duration 1610.000 "Berlin
+Copenhagen->Starlink_42 [color=gold label=" Overall Transmittance: 2.0, duration: 240.0 seconds 
+ Transmittance usage 100.0% Duration usage: 42.1% "]
+Starlink_42->Starlink_15 [color=gold label=" Overall Transmittance: 2.0, duration: 240.0 seconds 
+ Transmittance usage 32.6% Duration usage: 46.2% "]
+Starlink_15->Berlin [color=gold label=" Overall Transmittance: 2.0, duration: 240.0 seconds 
+ Transmittance usage 17.3% Duration usage: 100.0% "]
+Copenhagen->Starlink_42 [color=Black label=" Total Dur: 260.0 
+ TR: 26.3 "]
+Starlink_42->Starlink_6 [color=Black label=" Total Dur: 260.0 
+ TR: 26.3 "]
+Starlink_6->Berlin [color=Black label=" Total Dur: 260.0 
+ TR: 26.3 "]
+Copenhagen->Starlink_42 [color=Black label=" Total Dur: 290.0 
+ TR: 20.9 "]
+Starlink_42->Starlink_7 [color=Black label=" Total Dur: 290.0 
+ TR: 20.9 "]
+Starlink_7->Berlin [color=Black label=" Total Dur: 290.0 
+ TR: 20.9 "]
+Copenhagen->Starlink_42 [color=Black label=" Total Dur: 400.0 
+ TR: 81.3 "]
+Starlink_42->Starlink_51 [color=Black label=" Total Dur: 400.0 
+ TR: 81.3 "]
+Starlink_51->Starlink_62 [color=Black label=" Total Dur: 400.0 
+ TR: 81.3 "]
+Starlink_62->Berlin [color=Black label=" Total Dur: 400.0 
+ TR: 81.3 "]
+Copenhagen->Starlink_42 [color=Black label=" Total Dur: 400.0 
+ TR: 115.8 "]
+Starlink_42->Starlink_61 [color=Black label=" Total Dur: 400.0 
+ TR: 115.8 "]
+Starlink_61->Starlink_62 [color=Black label=" Total Dur: 400.0 
+ TR: 115.8 "]
+Starlink_62->Berlin [color=Black label=" Total Dur: 400.0 
+ TR: 115.8 "]
+Copenhagen->Starlink_42 [color=Black label=" Total Dur: 400.0 
+ TR: 115.9 "]
+Starlink_42->Starlink_43 [color=Black label=" Total Dur: 400.0 
+ TR: 115.9 "]
+Starlink_43->Starlink_62 [color=Black label=" Total Dur: 400.0 
+ TR: 115.9 "]
+Starlink_62->Berlin [color=Black label=" Total Dur: 400.0 
+ TR: 115.9 "]
+}
