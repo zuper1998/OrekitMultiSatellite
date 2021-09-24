@@ -1,6 +1,10 @@
 package Data;
 
+import com.company.City;
+import com.company.CityLoader;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
+
+import java.util.ArrayList;
 
 public class SimValues {
     public static final double stepT = 10;
@@ -9,5 +13,7 @@ public class SimValues {
     public static final double MIN_WINDOW = 50;
     public static final QuantumBitTransmitanceCalculator calc = new QuantumBitTransmitanceCalculator();
     public static final int SearchDepth = 5;
-    public static final String satData = "src/Data/QSAT2.txt";
+    public static final String satData = "src/Data/QSAT_MAX.txt";
+    public static final String cityData = "src/Data/cities.txt";
+    public static final ArrayList<City> cities = new ArrayList<>(CityLoader.loadCities(SimValues.cityData));
 }

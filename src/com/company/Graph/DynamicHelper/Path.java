@@ -24,10 +24,12 @@ public class Path {
     }
 
     public Path addEdge(Edge e) throws Exception {
-        if (e.getDataStart().isAfter(getLastEdge().getDataStart()) && !this.containsNode(e.getEndNode())) {
+        if (e.getDataEnd().isAfter(getLastEdge().getDataStart()) && !this.containsNode(e.getEndNode())) {
             Edge tE = getLastEdge();
             path.remove(path.size() - 1); //remove last edge so it can be "redesigned"
-            path.addAll(calculateBestTransition(tE, e));
+            ArrayList<Edge> nPair = calculateBestTransition(tE, e);
+            if (nPair.isEmpty()) return null;
+            path.addAll(nPair);
         } else {
             throw new Exception("New Edge Must be after the last one, AND must note contain a node already visited (Check Data start and stuff)");
         }
@@ -72,10 +74,9 @@ public class Path {
                 v2.popFirstData();
             } else {
                 if (v1.getLastTransmittance() < v2.getFirstTransmittance()) {
-                    v1.popLastData();
-
-                } else {
                     v2.popFirstData();
+                } else {
+                    v1.popLastData();
                 }
 
             }
@@ -96,12 +97,14 @@ public class Path {
         Edge v2 = new Edge((_v2));
         ArrayList<Edge> out = new ArrayList<>();
         double delta = v1.getDataEnd().durationFrom(v2.getDataStart());
+        boolean retVal = true;
         if (delta > 0) {
-            EdgeTrimmer(delta, v1, v2);
+            retVal = EdgeTrimmer(delta, v1, v2);
         }
-        out.add(v1);
-        out.add(v2);
-
+        if (retVal) {
+            out.add(v1);
+            out.add(v2);
+        }
 
         return out;
     }
@@ -149,6 +152,22 @@ public class Path {
         }
         return outTR;
     }
+    /*
+        Get Minimal transmittance over the edge
+     */
+    public double computeBestTransmittance() {
+        double min = 0;
+        for (Edge e : path) {
+            if (min == 0) {
+                min = e.getDurationScaledWithTransmitance();
+            } else {
+                min = FastMath.min(min,e.getDurationScaledWithTransmitance());
+            }
+        }
+
+
+        return min;
+    }
 
     public double qbitsGenerated() {
         double Tr = this._computeBest();
@@ -188,6 +207,24 @@ public class Path {
         return new ArrayList<>(path);
     }
 
+    public boolean isEmpty() {
+        return path.isEmpty();
+    }
+
+
+    public void printData(){
+        for(int i = 0;i<path.size();i++){
+            path.get(i).printData();
+            if(i!=path.size()-1){
+                double delta =  path.get(i+1).getDataStart().durationFrom(path.get(i).getDataEnd());
+                if(delta>0){
+                    for(int k = 0;k<delta;k++){
+                        System.out.println("0.0 0.0 0.0");
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * @return the total time of the path

@@ -18,4 +18,7 @@ public class City {
     City(double _longitude, double _latitude, double _altitude, String _name){
         longitude=FastMath.toRadians(_longitude);latitude=FastMath.toRadians(_latitude);altitude=_altitude;name=_name;
     }
+    public String getName(){
+        return name;
+    }
 }

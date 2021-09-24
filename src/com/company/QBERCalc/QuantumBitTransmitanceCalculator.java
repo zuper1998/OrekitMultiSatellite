@@ -14,8 +14,10 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public QuantumBitTransmitanceCalculator(){
-        DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
+        //DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
+        DefaultValues.absorptionAndScatteringPath ="/home/narcano/Documents/asv_860.csv";
         //DefaultValues.groundSpaceChannelLength = 0; // Should be in KMs IDK what it does
+
 
         DefaultValues.quantumEfficiencyOfDetector = 0.7;  //WARNING
         DefaultValues.season = Season.summer;
@@ -44,10 +46,11 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
             e.printStackTrace();
         }
     }
-
+    //TODO: WARNING Dir is set to 2 here
     public double  calculateQBITSUMCity(double elevation,double height_above_sea,int dir){
+        dir=2;
         calc.setDirection(dir);
-        DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
+        //DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
         DefaultValues.zenithAngle = 90-elevation;
         //DefaultValues.groundSpaceChannelLength = 0; // Should be in KMs IDK what it does
         DefaultValues.heightAboveSeaLevel = height_above_sea/1000; //correct to km and remove the earth
@@ -61,11 +64,15 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
 
 
     public double  calculateTransmitanceCity(double elevation,double height_above_sea,int dir){
+        dir=2;
         calc.setDirection(dir);
-        DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
+
         DefaultValues.zenithAngle = 90-elevation;
         //DefaultValues.groundSpaceChannelLength = 0; // Should be in KMs IDK what it does
-        DefaultValues.heightAboveSeaLevel = height_above_sea/1000; //correct to km and remove the earth
+        DefaultValues.heightAboveSeaLevel = height_above_sea/1000; //correct to km
+        calc.setZenithAngle(DefaultValues.zenithAngle);
+        calc.setHeightAboveSeaLevel(DefaultValues.heightAboveSeaLevel);
+
 
         calc.setOpticalDistance(DefaultValues.heightAboveSeaLevel, DefaultValues.zenithAngle);
         calc.setQber(); // if distance over sea is above 2000 it gets funky xd

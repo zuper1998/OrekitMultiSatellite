@@ -4,14 +4,15 @@ import Data.SimValues;
 import com.company.Graph.DynamicHelper.AllPathsReturn;
 import com.company.Graph.DynamicHelper.Path;
 import com.company.SatFlightData;
+import com.company.SatOrbitProbagation;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import static Data.SimValues.MAX_TIME;
-import static Data.SimValues.SearchDepth;
+import static Data.SimValues.*;
 
 
 public class Graph {
@@ -40,8 +41,8 @@ public class Graph {
         //Save data to dat.ser
         FileOutputStream fos;
         try {
-            //fos = new FileOutputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
-            fos = new FileOutputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
+            fos = new FileOutputStream("src/Data/dat.ser");
+            //fos = new FileOutputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
 
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(nodes);
@@ -53,24 +54,28 @@ public class Graph {
     }
 
 
+
     public void printBest(String city1, String city2) {
 
 
         //ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
         PrintStream console = System.out;
-        ArrayList<AllPathsReturn> allp = new ArrayList<>();
-        for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
+            ArrayList<AllPathsReturn> allp = new ArrayList<>();
+        String fileFolder = String.format("src/Data/Output/%s_%s_time_%.1f_hours_%s", city1, city2, SimValues.duration / 3600, new File(SimValues.satData).getName());
 
-            try {
-                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours", city1, city2, SimValues.duration / 3600);
-                new File(file).mkdir(); // creat folder
-                PrintStream o = new PrintStream(file + "\\Graph_" + i + ".txt");
-                System.setOut(o);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
+        nodes.get(city1).edges.sort(Comparator.comparing(Edge::getDataStart));
+        for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
             AllPathsReturn cur = dynamicGenerateBetweenCityIndexable(city1, city2, i);
             if (cur != null) {
+
+                try {
+                    new File(fileFolder).mkdir(); // creat folder
+                    PrintStream o = new PrintStream(fileFolder + "/Graph_" + cur.getBest().getPath().get(0).getEdgeWay()+ "_"+ cur.getBest().getPath().get(0).getDataStart().durationFrom(SatOrbitProbagation.initialDate) + "_" + i + ".txt");
+                    System.setOut(o);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
                 allp.add(cur);
 
                 System.out.println("digraph G{");
@@ -87,27 +92,24 @@ public class Graph {
                 cur.print(i);
 
                 System.out.println("}");
-            }
 
+                try {
+                    new File(fileFolder).mkdir(); // creat folder
+                    PrintStream o = new PrintStream(fileFolder + "/Data_" + cur.getBest().getPath().get(0).getEdgeWay() + "_" + i + ".txt");
+                    System.setOut(o);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                cur.getBest().printData();
+            }
         }
 
         System.setOut(console);
 
 
-        for (int i = 0; i < allp.size(); i++) {
-            try {
-                String file = String.format("src\\data\\Output\\%s_%s_time_%.1f_hours\\Data", city1, city2, SimValues.duration / 3600);
-                new File(file).mkdir(); // creat folder
-                PrintStream o = new PrintStream(file + "\\Graph_" + i + ".txt");
-                System.setOut(o);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            allp.get(i).printEdgeData();
 
-        }
 
-        System.setOut(console);
+
 
        /*for(int i =0;i<allp.size();i++){
             String tmp = String.format("%d iteration: %f qubits",i,allp.get(i).getBest().qbitsGenerated());
@@ -121,7 +123,7 @@ public class Graph {
     public void loadFromFile() {
         try {
             //FileInputStream fis = new FileInputStream("/home/narcano/OrekitMultiSatellite/src/Data/dat.ser");
-            FileInputStream fis = new FileInputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
+            FileInputStream fis = new FileInputStream("src/Data/dat.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
             nodes = (HashMap<String, Node>) ois.readObject();
             ois.close();
@@ -143,7 +145,7 @@ public class Graph {
         ArrayList<Path> otherPaths = new ArrayList<>();
         Path best = null;
         ArrayList<Path> nextRound = new ArrayList<>();
-        nextRound.add(new Path(in));
+        nextRound.add(new Path(new Edge(in)));
 
         boolean running = true;
         int cnt = 0;
@@ -157,15 +159,15 @@ public class Graph {
             nextRound = new ArrayList<>();
             for (Path p : TnextRound) {
                 for (Edge outerEdge : p.getLastEdge().end.edges) {
-                    if (outerEdge.getDataStart().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())) {
+                    if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())) {
                         Path curP = null;
                         try {
-                            curP = p.generateNewWith(outerEdge);
+                            curP = p.generateNewWith(new Edge(outerEdge));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
 
-                        if (curP != null) {
+                        if (curP != null && !curP.isEmpty()) {
                             if (curP.getDur() > MAX_TIME) {
                                 if (!curP.trimToWindowSize()) {
                                     continue;
@@ -173,7 +175,7 @@ public class Graph {
 
                             }
                             if (curP.getLastEdge().end.name.equals(target)) { // its the target city
-                                double curBest = curP.computeOverallTransmittance();
+                                double curBest = curP.computeBestTransmittance();
                                 if (Max < curBest) {
                                     Max = curBest;
                                     if (best != null) {
@@ -205,13 +207,4 @@ public class Graph {
         }
     }
 
-    private void addIfBestKind(Path curP, ArrayList<Path> otherPaths) {
-        for (Path p : otherPaths) {
-            if (p.isSameKind(curP) && p.computeOverallTransmittance() < curP.computeOverallTransmittance()) {
-                otherPaths.remove(p);
-                otherPaths.add(curP);
-            }
-        }
-
-    }
 }

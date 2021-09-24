@@ -36,6 +36,7 @@ import static Data.SimValues.stepT;
 
 public class SatOrbitProbagation {
     // configure Orekit
+    public static AbsoluteDate initialDate;
 
 
     public static void loadStuff() {
@@ -57,7 +58,7 @@ public class SatOrbitProbagation {
     public static Map<String, ArrayList<SatFlightData>> Generate() {
 
         //  Initial state definition : date, orbit
-        final AbsoluteDate initialDate = new AbsoluteDate(2021, 1, 1, 23, 30, 00.000, TimeScalesFactory.getUTC())
+        initialDate = new AbsoluteDate(2021, 1, 1, 23, 30, 00.000, TimeScalesFactory.getUTC())
                 .shiftedBy(0);
         final double mu = 3.986004415e+14; // gravitation coefficient
         final Frame inertialFrame = FramesFactory.getEME2000(); // inertial frame for orbit definition
@@ -73,10 +74,10 @@ public class SatOrbitProbagation {
             // Propagator : consider a simple Keplerian motion (could be more elaborate)
             orbits.put(s1.Name, new KeplerianPropagator(initialOrbit));
         }
-        ArrayList<City> cities = new ArrayList<>();
-        cities.add(new City());
+        ArrayList<City> cities = SimValues.cities;
+        /*
         cities.add(new City(52.520008, 13.404954, 43, "Berlin"));
-        cities.add(new City(-74, 40.69, 43, "NewYork"));
+        cities.add(new City(-74, 40.69, 43, "NewYork"));*/
         final Frame earthFrame = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
 
 

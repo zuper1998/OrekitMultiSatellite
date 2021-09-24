@@ -1,5 +1,7 @@
 package com.company.Graph;
 
+import Data.SimValues;
+import com.company.City;
 import com.company.IntervalData;
 import com.company.SatTimeline;
 import org.orekit.time.AbsoluteDate;
@@ -43,6 +45,12 @@ public class Node implements Serializable {
     }
 
     public boolean isCity() {
-        return name.equals("NewYork")||name.equals("Budapest")||name.equals("Berlin"); //TODO: make nicer way for this
+        for(City c : SimValues.cities){
+            if(c.getName().equals(name)){
+                return true;
+            }
+        }
+        return false;
+        //return name.equals("NewYork")||name.equals("Budapest")||name.equals("Berlin"); //TODO: make nicer way for this
     }
 }
