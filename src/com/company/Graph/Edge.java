@@ -45,7 +45,7 @@ public class Edge implements Serializable {
     }
 
     public String getEdgeWay(){
-        return String.format("%s->%s",start.name,end.name);
+        return String.format("%s-%s",start.name,end.name);
     }
 
     /**

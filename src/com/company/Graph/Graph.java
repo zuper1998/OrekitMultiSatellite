@@ -4,6 +4,7 @@ import Data.SimValues;
 import com.company.Graph.DynamicHelper.AllPathsReturn;
 import com.company.Graph.DynamicHelper.Path;
 import com.company.SatFlightData;
+import com.company.SatOrbitProbagation;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,8 +12,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import static Data.SimValues.MAX_TIME;
-import static Data.SimValues.SearchDepth;
+import static Data.SimValues.*;
 
 
 public class Graph {
@@ -70,7 +70,7 @@ public class Graph {
 
                 try {
                     new File(fileFolder).mkdir(); // creat folder
-                    PrintStream o = new PrintStream(fileFolder + "/Graph_" + cur.getBest().getPath().get(0).getEdgeWay()+ "_"+ cur.getBest().getPath().get(0).getDataStart().toString() + "_" + i + ".txt");
+                    PrintStream o = new PrintStream(fileFolder + "/Graph_" + cur.getBest().getPath().get(0).getEdgeWay()+ "_"+ cur.getBest().getPath().get(0).getDataStart().durationFrom(SatOrbitProbagation.initialDate) + "_" + i + ".txt");
                     System.setOut(o);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
