@@ -46,8 +46,9 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
             e.printStackTrace();
         }
     }
-
+    //TODO: WARNING Dir is set to 2 here
     public double  calculateQBITSUMCity(double elevation,double height_above_sea,int dir){
+        dir=2;
         calc.setDirection(dir);
         //DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
         DefaultValues.zenithAngle = 90-elevation;
@@ -63,6 +64,7 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
 
 
     public double  calculateTransmitanceCity(double elevation,double height_above_sea,int dir){
+        dir=2;
         calc.setDirection(dir);
 
         DefaultValues.zenithAngle = 90-elevation;
