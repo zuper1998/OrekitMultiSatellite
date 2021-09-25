@@ -15,6 +15,6 @@ public class SimValues {
     public static final int SearchDepth = 5;
     public static final String satData = "src/Data/QSAT_MIN.txt";
     public static final String cityData = "src/Data/cities.txt";
-    public static final int concurentThreads = 7;
+    public static final int concurentThreads = 5;
     public static final ArrayList<City> cities = new ArrayList<>(CityLoader.loadCities(SimValues.cityData));
 }
