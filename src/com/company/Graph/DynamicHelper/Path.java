@@ -6,6 +6,8 @@ import com.company.Graph.Node;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 import org.hipparchus.util.FastMath;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static Data.SimValues.stepT;
@@ -212,14 +214,14 @@ public class Path {
     }
 
 
-    public void printData(){
+    public void SaveData(BufferedWriter writer) throws IOException {
         for(int i = 0;i<path.size();i++){
-            path.get(i).printData();
+            path.get(i).printData(writer);
             if(i!=path.size()-1){
                 double delta =  path.get(i+1).getDataStart().durationFrom(path.get(i).getDataEnd());
                 if(delta>0){
                     for(int k = 0;k<delta;k++){
-                        System.out.println("0.0 0.0 0.0");
+                        writer.append("0.0 0.0 0.0");
                     }
                 }
             }

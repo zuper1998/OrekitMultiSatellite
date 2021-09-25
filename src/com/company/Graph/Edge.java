@@ -4,6 +4,8 @@ import com.company.IntervalData;
 import org.hipparchus.util.FastMath;
 import org.orekit.time.AbsoluteDate;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -133,9 +135,9 @@ public class Edge implements Serializable {
     }
 
 
-    public void printColorAndThrougput(String color, double duration, double Tr) {
+    public void SaveColorAndThrougput(String color, double duration, double Tr, BufferedWriter writer) throws IOException {
         String out = String.format("%s->%s [color=%s label=\" Total Dur: %.1f %n TR: %.1f \"]", start.name, end.name, color, duration, Tr);
-        System.out.println(out);
+        writer.append(out);
     }
 
     public void printColorThrougputAndUsedPercent(String color, double duration, double Tr) {
@@ -143,16 +145,17 @@ public class Edge implements Serializable {
         System.out.println(out);
     }
 
-    public void printColorTransmitanceDurationAndPercentUsed(String color, double duration, double Tr) {
+    public void SaveColorTransmitanceDurationAndPercentUsed(String color, double duration, double Tr, BufferedWriter writer) throws IOException {
         String out = String.format("%s->%s [color=%s label=\" Overall Transmittance: %.1f, duration: %.1f seconds %n Transmittance usage %.1f%% Duration usage: %.1f%% \"]", start.name, end.name, color, Tr, duration, Tr/this.getDurationScaledWithTransmitance()*100, duration / getDataDuration() * 100);
-        System.out.println(out);
+        writer.append(out);
     }
 
 
     /**
      * Prints data in the following format: Angle Distance Transmitance
+     * @param writer
      */
-    public void printData() {
+    public void printData(BufferedWriter writer) throws IOException {
         if(end.isCity()||start.isCity()){
             for (int i = 0; i < getOrbitData().Angle.size(); i++) {
                 double a = getOrbitData().Angle.get(i);
@@ -161,12 +164,12 @@ public class Edge implements Serializable {
                 if (end.isCity())
                     dir = 2;
                 double tr =  calc.calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir) * stepT;
-                System.out.printf("%.3f %.3f %.3f%n",a,d,tr);
+                writer.append(String.format("%.3f %.3f %.3f%n",a,d,tr));
             }
         } else {
             for (Double d : getOrbitData().Distance) {
                 double tr = calc.calculateTransmitanceSat(d) * stepT;
-                System.out.printf("%.3f %.3f%n",d,tr);
+                writer.append(String.format("%.3f %.3f%n",d,tr));
             }
         }
     }

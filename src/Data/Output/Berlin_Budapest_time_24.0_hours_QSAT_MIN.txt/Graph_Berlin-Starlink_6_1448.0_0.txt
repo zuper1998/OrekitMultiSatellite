@@ -1,0 +1,11 @@
+digraph G{layouit=dotgraph [ dpi = 100 ];rankdir=LR;Berlinlabel = "0 iteration: total duration 141.000 "BudapestBerlin->Starlink_6 [color=blueviolet label=" Overall Transmittance: 3.5, duration: 70.0 seconds 
+ Transmittance usage 115.3% Duration usage: 98.6% "]Starlink_6->Budapest [color=blueviolet label=" Overall Transmittance: 2.4, duration: 70.0 seconds 
+ Transmittance usage 51.4% Duration usage: 100.0% "]Berlin->Starlink_6 [color=Black label=" Total Dur: 43.0 
+ TR: 18.7 "]Starlink_6->Berlin [color=Black label=" Total Dur: 43.0 
+ TR: 17.7 "]Berlin->Starlink_2 [color=Black label=" Total Dur: 43.0 
+ TR: 15.8 "]Starlink_2->Budapest [color=Black label=" Total Dur: 43.0 
+ TR: 17.5 "]Berlin->Starlink_6 [color=Black label=" Total Dur: 45.0 
+ TR: 16.7 "]Starlink_6->Copenhagen [color=Black label=" Total Dur: 45.0 
+ TR: 17.6 "]Copenhagen->Starlink_2 [color=Black label=" Total Dur: 45.0 
+ TR: 16.3 "]Starlink_2->Budapest [color=Black label=" Total Dur: 45.0 
+ TR: 16.3 "]}

@@ -5,6 +5,7 @@ import com.company.Graph.DynamicHelper.AllPathsReturn;
 import com.company.Graph.DynamicHelper.Path;
 import com.company.SatFlightData;
 import com.company.SatOrbitProbagation;
+import org.orekit.time.AbsoluteDate;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,7 +13,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import static Data.SimValues.*;
+import static Data.SimValues.MAX_TIME;
+import static Data.SimValues.SearchDepth;
 
 
 public class Graph {
@@ -54,57 +56,67 @@ public class Graph {
     }
 
 
+    private  int compareTime(AbsoluteDate a,AbsoluteDate b){
+        if(a.isBefore(b))
+            return -1;
+        if(b.isBefore(a))
+            return 1;
+
+        return 0;
+    }
+
+
 
     public void printBest(String city1, String city2) {
 
 
         //ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
-        PrintStream console = System.out;
+
             ArrayList<AllPathsReturn> allp = new ArrayList<>();
         String fileFolder = String.format("src/Data/Output/%s_%s_time_%.1f_hours_%s", city1, city2, SimValues.duration / 3600, new File(SimValues.satData).getName());
 
-        nodes.get(city1).edges.sort(Comparator.comparing(Edge::getDataStart));
+        //nodes.get(city1).edges.sort((o1,o2) -> compareTime(o1.getDataStart(),o2.getDataStart()) );
         for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
             AllPathsReturn cur = dynamicGenerateBetweenCityIndexable(city1, city2, i);
             if (cur != null) {
 
                 try {
                     new File(fileFolder).mkdir(); // creat folder
-                    PrintStream o = new PrintStream(fileFolder + "/Graph_" + cur.getBest().getPath().get(0).getEdgeWay()+ "_"+ cur.getBest().getPath().get(0).getDataStart().durationFrom(SatOrbitProbagation.initialDate) + "_" + i + ".txt");
-                    System.setOut(o);
-                } catch (FileNotFoundException e) {
+                    FileWriter o = new FileWriter(fileFolder + "/Graph_" + cur.getBest().getPath().get(0).getEdgeWay()+ "_"+ cur.getBest().getPath().get(0).getDataStart().durationFrom(SatOrbitProbagation.initialDate.getDate()) + "_" + i + ".txt");
+                    BufferedWriter writer = new BufferedWriter(o);
+
+
+                    allp.add(cur);
+
+                    writer.append("digraph G{");
+                    writer.append("layouit=dot");
+                    writer.append("graph [ dpi = 100 ];");
+                    writer.append("rankdir=LR;");
+
+
+                    writer.append(city1);
+
+                    writer.append(String.format("label = \"%d iteration: total duration %.3f \"", i, cur.getBest().getDur()));
+
+                    writer.append(city2);
+                    cur.Save(i,writer);
+
+                    writer.append("}");
+                    writer.close();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                allp.add(cur);
-
-                System.out.println("digraph G{");
-                System.out.println("layouit=dot");
-                System.out.println("graph [ dpi = 100 ];");
-                System.out.println("rankdir=LR;");
-
-
-                System.out.println(city1);
-
-                System.out.printf("label = \"%d iteration: total duration %.3f \"", i, cur.getBest().getDur());
-
-                System.out.println(city2);
-                cur.print(i);
-
-                System.out.println("}");
-
                 try {
                     new File(fileFolder).mkdir(); // creat folder
-                    PrintStream o = new PrintStream(fileFolder + "/Data_" + cur.getBest().getPath().get(0).getEdgeWay() + "_" + i + ".txt");
-                    System.setOut(o);
-                } catch (FileNotFoundException e) {
+                    FileWriter o = new FileWriter((fileFolder + "/Data_" + cur.getBest().getPath().get(0).getEdgeWay() + "_" + i + ".txt"));
+                    BufferedWriter writer = new BufferedWriter(o);
+                    cur.getBest().SaveData(writer);
+                    writer.close();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
-                cur.getBest().printData();
             }
         }
-
-        System.setOut(console);
 
 
 
@@ -151,7 +163,7 @@ public class Graph {
         int cnt = 0;
 
         while (running) { // If there are no backward Edges in the paths there cant be more levels then there are nodes
-            System.err.println(cnt + "   Max:" + Max + "   Paths's in use:" + nextRound.size());
+            //System.err.println(cnt + "   Max:" + Max + "   Paths's in use:" + nextRound.size());
             if (++cnt > SearchDepth)
                 break;
             running = false;
