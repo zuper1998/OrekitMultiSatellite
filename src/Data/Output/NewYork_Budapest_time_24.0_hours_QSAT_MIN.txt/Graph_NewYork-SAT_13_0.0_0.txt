@@ -1,0 +1,85 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+NewYork
+label = "0 iteration: total duration 2475.000 "
+
+Budapest
+NewYork->SAT_13 [color=blueviolet label=" Overall Transmittance: 0.9, duration: 39.0 seconds 
+ Transmittance usage 70.4% Duration usage: 100.0% "]
+SAT_13->NewYork [color=blueviolet label=" Overall Transmittance: 1.1, duration: 39.0 seconds 
+ Transmittance usage 32.2% Duration usage: 31.7% "]
+NewYork->SAT_9 [color=blueviolet label=" Overall Transmittance: 0.9, duration: 39.0 seconds 
+ Transmittance usage 21.5% Duration usage: 20.5% "]
+SAT_9->SAT_2 [color=blueviolet label=" Overall Transmittance: 0.8, duration: 39.0 seconds 
+ Transmittance usage 14.0% Duration usage: 16.9% "]
+SAT_2->Budapest [color=blueviolet label=" Overall Transmittance: 0.7, duration: 39.0 seconds 
+ Transmittance usage 5.8% Duration usage: 9.8% "]
+NewYork->SAT_13 [color=Black label=" Total Dur: 39.0 
+ TR: 37.6 "]
+SAT_13->NewYork [color=Black label=" Total Dur: 39.0 
+ TR: 34.7 "]
+NewYork->SAT_2 [color=Black label=" Total Dur: 39.0 
+ TR: 37.3 "]
+SAT_2->Budapest [color=Black label=" Total Dur: 39.0 
+ TR: 40.6 "]
+NewYork->SAT_13 [color=Black label=" Total Dur: 38.0 
+ TR: 32.4 "]
+SAT_13->SAT_3 [color=Black label=" Total Dur: 38.0 
+ TR: 35.1 "]
+SAT_3->SAT_2 [color=Black label=" Total Dur: 38.0 
+ TR: 32.5 "]
+SAT_2->Budapest [color=Black label=" Total Dur: 38.0 
+ TR: 36.0 "]
+NewYork->SAT_13 [color=Black label=" Total Dur: 38.0 
+ TR: 26.6 "]
+SAT_13->SAT_2 [color=Black label=" Total Dur: 38.0 
+ TR: 29.7 "]
+SAT_2->Budapest [color=Black label=" Total Dur: 38.0 
+ TR: 27.3 "]
+NewYork->SAT_13 [color=Black label=" Total Dur: 38.0 
+ TR: 28.5 "]
+SAT_13->SAT_2 [color=Black label=" Total Dur: 38.0 
+ TR: 30.1 "]
+SAT_2->SAT_5 [color=Black label=" Total Dur: 38.0 
+ TR: 24.9 "]
+SAT_5->SAT_6 [color=Black label=" Total Dur: 38.0 
+ TR: 28.2 "]
+SAT_6->Budapest [color=Black label=" Total Dur: 38.0 
+ TR: 25.1 "]
+NewYork->SAT_13 [color=Black label=" Total Dur: 38.0 
+ TR: 46.3 "]
+SAT_13->SAT_3 [color=Black label=" Total Dur: 38.0 
+ TR: 41.8 "]
+SAT_3->SAT_9 [color=Black label=" Total Dur: 38.0 
+ TR: 40.2 "]
+SAT_9->SAT_2 [color=Black label=" Total Dur: 38.0 
+ TR: 41.6 "]
+SAT_2->Budapest [color=Black label=" Total Dur: 38.0 
+ TR: 41.2 "]
+NewYork->SAT_13 [color=Black label=" Total Dur: 39.0 
+ TR: 30.9 "]
+SAT_13->NewYork [color=Black label=" Total Dur: 39.0 
+ TR: 32.2 "]
+NewYork->SAT_2 [color=Black label=" Total Dur: 39.0 
+ TR: 30.1 "]
+SAT_2->SAT_5 [color=Black label=" Total Dur: 39.0 
+ TR: 30.2 "]
+SAT_5->SAT_6 [color=Black label=" Total Dur: 39.0 
+ TR: 33.3 "]
+SAT_6->Budapest [color=Black label=" Total Dur: 39.0 
+ TR: 31.9 "]
+NewYork->SAT_13 [color=Black label=" Total Dur: 38.0 
+ TR: 27.0 "]
+SAT_13->SAT_3 [color=Black label=" Total Dur: 38.0 
+ TR: 26.6 "]
+SAT_3->SAT_2 [color=Black label=" Total Dur: 38.0 
+ TR: 29.0 "]
+SAT_2->SAT_5 [color=Black label=" Total Dur: 38.0 
+ TR: 26.6 "]
+SAT_5->SAT_6 [color=Black label=" Total Dur: 38.0 
+ TR: 28.7 "]
+SAT_6->Budapest [color=Black label=" Total Dur: 38.0 
+ TR: 32.8 "]
+}

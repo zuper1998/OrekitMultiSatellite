@@ -46,9 +46,11 @@ class ThreadedRun extends Thread {
     public void run(){
         try {
             semaphore.acquire();
-            System.out.println("Lock acquired");
+            System.out.printf("Starting %s->%s %n",c1,c2);
             g.printBest(c1,c2);
             semaphore.release();
+            System.out.printf("Done %s->%s %n",c1,c2);
+            return;
         } catch (Exception e){
             e.printStackTrace();
         }

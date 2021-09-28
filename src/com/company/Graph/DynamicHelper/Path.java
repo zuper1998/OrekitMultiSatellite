@@ -222,6 +222,7 @@ public class Path {
                 if(delta>0){
                     for(int k = 0;k<delta;k++){
                         writer.append("0.0 0.0 0.0");
+                        writer.newLine();
                     }
                 }
             }

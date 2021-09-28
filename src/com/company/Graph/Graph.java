@@ -89,16 +89,20 @@ public class Graph {
                     allp.add(cur);
 
                     writer.append("digraph G{");
-                    writer.append("layouit=dot");
+                    writer.newLine();
+                    writer.append("layout=dot");
+                    writer.newLine();
                     writer.append("graph [ dpi = 100 ];");
+                    writer.newLine();
                     writer.append("rankdir=LR;");
-
+                    writer.newLine();
 
                     writer.append(city1);
-
-                    writer.append(String.format("label = \"%d iteration: total duration %.3f \"", i, cur.getBest().getDur()));
-
+                    writer.newLine();
+                    writer.append(String.format("label = \"%d iteration: total duration %.3f \"", i, cur.getBest().getDur())).append("\n");;
+                    writer.newLine();
                     writer.append(city2);
+                    writer.newLine();
                     cur.Save(i,writer);
 
                     writer.append("}");

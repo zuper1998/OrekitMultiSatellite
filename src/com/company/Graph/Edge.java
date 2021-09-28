@@ -138,6 +138,7 @@ public class Edge implements Serializable {
     public void SaveColorAndThrougput(String color, double duration, double Tr, BufferedWriter writer) throws IOException {
         String out = String.format("%s->%s [color=%s label=\" Total Dur: %.1f %n TR: %.1f \"]", start.name, end.name, color, duration, Tr);
         writer.append(out);
+        writer.newLine();
     }
 
     public void printColorThrougputAndUsedPercent(String color, double duration, double Tr) {
@@ -148,6 +149,7 @@ public class Edge implements Serializable {
     public void SaveColorTransmitanceDurationAndPercentUsed(String color, double duration, double Tr, BufferedWriter writer) throws IOException {
         String out = String.format("%s->%s [color=%s label=\" Overall Transmittance: %.1f, duration: %.1f seconds %n Transmittance usage %.1f%% Duration usage: %.1f%% \"]", start.name, end.name, color, Tr, duration, Tr/this.getDurationScaledWithTransmitance()*100, duration / getDataDuration() * 100);
         writer.append(out);
+        writer.newLine();
     }
 
 
