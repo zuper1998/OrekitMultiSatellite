@@ -56,15 +56,6 @@ public class Graph {
     }
 
 
-    private  int compareTime(AbsoluteDate a,AbsoluteDate b){
-        if(a.isBefore(b))
-            return -1;
-        if(b.isBefore(a))
-            return 1;
-
-        return 0;
-    }
-
 
 
     public void printBest(String city1, String city2) {

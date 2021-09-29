@@ -10,30 +10,46 @@ def vis(File:path):
     with open(File,"r") as file1:
         for line in file1.readlines():
             x = line.split()
-            angle.append(float(x[0]))
-            distance.append(float(x[1]))
-            tr.append(float(x[2]))
+            if(len(x)==3):
+                angle.append(float(x[0]))
+                distance.append(float(x[1]))
+                tr.append(float(x[2]))
+            else:
+                angle.append(0)
+                distance.append(float(x[0]))
+                tr.append(float(x[1]))
     
-    fig, ax = plt.subplots()
-    fig.subplots_adjust(right=0.75)
-    twin1 = ax.twinx()
-    twin2 = ax.twinx()
-    twin2.spines.right.set_position(("axes", 1.1))
-    p1, = ax.plot(angle,'b-',label="angle")
+    
+
+    
+    
+    fig, ax = plt.subplots(2, figsize=(10,15))
+    
+    twin1 = ax[0].twinx()
+
+    
+    p1, = ax[0].plot(angle,'b-',label="angle")
     p2, = twin1.plot(distance,'r-',label="distance")
-    p3, = twin2.plot(tr,'g-',label="transmittance")
 
-    ax.yaxis.label.set_color(p1.get_color())
+
+    p3, = ax[1].plot(tr,'g-',label="transmittance")
+
+    ax[0].yaxis.label.set_color(p1.get_color())
     twin1.yaxis.label.set_color(p2.get_color())
-    twin2.yaxis.label.set_color(p3.get_color())
-    tkw = dict(size=4, width=1.5)
-    ax.tick_params(axis='y', colors=p1.get_color(), **tkw)
+    ax[1].yaxis.label.set_color(p3.get_color())
+ 
+    tkw = dict(size=3, width=1.5)
+    ax[0].tick_params(axis='y', colors=p1.get_color(), **tkw)
     twin1.tick_params(axis='y', colors=p2.get_color(), **tkw)
-    twin2.tick_params(axis='y', colors=p3.get_color(), **tkw)
-    ax.tick_params(axis='x', **tkw)
 
-    ax.legend(handles=[p1,p2,p3])
+    ax[0].tick_params(axis='x',**tkw)
+    ax[0].legend(handles=[p1,p2]) 
+    
+    
+    ax[1].tick_params(axis='y', colors=p3.get_color())
 
+    
+ 
     plt.show()
 
 
