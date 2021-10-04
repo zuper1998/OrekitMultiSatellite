@@ -1,0 +1,37 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Berlin
+label = "0 iteration: total duration 385.000 "
+
+Copenhagen
+Berlin->SAT_6 [color=blueviolet label=" Overall Transmittance: 13.8, duration: 187.0 seconds 
+ Transmittance usage 99.9% Duration usage: 94.4% "]
+SAT_6->Copenhagen [color=blueviolet label=" Overall Transmittance: 13.8, duration: 187.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% "]
+Berlin->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 50.0 "]
+SAT_6->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 50.0 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 50.0 "]
+SAT_2->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 50.0 "]
+Berlin->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 57.3 "]
+SAT_6->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 57.3 "]
+Budapest->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 57.3 "]
+SAT_2->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 57.3 "]
+Berlin->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 79.0 "]
+SAT_6->Helsinki [color=Black label=" Total Dur: 49.0 
+ TR: 79.0 "]
+Helsinki->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 79.0 "]
+SAT_2->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 79.0 "]
+}

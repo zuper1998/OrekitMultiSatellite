@@ -2,8 +2,12 @@ package com.company;
 
 import Data.SimValues;
 import com.company.Graph.Graph;
+import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 
 import java.util.ArrayList;
+import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 public class Main {
@@ -15,17 +19,15 @@ public class Main {
         g.loadFromFile();
         //This part can be made to threads, Yay
         Semaphore sem = new Semaphore(SimValues.concurentThreads);
-        ArrayList<ThreadedRun> tr= new ArrayList<>();
+        ExecutorService ex = Executors.newCachedThreadPool();
+
         for (City c1 : SimValues.cities) {
             for (City c2 : SimValues.cities) {
                 if(!c1.name.equals(c2.name))
-                tr.add(new ThreadedRun(g,c1.name,c2.name,sem));
+                ex.submit(new ThreadedRun(g,c1.name,c2.name,sem));
             }
         }
-        for(ThreadedRun t : tr){
-            t.start();
-        }
-        //g.printAllEdges("Budapest","Berlin");
+
 
     }
 
@@ -46,6 +48,7 @@ class ThreadedRun extends Thread {
     public void run(){
         try {
             semaphore.acquire();
+            SimValues.calc.set(new QuantumBitTransmitanceCalculator());
             System.out.printf("Starting %s->%s %n",c1,c2);
             g.printBest(c1,c2);
             semaphore.release();

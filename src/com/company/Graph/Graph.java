@@ -30,7 +30,6 @@ public class Graph {
         // add edges
         for (Map.Entry<String, ArrayList<SatFlightData>> tlm : timelineMap.entrySet()) {
             for (SatFlightData sfd : tlm.getValue()) {
-                //for(TimeInterval t : sfd.Interval) {
                 for (int i = 0; i < sfd.Interval.size(); i++) {
                     //Error comes from the ground states not giving data
                     SatFlightData.SatFlightDataRetunVal satDat = sfd.getDataAt(i);
@@ -44,7 +43,6 @@ public class Graph {
         FileOutputStream fos;
         try {
             fos = new FileOutputStream("src/Data/dat.ser");
-            //fos = new FileOutputStream("C:\\Users\\Narcano\\IdeaProjects\\OrekitMultiSatellite\\src\\Data\\dat.ser");
 
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(nodes);
@@ -61,12 +59,10 @@ public class Graph {
     public void printBest(String city1, String city2) {
 
 
-        //ArrayList<AllPathsReturn> allp =  dynamicGenerateBetweenCity(city1,city2);
 
             ArrayList<AllPathsReturn> allp = new ArrayList<>();
         String fileFolder = String.format("src/Data/Output/%s_%s_time_%.1f_hours_%s", city1, city2, SimValues.duration / 3600, new File(SimValues.satData).getName());
 
-        //nodes.get(city1).edges.sort((o1,o2) -> compareTime(o1.getDataStart(),o2.getDataStart()) );
         for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
             AllPathsReturn cur = dynamicGenerateBetweenCityIndexable(city1, city2, i);
             if (cur != null) {
@@ -98,6 +94,8 @@ public class Graph {
 
                     writer.append("}");
                     writer.close();
+
+                     o.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -107,10 +105,41 @@ public class Graph {
                     BufferedWriter writer = new BufferedWriter(o);
                     cur.getBest().SaveData(writer);
                     writer.close();
+                    o.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+        }
+        double eBits=0;
+        for(AllPathsReturn a : allp){
+
+            eBits+=  a.getBest().computeOverallTransmittance()*SimValues.entanglementGenHz*SimValues.frequencyBinEntanglementFidelity;
+        }
+        FileWriter o = null;
+        try {
+            o = new FileWriter((fileFolder + "/ebitStats" +".txt"));
+            BufferedWriter writer = new BufferedWriter(o);
+
+            writer.append("eBits: ").append(String.valueOf(eBits));
+            writer.newLine();
+            writer.append("Total time elapsed: "+SimValues.duration+" [s]");
+            writer.newLine();
+            writer.append("eBits/s: ").append(String.valueOf(eBits / SimValues.duration));
+            writer.close();
+            o.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            FileOutputStream fos = new FileOutputStream(fileFolder+"/out.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(allp);
+            oos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
 
@@ -118,13 +147,8 @@ public class Graph {
 
 
 
-       /*for(int i =0;i<allp.size();i++){
-            String tmp = String.format("%d iteration: %f qubits",i,allp.get(i).getBest().qbitsGenerated());
-            System.out.println(tmp);
-        }*/
 
-
-    }
+        }
 
 
     public void loadFromFile() {
@@ -158,7 +182,6 @@ public class Graph {
         int cnt = 0;
 
         while (running) { // If there are no backward Edges in the paths there cant be more levels then there are nodes
-            //System.err.println(cnt + "   Max:" + Max + "   Paths's in use:" + nextRound.size());
             if (++cnt > SearchDepth)
                 break;
             running = false;
@@ -166,7 +189,9 @@ public class Graph {
             nextRound = new ArrayList<>();
             for (Path p : TnextRound) {
                 for (Edge outerEdge : p.getLastEdge().end.edges) {
-                    if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart()) && !p.containsNode(outerEdge.getEndNode())) {
+                    if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart())
+                            && !p.containsNode(outerEdge.getEndNode())
+                            && outerEdge.getDataStart().durationFrom(p.getLastEdge().getDataEnd())< MAX_TIME) {
                         Path curP = null;
                         try {
                             curP = p.generateNewWith(new Edge(outerEdge));
@@ -190,7 +215,6 @@ public class Graph {
                                     }
                                     best = curP;
                                 } else {
-                                    //addIfBestKind(curP,otherPaths);
                                     otherPaths.add(curP);
                                 }
                             } else {

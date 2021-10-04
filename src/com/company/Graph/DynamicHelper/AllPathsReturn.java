@@ -4,9 +4,14 @@ import com.company.Graph.ColorsForEdge;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AllPathsReturn {
+public class AllPathsReturn implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     Path best;
     ArrayList<Path> otherPaths;
 

@@ -1,0 +1,23 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Vienna
+label = "2 iteration: total duration 1279.000 "
+
+Paris
+Vienna->SAT_2 [color=darkgoldenrod1 label=" Overall Transmittance: 3.3, duration: 49.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% "]
+SAT_2->SAT_17 [color=darkgoldenrod1 label=" Overall Transmittance: 3.3, duration: 49.0 seconds 
+ Transmittance usage 25.6% Duration usage: 7.6% "]
+SAT_17->Paris [color=darkgoldenrod1 label=" Overall Transmittance: 3.3, duration: 49.0 seconds 
+ Transmittance usage 25.7% Duration usage: 26.3% "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 28.6 "]
+SAT_2->SAT_7 [color=Black label=" Total Dur: 49.0 
+ TR: 28.6 "]
+SAT_7->SAT_17 [color=Black label=" Total Dur: 49.0 
+ TR: 28.6 "]
+SAT_17->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 28.6 "]
+}

@@ -1,0 +1,757 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Berlin
+label = "4 iteration: total duration 450.000 "
+
+Rome
+Berlin->SAT_14 [color=firebrick2 label=" Overall Transmittance: 20.4, duration: 217.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% "]
+SAT_14->Rome [color=firebrick2 label=" Overall Transmittance: 20.4, duration: 217.0 seconds 
+ Transmittance usage 99.5% Duration usage: 93.1% "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 83.4 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 83.4 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 83.4 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 83.4 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 75.8 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 75.8 "]
+Budapest->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 75.8 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 75.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 86.1 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 86.1 "]
+Budapest->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 86.1 "]
+SAT_10->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 86.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 82.4 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 82.4 "]
+Vienna->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 82.4 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 82.4 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 75.9 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 75.9 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 75.9 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 75.9 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 84.1 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 84.1 "]
+Vienna->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 84.1 "]
+SAT_10->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 84.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 68.7 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 68.7 "]
+Copenhagen->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 68.7 "]
+SAT_10->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 68.7 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 65.2 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 65.2 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 65.2 "]
+SAT_6->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 65.2 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 58.7 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 58.7 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 58.7 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 58.7 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 66.0 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 66.0 "]
+Paris->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 66.0 "]
+SAT_10->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 66.0 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 68.4 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 68.4 "]
+Paris->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 68.4 "]
+SAT_6->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 68.4 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 68.0 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 68.0 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 68.0 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 68.0 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 62.5 "]
+SAT_14->SAT_15 [color=Black label=" Total Dur: 49.0 
+ TR: 62.5 "]
+SAT_15->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 62.5 "]
+SAT_10->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 62.5 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 62.5 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 62.5 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 55.9 "]
+SAT_14->SAT_15 [color=Black label=" Total Dur: 49.0 
+ TR: 55.9 "]
+SAT_15->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 55.9 "]
+SAT_10->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 55.9 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 55.9 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 55.9 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 51.9 "]
+SAT_14->SAT_15 [color=Black label=" Total Dur: 49.0 
+ TR: 51.9 "]
+SAT_15->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 51.9 "]
+SAT_10->SAT_7 [color=Black label=" Total Dur: 49.0 
+ TR: 51.9 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 51.9 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 51.9 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 66.8 "]
+SAT_14->SAT_15 [color=Black label=" Total Dur: 49.0 
+ TR: 66.8 "]
+SAT_15->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 66.8 "]
+SAT_10->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 66.8 "]
+Paris->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 66.8 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 66.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 66.5 "]
+SAT_14->SAT_15 [color=Black label=" Total Dur: 49.0 
+ TR: 66.5 "]
+SAT_15->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 66.5 "]
+SAT_10->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 66.5 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 66.5 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 66.5 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 57.5 "]
+SAT_14->SAT_11 [color=Black label=" Total Dur: 49.0 
+ TR: 57.5 "]
+SAT_11->SAT_8 [color=Black label=" Total Dur: 49.0 
+ TR: 57.5 "]
+SAT_8->SAT_7 [color=Black label=" Total Dur: 49.0 
+ TR: 57.5 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 57.5 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 57.5 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 57.8 "]
+SAT_14->SAT_11 [color=Black label=" Total Dur: 49.0 
+ TR: 57.8 "]
+SAT_11->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 57.8 "]
+SAT_10->SAT_7 [color=Black label=" Total Dur: 49.0 
+ TR: 57.8 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 57.8 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 57.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 40.8 "]
+SAT_14->SAT_11 [color=Black label=" Total Dur: 49.0 
+ TR: 40.8 "]
+SAT_11->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 40.8 "]
+SAT_6->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 40.8 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 40.8 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 40.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 53.3 "]
+SAT_14->SAT_11 [color=Black label=" Total Dur: 49.0 
+ TR: 53.3 "]
+SAT_11->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 53.3 "]
+SAT_6->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 53.3 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 53.3 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 53.3 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 126.2 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 126.2 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 126.2 "]
+SAT_6->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 126.2 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 126.2 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 126.2 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 103.6 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 103.6 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 103.6 "]
+SAT_6->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 103.6 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 103.6 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 103.6 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 97.9 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 97.9 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 97.9 "]
+SAT_6->SAT_7 [color=Black label=" Total Dur: 49.0 
+ TR: 97.9 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 97.9 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 97.9 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 138.5 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 138.5 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 138.5 "]
+SAT_6->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 138.5 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 138.5 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 138.5 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 123.4 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 123.4 "]
+Budapest->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 123.4 "]
+SAT_10->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 123.4 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 123.4 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 123.4 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 116.9 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 116.9 "]
+Budapest->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 116.9 "]
+SAT_10->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 116.9 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 116.9 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 116.9 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 104.8 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 104.8 "]
+Budapest->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 104.8 "]
+SAT_10->SAT_4 [color=Black label=" Total Dur: 49.0 
+ TR: 104.8 "]
+SAT_4->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 104.8 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 104.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 92.1 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 92.1 "]
+Budapest->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 92.1 "]
+SAT_10->SAT_7 [color=Black label=" Total Dur: 49.0 
+ TR: 92.1 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 92.1 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 92.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 142.7 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 142.7 "]
+Budapest->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 142.7 "]
+SAT_10->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 142.7 "]
+Vienna->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 142.7 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 142.7 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 136.1 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 136.1 "]
+Budapest->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 136.1 "]
+SAT_10->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 136.1 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 136.1 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 136.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 144.2 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 144.2 "]
+Budapest->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 144.2 "]
+SAT_10->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 144.2 "]
+Paris->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 144.2 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 144.2 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 143.8 "]
+SAT_14->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 143.8 "]
+Budapest->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 143.8 "]
+SAT_10->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 143.8 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 143.8 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 143.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 121.9 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 121.9 "]
+Vienna->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 121.9 "]
+SAT_6->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 121.9 "]
+Budapest->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 121.9 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 121.9 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 104.0 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 104.0 "]
+Vienna->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 104.0 "]
+SAT_6->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 104.0 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 104.0 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 104.0 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 104.1 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 104.1 "]
+Vienna->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 104.1 "]
+SAT_6->SAT_7 [color=Black label=" Total Dur: 49.0 
+ TR: 104.1 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 104.1 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 104.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 140.0 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 140.0 "]
+Vienna->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 140.0 "]
+SAT_6->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 140.0 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 140.0 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 140.0 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 122.8 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 122.8 "]
+Vienna->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 122.8 "]
+SAT_10->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 122.8 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 122.8 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 122.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 116.3 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 116.3 "]
+Vienna->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 116.3 "]
+SAT_10->Copenhagen [color=Black label=" Total Dur: 49.0 
+ TR: 116.3 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 116.3 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 116.3 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 97.8 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 97.8 "]
+Vienna->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 97.8 "]
+SAT_10->SAT_7 [color=Black label=" Total Dur: 49.0 
+ TR: 97.8 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 97.8 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 97.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 137.0 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 137.0 "]
+Vienna->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 137.0 "]
+SAT_10->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 137.0 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 137.0 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 137.0 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 129.4 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 129.4 "]
+Vienna->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 129.4 "]
+SAT_10->Budapest [color=Black label=" Total Dur: 49.0 
+ TR: 129.4 "]
+Budapest->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 129.4 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 129.4 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 144.5 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 144.5 "]
+Vienna->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 144.5 "]
+SAT_10->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 144.5 "]
+Paris->SAT_6 [color=Black label=" Total Dur: 49.0 
+ TR: 144.5 "]
+SAT_6->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 144.5 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 49.0 
+ TR: 144.1 "]
+SAT_14->Vienna [color=Black label=" Total Dur: 49.0 
+ TR: 144.1 "]
+Vienna->SAT_10 [color=Black label=" Total Dur: 49.0 
+ TR: 144.1 "]
+SAT_10->Paris [color=Black label=" Total Dur: 49.0 
+ TR: 144.1 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 49.0 
+ TR: 144.1 "]
+SAT_2->Rome [color=Black label=" Total Dur: 49.0 
+ TR: 144.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 90.7 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 90.7 "]
+Copenhagen->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 90.7 "]
+SAT_10->SAT_7 [color=Black label=" Total Dur: 48.0 
+ TR: 90.7 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 90.7 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 90.7 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 123.1 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 123.1 "]
+Copenhagen->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 123.1 "]
+SAT_10->Budapest [color=Black label=" Total Dur: 48.0 
+ TR: 123.1 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 123.1 "]
+SAT_6->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 123.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 115.5 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 115.5 "]
+Copenhagen->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 115.5 "]
+SAT_10->Budapest [color=Black label=" Total Dur: 48.0 
+ TR: 115.5 "]
+Budapest->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 115.5 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 115.5 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 124.4 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 124.4 "]
+Copenhagen->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 124.4 "]
+SAT_10->Vienna [color=Black label=" Total Dur: 48.0 
+ TR: 124.4 "]
+Vienna->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 124.4 "]
+SAT_6->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 124.4 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 117.8 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 117.8 "]
+Copenhagen->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 117.8 "]
+SAT_10->Vienna [color=Black label=" Total Dur: 48.0 
+ TR: 117.8 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 117.8 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 117.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 125.4 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 125.4 "]
+Copenhagen->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 125.4 "]
+SAT_10->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 125.4 "]
+Paris->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 125.4 "]
+SAT_6->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 125.4 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 125.0 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 125.0 "]
+Copenhagen->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 125.0 "]
+SAT_10->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 125.0 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 125.0 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 125.0 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 111.1 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 111.1 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 111.1 "]
+SAT_6->Vienna [color=Black label=" Total Dur: 48.0 
+ TR: 111.1 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 111.1 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 111.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 109.5 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 109.5 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 109.5 "]
+SAT_6->Budapest [color=Black label=" Total Dur: 48.0 
+ TR: 109.5 "]
+Budapest->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 109.5 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 109.5 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 95.1 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 95.1 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 95.1 "]
+SAT_6->SAT_7 [color=Black label=" Total Dur: 48.0 
+ TR: 95.1 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 95.1 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 95.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 118.1 "]
+SAT_14->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 118.1 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 118.1 "]
+SAT_6->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 118.1 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 118.1 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 118.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 107.1 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 107.1 "]
+Paris->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 107.1 "]
+SAT_10->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 107.1 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 107.1 "]
+SAT_6->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 107.1 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 100.6 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 100.6 "]
+Paris->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 100.6 "]
+SAT_10->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 100.6 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 100.6 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 100.6 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 108.2 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 108.2 "]
+Paris->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 108.2 "]
+SAT_10->SAT_7 [color=Black label=" Total Dur: 48.0 
+ TR: 108.2 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 108.2 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 108.2 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 120.6 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 120.6 "]
+Paris->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 120.6 "]
+SAT_10->Budapest [color=Black label=" Total Dur: 48.0 
+ TR: 120.6 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 120.6 "]
+SAT_6->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 120.6 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 113.0 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 113.0 "]
+Paris->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 113.0 "]
+SAT_10->Budapest [color=Black label=" Total Dur: 48.0 
+ TR: 113.0 "]
+Budapest->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 113.0 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 113.0 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 121.6 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 121.6 "]
+Paris->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 121.6 "]
+SAT_10->Vienna [color=Black label=" Total Dur: 48.0 
+ TR: 121.6 "]
+Vienna->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 121.6 "]
+SAT_6->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 121.6 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 115.0 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 115.0 "]
+Paris->SAT_10 [color=Black label=" Total Dur: 48.0 
+ TR: 115.0 "]
+SAT_10->Vienna [color=Black label=" Total Dur: 48.0 
+ TR: 115.0 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 115.0 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 115.0 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 113.8 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 113.8 "]
+Paris->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 113.8 "]
+SAT_6->Vienna [color=Black label=" Total Dur: 48.0 
+ TR: 113.8 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 113.8 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 113.8 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 111.7 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 111.7 "]
+Paris->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 111.7 "]
+SAT_6->Budapest [color=Black label=" Total Dur: 48.0 
+ TR: 111.7 "]
+Budapest->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 111.7 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 111.7 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 96.0 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 96.0 "]
+Paris->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 96.0 "]
+SAT_6->Copenhagen [color=Black label=" Total Dur: 48.0 
+ TR: 96.0 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 96.0 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 96.0 "]
+Berlin->SAT_14 [color=Black label=" Total Dur: 48.0 
+ TR: 116.2 "]
+SAT_14->Paris [color=Black label=" Total Dur: 48.0 
+ TR: 116.2 "]
+Paris->SAT_6 [color=Black label=" Total Dur: 48.0 
+ TR: 116.2 "]
+SAT_6->SAT_7 [color=Black label=" Total Dur: 48.0 
+ TR: 116.2 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 48.0 
+ TR: 116.2 "]
+SAT_2->Rome [color=Black label=" Total Dur: 48.0 
+ TR: 116.2 "]
+}

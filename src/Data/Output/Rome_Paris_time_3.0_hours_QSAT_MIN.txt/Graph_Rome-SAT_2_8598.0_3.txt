@@ -1,0 +1,13 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Rome
+label = "3 iteration: total duration 788.000 "
+
+Paris
+Rome->SAT_2 [color=darkorange label=" Overall Transmittance: 46.2, duration: 391.0 seconds 
+ Transmittance usage 99.8% Duration usage: 100.0% "]
+SAT_2->Paris [color=darkorange label=" Overall Transmittance: 46.2, duration: 391.0 seconds 
+ Transmittance usage 100.0% Duration usage: 98.5% "]
+}

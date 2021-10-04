@@ -50,11 +50,9 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
     public double  calculateQBITSUMCity(double elevation,double height_above_sea,int dir){
         dir=2;
         calc.setDirection(dir);
-        //DefaultValues.absorptionAndScatteringPath = "C:\\Users\\Narcano\\IdeaProjects\\OrekitTest\\src\\com\\company\\accessories\\asv_860.csv";
-        DefaultValues.zenithAngle = 90-elevation;
-        //DefaultValues.groundSpaceChannelLength = 0; // Should be in KMs IDK what it does
-        DefaultValues.heightAboveSeaLevel = height_above_sea/1000; //correct to km and remove the earth
-        calc.setOpticalDistance(DefaultValues.heightAboveSeaLevel, DefaultValues.zenithAngle);
+        double zenithAngle = 90-elevation;
+        double heightAboveSeaLevel = height_above_sea/1000; //correct to km and remove the earth
+        calc.setOpticalDistance(zenithAngle, heightAboveSeaLevel);
         calc.setQber(); // if distance over sea is above 2000 it gets funky xd
 
         double bits = 0.5 * calc.getFrequencyOfLaserFiring() * DefaultValues.quantumEfficiencyOfDetector * calc.getTransmittance() * calc.getMeanPhotonNumberOfSignal();
@@ -67,14 +65,12 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
         dir=2;
         calc.setDirection(dir);
 
-        DefaultValues.zenithAngle = 90-elevation;
-        //DefaultValues.groundSpaceChannelLength = 0; // Should be in KMs IDK what it does
-        DefaultValues.heightAboveSeaLevel = height_above_sea/1000; //correct to km
-        calc.setZenithAngle(DefaultValues.zenithAngle);
-        calc.setHeightAboveSeaLevel(DefaultValues.heightAboveSeaLevel);
+        double zenithAngle = 90-elevation;
+        double heightAboveSeaLevel = height_above_sea/1000;
 
 
-        calc.setOpticalDistance(DefaultValues.heightAboveSeaLevel, DefaultValues.zenithAngle);
+
+        calc.setOpticalDistance(heightAboveSeaLevel, zenithAngle);
         calc.setQber(); // if distance over sea is above 2000 it gets funky xd
 
         return calc.getTransmittance();

@@ -1,0 +1,65 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Copenhagen
+label = "3 iteration: total duration 1194.000 "
+
+Rome
+Copenhagen->SAT_6 [color=darkorange label=" Overall Transmittance: 16.7, duration: 189.0 seconds 
+ Transmittance usage 99.6% Duration usage: 87.5% "]
+SAT_6->Berlin [color=darkorange label=" Overall Transmittance: 16.7, duration: 189.0 seconds 
+ Transmittance usage 100.0% Duration usage: 93.1% "]
+Berlin->SAT_2 [color=darkorange label=" Overall Transmittance: 16.7, duration: 189.0 seconds 
+ Transmittance usage 98.8% Duration usage: 85.5% "]
+SAT_2->Rome [color=darkorange label=" Overall Transmittance: 16.7, duration: 189.0 seconds 
+ Transmittance usage 99.1% Duration usage: 100.0% "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 170.0 
+ TR: 76.5 "]
+SAT_6->Vienna [color=Black label=" Total Dur: 170.0 
+ TR: 76.5 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 170.0 
+ TR: 76.5 "]
+SAT_2->Rome [color=Black label=" Total Dur: 170.0 
+ TR: 76.5 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 146.0 
+ TR: 74.9 "]
+SAT_6->Budapest [color=Black label=" Total Dur: 146.0 
+ TR: 74.9 "]
+Budapest->SAT_2 [color=Black label=" Total Dur: 146.0 
+ TR: 74.9 "]
+SAT_2->Rome [color=Black label=" Total Dur: 146.0 
+ TR: 74.9 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 177.0 
+ TR: 30.7 "]
+SAT_6->Rome [color=Black label=" Total Dur: 177.0 
+ TR: 30.7 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 56.0 
+ TR: 60.5 "]
+SAT_6->SAT_7 [color=Black label=" Total Dur: 56.0 
+ TR: 60.5 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 56.0 
+ TR: 60.5 "]
+SAT_2->Rome [color=Black label=" Total Dur: 56.0 
+ TR: 60.5 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 171.0 
+ TR: 83.5 "]
+SAT_6->Paris [color=Black label=" Total Dur: 171.0 
+ TR: 83.5 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 171.0 
+ TR: 83.5 "]
+SAT_2->Rome [color=Black label=" Total Dur: 171.0 
+ TR: 83.5 "]
+Copenhagen->SAT_6 [color=Black label=" Total Dur: 56.0 
+ TR: 30.9 "]
+SAT_6->SAT_11 [color=Black label=" Total Dur: 56.0 
+ TR: 30.9 "]
+SAT_11->SAT_10 [color=Black label=" Total Dur: 56.0 
+ TR: 30.9 "]
+SAT_10->SAT_7 [color=Black label=" Total Dur: 56.0 
+ TR: 30.9 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 56.0 
+ TR: 30.9 "]
+SAT_2->Rome [color=Black label=" Total Dur: 56.0 
+ TR: 30.9 "]
+}

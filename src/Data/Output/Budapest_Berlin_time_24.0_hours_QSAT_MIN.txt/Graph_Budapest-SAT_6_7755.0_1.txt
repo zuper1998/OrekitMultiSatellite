@@ -1,0 +1,65 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = "1 iteration: total duration 635.000 "
+
+Berlin
+Budapest->SAT_6 [color=chartreuse label=" Overall Transmittance: 29.1, duration: 308.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% "]
+SAT_6->Berlin [color=chartreuse label=" Overall Transmittance: 29.1, duration: 308.0 seconds 
+ Transmittance usage 99.7% Duration usage: 94.2% "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 41.0 
+ TR: 72.5 "]
+SAT_6->Vienna [color=Black label=" Total Dur: 41.0 
+ TR: 72.5 "]
+Vienna->SAT_2 [color=Black label=" Total Dur: 41.0 
+ TR: 72.5 "]
+SAT_2->Berlin [color=Black label=" Total Dur: 41.0 
+ TR: 72.5 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 41.0 
+ TR: 54.0 "]
+SAT_6->Copenhagen [color=Black label=" Total Dur: 41.0 
+ TR: 54.0 "]
+Copenhagen->SAT_2 [color=Black label=" Total Dur: 41.0 
+ TR: 54.0 "]
+SAT_2->Berlin [color=Black label=" Total Dur: 41.0 
+ TR: 54.0 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 34.0 
+ TR: 29.6 "]
+SAT_6->SAT_7 [color=Black label=" Total Dur: 34.0 
+ TR: 29.6 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 34.0 
+ TR: 29.6 "]
+SAT_2->Berlin [color=Black label=" Total Dur: 34.0 
+ TR: 29.6 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 43.0 
+ TR: 83.0 "]
+SAT_6->Rome [color=Black label=" Total Dur: 43.0 
+ TR: 83.0 "]
+Rome->SAT_2 [color=Black label=" Total Dur: 43.0 
+ TR: 83.0 "]
+SAT_2->Berlin [color=Black label=" Total Dur: 43.0 
+ TR: 83.0 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 44.0 
+ TR: 73.3 "]
+SAT_6->Paris [color=Black label=" Total Dur: 44.0 
+ TR: 73.3 "]
+Paris->SAT_2 [color=Black label=" Total Dur: 44.0 
+ TR: 73.3 "]
+SAT_2->Berlin [color=Black label=" Total Dur: 44.0 
+ TR: 73.3 "]
+Budapest->SAT_6 [color=Black label=" Total Dur: 37.0 
+ TR: 19.5 "]
+SAT_6->SAT_11 [color=Black label=" Total Dur: 37.0 
+ TR: 19.5 "]
+SAT_11->SAT_10 [color=Black label=" Total Dur: 37.0 
+ TR: 19.5 "]
+SAT_10->SAT_7 [color=Black label=" Total Dur: 37.0 
+ TR: 19.5 "]
+SAT_7->SAT_2 [color=Black label=" Total Dur: 37.0 
+ TR: 19.5 "]
+SAT_2->Berlin [color=Black label=" Total Dur: 37.0 
+ TR: 19.5 "]
+}

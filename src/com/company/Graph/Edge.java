@@ -1,6 +1,8 @@
 package com.company.Graph;
 
+import Data.SimValues;
 import com.company.IntervalData;
+import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 import org.hipparchus.util.FastMath;
 import org.orekit.time.AbsoluteDate;
 
@@ -9,7 +11,6 @@ import java.io.IOException;
 import java.io.Serial;
 import java.io.Serializable;
 
-import static Data.SimValues.calc;
 import static Data.SimValues.stepT;
 
 public class Edge implements Serializable {
@@ -22,6 +23,7 @@ public class Edge implements Serializable {
     public Node getEndNode() {
         return end;
     }
+    public Node getStartNode(){return start;}
 
     /**
      * @param s   Start node
@@ -63,11 +65,11 @@ public class Edge implements Serializable {
                 int dir = 0;
                 if (end.isCity())
                     dir = 2;
-                out += calc.calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir) * stepT;
+                out += SimValues.calc.get().calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir) * stepT;
             }
         } else {
             for (Double d : getOrbitData().Distance) {
-                out += calc.calculateTransmitanceSat(d) * stepT;
+                out += SimValues.calc.get().calculateTransmitanceSat(d) * stepT;
             }
         }
         return out;
@@ -165,12 +167,12 @@ public class Edge implements Serializable {
                 int dir = 0;
                 if (end.isCity())
                     dir = 2;
-                double tr =  calc.calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir) * stepT;
-                writer.append(String.format("%.3f %.3f %.3f%n",a,d,tr));
+                double tr =  SimValues.calc.get().calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir) * stepT;
+                writer.append(String.format("%.3f %.3f %.9f%n",a,d,tr));
             }
         } else {
             for (Double d : getOrbitData().Distance) {
-                double tr = calc.calculateTransmitanceSat(d) * stepT;
+                double tr = SimValues.calc.get().calculateTransmitanceSat(d) * stepT;
                 writer.append(String.format("%.3f %.3f%n",d,tr));
             }
         }
@@ -180,6 +182,7 @@ public class Edge implements Serializable {
      * @return the Transmittance of the first element in the list
      */
     public double getFirstTransmittance() {
+
         if (getOrbitData().Distance.isEmpty()) {
             return 0;
         }
@@ -189,9 +192,9 @@ public class Edge implements Serializable {
             int dir = 0;
             if (end.isCity())
                 dir = 2;
-            return calc.calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir);
+            return SimValues.calc.get().calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir);
         } else {
-            return calc.calculateTransmitanceSat(getOrbitData().Distance.get(0));
+            return SimValues.calc.get().calculateTransmitanceSat(getOrbitData().Distance.get(0));
         }
     }
 
@@ -199,6 +202,7 @@ public class Edge implements Serializable {
      * @return the Transmittance of the last element in the list
      */
     public double getLastTransmittance() {
+
         if (getOrbitData().Distance.isEmpty()) {
             return 0;
         }
@@ -208,9 +212,9 @@ public class Edge implements Serializable {
             int dir = 0;
             if (end.isCity())
                 dir = 2;
-            return calc.calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir);
+            return SimValues.calc.get().calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir);
         } else {
-            return calc.calculateTransmitanceSat(getOrbitData().Distance.get(0));
+            return SimValues.calc.get().calculateTransmitanceSat(getOrbitData().Distance.get(0));
         }
     }
 

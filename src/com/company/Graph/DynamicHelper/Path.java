@@ -8,14 +8,17 @@ import org.hipparchus.util.FastMath;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import static Data.SimValues.stepT;
 
-public class Path {
+public class Path implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     ArrayList<Edge> path = new ArrayList<>();
-    QuantumBitTransmitanceCalculator calc = SimValues.calc;
 
     public Path(Edge e) {
         path.add(e);
@@ -40,7 +43,7 @@ public class Path {
 
     public boolean containsNode(Node node) {
         for (Edge e : path) {
-            if (e.getEndNode().stringEquals(node)) {
+            if (e.getStartNode().stringEquals(node)) {
                 return true;
             }
         }
@@ -194,11 +197,11 @@ public class Path {
 
 
     public double calcQbitSat(double distance) {
-        return calc.calculateQBITSUMSat(distance);
+        return SimValues.calc.get().calculateQBITSUMSat(distance);
     }
 
     public double calcQbitCity(double distance, double elevation, int dir) { // dir 0 -> ; dir 2 <-
-        return calc.calculateQBITSUMCity(elevation, distance * FastMath.sin(FastMath.toRadians(elevation)), dir);
+        return SimValues.calc.get().calculateQBITSUMCity(elevation, distance * FastMath.sin(FastMath.toRadians(elevation)), dir);
     }
 
     public Path generateNewWith(Edge edge) throws Exception {
