@@ -19,4 +19,5 @@ public class SimValues {
     public static final int concurentThreads = 3;
     public static ThreadLocal<QuantumBitTransmitanceCalculator> calc = new ThreadLocal<>();
     public static final ArrayList<City> cities = new ArrayList<>(CityLoader.loadCities(SimValues.cityData));
+    public static boolean IsSim = false;
 }

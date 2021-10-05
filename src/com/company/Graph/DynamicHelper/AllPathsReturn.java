@@ -49,4 +49,7 @@ public class AllPathsReturn implements Serializable {
         return otherPaths;
     }
 
+    public void SaveToGraph() {
+        //TODO: make it save to geaph
+    }
 }

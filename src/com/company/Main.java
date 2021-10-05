@@ -13,19 +13,24 @@ import java.util.concurrent.Semaphore;
 public class Main {
 
     public static void main(String[] args) {
-        Graph g = new Graph();
-        SatOrbitProbagation.loadStuff();
-        g.GenerateGraph(SatOrbitProbagation.Generate());
-        g.loadFromFile();
-        //This part can be made to threads, Yay
-        Semaphore sem = new Semaphore(SimValues.concurentThreads);
-        ExecutorService ex = Executors.newCachedThreadPool();
+        if(SimValues.IsSim) {
+            Graph g = new Graph();
+            SatOrbitProbagation.loadStuff();
+            g.GenerateGraph(SatOrbitProbagation.Generate());
+            g.loadFromFile();
+            //This part can be made to threads, Yay
+            Semaphore sem = new Semaphore(SimValues.concurentThreads);
+            ExecutorService ex = Executors.newCachedThreadPool();
 
-        for (City c1 : SimValues.cities) {
-            for (City c2 : SimValues.cities) {
-                if(!c1.name.equals(c2.name))
-                ex.submit(new ThreadedRun(g,c1.name,c2.name,sem));
+            for (City c1 : SimValues.cities) {
+                for (City c2 : SimValues.cities) {
+                    if (!c1.name.equals(c2.name))
+                        ex.submit(new ThreadedRun(g, c1.name, c2.name, sem));
+                }
             }
+        } else {
+
+
         }
 
 
