@@ -72,6 +72,9 @@ public class QuantumBitTransmitanceCalculator implements Serializable {
 
         calc.setOpticalDistance(heightAboveSeaLevel, zenithAngle);
         calc.setQber(); // if distance over sea is above 2000 it gets funky xd
+        if(calc.getTransmittance()>0.2){
+            int a = 0;
+        }
 
         return calc.getTransmittance();
     }

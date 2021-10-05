@@ -61,14 +61,14 @@ public class Graph {
 
 
             ArrayList<AllPathsReturn> allp = new ArrayList<>();
-        String fileFolder = String.format("src/Data/Output/%s_%s_time_%.1f_hours_%s", city1, city2, SimValues.duration / 3600, new File(SimValues.satData).getName());
+        String fileFolder = String.format("src/Data/Output/Time_%f_Sat_%s/%s_%s", SimValues.duration / 3600, new File(SimValues.satData).getName(), city1, city2);
 
         for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
             AllPathsReturn cur = dynamicGenerateBetweenCityIndexable(city1, city2, i);
             if (cur != null) {
 
                 try {
-                    new File(fileFolder).mkdir(); // creat folder
+                    new File(fileFolder).mkdirs(); // creat folder
                     FileWriter o = new FileWriter(fileFolder + "/Graph_" + cur.getBest().getPath().get(0).getEdgeWay()+ "_"+ cur.getBest().getPath().get(0).getDataStart().durationFrom(SatOrbitProbagation.initialDate.getDate()) + "_" + i + ".txt");
                     BufferedWriter writer = new BufferedWriter(o);
 
@@ -100,7 +100,7 @@ public class Graph {
                     e.printStackTrace();
                 }
                 try {
-                    new File(fileFolder).mkdir(); // creat folder
+                    new File(fileFolder).mkdirs(); // creat folder
                     FileWriter o = new FileWriter((fileFolder + "/Data_" + cur.getBest().getPath().get(0).getEdgeWay() + "_" + i + ".txt"));
                     BufferedWriter writer = new BufferedWriter(o);
                     cur.getBest().SaveData(writer);

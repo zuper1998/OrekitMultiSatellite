@@ -1,3 +1,0 @@
-eBits: 1.248992602109168E7
-Total time elapsed: 10800.0 [s]
-eBits/s: 1156.4746315825628
