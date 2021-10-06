@@ -14,7 +14,7 @@ public class Node implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     ArrayList<Edge> edges = new ArrayList<>();
-    String name;
+    public String name;
     public Node(String n){
         name = n;
     }

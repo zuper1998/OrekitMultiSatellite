@@ -15,10 +15,25 @@ public class AllPathsReturn implements Serializable {
     Path best;
     ArrayList<Path> otherPaths;
 
+
+
+    public AllPathsReturn() {
+        best = null;
+        otherPaths = new ArrayList<>();
+    }
+
     public AllPathsReturn(Path p, ArrayList<Path> o) {
         best = p;
         otherPaths = o;
     }
+
+    public void addNewBest(Path p){
+        if(best!=null) {
+            otherPaths.add(best);
+        }
+        best=p;
+    }
+
 
     public Path getBest() {
         return best;

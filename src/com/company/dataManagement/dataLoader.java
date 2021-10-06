@@ -16,13 +16,13 @@ public class  dataLoader {
 
         for(File dir_out : directories){
             for(File dir : Objects.requireNonNull(dir_out.listFiles(File::isFile))){
-            if(dir.getName().equals("out.ser")){
                 FileInputStream fis = null;
                 try {
                     fis = new FileInputStream(dir);
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     out.add ((AllPathsReturn) ois.readObject());
                     ois.close();
+                    return out;
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -31,7 +31,6 @@ public class  dataLoader {
                     e.printStackTrace();
                 }
 
-            }
             }
         }
     return out;
