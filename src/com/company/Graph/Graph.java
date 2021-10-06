@@ -190,8 +190,8 @@ public class Graph {
             for (Path p : TnextRound) {
                 for (Edge outerEdge : p.getLastEdge().end.edges) {
                     if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart())
-                            && !p.containsNode(outerEdge.getEndNode())
-                            && outerEdge.getDataStart().durationFrom(p.getLastEdge().getDataEnd())< MAX_TIME) {
+                            && outerEdge.getDataStart().durationFrom(p.getLastEdge().getDataEnd())< MAX_TIME
+                            && !p.containsNode(outerEdge.getEndNode())) {
                         Path curP = null;
                         try {
                             curP = p.generateNewWith(new Edge(outerEdge));

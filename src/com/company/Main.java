@@ -40,7 +40,7 @@ public class Main {
 }
 
 //For multi threading we have to remake the saving part of the data :)
-class ThreadedRun extends Thread {
+class ThreadedRun implements Runnable {
     Semaphore semaphore;
     String c1,c2;
     Graph g;
