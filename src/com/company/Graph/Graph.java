@@ -4,6 +4,7 @@ import Data.SimValues;
 import com.company.Graph.DynamicHelper.AllPathsReturn;
 import com.company.Graph.DynamicHelper.Path;
 import com.company.SatFlightData;
+import org.hipparchus.util.FastMath;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -126,7 +127,7 @@ public class Graph {
             for (Path p : tNextRound) {
                 for (Edge outerEdge : p.getLastEdge().end.edges) {
                     if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart())
-                            && outerEdge.getDataStart().durationFrom(p.getLastEdge().getDataEnd())< MAX_TIME
+                            && (FastMath.abs(outerEdge.getDataStart().durationFrom(p.getPath().get(0).getDataEnd()))< MAX_TIME) // if |---a |---| |---| |---| b--| and dist(a,b)>MAX_TIME -> there cant be a good route
                             && !p.containsNode(outerEdge.getEndNode())) {
                         Path curP = null;
                         try {

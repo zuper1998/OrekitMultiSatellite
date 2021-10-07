@@ -11,13 +11,14 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class dataExporter {
-    static final String fileFolder = String.format("src/Data/Output/Time_%f_Sat_%s/", SimValues.duration / 3600, new File(SimValues.satData).getName());
+    static final String sourceFileFolder = String.format("src/Data/Output/Time_%f_Sat_%s/", SimValues.duration / 3600, new File(SimValues.satData).getName());
+    static final String destFileFolder = "src/Data/Output/";
     public static void exportALL(){
 
-        ArrayList<AllPathsReturn> allp = dataLoader.loadAllPaths(fileFolder);
+        ArrayList<AllPathsReturn> allp = dataLoader.loadAllPaths(sourceFileFolder);
         for(AllPathsReturn a : allp){
             MakeGraph(a);
-            //printData(a);
+            printData(a);
         }
         //printEBits(allp);
 
@@ -27,10 +28,10 @@ public class dataExporter {
        try {
            AbsoluteDate initialDate = new AbsoluteDate(2021, 1, 1, 23, 30, 00.000, TimeScalesFactory.getUTC())
                    .shiftedBy(0);
-           String f = fileFolder+String.format("GRAPH/%s_%s_%f",cur.getBest().getPath().get(0).getStartNode().name,
+           String f = destFileFolder+String.format("GRAPH/%s_%s_%f",cur.getBest().getPath().get(0).getStartNode().name,
                    cur.getBest().getLastEdge().getEndNode().name,
                    cur.getBest().getPath().get(0).getDataStart().durationFrom(initialDate));
-           new File(fileFolder+"GRAPH/").mkdirs(); // creat folder
+           new File(destFileFolder+"GRAPH/").mkdirs(); // creat folder
 
             FileWriter o = new FileWriter(f);
 
@@ -66,10 +67,10 @@ public class dataExporter {
         AbsoluteDate initialDate = new AbsoluteDate(2021, 1, 1, 23, 30, 00.000, TimeScalesFactory.getUTC())
                 .shiftedBy(0);
           try {
-                    String f = fileFolder+String.format("DATA/%s_%s_%f",cur.getBest().getPath().get(0).getStartNode().name,
+                    String f = destFileFolder+String.format("DATA/%s_%s_%f",cur.getBest().getPath().get(0).getStartNode().name,
                       cur.getBest().getLastEdge().getEndNode().name,
                       cur.getBest().getPath().get(0).getDataStart().durationFrom(initialDate));
-                    new File(f).mkdirs(); // creat folder
+                    new File(destFileFolder+"DATA/").mkdirs(); // creat folder
 
                     FileWriter o = new FileWriter(f);
                     BufferedWriter writer = new BufferedWriter(o);
@@ -94,7 +95,7 @@ public class dataExporter {
         }
         FileWriter o = null;
         try {
-            o = new FileWriter((fileFolder + "/ebitStats" +".txt"));
+            o = new FileWriter((destFileFolder + "/ebitStats" +".txt"));
             BufferedWriter writer = new BufferedWriter(o);
 
             writer.append("eBits: ").append(String.valueOf(eBits));

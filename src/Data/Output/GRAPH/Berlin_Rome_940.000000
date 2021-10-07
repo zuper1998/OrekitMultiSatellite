@@ -1,0 +1,19 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Berlin
+label = " Total duration 3286.000 "
+
+Rome
+Berlin->SAT_4 [color=dodgerblue3 label=" Overall Transmittance: 3.2, duration: 49.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% "]
+SAT_4->SAT_6 [color=dodgerblue3 label=" Overall Transmittance: 3.2, duration: 49.0 seconds 
+ Transmittance usage 65.2% Duration usage: 15.2% "]
+SAT_6->SAT_12 [color=dodgerblue3 label=" Overall Transmittance: 3.2, duration: 49.0 seconds 
+ Transmittance usage 43.4% Duration usage: 10.7% "]
+SAT_12->SAT_16 [color=dodgerblue3 label=" Overall Transmittance: 3.2, duration: 49.0 seconds 
+ Transmittance usage 89.3% Duration usage: 13.2% "]
+SAT_16->Rome [color=dodgerblue3 label=" Overall Transmittance: 3.2, duration: 49.0 seconds 
+ Transmittance usage 7.1% Duration usage: 9.6% "]
+}

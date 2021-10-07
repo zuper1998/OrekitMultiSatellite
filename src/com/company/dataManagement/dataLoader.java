@@ -15,14 +15,14 @@ public class  dataLoader {
         assert directories != null;
 
         for(File dir_out : directories){
-            for(File dir : Objects.requireNonNull(dir_out.listFiles(File::isFile))){
+            for(File file : Objects.requireNonNull(dir_out.listFiles(File::isFile))){
                 FileInputStream fis = null;
                 try {
-                    fis = new FileInputStream(dir);
+                    System.out.println(file);
+                    fis = new FileInputStream(file);
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     out.add ((AllPathsReturn) ois.readObject());
                     ois.close();
-                    return out;
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {

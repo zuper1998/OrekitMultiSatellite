@@ -131,7 +131,6 @@ def vis(File:path):
 
 for child in Path('.').iterdir():
     if child.is_file():
-        if(child.name.__contains__("Data")):
-            print(f"{child.name}\n")
-            visPlotly(child)
-            break
+        print(f"{child.name}\n")
+        visPlotly(child)
+        break

@@ -17,12 +17,13 @@ public class Main {
             Graph g = new Graph();
             g.GenerateGraph(SatOrbitProbagation.Generate());
             g.loadFromFile();
-            //This part can be made to threads, Yay
             ExecutorService ex = Executors.newFixedThreadPool(SimValues.concurentThreads);
 
             for (City c1 : SimValues.cities) {
                 ex.submit(new ThreadedRun(g, c1.name));
-
+            }
+            if(ex.isTerminated()){
+                ex.shutdown();
             }
         } else {
             SimValues.calc.set(new QuantumBitTransmitanceCalculator());
@@ -50,9 +51,9 @@ class ThreadedRun implements Runnable {
     public void run() {
         try {
             SimValues.calc.set(new QuantumBitTransmitanceCalculator());
-            System.out.printf("Starting %s%n", c1);
+            System.err.printf("Starting %s%n", c1);
             g.printBest(c1);
-            System.out.printf("Done %s%n", c1);
+            System.err.printf("Done %s%n", c1);
             return;
         } catch (Exception e) {
             e.printStackTrace();
