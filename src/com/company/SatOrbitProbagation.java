@@ -32,11 +32,10 @@ import java.util.Map;
 
 import static Data.SimValues.satData;
 import static Data.SimValues.stepT;
-
+import static Data.SimValues.initialDate;
 
 public class SatOrbitProbagation {
     // configure Orekit
-    public static AbsoluteDate initialDate;
 
 
     public static void loadStuff() {
@@ -52,14 +51,14 @@ public class SatOrbitProbagation {
         }
         final DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
         manager.addProvider(new DirectoryCrawler(orekitData));
-
+        initialDate = new AbsoluteDate(2021, 1, 1, 23, 30, 00.000, TimeScalesFactory.getUTC())
+                .shiftedBy(0);
     }
 
     public static Map<String, ArrayList<SatFlightData>> Generate() {
 
         //  Initial state definition : date, orbit
-        initialDate = new AbsoluteDate(2021, 1, 1, 23, 30, 00.000, TimeScalesFactory.getUTC())
-                .shiftedBy(0);
+
         final double mu = 3.986004415e+14; // gravitation coefficient
         final Frame inertialFrame = FramesFactory.getEME2000(); // inertial frame for orbit definition
         ArrayList<Satellite_Sajat> sats = Satellite_Sajat.SatLoader(

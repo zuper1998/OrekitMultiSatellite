@@ -33,16 +33,7 @@ public class Node implements Serializable {
     public boolean stringEquals(Node n){
         return name.equals(n.name);
     }
-    public void printDotEdges() {
-        for(Edge e : edges){
-            e.print();
-        }
-    }
-    public void printDotEdgesNoLabel() {
-        for(Edge e : edges){
-            e.printNoLabel();
-        }
-    }
+
 
     public boolean isCity() {
         for(City c : SimValues.cities){
@@ -51,6 +42,5 @@ public class Node implements Serializable {
             }
         }
         return false;
-        //return name.equals("NewYork")||name.equals("Budapest")||name.equals("Berlin"); //TODO: make nicer way for this
     }
 }

@@ -4,7 +4,7 @@ def makeSats(SatNum: int):
     i = 0
     raanIndex = 0
     maxAngle = 360 
-    angleDelta= 45
+    angleDelta= 25
     for raan in range(0,maxAngle,angleDelta):
         raanIndex+=1
         for perige in range(0,maxAngle,angleDelta):

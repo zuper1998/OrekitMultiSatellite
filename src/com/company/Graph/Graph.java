@@ -55,8 +55,9 @@ public class Graph {
 
 
     public void printBest(String city1) {
-
+        System.err.println(nodes.get(city1).edges.size());
         for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
+            System.err.printf("%f%n",(double)i/nodes.get(city1).edges.size());
             HashMap<String,AllPathsReturn> cur = dynamicGenerateBetweenCityIndexable(city1, i);
 
             for(Map.Entry<String, AllPathsReturn> a : cur.entrySet()){
@@ -65,6 +66,7 @@ public class Graph {
                     new File(fileFolder).mkdirs();
                     FileOutputStream fos = new FileOutputStream(fileFolder+"/out"+i+".ser");
                     ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    a.getValue().StripDown();
                     oos.writeObject(a.getValue());
                     oos.close();
                 } catch (FileNotFoundException e) {
@@ -100,6 +102,10 @@ public class Graph {
         }
     }
 
+    public void calculateAllTransmittance(){
+
+        nodes.forEach((a,b)->b.edges.forEach(Edge::genTransmittance));
+    }
 
     public HashMap<String, AllPathsReturn> dynamicGenerateBetweenCityIndexable(String city1, int i) {
 
@@ -109,9 +115,8 @@ public class Graph {
 
 
     public HashMap<String, AllPathsReturn> dynamicAlgo(Edge in) {
-        ArrayList<Path> otherPaths = new ArrayList<>();
         ArrayList<Path> nextRound = new ArrayList<>();
-        nextRound.add(new Path(new Edge(in)));
+        nextRound.add(new Path(in));
         HashMap<String,Double> bestValues = new HashMap<>();
         HashMap<String, AllPathsReturn> bestPaths= new HashMap<>();
 
@@ -122,16 +127,16 @@ public class Graph {
             if (++cnt > SearchDepth)
                 break;
             running = false;
-            ArrayList<Path> tNextRound = new ArrayList<>(nextRound);
+            ArrayList<Path> tNextRound = nextRound;
             nextRound = new ArrayList<>();
             for (Path p : tNextRound) {
-                for (Edge outerEdge : p.getLastEdge().end.edges) {
+                for (Edge outerEdge : p.getLastEdge().getEndNode().edges) {
                     if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart())
                             && (FastMath.abs(outerEdge.getDataStart().durationFrom(p.getPath().get(0).getDataEnd()))< MAX_TIME) // if |---a |---| |---| |---| b--| and dist(a,b)>MAX_TIME -> there cant be a good route
                             && !p.containsNode(outerEdge.getEndNode())) {
                         Path curP = null;
                         try {
-                            curP = p.generateNewWith(new Edge(outerEdge));
+                            curP = p.generateNewWith(outerEdge);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -143,17 +148,15 @@ public class Graph {
                                 }
 
                             }
-                            if (curP.getLastEdge().end.isCity()) { // its the target city
+                            if (curP.getLastEdge().getEndNode().isCity()) { // its the target city
                                 double curBest = curP.computeBestTransmittance();
-                                String lastNode = curP.getLastEdge().end.name;
+                                String lastNode = curP.getLastEdge().getEndNode().name;
                                 bestValues.putIfAbsent(lastNode,0.0);
                                 if (bestValues.get(lastNode) < curBest) {
                                     bestValues.put(lastNode,curBest);
                                     bestPaths.putIfAbsent(lastNode,new AllPathsReturn());
                                     bestPaths.get(lastNode).addNewBest(curP);
 
-                                } else {
-                                    otherPaths.add(curP);
                                 }
                             } else {
                                 nextRound.add(curP);
@@ -175,71 +178,5 @@ public class Graph {
 
 
 
-    public AllPathsReturn _dynamicAlgo(Edge in, String target) {
-        double Max = 0;
-        ArrayList<Path> otherPaths = new ArrayList<>();
-        Path best = null;
-        ArrayList<Path> nextRound = new ArrayList<>();
-        nextRound.add(new Path(new Edge(in)));
-
-        boolean running = true;
-        int cnt = 0;
-
-        while (running) { // If there are no backward Edges in the paths there cant be more levels then there are nodes
-            if (++cnt > SearchDepth)
-                break;
-            running = false;
-            ArrayList<Path> TnextRound = new ArrayList<>(nextRound);
-            nextRound = new ArrayList<>();
-            for (Path p : TnextRound) {
-                for (Edge outerEdge : p.getLastEdge().end.edges) {
-                    if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart())
-                            && outerEdge.getDataStart().durationFrom(p.getLastEdge().getDataEnd())< MAX_TIME
-                            && !p.containsNode(outerEdge.getEndNode())) {
-                        Path curP = null;
-                        try {
-                            curP = p.generateNewWith(new Edge(outerEdge));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                        if (curP != null && !curP.isEmpty()) {
-                            if (curP.getDur() > MAX_TIME) {
-                                if (!curP.trimToWindowSize()) {
-                                    continue;
-                                }
-
-                            }
-                            if (curP.getLastEdge().end.name.equals(target)) { // its the target city
-                                double curBest = curP.computeBestTransmittance();
-                                if (Max < curBest) {
-                                    Max = curBest;
-                                    if (best != null) {
-                                        otherPaths.add(best); //adding older best path to the other paths
-                                    }
-                                    best = curP;
-                                } else {
-                                    otherPaths.add(curP);
-                                }
-                            } else {
-                                nextRound.add(curP);
-                                running = true;
-                            }
-                        }
-
-                    }
-                }
-            }
-
-
-        }
-
-
-        if (best != null) {
-            return new AllPathsReturn(best, otherPaths);
-        } else {
-            return null;
-        }
-    }
 
 }
