@@ -19,9 +19,16 @@ public class Main {
             g.loadFromFile();
             ExecutorService ex = Executors.newFixedThreadPool(SimValues.concurentThreads);
 
+            SimValues.calc.set(new QuantumBitTransmitanceCalculator());
+
+            g.calculateAllTransmittance();
             for (City c1 : SimValues.cities) {
-                ex.submit(new ThreadedRun(g, c1.name));
+                System.err.printf("Starting %s%n", c1.name);
+                g.printBest(c1.name);
+                System.err.printf("Done %s%n", c1.name);
+
             }
+
             if(ex.isTerminated()){
                 ex.shutdown();
             }
@@ -49,23 +56,11 @@ class ThreadedRun implements Runnable {
     }
 
     public void run() {
-        try {
             SimValues.calc.set(new QuantumBitTransmitanceCalculator());
             System.err.printf("Starting %s%n", c1);
             g.printBest(c1);
             System.err.printf("Done %s%n", c1);
-            return;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-    }
+            }
 
 
 }

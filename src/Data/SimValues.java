@@ -3,6 +3,7 @@ package Data;
 import com.company.City;
 import com.company.CityLoader;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
+import org.orekit.time.AbsoluteDate;
 
 import java.util.ArrayList;
 
@@ -16,8 +17,10 @@ public class SimValues {
     public static final int SearchDepth = 5;
     public static final String satData = "src/Data/QSAT_RETRO_MID.txt";
     public static final String cityData = "src/Data/cities.txt";
-    public static final int concurentThreads = 2;
+    public static final int concurentThreads =2;
     public static ThreadLocal<QuantumBitTransmitanceCalculator> calc = new ThreadLocal<>();
     public static final ArrayList<City> cities = new ArrayList<>(CityLoader.loadCities(SimValues.cityData));
     public static boolean IsSim = true;
+    public static AbsoluteDate initialDate;
+
 }

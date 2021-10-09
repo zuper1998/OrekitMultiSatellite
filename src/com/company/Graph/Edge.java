@@ -2,7 +2,6 @@ package com.company.Graph;
 
 import Data.SimValues;
 import com.company.IntervalData;
-import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 import org.hipparchus.util.FastMath;
 import org.orekit.time.AbsoluteDate;
 
@@ -10,20 +9,24 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import static Data.SimValues.stepT;
 
 public class Edge implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-    Node start;
-    Node end;
+    public Node start;
+    public Node end;
     EdgeData data;
 
     public Node getEndNode() {
         return end;
     }
-    public Node getStartNode(){return start;}
+
+    public Node getStartNode() {
+        return start;
+    }
 
     /**
      * @param s   Start node
@@ -48,8 +51,8 @@ public class Edge implements Serializable {
 
     }
 
-    public String getEdgeWay(){
-        return String.format("%s-%s",start.name,end.name);
+    public String getEdgeWay() {
+        return String.format("%s-%s", start.name, end.name);
     }
 
     /**
@@ -57,7 +60,15 @@ public class Edge implements Serializable {
      */
     public double getDurationScaledWithTransmitance() {
         double out = 0;
+        if (getOrbitData().Transmittance == null) {
+            genTransmittance();
+        }
+        out = getOrbitData().Transmittance.stream().mapToDouble(a -> a).sum();
+        return out;
+    }
 
+    public void genTransmittance(){
+        getOrbitData().Transmittance = new ArrayList<>();
         if (start.isCity() || end.isCity()) { //its a cit
             for (int i = 0; i < getOrbitData().Angle.size(); i++) {
                 double a = getOrbitData().Angle.get(i);
@@ -65,14 +76,15 @@ public class Edge implements Serializable {
                 int dir = 0;
                 if (end.isCity())
                     dir = 2;
-                out += SimValues.calc.get().calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir) * stepT;
+                double tr = SimValues.calc.get().calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir) * stepT;
+                getOrbitData().Transmittance.add(tr);
             }
         } else {
             for (Double d : getOrbitData().Distance) {
-                out += SimValues.calc.get().calculateTransmitanceSat(d) * stepT;
+                double tr = SimValues.calc.get().calculateTransmitanceSat(d) * stepT;
+                getOrbitData().Transmittance.add(tr);
             }
         }
-        return out;
     }
 
     @Override
@@ -148,8 +160,9 @@ public class Edge implements Serializable {
         System.out.println(out);
     }
 
-    public void SaveColorTransmitanceDurationAndPercentUsed(String color, double duration, double Tr, BufferedWriter writer) throws IOException {
-        String out = String.format("%s->%s [color=%s label=\" Overall Transmittance: %.1f, duration: %.1f seconds %n Transmittance usage %.1f%% Duration usage: %.1f%% \"]", start.name, end.name, color, Tr, duration, Tr/this.getDurationScaledWithTransmitance()*100, duration / getDataDuration() * 100);
+    public void SaveColorTransmitanceDurationAndPercentUsed(String color, double duration, double percentDUR ,double Tr, BufferedWriter writer) throws IOException {
+        String out = String.format("%s->%s [color=%s label=\" Overall Transmittance: %.1f, duration: %.1f seconds %n Transmittance usage %.1f%% Duration usage: %.1f%% \", taillabel=\"%f\",headlabel=\"%f\"]",
+                start.name, end.name, color, Tr, duration, Tr / this.getDurationScaledWithTransmitance() * 100, duration / getDataDuration() * 100,this.getDataStart().durationFrom(SimValues.initialDate),this.getDataEnd().durationFrom(SimValues.initialDate));
         writer.append(out);
         writer.newLine();
     }
@@ -157,23 +170,25 @@ public class Edge implements Serializable {
 
     /**
      * Prints data in the following format: Angle Distance Transmitance
+     *
      * @param writer
      */
     public void printData(BufferedWriter writer) throws IOException {
-        if(end.isCity()||start.isCity()){
+        if (end.isCity() || start.isCity()) {
             for (int i = 0; i < getOrbitData().Angle.size(); i++) {
                 double a = getOrbitData().Angle.get(i);
                 double d = getOrbitData().Distance.get(i);
                 int dir = 0;
                 if (end.isCity())
                     dir = 2;
-                double tr =  SimValues.calc.get().calculateTransmitanceCity(a, d * FastMath.sin(FastMath.toRadians(a)), dir) * stepT;
-                writer.append(String.format("%.3f %.3f %.9f%n",a,d,tr));
+                double tr = getOrbitData().Transmittance.get(i);
+                writer.append(String.format("%.3f %.3f %.9f%n", a, d, tr));
             }
         } else {
-            for (Double d : getOrbitData().Distance) {
-                double tr = SimValues.calc.get().calculateTransmitanceSat(d) * stepT;
-                writer.append(String.format("%.3f %.3f%n",d,tr));
+            for (int dis = 0;dis<getOrbitData().Distance.size();dis++) {
+                double tr = getOrbitData().Transmittance.get(dis);
+                double d =  getOrbitData().Distance.get(dis);
+                writer.append(String.format("%.3f %.3f%n", d, tr));
             }
         }
     }
@@ -182,7 +197,9 @@ public class Edge implements Serializable {
      * @return the Transmittance of the first element in the list
      */
     public double getFirstTransmittance() {
-
+        if (getOrbitData().Transmittance != null) {
+            return getOrbitData().Transmittance.get(0);
+        }
         if (getOrbitData().Distance.isEmpty()) {
             return 0;
         }
@@ -202,7 +219,9 @@ public class Edge implements Serializable {
      * @return the Transmittance of the last element in the list
      */
     public double getLastTransmittance() {
-
+        if (getOrbitData().Transmittance != null) {
+            return getOrbitData().Transmittance.get(getOrbitData().Transmittance.size() - 1);
+        }
         if (getOrbitData().Distance.isEmpty()) {
             return 0;
         }

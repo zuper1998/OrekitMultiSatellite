@@ -29,6 +29,7 @@ public class AllPathsReturn implements Serializable {
 
     public void addNewBest(Path p){
         if(best!=null) {
+            otherPaths.clear();
             otherPaths.add(best);
         }
         best=p;
@@ -52,7 +53,7 @@ public class AllPathsReturn implements Serializable {
         for (Path p : otherPaths) {
             p.getPath().forEach(edge -> {
                 try {
-                    edge.SaveColorAndThrougput("Black", p._computeBest(), p.computeOverallTransmittance(),writer);
+                    edge.SaveColorAndThrougput("Black", p._computeBest(), p.computeBestTransmittance(),writer);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -64,7 +65,14 @@ public class AllPathsReturn implements Serializable {
         return otherPaths;
     }
 
-    public void SaveToGraph() {
-        //TODO: make it save to geaph
+
+    public void StripDown() {
+        best = best.Strip();
+        ArrayList<Path> newOther =  new ArrayList<>();
+        for(Path p : otherPaths){
+            newOther.add(p.Strip());
+        }
+        otherPaths=newOther;
+
     }
 }
