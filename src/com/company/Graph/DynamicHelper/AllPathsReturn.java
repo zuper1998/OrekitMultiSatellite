@@ -29,6 +29,7 @@ public class AllPathsReturn implements Serializable {
 
     public void addNewBest(Path p){
         if(best!=null) {
+            otherPaths.clear();
             otherPaths.add(best);
         }
         best=p;
