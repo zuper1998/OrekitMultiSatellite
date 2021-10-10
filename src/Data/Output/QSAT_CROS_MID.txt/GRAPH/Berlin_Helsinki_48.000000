@@ -1,0 +1,21 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Berlin
+label = " Total duration 2096.000 "
+
+Helsinki
+Berlin->SAT_33 [color=dodgerblue3 label=" Overall Transmittance: 43.8, duration: 452.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="48.0",headlabel="500.0"]
+SAT_33->SAT_59 [color=dodgerblue3 label=" Overall Transmittance: 43.8, duration: 452.0 seconds 
+ Transmittance usage 99.9% Duration usage: 69.5% ", taillabel="500.0",headlabel="1150.0"]
+SAT_59->SAT_31 [color=dodgerblue3 label=" Overall Transmittance: 43.8, duration: 452.0 seconds 
+ Transmittance usage 35.9% Duration usage: 97.2% ", taillabel="1150.0",headlabel="1615.0"]
+SAT_31->Helsinki [color=dodgerblue3 label=" Overall Transmittance: 43.8, duration: 452.0 seconds 
+ Transmittance usage 89.8% Duration usage: 85.4% ", taillabel="1615.0",headlabel="2144.0"]
+Berlin->SAT_33 [color=Black label=" Overall Transmittance: 19.8, duration: 215.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="48.0",headlabel="263.0"]
+SAT_33->Helsinki [color=Black label=" Overall Transmittance: 19.8, duration: 215.0 seconds 
+ Transmittance usage 99.8% Duration usage: 93.5% ", taillabel="263.0",headlabel="493.0"]
+}

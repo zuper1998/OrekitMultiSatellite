@@ -5,6 +5,8 @@ import com.company.Graph.Graph;
 import com.company.QBERCalc.QuantumBitTransmitanceCalculator;
 import com.company.dataManagement.dataExporter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -20,15 +22,14 @@ public class Main {
             ExecutorService ex = Executors.newFixedThreadPool(SimValues.concurentThreads);
 
             SimValues.calc.set(new QuantumBitTransmitanceCalculator());
-
+            List<ThreadedRun> t = new ArrayList<>();
             g.calculateAllTransmittance();
             for (City c1 : SimValues.cities) {
-                System.err.printf("Starting %s%n", c1.name);
-                g.printBest(c1.name);
-                System.err.printf("Done %s%n", c1.name);
-
+                //System.err.printf("Starting %s%n", c1.name);
+                //g.printBest(c1.name);
+                //System.err.printf("Done %s%n", c1.name);
+                ex.submit(new ThreadedRun(g,c1.name));
             }
-
             if(ex.isTerminated()){
                 ex.shutdown();
             }

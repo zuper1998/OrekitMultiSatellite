@@ -129,6 +129,8 @@ public class Graph {
             running = false;
             ArrayList<Path> tNextRound = nextRound;
             nextRound = new ArrayList<>();
+            Runtime.getRuntime().gc();
+
             for (Path p : tNextRound) {
                 for (Edge outerEdge : p.getLastEdge().getEndNode().edges) {
                     if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart())
@@ -146,7 +148,6 @@ public class Graph {
                                 if (!curP.trimToWindowSize()) {
                                     continue;
                                 }
-
                             }
                             if (curP.getLastEdge().getEndNode().isCity()) { // its the target city
                                 double curBest = curP.computeBestTransmittance();

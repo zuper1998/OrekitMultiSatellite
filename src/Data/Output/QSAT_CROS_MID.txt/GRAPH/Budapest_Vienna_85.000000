@@ -1,0 +1,21 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Total duration 1830.000 "
+
+Vienna
+Budapest->SAT_51 [color=dodgerblue3 label=" Overall Transmittance: 35.7, duration: 122.0 seconds 
+ Transmittance usage 100.0% Duration usage: 28.4% ", taillabel="85.0",headlabel="515.0"]
+SAT_51->SAT_59 [color=dodgerblue3 label=" Overall Transmittance: 35.7, duration: 122.0 seconds 
+ Transmittance usage 76.1% Duration usage: 17.1% ", taillabel="515.0",headlabel="1228.0"]
+SAT_59->SAT_31 [color=dodgerblue3 label=" Overall Transmittance: 35.7, duration: 122.0 seconds 
+ Transmittance usage 42.7% Duration usage: 100.0% ", taillabel="1228.0",headlabel="1350.0"]
+SAT_31->Vienna [color=dodgerblue3 label=" Overall Transmittance: 35.7, duration: 122.0 seconds 
+ Transmittance usage 59.0% Duration usage: 21.6% ", taillabel="1350.0",headlabel="1915.0"]
+Budapest->SAT_51 [color=Black label=" Overall Transmittance: 15.4, duration: 190.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="85.0",headlabel="275.0"]
+SAT_51->Vienna [color=Black label=" Overall Transmittance: 15.4, duration: 190.0 seconds 
+ Transmittance usage 99.8% Duration usage: 92.7% ", taillabel="275.0",headlabel="480.0"]
+}

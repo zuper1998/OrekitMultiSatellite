@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Berlin
+label = " Total duration 1640.000 "
+
+Paris
+Berlin->SAT_25 [color=dodgerblue3 label=" Overall Transmittance: 24.8, duration: 85.0 seconds 
+ Transmittance usage 100.0% Duration usage: 39.9% ", taillabel="0.0",headlabel="213.0"]
+SAT_25->SAT_33 [color=dodgerblue3 label=" Overall Transmittance: 24.8, duration: 85.0 seconds 
+ Transmittance usage 99.8% Duration usage: 17.5% ", taillabel="213.0",headlabel="699.0"]
+SAT_33->SAT_59 [color=dodgerblue3 label=" Overall Transmittance: 24.8, duration: 85.0 seconds 
+ Transmittance usage 72.3% Duration usage: 18.8% ", taillabel="699.0",headlabel="1150.0"]
+SAT_59->SAT_31 [color=dodgerblue3 label=" Overall Transmittance: 24.8, duration: 85.0 seconds 
+ Transmittance usage 78.1% Duration usage: 100.0% ", taillabel="1150.0",headlabel="1235.0"]
+SAT_31->Paris [color=dodgerblue3 label=" Overall Transmittance: 24.8, duration: 85.0 seconds 
+ Transmittance usage 77.2% Duration usage: 21.0% ", taillabel="1235.0",headlabel="1640.0"]
+Berlin->SAT_25 [color=Black label=" Overall Transmittance: 24.2, duration: 213.0 seconds 
+ Transmittance usage 97.8% Duration usage: 100.0% ", taillabel="0.0",headlabel="213.0"]
+SAT_25->SAT_33 [color=Black label=" Overall Transmittance: 24.2, duration: 213.0 seconds 
+ Transmittance usage 97.5% Duration usage: 43.8% ", taillabel="213.0",headlabel="699.0"]
+SAT_33->SAT_59 [color=Black label=" Overall Transmittance: 24.2, duration: 213.0 seconds 
+ Transmittance usage 70.7% Duration usage: 47.2% ", taillabel="699.0",headlabel="1150.0"]
+SAT_59->Paris [color=Black label=" Overall Transmittance: 24.2, duration: 213.0 seconds 
+ Transmittance usage 100.0% Duration usage: 63.0% ", taillabel="1175.0",headlabel="1513.0"]
+}
