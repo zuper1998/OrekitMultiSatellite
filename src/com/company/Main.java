@@ -25,10 +25,14 @@ public class Main {
             List<ThreadedRun> t = new ArrayList<>();
             g.calculateAllTransmittance();
             for (City c1 : SimValues.cities) {
-                //System.err.printf("Starting %s%n", c1.name);
-                //g.printBest(c1.name);
-                //System.err.printf("Done %s%n", c1.name);
-                ex.submit(new ThreadedRun(g,c1.name));
+                if(c1.name.equals("Berlin")||c1.name.equals("Budapest")){
+
+                }else {
+                    //System.err.printf("Starting %s%n", c1.name);
+                    //g.printBest(c1.name);
+                    //System.err.printf("Done %s%n", c1.name);
+                    ex.submit(new ThreadedRun(g, c1.name));
+                }
             }
             if(ex.isTerminated()){
                 ex.shutdown();

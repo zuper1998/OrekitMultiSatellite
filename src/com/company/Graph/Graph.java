@@ -52,19 +52,17 @@ public class Graph {
     }
 
 
-
-
     public void printBest(String city1) {
         System.err.println(nodes.get(city1).edges.size());
         for (int i = 0; i < nodes.get(city1).edges.size(); i++) {
-            System.err.printf("%f%n",(double)i/nodes.get(city1).edges.size());
-            HashMap<String,AllPathsReturn> cur = dynamicGenerateBetweenCityIndexable(city1, i);
+            System.err.printf("%f%n", (double) i / nodes.get(city1).edges.size());
+            HashMap<String, AllPathsReturn> cur = dynamicGenerateBetweenCityIndexable(city1, i);
 
-            for(Map.Entry<String, AllPathsReturn> a : cur.entrySet()){
+            for (Map.Entry<String, AllPathsReturn> a : cur.entrySet()) {
                 String fileFolder = String.format("src/Data/Output/Time_%f_Sat_%s/%s_%s", SimValues.duration / 3600, new File(SimValues.satData).getName(), city1, a.getKey());
                 try {
                     new File(fileFolder).mkdirs();
-                    FileOutputStream fos = new FileOutputStream(fileFolder+"/out"+i+".ser");
+                    FileOutputStream fos = new FileOutputStream(fileFolder + "/out" + i + ".ser");
                     ObjectOutputStream oos = new ObjectOutputStream(fos);
                     a.getValue().StripDown();
                     oos.writeObject(a.getValue());
@@ -81,13 +79,7 @@ public class Graph {
         }
 
 
-
-
-
-
-
-
-        }
+    }
 
 
     public void loadFromFile() {
@@ -102,9 +94,9 @@ public class Graph {
         }
     }
 
-    public void calculateAllTransmittance(){
+    public void calculateAllTransmittance() {
 
-        nodes.forEach((a,b)->b.edges.forEach(Edge::genTransmittance));
+        nodes.forEach((a, b) -> b.edges.forEach(Edge::genTransmittance));
     }
 
     public HashMap<String, AllPathsReturn> dynamicGenerateBetweenCityIndexable(String city1, int i) {
@@ -117,8 +109,8 @@ public class Graph {
     public HashMap<String, AllPathsReturn> dynamicAlgo(Edge in) {
         ArrayList<Path> nextRound = new ArrayList<>();
         nextRound.add(new Path(in));
-        HashMap<String,Double> bestValues = new HashMap<>();
-        HashMap<String, AllPathsReturn> bestPaths= new HashMap<>();
+        HashMap<String, Double> bestValues = new HashMap<>();
+        HashMap<String, AllPathsReturn> bestPaths = new HashMap<>();
 
         boolean running = true;
         int cnt = 0;
@@ -134,7 +126,7 @@ public class Graph {
             for (Path p : tNextRound) {
                 for (Edge outerEdge : p.getLastEdge().getEndNode().edges) {
                     if (outerEdge.getDataEnd().isAfter(p.getLastEdge().getDataStart())
-                            && (FastMath.abs(outerEdge.getDataStart().durationFrom(p.getPath().get(0).getDataEnd()))< MAX_TIME) // if |---a |---| |---| |---| b--| and dist(a,b)>MAX_TIME -> there cant be a good route
+                            && (FastMath.abs(outerEdge.getDataStart().durationFrom(p.getPath().get(0).getDataEnd())) < MAX_TIME) // if |---a |---| |---| |---| b--| and dist(a,b)>MAX_TIME -> there cant be a good route
                             && !p.containsNode(outerEdge.getEndNode())) {
                         Path curP = null;
                         try {
@@ -152,10 +144,10 @@ public class Graph {
                             if (curP.getLastEdge().getEndNode().isCity()) { // its the target city
                                 double curBest = curP.computeBestTransmittance();
                                 String lastNode = curP.getLastEdge().getEndNode().name;
-                                bestValues.putIfAbsent(lastNode,0.0);
+                                bestValues.putIfAbsent(lastNode, 0.0);
                                 if (bestValues.get(lastNode) < curBest) {
-                                    bestValues.put(lastNode,curBest);
-                                    bestPaths.putIfAbsent(lastNode,new AllPathsReturn());
+                                    bestValues.put(lastNode, curBest);
+                                    bestPaths.putIfAbsent(lastNode, new AllPathsReturn());
                                     bestPaths.get(lastNode).addNewBest(curP);
 
                                 }
@@ -173,11 +165,8 @@ public class Graph {
         }
 
 
-            return bestPaths;
-        }
-
-
-
+        return bestPaths;
+    }
 
 
 }

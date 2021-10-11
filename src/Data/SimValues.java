@@ -17,7 +17,7 @@ public class SimValues {
     public static final int SearchDepth = 5;
     public static final String satData = "src/Data/QSAT_CROS_MID.txt";
     public static final String cityData = "src/Data/cities.txt";
-    public static final int concurentThreads =3;
+    public static final int concurentThreads =6;
     public static ThreadLocal<QuantumBitTransmitanceCalculator> calc = new ThreadLocal<>();
     public static final ArrayList<City> cities = new ArrayList<>(CityLoader.loadCities(SimValues.cityData));
     public static boolean IsSim = true;
