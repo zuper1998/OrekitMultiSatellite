@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Paris
+label = " Teljes időtartam: 2973.000 [másodperc] "
+
+Budapest
+Paris->SAT_40 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.8, időtartam: 329.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.4% Időtartam kihasználtsága: 74.8% ", taillabel="6607.0 [mp]",headlabel="7047.0 [mp]"]
+SAT_40->SAT_60 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.8, időtartam: 329.0 [mp] 
+ Optikai áteresztés kihasználtsága 55.6% Időtartam kihasználtsága: 100.0% ", taillabel="7047.0 [mp]",headlabel="7376.0 [mp]"]
+SAT_60->SAT_45 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.8, időtartam: 329.0 [mp] 
+ Optikai áteresztés kihasználtsága 55.9% Időtartam kihasználtsága: 28.5% ", taillabel="7376.0 [mp]",headlabel="8531.0 [mp]"]
+SAT_45->SAT_1 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.8, időtartam: 329.0 [mp] 
+ Optikai áteresztés kihasználtsága 56.2% Időtartam kihasználtsága: 58.4% ", taillabel="8531.0 [mp]",headlabel="9094.0 [mp]"]
+SAT_1->Budapest [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.8, időtartam: 329.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 88.7% ", taillabel="9209.0 [mp]",headlabel="9580.0 [mp]"]
+Paris->SAT_40 [color=Black label=" Overall Transmittance: 22.9, duration: 371.0 seconds 
+ Transmittance usage 62.0% Duration usage: 84.3% ", taillabel="6607.0",headlabel="7047.0"]
+SAT_40->SAT_60 [color=Black label=" Overall Transmittance: 22.9, duration: 371.0 seconds 
+ Transmittance usage 13.6% Duration usage: 48.6% ", taillabel="7047.0",headlabel="7810.0"]
+SAT_60->SAT_1 [color=Black label=" Overall Transmittance: 22.9, duration: 371.0 seconds 
+ Transmittance usage 100.0% Duration usage: 50.2% ", taillabel="7810.0",headlabel="8549.0"]
+SAT_1->Budapest [color=Black label=" Overall Transmittance: 22.9, duration: 371.0 seconds 
+ Transmittance usage 82.2% Duration usage: 100.0% ", taillabel="9209.0",headlabel="9580.0"]
+}

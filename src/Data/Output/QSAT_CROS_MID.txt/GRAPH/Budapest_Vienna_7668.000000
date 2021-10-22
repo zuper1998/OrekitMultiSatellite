@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Teljes időtartam: 2222.000 [másodperc] "
+
+Vienna
+Budapest->SAT_39 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.0, időtartam: 257.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 83.7% ", taillabel="7668.0 [mp]",headlabel="7975.0 [mp]"]
+SAT_39->SAT_31 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.0, időtartam: 257.0 [mp] 
+ Optikai áteresztés kihasználtsága 54.2% Időtartam kihasználtsága: 43.1% ", taillabel="7975.0 [mp]",headlabel="8571.0 [mp]"]
+SAT_31->SAT_16 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.0, időtartam: 257.0 [mp] 
+ Optikai áteresztés kihasználtsága 55.2% Időtartam kihasználtsága: 35.3% ", taillabel="8571.0 [mp]",headlabel="9300.0 [mp]"]
+SAT_16->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.0, időtartam: 257.0 [mp] 
+ Optikai áteresztés kihasználtsága 67.0% Időtartam kihasználtsága: 100.0% ", taillabel="9300.0 [mp]",headlabel="9557.0 [mp]"]
+SAT_8->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.0, időtartam: 257.0 [mp] 
+ Optikai áteresztés kihasználtsága 90.3% Időtartam kihasználtsága: 77.2% ", taillabel="9557.0 [mp]",headlabel="9890.0 [mp]"]
+Budapest->SAT_39 [color=Black label=" Overall Transmittance: 13.7, duration: 307.0 seconds 
+ Transmittance usage 62.5% Duration usage: 100.0% ", taillabel="7668.0",headlabel="7975.0"]
+SAT_39->SAT_31 [color=Black label=" Overall Transmittance: 13.7, duration: 307.0 seconds 
+ Transmittance usage 33.8% Duration usage: 51.4% ", taillabel="7975.0",headlabel="8572.0"]
+SAT_31->SAT_7 [color=Black label=" Overall Transmittance: 13.7, duration: 307.0 seconds 
+ Transmittance usage 100.0% Duration usage: 44.9% ", taillabel="9082.0",headlabel="9765.0"]
+SAT_7->Vienna [color=Black label=" Overall Transmittance: 13.7, duration: 307.0 seconds 
+ Transmittance usage 45.3% Duration usage: 78.7% ", taillabel="10271.0",headlabel="10661.0"]
+}

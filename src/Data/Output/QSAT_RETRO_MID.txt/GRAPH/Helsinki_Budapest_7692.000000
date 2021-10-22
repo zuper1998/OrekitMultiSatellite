@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 2935.000 [másodperc] "
+
+Budapest
+Helsinki->SAT_38 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 97.1% Időtartam kihasználtsága: 27.3% ", taillabel="7692.0 [mp]",headlabel="8146.0 [mp]"]
+SAT_38->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 29.1% Időtartam kihasználtsága: 19.0% ", taillabel="8146.0 [mp]",headlabel="8798.0 [mp]"]
+SAT_2->SAT_30 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.3% Időtartam kihasználtsága: 77.5% ", taillabel="8798.0 [mp]",headlabel="8958.0 [mp]"]
+SAT_30->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.5% Időtartam kihasználtsága: 10.8% ", taillabel="8958.0 [mp]",headlabel="10106.0 [mp]"]
+SAT_15->SAT_35 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="10106.0 [mp]",headlabel="10230.0 [mp]"]
+SAT_35->Budapest [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 31.2% ", taillabel="10230.0 [mp]",headlabel="10627.0 [mp]"]
+Helsinki->SAT_38 [color=Black label=" Overall Transmittance: 36.4, duration: 273.0 seconds 
+ Transmittance usage 94.2% Duration usage: 60.1% ", taillabel="7692.0",headlabel="8146.0"]
+SAT_38->SAT_2 [color=Black label=" Overall Transmittance: 36.4, duration: 273.0 seconds 
+ Transmittance usage 32.5% Duration usage: 100.0% ", taillabel="8146.0",headlabel="8419.0"]
+SAT_2->Budapest [color=Black label=" Overall Transmittance: 36.4, duration: 273.0 seconds 
+ Transmittance usage 100.0% Duration usage: 62.2% ", taillabel="8419.0",headlabel="8858.0"]
+}

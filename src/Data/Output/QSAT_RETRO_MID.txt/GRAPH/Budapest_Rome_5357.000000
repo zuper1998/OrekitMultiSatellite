@@ -1,0 +1,29 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Teljes időtartam: 3511.000 [másodperc] "
+
+Rome
+Budapest->SAT_6 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 57.0, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 86.4% ", taillabel="5357.0 [mp]",headlabel="5880.0 [mp]"]
+SAT_6->SAT_10 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 57.0, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 48.8% Időtartam kihasználtsága: 57.7% ", taillabel="6151.0 [mp]",headlabel="6935.0 [mp]"]
+SAT_10->SAT_38 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 57.0, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 34.9% Időtartam kihasználtsága: 57.4% ", taillabel="7105.0 [mp]",headlabel="7892.0 [mp]"]
+SAT_38->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 57.0, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 86.6% Időtartam kihasználtsága: 100.0% ", taillabel="7892.0 [mp]",headlabel="8344.0 [mp]"]
+SAT_2->Rome [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 57.0, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.3% Időtartam kihasználtsága: 86.3% ", taillabel="8344.0 [mp]",headlabel="8868.0 [mp]"]
+Budapest->SAT_6 [color=Black label=" Overall Transmittance: 56.1, duration: 452.0 seconds 
+ Transmittance usage 99.9% Duration usage: 88.6% ", taillabel="5357.0",headlabel="5867.0"]
+SAT_6->SAT_26 [color=Black label=" Overall Transmittance: 56.1, duration: 452.0 seconds 
+ Transmittance usage 100.0% Duration usage: 79.6% ", taillabel="5867.0",headlabel="6435.0"]
+SAT_26->SAT_38 [color=Black label=" Overall Transmittance: 56.1, duration: 452.0 seconds 
+ Transmittance usage 48.0% Duration usage: 57.6% ", taillabel="6606.0",headlabel="7391.0"]
+SAT_38->SAT_2 [color=Black label=" Overall Transmittance: 56.1, duration: 452.0 seconds 
+ Transmittance usage 85.2% Duration usage: 100.0% ", taillabel="7892.0",headlabel="8344.0"]
+SAT_2->Rome [color=Black label=" Overall Transmittance: 56.1, duration: 452.0 seconds 
+ Transmittance usage 97.6% Duration usage: 86.3% ", taillabel="8344.0",headlabel="8868.0"]
+}

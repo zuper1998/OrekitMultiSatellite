@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Paris->Rome úvonal legjobb útvonalai "Paris
+Rome
+Paris->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.0, időtartam: 57.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="57.0 [mp]"]
+SAT_13->Rome [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.0, időtartam: 57.0 [mp] 
+ Optikai áteresztés kihasználtsága 69.8% Időtartam kihasználtsága: 71.3% ", taillabel="57.0 [mp]",headlabel="137.0 [mp]"]
+Paris->SAT_4 [color=chartreuse label=" Csatorna maximális optikai átersztése: 36.3, időtartam: 343.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 95.8% ", taillabel="6648.0 [mp]",headlabel="7006.0 [mp]"]
+SAT_4->Rome [color=chartreuse label=" Csatorna maximális optikai átersztése: 36.3, időtartam: 343.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="7006.0 [mp]",headlabel="7349.0 [mp]"]
+Paris->SAT_3 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 41.6, időtartam: 357.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 97.8% ", taillabel="7389.0 [mp]",headlabel="7754.0 [mp]"]
+SAT_3->Rome [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 41.6, időtartam: 357.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="7754.0 [mp]",headlabel="8111.0 [mp]"]
+Paris->SAT_2 [color=darkorange label=" Csatorna maximális optikai átersztése: 43.7, időtartam: 364.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8138.0 [mp]",headlabel="8502.0 [mp]"]
+SAT_2->Rome [color=darkorange label=" Csatorna maximális optikai átersztése: 43.7, időtartam: 364.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 99.5% ", taillabel="8502.0 [mp]",headlabel="8868.0 [mp]"]
+Paris->SAT_1 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 41.3, időtartam: 357.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8895.0 [mp]",headlabel="9252.0 [mp]"]
+SAT_1->Rome [color=firebrick2 label=" Csatorna maximális optikai átersztése: 41.3, időtartam: 357.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 97.5% ", taillabel="9252.0 [mp]",headlabel="9618.0 [mp]"]
+}

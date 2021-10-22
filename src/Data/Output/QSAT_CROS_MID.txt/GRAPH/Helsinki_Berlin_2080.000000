@@ -1,0 +1,31 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 2905.000 [másodperc] "
+
+Berlin
+Helsinki->SAT_56 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.6, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 27.3% ", taillabel="2080.0 [mp]",headlabel="2476.0 [mp]"]
+SAT_56->SAT_30 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.6, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 23.7% ", taillabel="2476.0 [mp]",headlabel="2931.0 [mp]"]
+SAT_30->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.6, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 78.1% Időtartam kihasználtsága: 13.6% ", taillabel="2931.0 [mp]",headlabel="3727.0 [mp]"]
+SAT_15->SAT_7 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.6, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 78.2% Időtartam kihasználtsága: 16.6% ", taillabel="3727.0 [mp]",headlabel="4377.0 [mp]"]
+SAT_7->SAT_35 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.6, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 36.6% Időtartam kihasználtsága: 100.0% ", taillabel="4377.0 [mp]",headlabel="4485.0 [mp]"]
+SAT_35->Berlin [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.6, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 67.6% Időtartam kihasználtsága: 21.6% ", taillabel="4485.0 [mp]",headlabel="4985.0 [mp]"]
+Helsinki->SAT_56 [color=Black label=" Overall Transmittance: 16.5, duration: 199.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="2080.0",headlabel="2279.0"]
+SAT_56->SAT_57 [color=Black label=" Overall Transmittance: 16.5, duration: 199.0 seconds 
+ Transmittance usage 99.5% Duration usage: 23.2% ", taillabel="2279.0",headlabel="3135.0"]
+SAT_57->SAT_42 [color=Black label=" Overall Transmittance: 16.5, duration: 199.0 seconds 
+ Transmittance usage 34.4% Duration usage: 19.2% ", taillabel="3375.0",headlabel="4414.0"]
+SAT_42->SAT_34 [color=Black label=" Overall Transmittance: 16.5, duration: 199.0 seconds 
+ Transmittance usage 34.4% Duration usage: 26.5% ", taillabel="4414.0",headlabel="5164.0"]
+SAT_34->Berlin [color=Black label=" Overall Transmittance: 16.5, duration: 199.0 seconds 
+ Transmittance usage 37.7% Duration usage: 44.7% ", taillabel="5273.0",headlabel="5718.0"]
+}

@@ -1,0 +1,21 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Rome
+label = " Teljes időtartam: 2592.000 [másodperc] "
+
+Helsinki
+Rome->SAT_29 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.5, időtartam: 423.0 [mp] 
+ Optikai áteresztés kihasználtsága 67.5% Időtartam kihasználtsága: 84.9% ", taillabel="2877.0 [mp]",headlabel="3375.0 [mp]"]
+SAT_29->SAT_14 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.5, időtartam: 423.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.4% Időtartam kihasználtsága: 45.0% ", taillabel="3375.0 [mp]",headlabel="4314.0 [mp]"]
+SAT_14->SAT_52 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.5, időtartam: 423.0 [mp] 
+ Optikai áteresztés kihasználtsága 76.9% Időtartam kihasználtsága: 57.8% ", taillabel="4314.0 [mp]",headlabel="5046.0 [mp]"]
+SAT_52->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.5, időtartam: 423.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="5046.0 [mp]",headlabel="5469.0 [mp]"]
+Rome->SAT_29 [color=Black label=" Overall Transmittance: 32.3, duration: 425.0 seconds 
+ Transmittance usage 69.7% Duration usage: 97.0% ", taillabel="2877.0",headlabel="3315.0"]
+SAT_29->Helsinki [color=Black label=" Overall Transmittance: 32.3, duration: 425.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="3315.0",headlabel="3740.0"]
+}

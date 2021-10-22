@@ -1,0 +1,23 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Teljes időtartam: 3924.000 [másodperc] "
+
+Copenhagen
+Budapest->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 237.0 [mp] 
+ Optikai áteresztés kihasználtsága 49.5% Időtartam kihasználtsága: 100.0% ", taillabel="4730.0 [mp]",headlabel="4967.0 [mp]"]
+SAT_15->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 237.0 [mp] 
+ Optikai áteresztés kihasználtsága 19.1% Időtartam kihasználtsága: 22.3% ", taillabel="5167.0 [mp]",headlabel="6229.0 [mp]"]
+SAT_8->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 237.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 38.9% ", taillabel="7025.0 [mp]",headlabel="7635.0 [mp]"]
+SAT_2->Copenhagen [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 237.0 [mp] 
+ Optikai áteresztés kihasználtsága 49.6% Időtartam kihasználtsága: 97.1% ", taillabel="8410.0 [mp]",headlabel="8654.0 [mp]"]
+Budapest->SAT_15 [color=Black label=" Overall Transmittance: 9.2, duration: 311.0 seconds 
+ Transmittance usage 29.9% Duration usage: 79.7% ", taillabel="4730.0",headlabel="5120.0"]
+SAT_15->SAT_17 [color=Black label=" Overall Transmittance: 9.2, duration: 311.0 seconds 
+ Transmittance usage 100.0% Duration usage: 51.2% ", taillabel="5120.0",headlabel="5728.0"]
+SAT_17->Copenhagen [color=Black label=" Overall Transmittance: 9.2, duration: 311.0 seconds 
+ Transmittance usage 39.8% Duration usage: 100.0% ", taillabel="5728.0",headlabel="6039.0"]
+}

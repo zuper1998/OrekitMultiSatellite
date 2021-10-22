@@ -1,0 +1,45 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Copenhagen->Helsinki úvonal legjobb útvonalai "Copenhagen
+Helsinki
+Copenhagen->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 26.6, időtartam: 258.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 97.7% ", taillabel="0.0 [mp]",headlabel="264.0 [mp]"]
+SAT_13->Helsinki [color=blueviolet label=" Csatorna maximális optikai átersztése: 26.6, időtartam: 258.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="264.0 [mp]",headlabel="522.0 [mp]"]
+Copenhagen->SAT_4 [color=chartreuse label=" Csatorna maximális optikai átersztése: 17.2, időtartam: 239.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 96.0% ", taillabel="813.0 [mp]",headlabel="1062.0 [mp]"]
+SAT_4->Helsinki [color=chartreuse label=" Csatorna maximális optikai átersztése: 17.2, időtartam: 239.0 [mp] 
+ Optikai áteresztés kihasználtsága 70.7% Időtartam kihasználtsága: 100.0% ", taillabel="1062.0 [mp]",headlabel="1301.0 [mp]"]
+Copenhagen->SAT_4 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 22.9, időtartam: 388.0 [mp] 
+ Optikai áteresztés kihasználtsága 50.6% Időtartam kihasználtsága: 80.2% ", taillabel="6718.0 [mp]",headlabel="7202.0 [mp]"]
+SAT_4->SAT_5 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 22.9, időtartam: 388.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 52.6% ", taillabel="7355.0 [mp]",headlabel="8093.0 [mp]"]
+SAT_5->Helsinki [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 22.9, időtartam: 388.0 [mp] 
+ Optikai áteresztés kihasználtsága 80.5% Időtartam kihasználtsága: 100.0% ", taillabel="8228.0 [mp]",headlabel="8616.0 [mp]"]
+Copenhagen->SAT_4 [color=Black label=" Overall Transmittance: 8.9, duration: 130.0 seconds 
+ Transmittance usage 29.5% Duration usage: 42.3% ", taillabel="6718.0",headlabel="7025.0"]
+SAT_4->SAT_6 [color=Black label=" Overall Transmittance: 8.9, duration: 130.0 seconds 
+ Transmittance usage 99.5% Duration usage: 22.5% ", taillabel="7025.0",headlabel="7603.0"]
+SAT_6->Helsinki [color=Black label=" Overall Transmittance: 8.9, duration: 130.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="7603.0",headlabel="7733.0"]
+Copenhagen->SAT_3 [color=darkorange label=" Csatorna maximális optikai átersztése: 23.8, időtartam: 233.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 73.5% ", taillabel="1508.0 [mp]",headlabel="1825.0 [mp]"]
+SAT_3->Helsinki [color=darkorange label=" Csatorna maximális optikai átersztése: 23.8, időtartam: 233.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="1825.0 [mp]",headlabel="2058.0 [mp]"]
+Copenhagen->SAT_3 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 193.0 [mp] 
+ Optikai áteresztés kihasználtsága 33.8% Időtartam kihasználtsága: 61.1% ", taillabel="7496.0 [mp]",headlabel="7812.0 [mp]"]
+SAT_3->SAT_5 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 193.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 31.6% ", taillabel="7812.0 [mp]",headlabel="8423.0 [mp]"]
+SAT_5->Helsinki [color=firebrick2 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 193.0 [mp] 
+ Optikai áteresztés kihasználtsága 65.3% Időtartam kihasználtsága: 100.0% ", taillabel="8423.0 [mp]",headlabel="8616.0 [mp]"]
+Copenhagen->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.5, időtartam: 260.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.5% Időtartam kihasználtsága: 79.5% ", taillabel="2224.0 [mp]",headlabel="2551.0 [mp]"]
+SAT_2->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.5, időtartam: 260.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="2551.0 [mp]",headlabel="2811.0 [mp]"]
+Copenhagen->SAT_1 [color=deepskyblue4 label=" Csatorna maximális optikai átersztése: 30.0, időtartam: 291.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 92.7% ", taillabel="2953.0 [mp]",headlabel="3267.0 [mp]"]
+SAT_1->Helsinki [color=deepskyblue4 label=" Csatorna maximális optikai átersztése: 30.0, időtartam: 291.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3267.0 [mp]",headlabel="3558.0 [mp]"]
+}

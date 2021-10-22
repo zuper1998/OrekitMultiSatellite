@@ -24,6 +24,7 @@ public class Main {
             SimValues.calc.set(new QuantumBitTransmitanceCalculator());
             List<ThreadedRun> t = new ArrayList<>();
             g.calculateAllTransmittance();
+
             for (City c1 : SimValues.cities) {
 
                     //System.err.printf("Starting %s%n", c1.name);

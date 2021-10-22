@@ -1,0 +1,45 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Rome->Vienna úvonal legjobb útvonalai "Rome
+Vienna
+Rome->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 10.6, időtartam: 137.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="137.0 [mp]"]
+SAT_13->Vienna [color=blueviolet label=" Csatorna maximális optikai átersztése: 10.6, időtartam: 137.0 [mp] 
+ Optikai áteresztés kihasználtsága 97.4% Időtartam kihasználtsága: 100.0% ", taillabel="137.0 [mp]",headlabel="274.0 [mp]"]
+Rome->SAT_13 [color=chartreuse label=" Csatorna maximális optikai átersztése: 11.6, időtartam: 173.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="6350.0 [mp]",headlabel="6523.0 [mp]"]
+SAT_13->SAT_1 [color=chartreuse label=" Csatorna maximális optikai átersztése: 11.6, időtartam: 173.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.5% Időtartam kihasználtsága: 25.3% ", taillabel="7507.0 [mp]",headlabel="8190.0 [mp]"]
+SAT_1->Vienna [color=chartreuse label=" Csatorna maximális optikai átersztése: 11.6, időtartam: 173.0 [mp] 
+ Optikai áteresztés kihasználtsága 66.5% Időtartam kihasználtsága: 68.7% ", taillabel="8855.0 [mp]",headlabel="9107.0 [mp]"]
+Rome->SAT_13 [color=Black label=" Overall Transmittance: 5.7, duration: 86.0 seconds 
+ Transmittance usage 49.2% Duration usage: 49.7% ", taillabel="6350.0",headlabel="6523.0"]
+SAT_13->SAT_2 [color=Black label=" Overall Transmittance: 5.7, duration: 86.0 seconds 
+ Transmittance usage 89.5% Duration usage: 16.4% ", taillabel="7193.0",headlabel="7717.0"]
+SAT_2->Vienna [color=Black label=" Overall Transmittance: 5.7, duration: 86.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="8196.0",headlabel="8282.0"]
+Rome->SAT_16 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 25.9, időtartam: 284.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 100.0% ", taillabel="3715.0 [mp]",headlabel="3999.0 [mp]"]
+SAT_16->Vienna [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 25.9, időtartam: 284.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 89.0% ", taillabel="3999.0 [mp]",headlabel="4318.0 [mp]"]
+Rome->SAT_15 [color=darkorange label=" Csatorna maximális optikai átersztése: 20.2, időtartam: 250.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="4567.0 [mp]",headlabel="4817.0 [mp]"]
+SAT_15->Vienna [color=darkorange label=" Csatorna maximális optikai átersztése: 20.2, időtartam: 250.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 90.3% ", taillabel="4817.0 [mp]",headlabel="5094.0 [mp]"]
+Rome->SAT_14 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 17.5, időtartam: 252.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.4% Időtartam kihasználtsága: 89.0% ", taillabel="5437.0 [mp]",headlabel="5720.0 [mp]"]
+SAT_14->SAT_1 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 17.5, időtartam: 252.0 [mp] 
+ Optikai áteresztés kihasználtsága 35.2% Időtartam kihasználtsága: 32.5% ", taillabel="7067.0 [mp]",headlabel="7843.0 [mp]"]
+SAT_1->Vienna [color=firebrick2 label=" Csatorna maximális optikai átersztése: 17.5, időtartam: 252.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8855.0 [mp]",headlabel="9107.0 [mp]"]
+Rome->SAT_14 [color=Black label=" Overall Transmittance: 12.4, duration: 184.0 seconds 
+ Transmittance usage 79.6% Duration usage: 86.4% ", taillabel="5437.0",headlabel="5650.0"]
+SAT_14->Vienna [color=Black label=" Overall Transmittance: 12.4, duration: 184.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="5650.0",headlabel="5834.0"]
+Rome->SAT_1 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 4.3, időtartam: 63.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8981.0 [mp]",headlabel="9044.0 [mp]"]
+SAT_1->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 4.3, időtartam: 63.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 100.0% ", taillabel="9044.0 [mp]",headlabel="9107.0 [mp]"]
+}

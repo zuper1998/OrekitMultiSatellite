@@ -1,0 +1,13 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Paris
+label = " Teljes időtartam: 600.000 [másodperc] "
+
+Vienna
+Paris->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 21.9, időtartam: 293.0 [mp] 
+ Optikai áteresztés kihasználtsága 72.9% Időtartam kihasználtsága: 100.0% ", taillabel="9660.0 [mp]",headlabel="9953.0 [mp]"]
+SAT_8->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 21.9, időtartam: 293.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 95.4% ", taillabel="9953.0 [mp]",headlabel="10260.0 [mp]"]
+}

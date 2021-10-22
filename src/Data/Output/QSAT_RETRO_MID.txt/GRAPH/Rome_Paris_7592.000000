@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Rome
+label = " Teljes időtartam: 2511.000 [másodperc] "
+
+Paris
+Rome->SAT_3 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 47.0, időtartam: 74.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.5% Időtartam kihasználtsága: 14.3% ", taillabel="7592.0 [mp]",headlabel="8111.0 [mp]"]
+SAT_3->SAT_31 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 47.0, időtartam: 74.0 [mp] 
+ Optikai áteresztés kihasználtsága 95.3% Időtartam kihasználtsága: 100.0% ", taillabel="8111.0 [mp]",headlabel="8185.0 [mp]"]
+SAT_31->SAT_16 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 47.0, időtartam: 74.0 [mp] 
+ Optikai áteresztés kihasználtsága 94.8% Időtartam kihasználtsága: 6.5% ", taillabel="8185.0 [mp]",headlabel="9319.0 [mp]"]
+SAT_16->SAT_36 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 47.0, időtartam: 74.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 19.6% ", taillabel="9319.0 [mp]",headlabel="9697.0 [mp]"]
+SAT_36->Paris [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 47.0, időtartam: 74.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 18.2% ", taillabel="9697.0 [mp]",headlabel="10103.0 [mp]"]
+Rome->SAT_3 [color=Black label=" Overall Transmittance: 22.9, duration: 486.0 seconds 
+ Transmittance usage 41.1% Duration usage: 93.6% ", taillabel="7592.0",headlabel="8111.0"]
+SAT_3->SAT_31 [color=Black label=" Overall Transmittance: 22.9, duration: 486.0 seconds 
+ Transmittance usage 15.7% Duration usage: 100.0% ", taillabel="8111.0",headlabel="8597.0"]
+SAT_31->SAT_36 [color=Black label=" Overall Transmittance: 22.9, duration: 486.0 seconds 
+ Transmittance usage 100.0% Duration usage: 65.8% ", taillabel="8597.0",headlabel="9336.0"]
+SAT_36->Paris [color=Black label=" Overall Transmittance: 22.9, duration: 486.0 seconds 
+ Transmittance usage 40.9% Duration usage: 93.5% ", taillabel="9583.0",headlabel="10103.0"]
+}

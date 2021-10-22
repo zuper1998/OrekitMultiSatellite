@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Rome
+label = " Teljes időtartam: 2331.000 [másodperc] "
+
+Berlin
+Rome->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.0, időtartam: 98.0 [mp] 
+ Optikai áteresztés kihasználtsága 74.9% Időtartam kihasználtsága: 18.7% ", taillabel="8344.0 [mp]",headlabel="8868.0 [mp]"]
+SAT_2->SAT_30 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.0, időtartam: 98.0 [mp] 
+ Optikai áteresztés kihasználtsága 86.3% Időtartam kihasználtsága: 100.0% ", taillabel="8868.0 [mp]",headlabel="8966.0 [mp]"]
+SAT_30->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.0, időtartam: 98.0 [mp] 
+ Optikai áteresztés kihasználtsága 86.7% Időtartam kihasználtsága: 8.6% ", taillabel="8966.0 [mp]",headlabel="10106.0 [mp]"]
+SAT_15->SAT_35 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.0, időtartam: 98.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 46.7% ", taillabel="10106.0 [mp]",headlabel="10316.0 [mp]"]
+SAT_35->Berlin [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.0, időtartam: 98.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 27.3% ", taillabel="10316.0 [mp]",headlabel="10675.0 [mp]"]
+Rome->SAT_2 [color=Black label=" Overall Transmittance: 22.9, duration: 484.0 seconds 
+ Transmittance usage 39.8% Duration usage: 92.4% ", taillabel="8344.0",headlabel="8868.0"]
+SAT_2->SAT_15 [color=Black label=" Overall Transmittance: 22.9, duration: 484.0 seconds 
+ Transmittance usage 100.0% Duration usage: 65.5% ", taillabel="8929.0",headlabel="9668.0"]
+SAT_15->SAT_35 [color=Black label=" Overall Transmittance: 22.9, duration: 484.0 seconds 
+ Transmittance usage 15.7% Duration usage: 100.0% ", taillabel="9668.0",headlabel="10152.0"]
+SAT_35->Berlin [color=Black label=" Overall Transmittance: 22.9, duration: 484.0 seconds 
+ Transmittance usage 39.9% Duration usage: 92.5% ", taillabel="10152.0",headlabel="10675.0"]
+}

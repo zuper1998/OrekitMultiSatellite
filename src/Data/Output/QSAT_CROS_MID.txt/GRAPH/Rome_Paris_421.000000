@@ -1,0 +1,29 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Rome
+label = " Teljes időtartam: 2978.000 [másodperc] "
+
+Paris
+Rome->SAT_32 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.1, időtartam: 225.0 [mp] 
+ Optikai áteresztés kihasználtsága 50.2% Időtartam kihasználtsága: 40.9% ", taillabel="421.0 [mp]",headlabel="971.0 [mp]"]
+SAT_32->SAT_9 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.1, időtartam: 225.0 [mp] 
+ Optikai áteresztés kihasználtsága 58.6% Időtartam kihasználtsága: 21.7% ", taillabel="1014.0 [mp]",headlabel="2052.0 [mp]"]
+SAT_9->SAT_1 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.1, időtartam: 225.0 [mp] 
+ Optikai áteresztés kihasználtsága 58.6% Időtartam kihasználtsága: 30.0% ", taillabel="2052.0 [mp]",headlabel="2803.0 [mp]"]
+SAT_1->SAT_37 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.1, időtartam: 225.0 [mp] 
+ Optikai áteresztés kihasználtsága 23.8% Időtartam kihasználtsága: 100.0% ", taillabel="2803.0 [mp]",headlabel="3028.0 [mp]"]
+SAT_37->Paris [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.1, időtartam: 225.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 60.6% ", taillabel="3028.0 [mp]",headlabel="3399.0 [mp]"]
+Rome->SAT_32 [color=Black label=" Overall Transmittance: 23.0, duration: 63.0 seconds 
+ Transmittance usage 55.4% Duration usage: 16.7% ", taillabel="421.0",headlabel="799.0"]
+SAT_32->SAT_50 [color=Black label=" Overall Transmittance: 23.0, duration: 63.0 seconds 
+ Transmittance usage 55.4% Duration usage: 11.3% ", taillabel="799.0",headlabel="1356.0"]
+SAT_50->SAT_58 [color=Black label=" Overall Transmittance: 23.0, duration: 63.0 seconds 
+ Transmittance usage 51.4% Duration usage: 9.5% ", taillabel="1356.0",headlabel="2016.0"]
+SAT_58->SAT_30 [color=Black label=" Overall Transmittance: 23.0, duration: 63.0 seconds 
+ Transmittance usage 38.1% Duration usage: 100.0% ", taillabel="2016.0",headlabel="2079.0"]
+SAT_30->Paris [color=Black label=" Overall Transmittance: 23.0, duration: 63.0 seconds 
+ Transmittance usage 100.0% Duration usage: 19.4% ", taillabel="2079.0",headlabel="2404.0"]
+}

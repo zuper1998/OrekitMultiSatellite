@@ -1,0 +1,21 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Teljes időtartam: 3407.000 [másodperc] "
+
+Berlin
+Budapest->SAT_13 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 11.4, időtartam: 171.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="6513.0 [mp]",headlabel="6684.0 [mp]"]
+SAT_13->SAT_20 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 11.4, időtartam: 171.0 [mp] 
+ Optikai áteresztés kihasználtsága 50.0% Időtartam kihasználtsága: 23.1% ", taillabel="7810.0 [mp]",headlabel="8549.0 [mp]"]
+SAT_20->Berlin [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 11.4, időtartam: 171.0 [mp] 
+ Optikai áteresztés kihasználtsága 20.4% Időtartam kihasználtsága: 32.8% ", taillabel="9398.0 [mp]",headlabel="9920.0 [mp]"]
+Budapest->SAT_13 [color=Black label=" Overall Transmittance: 5.6, duration: 77.0 seconds 
+ Transmittance usage 49.9% Duration usage: 46.1% ", taillabel="6513.0",headlabel="6680.0"]
+SAT_13->SAT_4 [color=Black label=" Overall Transmittance: 5.6, duration: 77.0 seconds 
+ Transmittance usage 99.5% Duration usage: 15.4% ", taillabel="6680.0",headlabel="7179.0"]
+SAT_4->Berlin [color=Black label=" Overall Transmittance: 5.6, duration: 77.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="7179.0",headlabel="7256.0"]
+}

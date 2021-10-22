@@ -1,0 +1,21 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Teljes időtartam: 1830.000 [másodperc] "
+
+Vienna
+Budapest->SAT_51 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 35.7, időtartam: 122.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 28.4% ", taillabel="85.0 [mp]",headlabel="515.0 [mp]"]
+SAT_51->SAT_59 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 35.7, időtartam: 122.0 [mp] 
+ Optikai áteresztés kihasználtsága 76.1% Időtartam kihasználtsága: 17.1% ", taillabel="515.0 [mp]",headlabel="1228.0 [mp]"]
+SAT_59->SAT_31 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 35.7, időtartam: 122.0 [mp] 
+ Optikai áteresztés kihasználtsága 42.7% Időtartam kihasználtsága: 100.0% ", taillabel="1228.0 [mp]",headlabel="1350.0 [mp]"]
+SAT_31->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 35.7, időtartam: 122.0 [mp] 
+ Optikai áteresztés kihasználtsága 59.0% Időtartam kihasználtsága: 21.6% ", taillabel="1350.0 [mp]",headlabel="1915.0 [mp]"]
+Budapest->SAT_51 [color=Black label=" Overall Transmittance: 15.4, duration: 190.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="85.0",headlabel="275.0"]
+SAT_51->Vienna [color=Black label=" Overall Transmittance: 15.4, duration: 190.0 seconds 
+ Transmittance usage 99.8% Duration usage: 92.7% ", taillabel="275.0",headlabel="480.0"]
+}

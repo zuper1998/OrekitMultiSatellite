@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 3376.000 [másodperc] "
+
+Copenhagen
+Helsinki->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 427.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 90.3% ", taillabel="3826.0 [mp]",headlabel="4299.0 [mp]"]
+SAT_8->SAT_28 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 427.0 [mp] 
+ Optikai áteresztés kihasználtsága 83.6% Időtartam kihasználtsága: 75.8% ", taillabel="4299.0 [mp]",headlabel="4862.0 [mp]"]
+SAT_28->SAT_40 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 427.0 [mp] 
+ Optikai áteresztés kihasználtsága 36.2% Időtartam kihasználtsága: 54.5% ", taillabel="5032.0 [mp]",headlabel="5816.0 [mp]"]
+SAT_40->SAT_4 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 427.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.4% Időtartam kihasználtsága: 100.0% ", taillabel="6319.0 [mp]",headlabel="6746.0 [mp]"]
+SAT_4->Copenhagen [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 427.0 [mp] 
+ Optikai áteresztés kihasználtsága 97.8% Időtartam kihasználtsága: 93.6% ", taillabel="6746.0 [mp]",headlabel="7202.0 [mp]"]
+Helsinki->SAT_8 [color=Black label=" Overall Transmittance: 34.7, duration: 426.0 seconds 
+ Transmittance usage 82.1% Duration usage: 90.1% ", taillabel="3826.0",headlabel="4299.0"]
+SAT_8->SAT_28 [color=Black label=" Overall Transmittance: 34.7, duration: 426.0 seconds 
+ Transmittance usage 68.6% Duration usage: 75.7% ", taillabel="4299.0",headlabel="4862.0"]
+SAT_28->SAT_40 [color=Black label=" Overall Transmittance: 34.7, duration: 426.0 seconds 
+ Transmittance usage 29.7% Duration usage: 54.3% ", taillabel="5032.0",headlabel="5816.0"]
+SAT_40->Copenhagen [color=Black label=" Overall Transmittance: 34.7, duration: 426.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="6407.0",headlabel="6833.0"]
+}

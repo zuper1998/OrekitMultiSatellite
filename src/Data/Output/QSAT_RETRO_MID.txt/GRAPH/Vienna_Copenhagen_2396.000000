@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Vienna
+label = " Teljes időtartam: 3317.000 [másodperc] "
+
+Copenhagen
+Vienna->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 25.3, időtartam: 346.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="2396.0 [mp]",headlabel="2742.0 [mp]"]
+SAT_2->SAT_30 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 25.3, időtartam: 346.0 [mp] 
+ Optikai áteresztés kihasználtsága 66.7% Időtartam kihasználtsága: 63.4% ", taillabel="2742.0 [mp]",headlabel="3288.0 [mp]"]
+SAT_30->SAT_34 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 25.3, időtartam: 346.0 [mp] 
+ Optikai áteresztés kihasználtsága 21.7% Időtartam kihasználtsága: 44.0% ", taillabel="3457.0 [mp]",headlabel="4243.0 [mp]"]
+SAT_34->SAT_6 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 25.3, időtartam: 346.0 [mp] 
+ Optikai áteresztés kihasználtsága 42.1% Időtartam kihasználtsága: 77.6% ", taillabel="4744.0 [mp]",headlabel="5190.0 [mp]"]
+SAT_6->Copenhagen [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 25.3, időtartam: 346.0 [mp] 
+ Optikai áteresztés kihasználtsága 44.2% Időtartam kihasználtsága: 66.2% ", taillabel="5190.0 [mp]",headlabel="5713.0 [mp]"]
+Vienna->SAT_2 [color=Black label=" Overall Transmittance: 22.9, duration: 323.0 seconds 
+ Transmittance usage 95.1% Duration usage: 98.8% ", taillabel="2396.0",headlabel="2723.0"]
+SAT_2->SAT_13 [color=Black label=" Overall Transmittance: 22.9, duration: 323.0 seconds 
+ Transmittance usage 100.0% Duration usage: 43.8% ", taillabel="3419.0",headlabel="4157.0"]
+SAT_13->SAT_33 [color=Black label=" Overall Transmittance: 22.9, duration: 323.0 seconds 
+ Transmittance usage 13.5% Duration usage: 34.1% ", taillabel="4744.0",headlabel="5692.0"]
+SAT_33->Copenhagen [color=Black label=" Overall Transmittance: 22.9, duration: 323.0 seconds 
+ Transmittance usage 95.3% Duration usage: 100.0% ", taillabel="5716.0",headlabel="6039.0"]
+}

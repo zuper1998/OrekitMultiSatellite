@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Teljes időtartam: 1629.000 [másodperc] "
+
+Helsinki
+Budapest->SAT_37 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 37.8% Időtartam kihasználtsága: 25.6% ", taillabel="8698.0 [mp]",headlabel="9053.0 [mp]"]
+SAT_37->SAT_1 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 8.4% Időtartam kihasználtsága: 17.1% ", taillabel="9053.0 [mp]",headlabel="9586.0 [mp]"]
+SAT_1->SAT_29 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 79.9% Időtartam kihasználtsága: 100.0% ", taillabel="9586.0 [mp]",headlabel="9677.0 [mp]"]
+SAT_29->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.2% Időtartam kihasználtsága: 17.5% ", taillabel="9677.0 [mp]",headlabel="10196.0 [mp]"]
+SAT_15->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 69.5% ", taillabel="10196.0 [mp]",headlabel="10327.0 [mp]"]
+Budapest->SAT_37 [color=Black label=" Overall Transmittance: 9.2, duration: 329.0 seconds 
+ Transmittance usage 35.3% Duration usage: 92.7% ", taillabel="8698.0",headlabel="9053.0"]
+SAT_37->SAT_1 [color=Black label=" Overall Transmittance: 9.2, duration: 329.0 seconds 
+ Transmittance usage 8.0% Duration usage: 98.8% ", taillabel="9053.0",headlabel="9386.0"]
+SAT_1->SAT_15 [color=Black label=" Overall Transmittance: 9.2, duration: 329.0 seconds 
+ Transmittance usage 100.0% Duration usage: 53.8% ", taillabel="9386.0",headlabel="9998.0"]
+SAT_15->Helsinki [color=Black label=" Overall Transmittance: 9.2, duration: 329.0 seconds 
+ Transmittance usage 30.6% Duration usage: 100.0% ", taillabel="9998.0",headlabel="10327.0"]
+}

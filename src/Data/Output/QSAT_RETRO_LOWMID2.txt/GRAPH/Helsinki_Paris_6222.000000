@@ -1,0 +1,29 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 3935.000 [másodperc] "
+
+Paris
+Helsinki->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 12.4, időtartam: 85.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.6% Időtartam kihasználtsága: 39.7% ", taillabel="6222.0 [mp]",headlabel="6436.0 [mp]"]
+SAT_5->SAT_25 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 12.4, időtartam: 85.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="6445.0 [mp]",headlabel="6530.0 [mp]"]
+SAT_25->SAT_11 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 12.4, időtartam: 85.0 [mp] 
+ Optikai áteresztés kihasználtsága 98.7% Időtartam kihasználtsága: 11.3% ", taillabel="6530.0 [mp]",headlabel="7282.0 [mp]"]
+SAT_11->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 12.4, időtartam: 85.0 [mp] 
+ Optikai áteresztés kihasználtsága 54.2% Időtartam kihasználtsága: 11.5% ", taillabel="8142.0 [mp]",headlabel="8880.0 [mp]"]
+SAT_8->Paris [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 12.4, időtartam: 85.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.9% Időtartam kihasználtsága: 49.7% ", taillabel="9986.0 [mp]",headlabel="10157.0 [mp]"]
+Helsinki->SAT_5 [color=Black label=" Overall Transmittance: 9.2, duration: 85.0 seconds 
+ Transmittance usage 60.6% Duration usage: 38.1% ", taillabel="6222.0",headlabel="6445.0"]
+SAT_5->SAT_25 [color=Black label=" Overall Transmittance: 9.2, duration: 85.0 seconds 
+ Transmittance usage 74.5% Duration usage: 100.0% ", taillabel="6445.0",headlabel="6530.0"]
+SAT_25->SAT_11 [color=Black label=" Overall Transmittance: 9.2, duration: 85.0 seconds 
+ Transmittance usage 73.5% Duration usage: 11.3% ", taillabel="6530.0",headlabel="7282.0"]
+SAT_11->SAT_1 [color=Black label=" Overall Transmittance: 9.2, duration: 85.0 seconds 
+ Transmittance usage 100.0% Duration usage: 13.9% ", taillabel="7812.0",headlabel="8423.0"]
+SAT_1->Paris [color=Black label=" Overall Transmittance: 9.2, duration: 85.0 seconds 
+ Transmittance usage 16.7% Duration usage: 16.4% ", taillabel="8895.0",headlabel="9414.0"]
+}

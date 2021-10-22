@@ -1,0 +1,23 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Vienna->Budapest úvonal legjobb útvonalai "Vienna
+Budapest
+Vienna->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 15.3, időtartam: 117.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="117.0 [mp]"]
+SAT_13->Budapest [color=blueviolet label=" Csatorna maximális optikai átersztése: 15.3, időtartam: 117.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 64.3% ", taillabel="117.0 [mp]",headlabel="299.0 [mp]"]
+Vienna->SAT_16 [color=chartreuse label=" Csatorna maximális optikai átersztése: 20.9, időtartam: 244.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 93.5% ", taillabel="3871.0 [mp]",headlabel="4132.0 [mp]"]
+SAT_16->Budapest [color=chartreuse label=" Csatorna maximális optikai átersztése: 20.9, időtartam: 244.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="4132.0 [mp]",headlabel="4376.0 [mp]"]
+Vienna->SAT_15 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 15.9, időtartam: 207.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 94.5% ", taillabel="4741.0 [mp]",headlabel="4960.0 [mp]"]
+SAT_15->Budapest [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 15.9, időtartam: 207.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.6% Időtartam kihasználtsága: 100.0% ", taillabel="4960.0 [mp]",headlabel="5167.0 [mp]"]
+Vienna->SAT_14 [color=darkorange label=" Csatorna maximális optikai átersztése: 10.1, időtartam: 143.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.4% Időtartam kihasználtsága: 94.7% ", taillabel="5650.0 [mp]",headlabel="5801.0 [mp]"]
+SAT_14->Budapest [color=darkorange label=" Csatorna maximális optikai átersztése: 10.1, időtartam: 143.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="5801.0 [mp]",headlabel="5944.0 [mp]"]
+}

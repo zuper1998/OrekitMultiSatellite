@@ -1,0 +1,19 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Paris
+label = " Teljes időtartam: 724.000 [másodperc] "
+
+Vienna
+Paris->SAT_37 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 25.9, időtartam: 64.0 [mp] 
+ Optikai áteresztés kihasználtsága 65.1% Időtartam kihasználtsága: 19.2% ", taillabel="8827.0 [mp]",headlabel="9161.0 [mp]"]
+SAT_37->SAT_1 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 25.9, időtartam: 64.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="9161.0 [mp]",headlabel="9225.0 [mp]"]
+SAT_1->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 25.9, időtartam: 64.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.6% Időtartam kihasználtsága: 19.6% ", taillabel="9225.0 [mp]",headlabel="9551.0 [mp]"]
+Paris->SAT_37 [color=Black label=" Overall Transmittance: 11.4, duration: 139.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="8827.0",headlabel="8966.0"]
+SAT_37->Vienna [color=Black label=" Overall Transmittance: 11.4, duration: 139.0 seconds 
+ Transmittance usage 100.0% Duration usage: 92.7% ", taillabel="8966.0",headlabel="9116.0"]
+}

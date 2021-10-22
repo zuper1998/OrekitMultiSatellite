@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Rome->Budapest úvonal legjobb útvonalai "Rome
+Budapest
+Rome->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 10.6, időtartam: 137.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="137.0 [mp]"]
+SAT_13->Budapest [color=blueviolet label=" Csatorna maximális optikai átersztése: 10.6, időtartam: 137.0 [mp] 
+ Optikai áteresztés kihasználtsága 80.1% Időtartam kihasználtsága: 84.6% ", taillabel="137.0 [mp]",headlabel="299.0 [mp]"]
+Rome->SAT_13 [color=chartreuse label=" Csatorna maximális optikai átersztése: 11.2, időtartam: 167.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 100.0% ", taillabel="6350.0 [mp]",headlabel="6517.0 [mp]"]
+SAT_13->Budapest [color=chartreuse label=" Csatorna maximális optikai átersztése: 11.2, időtartam: 167.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="6517.0 [mp]",headlabel="6684.0 [mp]"]
+Rome->SAT_16 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 30.2, időtartam: 325.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3715.0 [mp]",headlabel="4040.0 [mp]"]
+SAT_16->Budapest [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 30.2, időtartam: 325.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 96.7% ", taillabel="4040.0 [mp]",headlabel="4376.0 [mp]"]
+Rome->SAT_15 [color=darkorange label=" Csatorna maximális optikai átersztése: 24.2, időtartam: 296.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="4567.0 [mp]",headlabel="4863.0 [mp]"]
+SAT_15->Budapest [color=darkorange label=" Csatorna maximális optikai átersztése: 24.2, időtartam: 296.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 97.4% ", taillabel="4863.0 [mp]",headlabel="5167.0 [mp]"]
+Rome->SAT_14 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 18.4, időtartam: 252.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 100.0% ", taillabel="5437.0 [mp]",headlabel="5689.0 [mp]"]
+SAT_14->Budapest [color=firebrick2 label=" Csatorna maximális optikai átersztése: 18.4, időtartam: 252.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 98.8% ", taillabel="5689.0 [mp]",headlabel="5944.0 [mp]"]
+}

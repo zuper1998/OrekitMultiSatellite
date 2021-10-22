@@ -1,0 +1,13 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Copenhagen
+label = " Teljes időtartam: 757.000 [másodperc] "
+
+Helsinki
+Copenhagen->SAT_32 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 345.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 83.7% ", taillabel="578.0 [mp]",headlabel="990.0 [mp]"]
+SAT_32->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 345.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="990.0 [mp]",headlabel="1335.0 [mp]"]
+}

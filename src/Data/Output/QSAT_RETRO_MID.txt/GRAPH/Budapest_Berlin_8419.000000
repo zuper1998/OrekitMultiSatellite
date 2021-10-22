@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Teljes időtartam: 2256.000 [másodperc] "
+
+Berlin
+Budapest->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.4, időtartam: 106.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 24.1% ", taillabel="8419.0 [mp]",headlabel="8858.0 [mp]"]
+SAT_2->SAT_30 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.4, időtartam: 106.0 [mp] 
+ Optikai áteresztés kihasználtsága 73.7% Időtartam kihasználtsága: 100.0% ", taillabel="8858.0 [mp]",headlabel="8964.0 [mp]"]
+SAT_30->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.4, időtartam: 106.0 [mp] 
+ Optikai áteresztés kihasználtsága 73.4% Időtartam kihasználtsága: 9.3% ", taillabel="8964.0 [mp]",headlabel="10106.0 [mp]"]
+SAT_15->SAT_35 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.4, időtartam: 106.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.6% Időtartam kihasználtsága: 50.5% ", taillabel="10106.0 [mp]",headlabel="10316.0 [mp]"]
+SAT_35->Berlin [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.4, időtartam: 106.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.7% Időtartam kihasználtsága: 29.5% ", taillabel="10316.0 [mp]",headlabel="10675.0 [mp]"]
+Budapest->SAT_2 [color=Black label=" Overall Transmittance: 22.9, duration: 439.0 seconds 
+ Transmittance usage 62.8% Duration usage: 100.0% ", taillabel="8419.0",headlabel="8858.0"]
+SAT_2->SAT_15 [color=Black label=" Overall Transmittance: 22.9, duration: 439.0 seconds 
+ Transmittance usage 100.0% Duration usage: 59.4% ", taillabel="8929.0",headlabel="9668.0"]
+SAT_15->SAT_35 [color=Black label=" Overall Transmittance: 22.9, duration: 439.0 seconds 
+ Transmittance usage 15.7% Duration usage: 90.7% ", taillabel="9668.0",headlabel="10152.0"]
+SAT_35->Berlin [color=Black label=" Overall Transmittance: 22.9, duration: 439.0 seconds 
+ Transmittance usage 39.9% Duration usage: 83.9% ", taillabel="10152.0",headlabel="10675.0"]
+}

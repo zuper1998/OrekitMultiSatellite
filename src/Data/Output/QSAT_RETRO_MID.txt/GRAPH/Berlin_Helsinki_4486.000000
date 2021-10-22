@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Berlin
+label = " Teljes időtartam: 3660.000 [másodperc] "
+
+Helsinki
+Berlin->SAT_7 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 367.0 [mp] 
+ Optikai áteresztés kihasználtsága 79.9% Időtartam kihasználtsága: 81.6% ", taillabel="4486.0 [mp]",headlabel="4936.0 [mp]"]
+SAT_7->SAT_59 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 367.0 [mp] 
+ Optikai áteresztés kihasználtsága 94.0% Időtartam kihasználtsága: 97.9% ", taillabel="5819.0 [mp]",headlabel="6194.0 [mp]"]
+SAT_59->SAT_10 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 367.0 [mp] 
+ Optikai áteresztés kihasználtsága 93.5% Időtartam kihasználtsága: 44.6% ", taillabel="6194.0 [mp]",headlabel="7016.0 [mp]"]
+SAT_10->SAT_38 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 367.0 [mp] 
+ Optikai áteresztés kihasználtsága 54.6% Időtartam kihasználtsága: 100.0% ", taillabel="7325.0 [mp]",headlabel="7692.0 [mp]"]
+SAT_38->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 367.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 80.8% ", taillabel="7692.0 [mp]",headlabel="8146.0 [mp]"]
+Berlin->SAT_7 [color=Black label=" Overall Transmittance: 30.4, duration: 394.0 seconds 
+ Transmittance usage 57.8% Duration usage: 77.3% ", taillabel="4486.0",headlabel="4996.0"]
+SAT_7->SAT_27 [color=Black label=" Overall Transmittance: 30.4, duration: 394.0 seconds 
+ Transmittance usage 22.7% Duration usage: 60.4% ", taillabel="4996.0",headlabel="5648.0"]
+SAT_27->SAT_39 [color=Black label=" Overall Transmittance: 30.4, duration: 394.0 seconds 
+ Transmittance usage 26.1% Duration usage: 50.3% ", taillabel="5819.0",headlabel="6603.0"]
+SAT_39->Helsinki [color=Black label=" Overall Transmittance: 30.4, duration: 394.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="6965.0",headlabel="7359.0"]
+}

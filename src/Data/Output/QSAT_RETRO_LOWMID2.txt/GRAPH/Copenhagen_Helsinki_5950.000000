@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Copenhagen
+label = " Teljes időtartam: 3528.000 [másodperc] "
+
+Helsinki
+Copenhagen->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 375.0 [mp] 
+ Optikai áteresztés kihasználtsága 69.5% Időtartam kihasználtsága: 73.4% ", taillabel="5950.0 [mp]",headlabel="6461.0 [mp]"]
+SAT_5->SAT_25 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 375.0 [mp] 
+ Optikai áteresztés kihasználtsága 23.4% Időtartam kihasználtsága: 78.6% ", taillabel="6461.0 [mp]",headlabel="6938.0 [mp]"]
+SAT_25->SAT_21 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 375.0 [mp] 
+ Optikai áteresztés kihasználtsága 72.6% Időtartam kihasználtsága: 97.7% ", taillabel="6938.0 [mp]",headlabel="7322.0 [mp]"]
+SAT_21->SAT_4 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 375.0 [mp] 
+ Optikai áteresztés kihasználtsága 88.9% Időtartam kihasználtsága: 46.1% ", taillabel="7322.0 [mp]",headlabel="8135.0 [mp]"]
+SAT_4->SAT_16 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 375.0 [mp] 
+ Optikai áteresztés kihasználtsága 90.4% Időtartam kihasználtsága: 100.0% ", taillabel="8135.0 [mp]",headlabel="8510.0 [mp]"]
+SAT_16->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 375.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 81.3% ", taillabel="9017.0 [mp]",headlabel="9478.0 [mp]"]
+Copenhagen->SAT_5 [color=Black label=" Overall Transmittance: 28.4, duration: 388.0 seconds 
+ Transmittance usage 53.8% Duration usage: 75.9% ", taillabel="5950.0",headlabel="6461.0"]
+SAT_5->SAT_9 [color=Black label=" Overall Transmittance: 28.4, duration: 388.0 seconds 
+ Transmittance usage 24.3% Duration usage: 49.4% ", taillabel="6938.0",headlabel="7723.0"]
+SAT_9->Helsinki [color=Black label=" Overall Transmittance: 28.4, duration: 388.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="8228.0",headlabel="8616.0"]
+}

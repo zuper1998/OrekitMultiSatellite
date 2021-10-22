@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 2428.000 [másodperc] "
+
+Rome
+Helsinki->SAT_28 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 150.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 44.8% ", taillabel="4186.0 [mp]",headlabel="4521.0 [mp]"]
+SAT_28->SAT_13 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 150.0 [mp] 
+ Optikai áteresztés kihasználtsága 53.8% Időtartam kihasználtsága: 19.1% ", taillabel="4521.0 [mp]",headlabel="5308.0 [mp]"]
+SAT_13->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 150.0 [mp] 
+ Optikai áteresztés kihasználtsága 53.8% Időtartam kihasználtsága: 23.3% ", taillabel="5308.0 [mp]",headlabel="5951.0 [mp]"]
+SAT_5->SAT_33 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 150.0 [mp] 
+ Optikai áteresztés kihasználtsága 21.9% Időtartam kihasználtsága: 100.0% ", taillabel="5951.0 [mp]",headlabel="6101.0 [mp]"]
+SAT_33->Rome [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 150.0 [mp] 
+ Optikai áteresztés kihasználtsága 42.0% Időtartam kihasználtsága: 29.2% ", taillabel="6101.0 [mp]",headlabel="6614.0 [mp]"]
+Helsinki->SAT_28 [color=Black label=" Overall Transmittance: 21.5, duration: 224.0 seconds 
+ Transmittance usage 99.5% Duration usage: 73.4% ", taillabel="4186.0",headlabel="4491.0"]
+SAT_28->SAT_13 [color=Black label=" Overall Transmittance: 21.5, duration: 224.0 seconds 
+ Transmittance usage 47.6% Duration usage: 24.3% ", taillabel="4521.0",headlabel="5442.0"]
+SAT_13->SAT_39 [color=Black label=" Overall Transmittance: 21.5, duration: 224.0 seconds 
+ Transmittance usage 47.6% Duration usage: 29.0% ", taillabel="6094.0",headlabel="6866.0"]
+SAT_39->Rome [color=Black label=" Overall Transmittance: 21.5, duration: 224.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="7865.0",headlabel="8089.0"]
+}

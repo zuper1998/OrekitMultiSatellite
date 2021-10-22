@@ -1,0 +1,29 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Paris
+label = " Teljes időtartam: 2928.000 [másodperc] "
+
+Helsinki
+Paris->SAT_39 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 41.6, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 86.3% Időtartam kihasználtsága: 85.6% ", taillabel="7399.0 [mp]",headlabel="7808.0 [mp]"]
+SAT_39->SAT_31 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 41.6, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 94.0% Időtartam kihasználtsága: 69.2% ", taillabel="7808.0 [mp]",headlabel="8314.0 [mp]"]
+SAT_31->SAT_56 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 41.6, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.4% Időtartam kihasználtsága: 100.0% ", taillabel="8314.0 [mp]",headlabel="8664.0 [mp]"]
+SAT_56->SAT_30 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 41.6, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.5% Időtartam kihasználtsága: 61.9% ", taillabel="8664.0 [mp]",headlabel="9229.0 [mp]"]
+SAT_30->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 41.6, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 55.1% ", taillabel="9229.0 [mp]",headlabel="9864.0 [mp]"]
+SAT_15->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 41.6, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 75.6% ", taillabel="9864.0 [mp]",headlabel="10327.0 [mp]"]
+Paris->SAT_39 [color=Black label=" Overall Transmittance: 36.7, duration: 409.0 seconds 
+ Transmittance usage 76.1% Duration usage: 100.0% ", taillabel="7399.0",headlabel="7808.0"]
+SAT_39->SAT_31 [color=Black label=" Overall Transmittance: 36.7, duration: 409.0 seconds 
+ Transmittance usage 79.0% Duration usage: 67.5% ", taillabel="7808.0",headlabel="8414.0"]
+SAT_31->SAT_16 [color=Black label=" Overall Transmittance: 36.7, duration: 409.0 seconds 
+ Transmittance usage 90.1% Duration usage: 67.8% ", taillabel="8414.0",headlabel="9017.0"]
+SAT_16->Helsinki [color=Black label=" Overall Transmittance: 36.7, duration: 409.0 seconds 
+ Transmittance usage 100.0% Duration usage: 88.7% ", taillabel="9017.0",headlabel="9478.0"]
+}

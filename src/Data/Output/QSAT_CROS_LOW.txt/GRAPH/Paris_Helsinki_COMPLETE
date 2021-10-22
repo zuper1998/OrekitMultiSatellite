@@ -1,0 +1,17 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Paris->Helsinki úvonal legjobb útvonalai "Paris
+Helsinki
+Paris->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.0, időtartam: 57.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="57.0 [mp]"]
+SAT_13->Helsinki [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.0, időtartam: 57.0 [mp] 
+ Optikai áteresztés kihasználtsága 7.4% Időtartam kihasználtsága: 12.3% ", taillabel="57.0 [mp]",headlabel="522.0 [mp]"]
+Paris->SAT_1 [color=chartreuse label=" Csatorna maximális optikai átersztése: 8.6, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3109.0 [mp]",headlabel="3238.0 [mp]"]
+SAT_1->SAT_16 [color=chartreuse label=" Csatorna maximális optikai átersztése: 8.6, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 68.2% Időtartam kihasználtsága: 20.8% ", taillabel="3238.0 [mp]",headlabel="3857.0 [mp]"]
+SAT_16->Helsinki [color=chartreuse label=" Csatorna maximális optikai átersztése: 8.6, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 36.4% Időtartam kihasználtsága: 38.5% ", taillabel="4186.0 [mp]",headlabel="4521.0 [mp]"]
+}

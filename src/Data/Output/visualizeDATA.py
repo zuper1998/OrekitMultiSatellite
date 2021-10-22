@@ -21,26 +21,30 @@ def visPlotly(File:path):
             x = line.split()
             if(len(x)==3):
                 angle.append(float(x[0]))
-                distance.append(float(x[1]))
-                tr.append(float(x[2]))
+                distance.append(float(x[1])/1000)
+                tr.append(float(x[2])*100)
             else:
                 angle.append(0)
-                distance.append(float(x[0]))
-                tr.append(float(x[1]))
+                distance.append(float(x[0])/1000)
+                tr.append(float(x[1])*100)
 
     #df = pd.DataFrame(dict(x=angle,y=distance,z=tr))
-
+    s = os.path.basename(File).split("_")
+    s_val = int(float(s[2]))
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x= np.arange(len(angle)), y=angle,name="Angle data"))
-    fig.add_trace(go.Scatter(x= np.arange(len(angle)), y=distance,name="Distance data",yaxis="y2"))
-    fig.add_trace(go.Scatter(x= np.arange(len(angle)), y=tr,name="Transmittance",yaxis="y3"))
+    x_val = np.arange(s_val,s_val+len(angle))
+    fig.add_trace(go.Scatter(x= x_val, y=angle,name="Magassági szög"))
+    fig.add_trace(go.Scatter(x= x_val, y=distance,name="Távolság [km]",yaxis="y2"))
+    fig.add_trace(go.Scatter(x= x_val, y=tr,name="Optikai áteresztőképesség [%]",yaxis="y3"))
 
     # Create axis objects
+
     fig.update_layout(
-        xaxis=dict(domain=[0,0.8])
+        xaxis=dict(domain=[0.1,0.9],title="Eltelt idő [s]"
+         )
     ,
     yaxis=dict(
-        title="Angle",
+        title="Magassági szög",
         titlefont=dict(
             color="#1f77b4"
         ),
@@ -49,33 +53,32 @@ def visPlotly(File:path):
         )
     ),
     yaxis2=dict(
-        title="Distance",
+        title="Távolság [km]",
         titlefont=dict(
             color="#FF0000"
         ),
         tickfont=dict(
             color="#FF0000"
+        ),
+        anchor="free",
+        overlaying="y",
+        side="left",
+        position=0
+    ),
+    yaxis3=dict(
+        title="Optikai áteresztőképesség [%]",
+        titlefont=dict(
+            color="#9467bd"
+        ),
+        tickfont=dict(
+            color="#9467bd"
         ),
         anchor="x",
         overlaying="y",
         side="right",
-    ),
-    yaxis3=dict(
-        title="Transmittance",
-        titlefont=dict(
-            color="#9467bd"
-        ),
-        tickfont=dict(
-            color="#9467bd"
-        ),
-        anchor="free",
-        overlaying="y",
-        side="right",
-        position=0.85
     ))
     fig.update_layout(
-    title_text="multiple y-axes example",
-    width=800,
+    width=1000,
     )
     fig.write_image(f"images/{os.path.basename(File)}.jpeg")
     #fig.show()

@@ -1,0 +1,21 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Rome
+label = " Teljes időtartam: 3728.000 [másodperc] "
+
+Copenhagen
+Rome->SAT_31 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 54.5, időtartam: 448.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 95.7% ", taillabel="1230.0 [mp]",headlabel="1698.0 [mp]"]
+SAT_31->SAT_35 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 54.5, időtartam: 448.0 [mp] 
+ Optikai áteresztés kihasználtsága 46.6% Időtartam kihasználtsága: 56.9% ", taillabel="2669.0 [mp]",headlabel="3456.0 [mp]"]
+SAT_35->SAT_7 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 54.5, időtartam: 448.0 [mp] 
+ Optikai áteresztés kihasználtsága 58.3% Időtartam kihasználtsága: 100.0% ", taillabel="3989.0 [mp]",headlabel="4437.0 [mp]"]
+SAT_7->Copenhagen [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 54.5, időtartam: 448.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 91.1% ", taillabel="4466.0 [mp]",headlabel="4958.0 [mp]"]
+Rome->SAT_31 [color=Black label=" Overall Transmittance: 29.0, duration: 271.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="1230.0",headlabel="1501.0"]
+SAT_31->Copenhagen [color=Black label=" Overall Transmittance: 29.0, duration: 271.0 seconds 
+ Transmittance usage 99.7% Duration usage: 74.0% ", taillabel="1501.0",headlabel="1867.0"]
+}

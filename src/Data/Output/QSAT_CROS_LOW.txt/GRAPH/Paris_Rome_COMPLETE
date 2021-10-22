@@ -1,0 +1,25 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Paris->Rome úvonal legjobb útvonalai "Paris
+Rome
+Paris->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.0, időtartam: 57.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="57.0 [mp]"]
+SAT_13->Rome [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.0, időtartam: 57.0 [mp] 
+ Optikai áteresztés kihasználtsága 69.8% Időtartam kihasználtsága: 71.3% ", taillabel="57.0 [mp]",headlabel="137.0 [mp]"]
+Paris->SAT_1 [color=chartreuse label=" Csatorna maximális optikai átersztése: 8.6, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3109.0 [mp]",headlabel="3238.0 [mp]"]
+SAT_1->SAT_16 [color=chartreuse label=" Csatorna maximális optikai átersztése: 8.6, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 68.2% Időtartam kihasználtsága: 20.8% ", taillabel="3238.0 [mp]",headlabel="3857.0 [mp]"]
+SAT_16->Rome [color=chartreuse label=" Csatorna maximális optikai átersztése: 8.6, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 25.0% Időtartam kihasználtsága: 35.0% ", taillabel="3857.0 [mp]",headlabel="4226.0 [mp]"]
+Paris->SAT_1 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 15.1, időtartam: 170.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.6% Időtartam kihasználtsága: 100.0% ", taillabel="8840.0 [mp]",headlabel="9010.0 [mp]"]
+SAT_1->Rome [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 15.1, időtartam: 170.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 78.3% ", taillabel="9010.0 [mp]",headlabel="9227.0 [mp]"]
+Paris->SAT_2 [color=darkorange label=" Csatorna maximális optikai átersztése: 4.3, időtartam: 65.0 [mp] 
+ Optikai áteresztés kihasználtsága 19.1% Időtartam kihasználtsága: 28.6% ", taillabel="8103.0 [mp]",headlabel="8330.0 [mp]"]
+SAT_2->Rome [color=darkorange label=" Csatorna maximális optikai átersztése: 4.3, időtartam: 65.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8330.0 [mp]",headlabel="8395.0 [mp]"]
+}

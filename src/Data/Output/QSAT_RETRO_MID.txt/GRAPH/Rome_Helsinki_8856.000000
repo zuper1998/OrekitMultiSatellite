@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Rome
+label = " Teljes időtartam: 1471.000 [másodperc] "
+
+Helsinki
+Rome->SAT_37 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 41.5% Időtartam kihasználtsága: 27.6% ", taillabel="8856.0 [mp]",headlabel="9186.0 [mp]"]
+SAT_37->SAT_1 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 41.7% Időtartam kihasználtsága: 22.8% ", taillabel="9186.0 [mp]",headlabel="9586.0 [mp]"]
+SAT_1->SAT_29 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 79.9% Időtartam kihasználtsága: 100.0% ", taillabel="9586.0 [mp]",headlabel="9677.0 [mp]"]
+SAT_29->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.2% Időtartam kihasználtsága: 17.5% ", taillabel="9677.0 [mp]",headlabel="10196.0 [mp]"]
+SAT_15->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 91.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 69.5% ", taillabel="10196.0 [mp]",headlabel="10327.0 [mp]"]
+Rome->SAT_37 [color=Black label=" Overall Transmittance: 9.2, duration: 200.0 seconds 
+ Transmittance usage 38.7% Duration usage: 60.6% ", taillabel="8856.0",headlabel="9186.0"]
+SAT_37->SAT_1 [color=Black label=" Overall Transmittance: 9.2, duration: 200.0 seconds 
+ Transmittance usage 44.1% Duration usage: 100.0% ", taillabel="9186.0",headlabel="9386.0"]
+SAT_1->SAT_15 [color=Black label=" Overall Transmittance: 9.2, duration: 200.0 seconds 
+ Transmittance usage 100.0% Duration usage: 32.7% ", taillabel="9386.0",headlabel="9998.0"]
+SAT_15->Helsinki [color=Black label=" Overall Transmittance: 9.2, duration: 200.0 seconds 
+ Transmittance usage 30.6% Duration usage: 60.8% ", taillabel="9998.0",headlabel="10327.0"]
+}

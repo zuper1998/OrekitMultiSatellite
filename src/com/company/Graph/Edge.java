@@ -67,7 +67,7 @@ public class Edge implements Serializable {
         return out;
     }
 
-    public void genTransmittance(){
+    public void genTransmittance() {
         getOrbitData().Transmittance = new ArrayList<>();
         if (start.isCity() || end.isCity()) { //its a cit
             for (int i = 0; i < getOrbitData().Angle.size(); i++) {
@@ -160,9 +160,9 @@ public class Edge implements Serializable {
         System.out.println(out);
     }
 
-    public void SaveColorTransmitanceDurationAndPercentUsed(String color, double duration, double percentDUR ,double Tr, BufferedWriter writer) throws IOException {
+    public void SaveColorTransmitanceDurationAndPercentUsed(String color, double duration, double percentDUR, double Tr, BufferedWriter writer) throws IOException {
         String out = String.format("%s->%s [color=%s label=\" Overall Transmittance: %.1f, duration: %.1f seconds %n Transmittance usage %.1f%% Duration usage: %.1f%% \", taillabel=\"%f\",headlabel=\"%f\"]",
-                start.name, end.name, color, Tr, duration, Tr / this.getDurationScaledWithTransmitance() * 100, duration / getDataDuration() * 100,this.getDataStart().durationFrom(SimValues.initialDate),this.getDataEnd().durationFrom(SimValues.initialDate));
+                start.name, end.name, color, Tr, duration, Tr / this.getDurationScaledWithTransmitance() * 100, duration / getDataDuration() * 100, this.getDataStart().durationFrom(SimValues.initialDate), this.getDataEnd().durationFrom(SimValues.initialDate));
         writer.append(out);
         writer.newLine();
     }
@@ -185,9 +185,27 @@ public class Edge implements Serializable {
                 writer.append(String.format("%.3f %.3f %.9f%n", a, d, tr));
             }
         } else {
-            for (int dis = 0;dis<getOrbitData().Distance.size();dis++) {
+            for (int dis = 0; dis < getOrbitData().Distance.size(); dis++) {
                 double tr = getOrbitData().Transmittance.get(dis);
-                double d =  getOrbitData().Distance.get(dis);
+                double d = getOrbitData().Distance.get(dis);
+                writer.append(String.format("%.3f %.3f%n", d, tr));
+            }
+        }
+    }
+
+    public void printData_adater(BufferedWriter writer, int startT, int endT) throws IOException {
+        if (end.isCity() || start.isCity()) {
+            for (int i = startT; i < getOrbitData().Angle.size() - endT; i++) {
+                double a = getOrbitData().Angle.get(i);
+                double d = getOrbitData().Distance.get(i);
+                double tr = getOrbitData().Transmittance.get(i);
+                writer.append(String.format("%.3f %.3f %.9f%n", a, d, tr));
+            }
+        } else {
+            for (int i = startT; i < getOrbitData().Distance.size() - endT; i++) {
+
+                double tr = getOrbitData().Transmittance.get(i);
+                double d = getOrbitData().Distance.get(i);
                 writer.append(String.format("%.3f %.3f%n", d, tr));
             }
         }
@@ -251,6 +269,7 @@ public class Edge implements Serializable {
         data.recalcDur();
 
     }
+
 
     private static class EdgeData implements Serializable {
         @Serial

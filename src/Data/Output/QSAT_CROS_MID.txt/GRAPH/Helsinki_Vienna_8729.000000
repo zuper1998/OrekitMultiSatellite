@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 1932.000 [másodperc] "
+
+Vienna
+Helsinki->SAT_55 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.0, időtartam: 195.0 [mp] 
+ Optikai áteresztés kihasználtsága 74.3% Időtartam kihasználtsága: 44.7% ", taillabel="8729.0 [mp]",headlabel="9165.0 [mp]"]
+SAT_55->SAT_30 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.0, időtartam: 195.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.2% Időtartam kihasználtsága: 74.7% ", taillabel="9165.0 [mp]",headlabel="9426.0 [mp]"]
+SAT_30->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.0, időtartam: 195.0 [mp] 
+ Optikai áteresztés kihasználtsága 76.1% Időtartam kihasználtsága: 27.9% ", taillabel="9426.0 [mp]",headlabel="10125.0 [mp]"]
+SAT_15->SAT_7 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.0, időtartam: 195.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 100.0% ", taillabel="10125.0 [mp]",headlabel="10320.0 [mp]"]
+SAT_7->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 27.0, időtartam: 195.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 57.2% ", taillabel="10320.0 [mp]",headlabel="10661.0 [mp]"]
+Helsinki->SAT_55 [color=Black label=" Overall Transmittance: 20.7, duration: 212.0 seconds 
+ Transmittance usage 80.6% Duration usage: 71.4% ", taillabel="8729.0",headlabel="9026.0"]
+SAT_55->SAT_16 [color=Black label=" Overall Transmittance: 20.7, duration: 212.0 seconds 
+ Transmittance usage 81.0% Duration usage: 57.0% ", taillabel="9026.0",headlabel="9398.0"]
+SAT_16->SAT_8 [color=Black label=" Overall Transmittance: 20.7, duration: 212.0 seconds 
+ Transmittance usage 99.7% Duration usage: 100.0% ", taillabel="9398.0",headlabel="9610.0"]
+SAT_8->Vienna [color=Black label=" Overall Transmittance: 20.7, duration: 212.0 seconds 
+ Transmittance usage 100.0% Duration usage: 75.7% ", taillabel="9610.0",headlabel="9890.0"]
+}

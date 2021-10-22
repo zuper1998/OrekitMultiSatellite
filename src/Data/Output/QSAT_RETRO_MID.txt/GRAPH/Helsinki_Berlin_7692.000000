@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 2983.000 [másodperc] "
+
+Berlin
+Helsinki->SAT_38 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 35.2% ", taillabel="7692.0 [mp]",headlabel="8146.0 [mp]"]
+SAT_38->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 29.9% Időtartam kihasználtsága: 24.5% ", taillabel="8146.0 [mp]",headlabel="8798.0 [mp]"]
+SAT_2->SAT_30 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 77.5% Időtartam kihasználtsága: 100.0% ", taillabel="8798.0 [mp]",headlabel="8958.0 [mp]"]
+SAT_30->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 77.8% Időtartam kihasználtsága: 13.9% ", taillabel="8958.0 [mp]",headlabel="10106.0 [mp]"]
+SAT_15->SAT_35 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 89.8% Időtartam kihasználtsága: 76.2% ", taillabel="10106.0 [mp]",headlabel="10316.0 [mp]"]
+SAT_35->Berlin [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 89.9% Időtartam kihasználtsága: 44.6% ", taillabel="10316.0 [mp]",headlabel="10675.0 [mp]"]
+Helsinki->SAT_38 [color=Black label=" Overall Transmittance: 33.3, duration: 169.0 seconds 
+ Transmittance usage 86.1% Duration usage: 37.2% ", taillabel="7692.0",headlabel="8146.0"]
+SAT_38->SAT_2 [color=Black label=" Overall Transmittance: 33.3, duration: 169.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="8146.0",headlabel="8315.0"]
+SAT_2->Berlin [color=Black label=" Overall Transmittance: 33.3, duration: 169.0 seconds 
+ Transmittance usage 99.6% Duration usage: 41.2% ", taillabel="8315.0",headlabel="8725.0"]
+}

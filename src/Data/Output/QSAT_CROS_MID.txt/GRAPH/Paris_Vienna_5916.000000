@@ -1,0 +1,29 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Paris
+label = " Teljes időtartam: 2772.000 [másodperc] "
+
+Vienna
+Paris->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.7, időtartam: 316.0 [mp] 
+ Optikai áteresztés kihasználtsága 62.4% Időtartam kihasználtsága: 73.0% ", taillabel="5916.0 [mp]",headlabel="6349.0 [mp]"]
+SAT_5->SAT_61 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.7, időtartam: 316.0 [mp] 
+ Optikai áteresztés kihasználtsága 52.2% Időtartam kihasználtsága: 54.2% ", taillabel="6349.0 [mp]",headlabel="6932.0 [mp]"]
+SAT_61->SAT_46 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.7, időtartam: 316.0 [mp] 
+ Optikai áteresztés kihasználtsága 53.5% Időtartam kihasználtsága: 41.6% ", taillabel="6932.0 [mp]",headlabel="7692.0 [mp]"]
+SAT_46->SAT_38 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.7, időtartam: 316.0 [mp] 
+ Optikai áteresztés kihasználtsága 53.5% Időtartam kihasználtsága: 50.9% ", taillabel="7692.0 [mp]",headlabel="8313.0 [mp]"]
+SAT_38->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 22.7, időtartam: 316.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8372.0 [mp]",headlabel="8688.0 [mp]"]
+Paris->SAT_5 [color=Black label=" Overall Transmittance: 13.7, duration: 218.0 seconds 
+ Transmittance usage 74.7% Duration usage: 100.0% ", taillabel="5916.0",headlabel="6134.0"]
+SAT_5->SAT_33 [color=Black label=" Overall Transmittance: 13.7, duration: 218.0 seconds 
+ Transmittance usage 80.7% Duration usage: 51.4% ", taillabel="6134.0",headlabel="6558.0"]
+SAT_33->SAT_25 [color=Black label=" Overall Transmittance: 13.7, duration: 218.0 seconds 
+ Transmittance usage 81.0% Duration usage: 49.7% ", taillabel="6558.0",headlabel="6997.0"]
+SAT_25->SAT_1 [color=Black label=" Overall Transmittance: 13.7, duration: 218.0 seconds 
+ Transmittance usage 100.0% Duration usage: 31.9% ", taillabel="7507.0",headlabel="8190.0"]
+SAT_1->Vienna [color=Black label=" Overall Transmittance: 13.7, duration: 218.0 seconds 
+ Transmittance usage 78.7% Duration usage: 86.5% ", taillabel="8855.0",headlabel="9107.0"]
+}

@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Paris
+label = " Teljes időtartam: 2748.000 [másodperc] "
+
+Vienna
+Paris->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 18.2, időtartam: 261.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3782.0 [mp]",headlabel="4043.0 [mp]"]
+SAT_8->SAT_64 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 18.2, időtartam: 261.0 [mp] 
+ Optikai áteresztés kihasználtsága 45.1% Időtartam kihasználtsága: 44.0% ", taillabel="4043.0 [mp]",headlabel="4636.0 [mp]"]
+SAT_64->SAT_41 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 18.2, időtartam: 261.0 [mp] 
+ Optikai áteresztés kihasználtsága 45.7% Időtartam kihasználtsága: 35.9% ", taillabel="4636.0 [mp]",headlabel="5364.0 [mp]"]
+SAT_41->SAT_33 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 18.2, időtartam: 261.0 [mp] 
+ Optikai áteresztés kihasználtsága 45.7% Időtartam kihasználtsága: 44.5% ", taillabel="5364.0 [mp]",headlabel="5951.0 [mp]"]
+SAT_33->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 18.2, időtartam: 261.0 [mp] 
+ Optikai áteresztés kihasználtsága 45.4% Időtartam kihasználtsága: 57.5% ", taillabel="6076.0 [mp]",headlabel="6530.0 [mp]"]
+Paris->SAT_8 [color=Black label=" Overall Transmittance: 13.7, duration: 261.0 seconds 
+ Transmittance usage 75.5% Duration usage: 100.0% ", taillabel="3782.0",headlabel="4043.0"]
+SAT_8->SAT_48 [color=Black label=" Overall Transmittance: 13.7, duration: 261.0 seconds 
+ Transmittance usage 100.0% Duration usage: 38.3% ", taillabel="4565.0",headlabel="5246.0"]
+SAT_48->SAT_40 [color=Black label=" Overall Transmittance: 13.7, duration: 261.0 seconds 
+ Transmittance usage 26.7% Duration usage: 26.6% ", taillabel="5758.0",headlabel="6738.0"]
+SAT_40->Vienna [color=Black label=" Overall Transmittance: 13.7, duration: 261.0 seconds 
+ Transmittance usage 39.8% Duration usage: 62.0% ", taillabel="6835.0",headlabel="7256.0"]
+}

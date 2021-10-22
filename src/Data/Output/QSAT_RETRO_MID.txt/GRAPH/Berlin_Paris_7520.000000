@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Berlin
+label = " Teljes időtartam: 2583.000 [másodperc] "
+
+Paris
+Berlin->SAT_3 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.1, időtartam: 174.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 36.6% ", taillabel="7520.0 [mp]",headlabel="7995.0 [mp]"]
+SAT_3->SAT_31 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.1, időtartam: 174.0 [mp] 
+ Optikai áteresztés kihasználtsága 87.1% Időtartam kihasználtsága: 100.0% ", taillabel="7995.0 [mp]",headlabel="8169.0 [mp]"]
+SAT_31->SAT_16 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.1, időtartam: 174.0 [mp] 
+ Optikai áteresztés kihasználtsága 86.7% Időtartam kihasználtsága: 15.1% ", taillabel="8169.0 [mp]",headlabel="9319.0 [mp]"]
+SAT_16->SAT_36 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.1, időtartam: 174.0 [mp] 
+ Optikai áteresztés kihasználtsága 91.7% Időtartam kihasználtsága: 46.0% ", taillabel="9319.0 [mp]",headlabel="9697.0 [mp]"]
+SAT_36->Paris [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 43.1, időtartam: 174.0 [mp] 
+ Optikai áteresztés kihasználtsága 91.7% Időtartam kihasználtsága: 42.9% ", taillabel="9697.0 [mp]",headlabel="10103.0 [mp]"]
+Berlin->SAT_3 [color=Black label=" Overall Transmittance: 22.9, duration: 475.0 seconds 
+ Transmittance usage 53.1% Duration usage: 100.0% ", taillabel="7520.0",headlabel="7995.0"]
+SAT_3->SAT_31 [color=Black label=" Overall Transmittance: 22.9, duration: 475.0 seconds 
+ Transmittance usage 14.1% Duration usage: 78.9% ", taillabel="7995.0",headlabel="8597.0"]
+SAT_31->SAT_36 [color=Black label=" Overall Transmittance: 22.9, duration: 475.0 seconds 
+ Transmittance usage 100.0% Duration usage: 64.3% ", taillabel="8597.0",headlabel="9336.0"]
+SAT_36->Paris [color=Black label=" Overall Transmittance: 22.9, duration: 475.0 seconds 
+ Transmittance usage 40.9% Duration usage: 91.3% ", taillabel="9583.0",headlabel="10103.0"]
+}

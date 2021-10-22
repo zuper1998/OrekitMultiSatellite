@@ -78,7 +78,7 @@ public class adaptEdge implements Serializable {
     }
 
     public void printData(BufferedWriter writer) throws IOException {
-        edge.printData(writer);
+        edge.printData_adater(writer,start,end);
     }
 
     public Node getEndNode() {
@@ -90,7 +90,7 @@ public class adaptEdge implements Serializable {
     }
 
     public void SaveColorTransmitanceDurationAndPercentUsed(String Cname, double computeBestDuration, double computeBestTransmittance, BufferedWriter writer) throws IOException {
-        String out = String.format("%s->%s [color=%s label=\" Overall Transmittance: %.1f, duration: %.1f seconds %n Transmittance usage %.1f%% Duration usage: %.1f%% \", taillabel=\"%.1f\",headlabel=\"%.1f\"]",
+        String out = String.format("%s->%s [color=%s label=\" Csatorna maximális optikai átersztése: %.1f, időtartam: %.1f [mp] %n Optikai áteresztés kihasználtsága %.1f%% Időtartam kihasználtsága: %.1f%% \", taillabel=\"%.1f [mp]\",headlabel=\"%.1f [mp]\"]",
                 edge.start.name, edge.end.name, Cname, computeBestTransmittance, computeBestDuration, computeBestTransmittance / getDurationScaledWithTransmitance() * 100, computeBestDuration / Duration() * 100,
                 getDataStart().durationFrom(SimValues.initialDate), getDataEnd().durationFrom(SimValues.initialDate));
 

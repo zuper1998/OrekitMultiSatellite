@@ -1,0 +1,35 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Vienna->Helsinki úvonal legjobb útvonalai "Vienna
+Helsinki
+Vienna->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 27.3, időtartam: 259.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="259.0 [mp]"]
+SAT_13->Helsinki [color=blueviolet label=" Csatorna maximális optikai átersztése: 27.3, időtartam: 259.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 98.5% ", taillabel="259.0 [mp]",headlabel="522.0 [mp]"]
+Vienna->SAT_16 [color=chartreuse label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 315.0 [mp] 
+ Optikai áteresztés kihasználtsága 92.5% Időtartam kihasználtsága: 100.0% ", taillabel="3871.0 [mp]",headlabel="4186.0 [mp]"]
+SAT_16->Helsinki [color=chartreuse label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 315.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 94.0% ", taillabel="4186.0 [mp]",headlabel="4521.0 [mp]"]
+Vienna->SAT_15 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 12.0, időtartam: 180.0 [mp] 
+ Optikai áteresztés kihasználtsága 47.5% Időtartam kihasználtsága: 51.3% ", taillabel="4741.0 [mp]",headlabel="5092.0 [mp]"]
+SAT_15->Helsinki [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 12.0, időtartam: 180.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="5092.0 [mp]",headlabel="5272.0 [mp]"]
+Vienna->SAT_14 [color=darkorange label=" Csatorna maximális optikai átersztése: 12.2, időtartam: 177.0 [mp] 
+ Optikai áteresztés kihasználtsága 98.7% Időtartam kihasználtsága: 96.2% ", taillabel="5650.0 [mp]",headlabel="5834.0 [mp]"]
+SAT_14->SAT_7 [color=darkorange label=" Csatorna maximális optikai átersztése: 12.2, időtartam: 177.0 [mp] 
+ Optikai áteresztés kihasználtsága 79.0% Időtartam kihasználtsága: 38.7% ", taillabel="5834.0 [mp]",headlabel="6291.0 [mp]"]
+SAT_7->SAT_13 [color=darkorange label=" Csatorna maximális optikai átersztése: 12.2, időtartam: 177.0 [mp] 
+ Optikai áteresztés kihasználtsága 79.9% Időtartam kihasználtsága: 18.2% ", taillabel="6291.0 [mp]",headlabel="7263.0 [mp]"]
+SAT_13->SAT_6 [color=darkorange label=" Csatorna maximális optikai átersztése: 12.2, időtartam: 177.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 60.4% ", taillabel="7263.0 [mp]",headlabel="7556.0 [mp]"]
+SAT_6->Helsinki [color=darkorange label=" Csatorna maximális optikai átersztése: 12.2, időtartam: 177.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 100.0% ", taillabel="7556.0 [mp]",headlabel="7733.0 [mp]"]
+Vienna->SAT_14 [color=Black label=" Overall Transmittance: 11.4, duration: 169.0 seconds 
+ Transmittance usage 91.9% Duration usage: 91.8% ", taillabel="5650.0",headlabel="5834.0"]
+SAT_14->SAT_1 [color=Black label=" Overall Transmittance: 11.4, duration: 169.0 seconds 
+ Transmittance usage 22.9% Duration usage: 21.8% ", taillabel="7067.0",headlabel="7843.0"]
+SAT_1->Helsinki [color=Black label=" Overall Transmittance: 11.4, duration: 169.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="8657.0",headlabel="8826.0"]
+}

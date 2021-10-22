@@ -27,10 +27,10 @@ def visPlotly(File:path):
    
     # Create axis objects
     fig.update_layout(
-        xaxis=dict(domain=[0,1])
+        xaxis=dict(domain=[0.1,0.9],title="Eltelt idő [s]")
     ,
     yaxis=dict(
-        title="Entangled QBITS",
+        title="Összefonódott kvantumbitek / másorperc",
         titlefont=dict(
             color="#1f77b4"
         ),
@@ -40,8 +40,7 @@ def visPlotly(File:path):
     ))
   
     fig.update_layout(
-    title_text="multiple y-axes example",
-    width=800,
+    width=1000,
     )
     fig.write_image(f"images/{os.path.basename(File)}.jpeg")
 

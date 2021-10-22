@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Berlin
+label = " Teljes időtartam: 3701.000 [másodperc] "
+
+Helsinki
+Berlin->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 50.3, időtartam: 384.0 [mp] 
+ Optikai áteresztés kihasználtsága 98.2% Időtartam kihasználtsága: 85.9% ", taillabel="5988.0 [mp]",headlabel="6435.0 [mp]"]
+SAT_5->SAT_9 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 50.3, időtartam: 384.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.5% Időtartam kihasználtsága: 100.0% ", taillabel="6938.0 [mp]",headlabel="7322.0 [mp]"]
+SAT_9->SAT_32 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 50.3, időtartam: 384.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.2% Időtartam kihasználtsága: 30.5% ", taillabel="7322.0 [mp]",headlabel="8581.0 [mp]"]
+SAT_32->SAT_36 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 50.3, időtartam: 384.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 99.7% ", taillabel="8581.0 [mp]",headlabel="8966.0 [mp]"]
+SAT_36->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 50.3, időtartam: 384.0 [mp] 
+ Optikai áteresztés kihasználtsága 98.1% Időtartam kihasználtsága: 78.7% ", taillabel="9201.0 [mp]",headlabel="9689.0 [mp]"]
+Berlin->SAT_5 [color=Black label=" Overall Transmittance: 46.4, duration: 492.0 seconds 
+ Transmittance usage 82.0% Duration usage: 94.4% ", taillabel="5988.0",headlabel="6509.0"]
+SAT_5->SAT_25 [color=Black label=" Overall Transmittance: 46.4, duration: 492.0 seconds 
+ Transmittance usage 30.0% Duration usage: 68.9% ", taillabel="6509.0",headlabel="7223.0"]
+SAT_25->SAT_37 [color=Black label=" Overall Transmittance: 46.4, duration: 492.0 seconds 
+ Transmittance usage 39.7% Duration usage: 62.6% ", taillabel="7393.0",headlabel="8179.0"]
+SAT_37->Helsinki [color=Black label=" Overall Transmittance: 46.4, duration: 492.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="8430.0",headlabel="8922.0"]
+}

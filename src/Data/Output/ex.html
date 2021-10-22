@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 500px;
+            height: 500px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "Copenhagen", "label": "Copenhagen", "shape": "dot", "size": 10}, {"id": "Budapest", "label": "Budapest", "shape": "dot", "size": 10}, {"id": "Rome", "label": "Rome", "shape": "dot", "size": 10}, {"id": "Vienna", "label": "Vienna", "shape": "dot", "size": 10}, {"id": "Berlin", "label": "Berlin", "shape": "dot", "size": 10}, {"id": "Helsinki", "label": "Helsinki", "shape": "dot", "size": 10}, {"id": "Paris", "label": "Paris", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"W": 37.18133504, "from": "Copenhagen", "to": "Budapest", "weight": 1}, {"W": 34.86586387, "from": "Copenhagen", "to": "Rome", "weight": 1}, {"W": 31.28992197, "from": "Copenhagen", "to": "Vienna", "weight": 1}, {"W": 25.57931501, "from": "Copenhagen", "to": "Berlin", "weight": 1}, {"W": 33.3275802, "from": "Copenhagen", "to": "Helsinki", "weight": 1}, {"W": 41.57361739, "from": "Copenhagen", "to": "Paris", "weight": 1}, {"W": 8.006218609, "from": "Budapest", "to": "Helsinki", "weight": 1}, {"W": 8.803168644, "from": "Budapest", "to": "Berlin", "weight": 1}, {"W": 4.118152427, "from": "Budapest", "to": "Paris", "weight": 1}, {"W": 20.04430834, "from": "Budapest", "to": "Rome", "weight": 1}, {"W": 20.26729949, "from": "Budapest", "to": "Vienna", "weight": 1}, {"W": 33.14869302, "from": "Paris", "to": "Helsinki", "weight": 1}, {"W": 30.54626668, "from": "Paris", "to": "Vienna", "weight": 1}, {"W": 10.41772758, "from": "Paris", "to": "Rome", "weight": 1}, {"W": 17.45123802, "from": "Paris", "to": "Berlin", "weight": 1}, {"W": 24.44117086, "from": "Helsinki", "to": "Vienna", "weight": 1}, {"W": 19.99601452, "from": "Helsinki", "to": "Rome", "weight": 1}, {"W": 32.86432653, "from": "Helsinki", "to": "Berlin", "weight": 1}, {"W": 19.8894053, "from": "Rome", "to": "Vienna", "weight": 1}, {"W": 11.86038769, "from": "Rome", "to": "Berlin", "weight": 1}, {"W": 29.74071051, "from": "Vienna", "to": "Berlin", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

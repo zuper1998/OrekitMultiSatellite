@@ -1,0 +1,9 @@
+digraph G {
+	rankdir=LR size=50
+	Budapest -> Helsinki [label="310.29 eBits/s"]
+	Budapest -> Berlin [label="296.39 eBits/s"]
+	Budapest -> Paris [label="265.50 eBits/s"]
+	Budapest -> Rome [label="336.24 eBits/s"]
+	Budapest -> Copenhagen [label="284.95 eBits/s"]
+	Budapest -> Vienna [label="323.87 eBits/s"]
+}

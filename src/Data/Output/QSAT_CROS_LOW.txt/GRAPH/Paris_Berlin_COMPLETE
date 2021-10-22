@@ -1,0 +1,33 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Paris->Berlin úvonal legjobb útvonalai "Paris
+Berlin
+Paris->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.0, időtartam: 57.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="57.0 [mp]"]
+SAT_13->Berlin [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.0, időtartam: 57.0 [mp] 
+ Optikai áteresztés kihasználtsága 19.6% Időtartam kihasználtsága: 26.4% ", taillabel="57.0 [mp]",headlabel="273.0 [mp]"]
+Paris->SAT_1 [color=chartreuse label=" Csatorna maximális optikai átersztése: 8.6, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3109.0 [mp]",headlabel="3238.0 [mp]"]
+SAT_1->SAT_16 [color=chartreuse label=" Csatorna maximális optikai átersztése: 8.6, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 68.2% Időtartam kihasználtsága: 20.8% ", taillabel="3238.0 [mp]",headlabel="3857.0 [mp]"]
+SAT_16->Berlin [color=chartreuse label=" Csatorna maximális optikai átersztése: 8.6, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.7% Időtartam kihasználtsága: 75.9% ", taillabel="4012.0 [mp]",headlabel="4182.0 [mp]"]
+Paris->SAT_1 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 13.2, időtartam: 154.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 100.0% ", taillabel="8840.0 [mp]",headlabel="8994.0 [mp]"]
+SAT_1->Berlin [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 13.2, időtartam: 154.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 92.2% ", taillabel="8994.0 [mp]",headlabel="9161.0 [mp]"]
+Paris->SAT_4 [color=darkorange label=" Csatorna maximális optikai átersztése: 6.9, időtartam: 93.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="6640.0 [mp]",headlabel="6733.0 [mp]"]
+SAT_4->Berlin [color=darkorange label=" Csatorna maximális optikai átersztése: 6.9, időtartam: 93.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.1% Időtartam kihasználtsága: 92.1% ", taillabel="6733.0 [mp]",headlabel="6834.0 [mp]"]
+Paris->SAT_3 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 9.4, időtartam: 120.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="7370.0 [mp]",headlabel="7490.0 [mp]"]
+SAT_3->Berlin [color=firebrick2 label=" Csatorna maximális optikai átersztése: 9.4, időtartam: 120.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.3% Időtartam kihasználtsága: 90.9% ", taillabel="7490.0 [mp]",headlabel="7622.0 [mp]"]
+Paris->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 11.5, időtartam: 140.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 100.0% ", taillabel="8103.0 [mp]",headlabel="8243.0 [mp]"]
+SAT_2->Berlin [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 11.5, időtartam: 140.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 91.5% ", taillabel="8243.0 [mp]",headlabel="8396.0 [mp]"]
+}

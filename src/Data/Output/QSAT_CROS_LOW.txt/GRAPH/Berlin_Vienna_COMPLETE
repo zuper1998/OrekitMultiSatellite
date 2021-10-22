@@ -1,0 +1,23 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Berlin->Vienna úvonal legjobb útvonalai "Berlin
+Vienna
+Berlin->SAT_13 [color=blueviolet label=" Csatorna maximális optikai átersztése: 14.5, időtartam: 103.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="103.0 [mp]"]
+SAT_13->Vienna [color=blueviolet label=" Csatorna maximális optikai átersztése: 14.5, időtartam: 103.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 60.2% ", taillabel="103.0 [mp]",headlabel="274.0 [mp]"]
+Berlin->SAT_16 [color=chartreuse label=" Csatorna maximális optikai átersztése: 10.8, időtartam: 145.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 90.1% ", taillabel="4012.0 [mp]",headlabel="4173.0 [mp]"]
+SAT_16->Vienna [color=chartreuse label=" Csatorna maximális optikai átersztése: 10.8, időtartam: 145.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="4173.0 [mp]",headlabel="4318.0 [mp]"]
+Berlin->SAT_2 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 5.7, időtartam: 86.0 [mp] 
+ Optikai áteresztés kihasználtsága 41.9% Időtartam kihasználtsága: 48.0% ", taillabel="8017.0 [mp]",headlabel="8196.0 [mp]"]
+SAT_2->Vienna [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 5.7, időtartam: 86.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8196.0 [mp]",headlabel="8282.0 [mp]"]
+Berlin->SAT_1 [color=darkorange label=" Csatorna maximális optikai átersztése: 13.7, időtartam: 174.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 100.0% ", taillabel="8736.0 [mp]",headlabel="8910.0 [mp]"]
+SAT_1->Vienna [color=darkorange label=" Csatorna maximális optikai átersztése: 13.7, időtartam: 174.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 88.3% ", taillabel="8910.0 [mp]",headlabel="9107.0 [mp]"]
+}

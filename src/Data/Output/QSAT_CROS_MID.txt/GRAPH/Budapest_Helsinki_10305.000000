@@ -1,0 +1,17 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Teljes időtartam: 345.000 [másodperc] "
+
+Helsinki
+Budapest->SAT_7 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 2.0, időtartam: 52.0 [mp] 
+ Optikai áteresztés kihasználtsága 37.9% Időtartam kihasználtsága: 68.4% ", taillabel="10305.0 [mp]",headlabel="10381.0 [mp]"]
+SAT_7->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 2.0, időtartam: 52.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 82.5% ", taillabel="10381.0 [mp]",headlabel="10444.0 [mp]"]
+SAT_15->SAT_53 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 2.0, időtartam: 52.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.0% Időtartam kihasználtsága: 33.8% ", taillabel="10444.0 [mp]",headlabel="10598.0 [mp]"]
+SAT_53->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 2.0, időtartam: 52.0 [mp] 
+ Optikai áteresztés kihasználtsága 55.2% Időtartam kihasználtsága: 100.0% ", taillabel="10598.0 [mp]",headlabel="10650.0 [mp]"]
+}

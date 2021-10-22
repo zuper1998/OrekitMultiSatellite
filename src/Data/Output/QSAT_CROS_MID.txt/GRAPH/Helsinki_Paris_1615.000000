@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 2546.000 [másodperc] "
+
+Paris
+Helsinki->SAT_31 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 33.6, időtartam: 155.0 [mp] 
+ Optikai áteresztés kihasználtsága 72.2% Időtartam kihasználtsága: 31.2% ", taillabel="1615.0 [mp]",headlabel="2112.0 [mp]"]
+SAT_31->SAT_16 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 33.6, időtartam: 155.0 [mp] 
+ Optikai áteresztés kihasználtsága 74.8% Időtartam kihasználtsága: 19.0% ", taillabel="2112.0 [mp]",headlabel="2927.0 [mp]"]
+SAT_16->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 33.6, időtartam: 155.0 [mp] 
+ Optikai áteresztés kihasználtsága 74.8% Időtartam kihasználtsága: 23.3% ", taillabel="2927.0 [mp]",headlabel="3591.0 [mp]"]
+SAT_8->SAT_36 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 33.6, időtartam: 155.0 [mp] 
+ Optikai áteresztés kihasználtsága 31.1% Időtartam kihasználtsága: 100.0% ", taillabel="3591.0 [mp]",headlabel="3746.0 [mp]"]
+SAT_36->Paris [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 33.6, időtartam: 155.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 37.3% ", taillabel="3746.0 [mp]",headlabel="4161.0 [mp]"]
+Helsinki->SAT_31 [color=Black label=" Overall Transmittance: 24.2, duration: 253.0 seconds 
+ Transmittance usage 99.5% Duration usage: 96.2% ", taillabel="1615.0",headlabel="1878.0"]
+SAT_31->SAT_16 [color=Black label=" Overall Transmittance: 24.2, duration: 253.0 seconds 
+ Transmittance usage 51.9% Duration usage: 26.1% ", taillabel="2112.0",headlabel="3082.0"]
+SAT_16->SAT_34 [color=Black label=" Overall Transmittance: 24.2, duration: 253.0 seconds 
+ Transmittance usage 53.4% Duration usage: 32.7% ", taillabel="3732.0",headlabel="4505.0"]
+SAT_34->Paris [color=Black label=" Overall Transmittance: 24.2, duration: 253.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="5419.0",headlabel="5672.0"]
+}

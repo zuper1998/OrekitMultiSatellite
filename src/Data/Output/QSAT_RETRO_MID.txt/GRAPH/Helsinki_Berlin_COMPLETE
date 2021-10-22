@@ -1,0 +1,359 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Helsinki->Berlin úvonal legjobb útvonalai "Helsinki
+Berlin
+Helsinki->SAT_25 [color=blueviolet label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 445.0 [mp] 
+ Optikai áteresztés kihasználtsága 64.0% Időtartam kihasználtsága: 85.2% ", taillabel="0.0 [mp]",headlabel="522.0 [mp]"]
+SAT_25->SAT_37 [color=blueviolet label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 445.0 [mp] 
+ Optikai áteresztés kihasználtsága 32.0% Időtartam kihasználtsága: 56.6% ", taillabel="1095.0 [mp]",headlabel="1881.0 [mp]"]
+SAT_37->SAT_1 [color=blueviolet label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 445.0 [mp] 
+ Optikai áteresztés kihasználtsága 29.1% Időtartam kihasználtsága: 70.4% ", taillabel="2381.0 [mp]",headlabel="3013.0 [mp]"]
+SAT_1->Berlin [color=blueviolet label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 445.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3013.0 [mp]",headlabel="3458.0 [mp]"]
+Helsinki->SAT_25 [color=Black label=" Overall Transmittance: 22.9, duration: 382.0 seconds 
+ Transmittance usage 39.2% Duration usage: 73.2% ", taillabel="0.0",headlabel="522.0"]
+SAT_25->SAT_38 [color=Black label=" Overall Transmittance: 22.9, duration: 382.0 seconds 
+ Transmittance usage 100.0% Duration usage: 51.8% ", taillabel="725.0",headlabel="1463.0"]
+SAT_38->SAT_2 [color=Black label=" Overall Transmittance: 22.9, duration: 382.0 seconds 
+ Transmittance usage 17.5% Duration usage: 54.6% ", taillabel="1594.0",headlabel="2293.0"]
+SAT_2->Berlin [color=Black label=" Overall Transmittance: 22.9, duration: 382.0 seconds 
+ Transmittance usage 78.7% Duration usage: 100.0% ", taillabel="2293.0",headlabel="2675.0"]
+Helsinki->SAT_5 [color=chartreuse label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 445.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.0% Időtartam kihasználtsága: 88.6% ", taillabel="37.0 [mp]",headlabel="539.0 [mp]"]
+SAT_5->SAT_9 [color=chartreuse label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 445.0 [mp] 
+ Optikai áteresztés kihasználtsága 32.0% Időtartam kihasználtsága: 56.7% ", taillabel="640.0 [mp]",headlabel="1425.0 [mp]"]
+SAT_9->SAT_37 [color=chartreuse label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 445.0 [mp] 
+ Optikai áteresztés kihasználtsága 22.8% Időtartam kihasználtsága: 56.5% ", taillabel="1594.0 [mp]",headlabel="2381.0 [mp]"]
+SAT_37->SAT_1 [color=chartreuse label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 445.0 [mp] 
+ Optikai áteresztés kihasználtsága 29.1% Időtartam kihasználtsága: 70.4% ", taillabel="2381.0 [mp]",headlabel="3013.0 [mp]"]
+SAT_1->Berlin [color=chartreuse label=" Csatorna maximális optikai átersztése: 37.3, időtartam: 445.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3013.0 [mp]",headlabel="3458.0 [mp]"]
+Helsinki->SAT_5 [color=Black label=" Overall Transmittance: 36.3, duration: 346.0 seconds 
+ Transmittance usage 98.5% Duration usage: 100.0% ", taillabel="37.0",headlabel="383.0"]
+SAT_5->SAT_25 [color=Black label=" Overall Transmittance: 36.3, duration: 346.0 seconds 
+ Transmittance usage 100.0% Duration usage: 63.8% ", taillabel="383.0",headlabel="925.0"]
+SAT_25->SAT_37 [color=Black label=" Overall Transmittance: 36.3, duration: 346.0 seconds 
+ Transmittance usage 31.1% Duration usage: 44.0% ", taillabel="1095.0",headlabel="1881.0"]
+SAT_37->SAT_1 [color=Black label=" Overall Transmittance: 36.3, duration: 346.0 seconds 
+ Transmittance usage 28.3% Duration usage: 54.7% ", taillabel="2381.0",headlabel="3013.0"]
+SAT_1->Berlin [color=Black label=" Overall Transmittance: 36.3, duration: 346.0 seconds 
+ Transmittance usage 97.3% Duration usage: 77.8% ", taillabel="3013.0",headlabel="3458.0"]
+Helsinki->SAT_29 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 32.3, időtartam: 425.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3315.0 [mp]",headlabel="3740.0 [mp]"]
+SAT_29->SAT_33 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 32.3, időtartam: 425.0 [mp] 
+ Optikai áteresztés kihasználtsága 27.7% Időtartam kihasználtsága: 54.1% ", taillabel="4245.0 [mp]",headlabel="5030.0 [mp]"]
+SAT_33->SAT_5 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 32.3, időtartam: 425.0 [mp] 
+ Optikai áteresztés kihasználtsága 45.3% Időtartam kihasználtsága: 93.2% ", taillabel="5532.0 [mp]",headlabel="5988.0 [mp]"]
+SAT_5->Berlin [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 32.3, időtartam: 425.0 [mp] 
+ Optikai áteresztés kihasználtsága 57.1% Időtartam kihasználtsága: 81.6% ", taillabel="5988.0 [mp]",headlabel="6509.0 [mp]"]
+Helsinki->SAT_29 [color=Black label=" Overall Transmittance: 22.9, duration: 331.0 seconds 
+ Transmittance usage 70.8% Duration usage: 77.9% ", taillabel="3315.0",headlabel="3740.0"]
+SAT_29->SAT_40 [color=Black label=" Overall Transmittance: 22.9, duration: 331.0 seconds 
+ Transmittance usage 100.0% Duration usage: 44.9% ", taillabel="4662.0",headlabel="5399.0"]
+SAT_40->Berlin [color=Black label=" Overall Transmittance: 22.9, duration: 331.0 seconds 
+ Transmittance usage 94.9% Duration usage: 100.0% ", taillabel="6474.0",headlabel="6805.0"]
+Helsinki->SAT_8 [color=darkorange label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 435.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 92.0% ", taillabel="3826.0 [mp]",headlabel="4299.0 [mp]"]
+SAT_8->SAT_28 [color=darkorange label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 435.0 [mp] 
+ Optikai áteresztés kihasználtsága 83.6% Időtartam kihasználtsága: 77.3% ", taillabel="4299.0 [mp]",headlabel="4862.0 [mp]"]
+SAT_28->SAT_40 [color=darkorange label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 435.0 [mp] 
+ Optikai áteresztés kihasználtsága 36.2% Időtartam kihasználtsága: 55.5% ", taillabel="5032.0 [mp]",headlabel="5816.0 [mp]"]
+SAT_40->SAT_4 [color=darkorange label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 435.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.1% Időtartam kihasználtsága: 100.0% ", taillabel="6319.0 [mp]",headlabel="6754.0 [mp]"]
+SAT_4->Berlin [color=darkorange label=" Csatorna maximális optikai átersztése: 42.3, időtartam: 435.0 [mp] 
+ Optikai áteresztés kihasználtsága 83.2% Időtartam kihasználtsága: 86.7% ", taillabel="6754.0 [mp]",headlabel="7256.0 [mp]"]
+Helsinki->SAT_8 [color=Black label=" Overall Transmittance: 24.1, duration: 331.0 seconds 
+ Transmittance usage 56.9% Duration usage: 70.0% ", taillabel="3826.0",headlabel="4299.0"]
+SAT_8->SAT_28 [color=Black label=" Overall Transmittance: 24.1, duration: 331.0 seconds 
+ Transmittance usage 47.6% Duration usage: 58.8% ", taillabel="4299.0",headlabel="4862.0"]
+SAT_28->SAT_40 [color=Black label=" Overall Transmittance: 24.1, duration: 331.0 seconds 
+ Transmittance usage 20.6% Duration usage: 42.2% ", taillabel="5032.0",headlabel="5816.0"]
+SAT_40->Berlin [color=Black label=" Overall Transmittance: 24.1, duration: 331.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="6474.0",headlabel="6805.0"]
+Helsinki->SAT_28 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 331.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 98.8% ", taillabel="4186.0 [mp]",headlabel="4521.0 [mp]"]
+SAT_28->SAT_40 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 331.0 [mp] 
+ Optikai áteresztés kihasználtsága 20.2% Időtartam kihasználtsága: 42.2% ", taillabel="5032.0 [mp]",headlabel="5816.0 [mp]"]
+SAT_40->Berlin [color=firebrick2 label=" Csatorna maximális optikai átersztése: 23.6, időtartam: 331.0 [mp] 
+ Optikai áteresztés kihasználtsága 98.1% Időtartam kihasználtsága: 100.0% ", taillabel="6474.0 [mp]",headlabel="6805.0 [mp]"]
+Helsinki->SAT_28 [color=Black label=" Overall Transmittance: 11.7, duration: 173.0 seconds 
+ Transmittance usage 49.4% Duration usage: 51.6% ", taillabel="4186.0",headlabel="4521.0"]
+SAT_28->SAT_33 [color=Black label=" Overall Transmittance: 11.7, duration: 173.0 seconds 
+ Transmittance usage 51.1% Duration usage: 23.5% ", taillabel="4662.0",headlabel="5399.0"]
+SAT_33->Berlin [color=Black label=" Overall Transmittance: 11.7, duration: 173.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="5798.0",headlabel="5971.0"]
+Helsinki->SAT_7 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.3, időtartam: 424.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="4607.0 [mp]",headlabel="5031.0 [mp]"]
+SAT_7->SAT_27 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.3, időtartam: 424.0 [mp] 
+ Optikai áteresztés kihasználtsága 32.7% Időtartam kihasználtsága: 68.7% ", taillabel="5031.0 [mp]",headlabel="5648.0 [mp]"]
+SAT_27->SAT_39 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.3, időtartam: 424.0 [mp] 
+ Optikai áteresztés kihasználtsága 29.3% Időtartam kihasználtsága: 54.1% ", taillabel="5819.0 [mp]",headlabel="6603.0 [mp]"]
+SAT_39->SAT_3 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.3, időtartam: 424.0 [mp] 
+ Optikai áteresztés kihasználtsága 82.4% Időtartam kihasználtsága: 99.3% ", taillabel="7105.0 [mp]",headlabel="7532.0 [mp]"]
+SAT_3->Berlin [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.3, időtartam: 424.0 [mp] 
+ Optikai áteresztés kihasználtsága 81.0% Időtartam kihasználtsága: 91.6% ", taillabel="7532.0 [mp]",headlabel="7995.0 [mp]"]
+Helsinki->SAT_7 [color=Black label=" Overall Transmittance: 33.4, duration: 417.0 seconds 
+ Transmittance usage 97.5% Duration usage: 98.3% ", taillabel="4607.0",headlabel="5031.0"]
+SAT_7->SAT_27 [color=Black label=" Overall Transmittance: 33.4, duration: 417.0 seconds 
+ Transmittance usage 31.9% Duration usage: 67.6% ", taillabel="5031.0",headlabel="5648.0"]
+SAT_27->SAT_39 [color=Black label=" Overall Transmittance: 33.4, duration: 417.0 seconds 
+ Transmittance usage 28.6% Duration usage: 53.2% ", taillabel="5819.0",headlabel="6603.0"]
+SAT_39->Berlin [color=Black label=" Overall Transmittance: 33.4, duration: 417.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="7186.0",headlabel="7603.0"]
+Helsinki->SAT_27 [color=deepskyblue4 label=" Csatorna maximális optikai átersztése: 12.0, időtartam: 180.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="5092.0 [mp]",headlabel="5272.0 [mp]"]
+SAT_27->SAT_39 [color=deepskyblue4 label=" Csatorna maximális optikai átersztése: 12.0, időtartam: 180.0 [mp] 
+ Optikai áteresztés kihasználtsága 10.3% Időtartam kihasználtsága: 23.0% ", taillabel="5819.0 [mp]",headlabel="6603.0 [mp]"]
+SAT_39->Berlin [color=deepskyblue4 label=" Csatorna maximális optikai átersztése: 12.0, időtartam: 180.0 [mp] 
+ Optikai áteresztés kihasználtsága 35.9% Időtartam kihasználtsága: 43.2% ", taillabel="7186.0 [mp]",headlabel="7603.0 [mp]"]
+Helsinki->SAT_33 [color=darksalmon label=" Csatorna maximális optikai átersztése: 6.7, időtartam: 101.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="5597.0 [mp]",headlabel="5698.0 [mp]"]
+SAT_33->Berlin [color=darksalmon label=" Csatorna maximális optikai átersztése: 6.7, időtartam: 101.0 [mp] 
+ Optikai áteresztés kihasználtsága 57.5% Időtartam kihasználtsága: 58.4% ", taillabel="5798.0 [mp]",headlabel="5971.0 [mp]"]
+Helsinki->SAT_6 [color=darkviolet label=" Csatorna maximális optikai átersztése: 25.8, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="5401.0 [mp]",headlabel="5751.0 [mp]"]
+SAT_6->SAT_26 [color=darkviolet label=" Csatorna maximális optikai átersztése: 25.8, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 17.4% Időtartam kihasználtsága: 51.2% ", taillabel="5751.0 [mp]",headlabel="6435.0 [mp]"]
+SAT_26->SAT_38 [color=darkviolet label=" Csatorna maximális optikai átersztése: 25.8, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 22.1% Időtartam kihasználtsága: 44.6% ", taillabel="6606.0 [mp]",headlabel="7391.0 [mp]"]
+SAT_38->Berlin [color=darkviolet label=" Csatorna maximális optikai átersztése: 25.8, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 61.2% Időtartam kihasználtsága: 74.3% ", taillabel="7914.0 [mp]",headlabel="8385.0 [mp]"]
+Helsinki->SAT_6 [color=Black label=" Overall Transmittance: 22.9, duration: 350.0 seconds 
+ Transmittance usage 88.6% Duration usage: 100.0% ", taillabel="5401.0",headlabel="5751.0"]
+SAT_6->SAT_26 [color=Black label=" Overall Transmittance: 22.9, duration: 350.0 seconds 
+ Transmittance usage 15.7% Duration usage: 72.0% ", taillabel="5751.0",headlabel="6237.0"]
+SAT_26->SAT_39 [color=Black label=" Overall Transmittance: 22.9, duration: 350.0 seconds 
+ Transmittance usage 100.0% Duration usage: 47.6% ", taillabel="6237.0",headlabel="6973.0"]
+SAT_39->Berlin [color=Black label=" Overall Transmittance: 22.9, duration: 350.0 seconds 
+ Transmittance usage 68.4% Duration usage: 83.9% ", taillabel="7186.0",headlabel="7603.0"]
+Helsinki->SAT_40 [color=deeppink label=" Csatorna maximális optikai átersztése: 21.3, időtartam: 203.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 67.7% ", taillabel="6255.0 [mp]",headlabel="6555.0 [mp]"]
+SAT_40->SAT_4 [color=deeppink label=" Csatorna maximális optikai átersztése: 21.3, időtartam: 203.0 [mp] 
+ Optikai áteresztés kihasználtsága 42.3% Időtartam kihasználtsága: 100.0% ", taillabel="6555.0 [mp]",headlabel="6758.0 [mp]"]
+SAT_4->Berlin [color=deeppink label=" Csatorna maximális optikai átersztése: 21.3, időtartam: 203.0 [mp] 
+ Optikai áteresztés kihasználtsága 42.1% Időtartam kihasználtsága: 40.8% ", taillabel="6758.0 [mp]",headlabel="7256.0 [mp]"]
+Helsinki->SAT_40 [color=Black label=" Overall Transmittance: 19.9, duration: 270.0 seconds 
+ Transmittance usage 99.8% Duration usage: 96.4% ", taillabel="6255.0",headlabel="6535.0"]
+SAT_40->Berlin [color=Black label=" Overall Transmittance: 19.9, duration: 270.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="6535.0",headlabel="6805.0"]
+Helsinki->SAT_39 [color=chartreuse2 label=" Csatorna maximális optikai átersztése: 30.4, időtartam: 178.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 45.2% ", taillabel="6965.0 [mp]",headlabel="7359.0 [mp]"]
+SAT_39->SAT_3 [color=chartreuse2 label=" Csatorna maximális optikai átersztése: 30.4, időtartam: 178.0 [mp] 
+ Optikai áteresztés kihasználtsága 72.9% Időtartam kihasználtsága: 100.0% ", taillabel="7359.0 [mp]",headlabel="7537.0 [mp]"]
+SAT_3->Berlin [color=chartreuse2 label=" Csatorna maximális optikai átersztése: 30.4, időtartam: 178.0 [mp] 
+ Optikai áteresztés kihasználtsága 72.5% Időtartam kihasználtsága: 38.9% ", taillabel="7537.0 [mp]",headlabel="7995.0 [mp]"]
+Helsinki->SAT_39 [color=Black label=" Overall Transmittance: 25.7, duration: 311.0 seconds 
+ Transmittance usage 99.8% Duration usage: 95.1% ", taillabel="6965.0",headlabel="7292.0"]
+SAT_39->Berlin [color=Black label=" Overall Transmittance: 25.7, duration: 311.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="7292.0",headlabel="7603.0"]
+Helsinki->SAT_10 [color=firebrick3 label=" Csatorna maximális optikai átersztése: 18.9, időtartam: 181.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 65.6% ", taillabel="7457.0 [mp]",headlabel="7733.0 [mp]"]
+SAT_10->SAT_38 [color=firebrick3 label=" Csatorna maximális optikai átersztése: 18.9, időtartam: 181.0 [mp] 
+ Optikai áteresztés kihasználtsága 37.5% Időtartam kihasználtsága: 100.0% ", taillabel="7733.0 [mp]",headlabel="7914.0 [mp]"]
+SAT_38->Berlin [color=firebrick3 label=" Csatorna maximális optikai átersztése: 18.9, időtartam: 181.0 [mp] 
+ Optikai áteresztés kihasználtsága 44.9% Időtartam kihasználtsága: 38.4% ", taillabel="7914.0 [mp]",headlabel="8385.0 [mp]"]
+Helsinki->SAT_10 [color=Black label=" Overall Transmittance: 4.4, duration: 63.0 seconds 
+ Transmittance usage 95.6% Duration usage: 91.3% ", taillabel="7457.0",headlabel="7526.0"]
+SAT_10->SAT_3 [color=Black label=" Overall Transmittance: 4.4, duration: 63.0 seconds 
+ Transmittance usage 98.5% Duration usage: 15.5% ", taillabel="7526.0",headlabel="7932.0"]
+SAT_3->Berlin [color=Black label=" Overall Transmittance: 4.4, duration: 63.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="7932.0",headlabel="7995.0"]
+Helsinki->SAT_5 [color=gold label=" Csatorna maximális optikai átersztése: 15.2, időtartam: 223.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="6222.0 [mp]",headlabel="6445.0 [mp]"]
+SAT_5->SAT_25 [color=gold label=" Csatorna maximális optikai átersztése: 15.2, időtartam: 223.0 [mp] 
+ Optikai áteresztés kihasználtsága 9.5% Időtartam kihasználtsága: 38.6% ", taillabel="6445.0 [mp]",headlabel="7023.0 [mp]"]
+SAT_25->SAT_38 [color=gold label=" Csatorna maximális optikai átersztése: 15.2, időtartam: 223.0 [mp] 
+ Optikai áteresztés kihasználtsága 66.7% Időtartam kihasználtsága: 30.2% ", taillabel="7023.0 [mp]",headlabel="7761.0 [mp]"]
+SAT_38->Berlin [color=gold label=" Csatorna maximális optikai átersztése: 15.2, időtartam: 223.0 [mp] 
+ Optikai áteresztés kihasználtsága 36.2% Időtartam kihasználtsága: 47.3% ", taillabel="7914.0 [mp]",headlabel="8385.0 [mp]"]
+Helsinki->SAT_5 [color=Black label=" Overall Transmittance: 10.7, duration: 132.0 seconds 
+ Transmittance usage 100.0% Duration usage: 85.2% ", taillabel="6222.0",headlabel="6377.0"]
+SAT_5->Berlin [color=Black label=" Overall Transmittance: 10.7, duration: 132.0 seconds 
+ Transmittance usage 99.8% Duration usage: 100.0% ", taillabel="6377.0",headlabel="6509.0"]
+Helsinki->SAT_38 [color=darkred label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 35.2% ", taillabel="7692.0 [mp]",headlabel="8146.0 [mp]"]
+SAT_38->SAT_2 [color=darkred label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 29.9% Időtartam kihasználtsága: 24.5% ", taillabel="8146.0 [mp]",headlabel="8798.0 [mp]"]
+SAT_2->SAT_30 [color=darkred label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 77.5% Időtartam kihasználtsága: 100.0% ", taillabel="8798.0 [mp]",headlabel="8958.0 [mp]"]
+SAT_30->SAT_15 [color=darkred label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 77.8% Időtartam kihasználtsága: 13.9% ", taillabel="8958.0 [mp]",headlabel="10106.0 [mp]"]
+SAT_15->SAT_35 [color=darkred label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 89.8% Időtartam kihasználtsága: 76.2% ", taillabel="10106.0 [mp]",headlabel="10316.0 [mp]"]
+SAT_35->Berlin [color=darkred label=" Csatorna maximális optikai átersztése: 38.7, időtartam: 160.0 [mp] 
+ Optikai áteresztés kihasználtsága 89.9% Időtartam kihasználtsága: 44.6% ", taillabel="10316.0 [mp]",headlabel="10675.0 [mp]"]
+Helsinki->SAT_38 [color=Black label=" Overall Transmittance: 33.3, duration: 169.0 seconds 
+ Transmittance usage 86.1% Duration usage: 37.2% ", taillabel="7692.0",headlabel="8146.0"]
+SAT_38->SAT_2 [color=Black label=" Overall Transmittance: 33.3, duration: 169.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="8146.0",headlabel="8315.0"]
+SAT_2->Berlin [color=Black label=" Overall Transmittance: 33.3, duration: 169.0 seconds 
+ Transmittance usage 99.6% Duration usage: 41.2% ", taillabel="8315.0",headlabel="8725.0"]
+Helsinki->SAT_9 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 23.7, időtartam: 241.0 [mp] 
+ Optikai áteresztés kihasználtsága 92.1% Időtartam kihasználtsága: 69.3% ", taillabel="8228.0 [mp]",headlabel="8576.0 [mp]"]
+SAT_9->SAT_37 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 23.7, időtartam: 241.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 71.1% ", taillabel="8576.0 [mp]",headlabel="8915.0 [mp]"]
+SAT_37->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 23.7, időtartam: 241.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8915.0 [mp]",headlabel="9156.0 [mp]"]
+Helsinki->SAT_9 [color=Black label=" Overall Transmittance: 4.9, duration: 203.0 seconds 
+ Transmittance usage 17.3% Duration usage: 52.3% ", taillabel="8228.0",headlabel="8616.0"]
+SAT_9->SAT_8 [color=Black label=" Overall Transmittance: 4.9, duration: 203.0 seconds 
+ Transmittance usage 100.0% Duration usage: 44.6% ", taillabel="9071.0",headlabel="9526.0"]
+SAT_8->Berlin [color=Black label=" Overall Transmittance: 4.9, duration: 203.0 seconds 
+ Transmittance usage 35.7% Duration usage: 100.0% ", taillabel="9921.0",headlabel="10124.0"]
+Helsinki->SAT_37 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 37.5, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 93.1% ", taillabel="8430.0 [mp]",headlabel="8806.0 [mp]"]
+SAT_37->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 37.5, időtartam: 350.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8806.0 [mp]",headlabel="9156.0 [mp]"]
+Helsinki->SAT_16 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 25.5, időtartam: 244.0 [mp] 
+ Optikai áteresztés kihasználtsága 91.3% Időtartam kihasználtsága: 71.8% ", taillabel="9017.0 [mp]",headlabel="9357.0 [mp]"]
+SAT_16->SAT_36 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 25.5, időtartam: 244.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 76.5% ", taillabel="9357.0 [mp]",headlabel="9676.0 [mp]"]
+SAT_36->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 25.5, időtartam: 244.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="9676.0 [mp]",headlabel="9920.0 [mp]"]
+Helsinki->SAT_16 [color=Black label=" Overall Transmittance: 3.6, duration: 203.0 seconds 
+ Transmittance usage 9.9% Duration usage: 44.0% ", taillabel="9017.0",headlabel="9478.0"]
+SAT_16->SAT_8 [color=Black label=" Overall Transmittance: 3.6, duration: 203.0 seconds 
+ Transmittance usage 100.0% Duration usage: 54.6% ", taillabel="9506.0",headlabel="9878.0"]
+SAT_8->Berlin [color=Black label=" Overall Transmittance: 3.6, duration: 203.0 seconds 
+ Transmittance usage 26.4% Duration usage: 100.0% ", taillabel="9921.0",headlabel="10124.0"]
+Helsinki->SAT_36 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 42.5, időtartam: 363.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 94.8% ", taillabel="9174.0 [mp]",headlabel="9557.0 [mp]"]
+SAT_36->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 42.5, időtartam: 363.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 100.0% ", taillabel="9557.0 [mp]",headlabel="9920.0 [mp]"]
+Helsinki->SAT_15 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 26.5, időtartam: 248.0 [mp] 
+ Optikai áteresztés kihasználtsága 89.4% Időtartam kihasználtsága: 76.5% ", taillabel="9816.0 [mp]",headlabel="10140.0 [mp]"]
+SAT_15->SAT_35 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 26.5, időtartam: 248.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 86.4% ", taillabel="10140.0 [mp]",headlabel="10427.0 [mp]"]
+SAT_35->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 26.5, időtartam: 248.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 100.0% ", taillabel="10427.0 [mp]",headlabel="10675.0 [mp]"]
+Helsinki->SAT_35 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 44.6, időtartam: 373.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 98.9% ", taillabel="9925.0 [mp]",headlabel="10302.0 [mp]"]
+SAT_35->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 44.6, időtartam: 373.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 100.0% ", taillabel="10302.0 [mp]",headlabel="10675.0 [mp]"]
+Helsinki->SAT_4 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 45.4, időtartam: 486.0 [mp] 
+ Optikai áteresztés kihasználtsága 82.2% Időtartam kihasználtsága: 93.5% ", taillabel="781.0 [mp]",headlabel="1301.0 [mp]"]
+SAT_4->SAT_16 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 45.4, időtartam: 486.0 [mp] 
+ Optikai áteresztés kihasználtsága 38.9% Időtartam kihasználtsága: 61.8% ", taillabel="1426.0 [mp]",headlabel="2212.0 [mp]"]
+SAT_16->SAT_36 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 45.4, időtartam: 486.0 [mp] 
+ Optikai áteresztés kihasználtsága 27.8% Időtartam kihasználtsága: 61.7% ", taillabel="2381.0 [mp]",headlabel="3169.0 [mp]"]
+SAT_36->SAT_8 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 45.4, időtartam: 486.0 [mp] 
+ Optikai áteresztés kihasználtsága 36.5% Időtartam kihasználtsága: 84.4% ", taillabel="3169.0 [mp]",headlabel="3745.0 [mp]"]
+SAT_8->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 45.4, időtartam: 486.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3745.0 [mp]",headlabel="4231.0 [mp]"]
+Helsinki->SAT_4 [color=Black label=" Overall Transmittance: 43.1, duration: 378.0 seconds 
+ Transmittance usage 98.8% Duration usage: 100.0% ", taillabel="781.0",headlabel="1159.0"]
+SAT_4->SAT_32 [color=Black label=" Overall Transmittance: 43.1, duration: 378.0 seconds 
+ Transmittance usage 100.0% Duration usage: 68.2% ", taillabel="1159.0",headlabel="1713.0"]
+SAT_32->SAT_36 [color=Black label=" Overall Transmittance: 43.1, duration: 378.0 seconds 
+ Transmittance usage 36.9% Duration usage: 48.1% ", taillabel="1882.0",headlabel="2668.0"]
+SAT_36->SAT_8 [color=Black label=" Overall Transmittance: 43.1, duration: 378.0 seconds 
+ Transmittance usage 34.7% Duration usage: 65.6% ", taillabel="3169.0",headlabel="3745.0"]
+SAT_8->Berlin [color=Black label=" Overall Transmittance: 43.1, duration: 378.0 seconds 
+ Transmittance usage 94.9% Duration usage: 77.8% ", taillabel="3745.0",headlabel="4231.0"]
+Helsinki->SAT_32 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 45.4, időtartam: 486.0 [mp] 
+ Optikai áteresztés kihasználtsága 80.7% Időtartam kihasználtsága: 87.7% ", taillabel="781.0 [mp]",headlabel="1335.0 [mp]"]
+SAT_32->SAT_36 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 45.4, időtartam: 486.0 [mp] 
+ Optikai áteresztés kihasználtsága 38.9% Időtartam kihasználtsága: 61.8% ", taillabel="1882.0 [mp]",headlabel="2668.0 [mp]"]
+SAT_36->SAT_8 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 45.4, időtartam: 486.0 [mp] 
+ Optikai áteresztés kihasználtsága 36.5% Időtartam kihasználtsága: 84.4% ", taillabel="3169.0 [mp]",headlabel="3745.0 [mp]"]
+SAT_8->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 45.4, időtartam: 486.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="3745.0 [mp]",headlabel="4231.0 [mp]"]
+Helsinki->SAT_32 [color=Black label=" Overall Transmittance: 22.9, duration: 445.0 seconds 
+ Transmittance usage 40.7% Duration usage: 80.3% ", taillabel="781.0",headlabel="1335.0"]
+SAT_32->SAT_37 [color=Black label=" Overall Transmittance: 22.9, duration: 445.0 seconds 
+ Transmittance usage 100.0% Duration usage: 60.2% ", taillabel="1512.0",headlabel="2251.0"]
+SAT_37->SAT_1 [color=Black label=" Overall Transmittance: 22.9, duration: 445.0 seconds 
+ Transmittance usage 17.8% Duration usage: 70.4% ", taillabel="2381.0",headlabel="3013.0"]
+SAT_1->Berlin [color=Black label=" Overall Transmittance: 22.9, duration: 445.0 seconds 
+ Transmittance usage 61.3% Duration usage: 100.0% ", taillabel="3013.0",headlabel="3458.0"]
+Helsinki->SAT_3 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 52.7, időtartam: 510.0 [mp] 
+ Optikai áteresztés kihasználtsága 91.7% Időtartam kihasználtsága: 97.0% ", taillabel="1532.0 [mp]",headlabel="2058.0 [mp]"]
+SAT_3->SAT_15 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 52.7, időtartam: 510.0 [mp] 
+ Optikai áteresztés kihasználtsága 45.1% Időtartam kihasználtsága: 64.8% ", taillabel="2213.0 [mp]",headlabel="3000.0 [mp]"]
+SAT_15->SAT_35 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 52.7, időtartam: 510.0 [mp] 
+ Optikai áteresztés kihasználtsága 32.2% Időtartam kihasználtsága: 64.6% ", taillabel="3168.0 [mp]",headlabel="3957.0 [mp]"]
+SAT_35->SAT_7 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 52.7, időtartam: 510.0 [mp] 
+ Optikai áteresztés kihasználtsága 44.9% Időtartam kihasználtsága: 96.4% ", taillabel="3957.0 [mp]",headlabel="4486.0 [mp]"]
+SAT_7->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 52.7, időtartam: 510.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="4486.0 [mp]",headlabel="4996.0 [mp]"]
+Helsinki->SAT_3 [color=Black label=" Overall Transmittance: 47.8, duration: 408.0 seconds 
+ Transmittance usage 99.1% Duration usage: 100.0% ", taillabel="1532.0",headlabel="1940.0"]
+SAT_3->SAT_31 [color=Black label=" Overall Transmittance: 47.8, duration: 408.0 seconds 
+ Transmittance usage 100.0% Duration usage: 72.7% ", taillabel="1940.0",headlabel="2501.0"]
+SAT_31->SAT_35 [color=Black label=" Overall Transmittance: 47.8, duration: 408.0 seconds 
+ Transmittance usage 40.9% Duration usage: 51.8% ", taillabel="2669.0",headlabel="3456.0"]
+SAT_35->SAT_7 [color=Black label=" Overall Transmittance: 47.8, duration: 408.0 seconds 
+ Transmittance usage 40.8% Duration usage: 77.1% ", taillabel="3957.0",headlabel="4486.0"]
+SAT_7->Berlin [color=Black label=" Overall Transmittance: 47.8, duration: 408.0 seconds 
+ Transmittance usage 90.8% Duration usage: 80.0% ", taillabel="4486.0",headlabel="4996.0"]
+Helsinki->SAT_31 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 48.7, időtartam: 510.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 96.4% ", taillabel="1615.0 [mp]",headlabel="2144.0 [mp]"]
+SAT_31->SAT_35 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 48.7, időtartam: 510.0 [mp] 
+ Optikai áteresztés kihasználtsága 41.7% Időtartam kihasználtsága: 64.8% ", taillabel="2669.0 [mp]",headlabel="3456.0 [mp]"]
+SAT_35->SAT_7 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 48.7, időtartam: 510.0 [mp] 
+ Optikai áteresztés kihasználtsága 41.6% Időtartam kihasználtsága: 96.4% ", taillabel="3957.0 [mp]",headlabel="4486.0 [mp]"]
+SAT_7->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 48.7, időtartam: 510.0 [mp] 
+ Optikai áteresztés kihasználtsága 92.5% Időtartam kihasználtsága: 100.0% ", taillabel="4486.0 [mp]",headlabel="4996.0 [mp]"]
+Helsinki->SAT_31 [color=Black label=" Overall Transmittance: 10.3, duration: 134.0 seconds 
+ Transmittance usage 99.6% Duration usage: 100.0% ", taillabel="1615.0",headlabel="1749.0"]
+SAT_31->Berlin [color=Black label=" Overall Transmittance: 10.3, duration: 134.0 seconds 
+ Transmittance usage 100.0% Duration usage: 99.3% ", taillabel="1749.0",headlabel="1884.0"]
+Helsinki->SAT_2 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 55.4, időtartam: 489.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 93.9% ", taillabel="2290.0 [mp]",headlabel="2811.0 [mp]"]
+SAT_2->SAT_14 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 55.4, időtartam: 489.0 [mp] 
+ Optikai áteresztés kihasználtsága 47.4% Időtartam kihasználtsága: 62.2% ", taillabel="3001.0 [mp]",headlabel="3787.0 [mp]"]
+SAT_14->SAT_34 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 55.4, időtartam: 489.0 [mp] 
+ Optikai áteresztés kihasználtsága 33.9% Időtartam kihasználtsága: 62.1% ", taillabel="3956.0 [mp]",headlabel="4744.0 [mp]"]
+SAT_34->SAT_6 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 55.4, időtartam: 489.0 [mp] 
+ Optikai áteresztés kihasználtsága 55.0% Időtartam kihasználtsága: 100.0% ", taillabel="4744.0 [mp]",headlabel="5233.0 [mp]"]
+SAT_6->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 55.4, időtartam: 489.0 [mp] 
+ Optikai áteresztés kihasználtsága 96.7% Időtartam kihasználtsága: 93.5% ", taillabel="5233.0 [mp]",headlabel="5756.0 [mp]"]
+Helsinki->SAT_2 [color=Black label=" Overall Transmittance: 49.0, duration: 436.0 seconds 
+ Transmittance usage 99.7% Duration usage: 100.0% ", taillabel="2290.0",headlabel="2726.0"]
+SAT_2->SAT_30 [color=Black label=" Overall Transmittance: 49.0, duration: 436.0 seconds 
+ Transmittance usage 100.0% Duration usage: 77.6% ", taillabel="2726.0",headlabel="3288.0"]
+SAT_30->SAT_34 [color=Black label=" Overall Transmittance: 49.0, duration: 436.0 seconds 
+ Transmittance usage 42.0% Duration usage: 55.5% ", taillabel="3457.0",headlabel="4243.0"]
+SAT_34->SAT_6 [color=Black label=" Overall Transmittance: 49.0, duration: 436.0 seconds 
+ Transmittance usage 48.7% Duration usage: 89.2% ", taillabel="4744.0",headlabel="5233.0"]
+SAT_6->Berlin [color=Black label=" Overall Transmittance: 49.0, duration: 436.0 seconds 
+ Transmittance usage 85.7% Duration usage: 83.4% ", taillabel="5233.0",headlabel="5756.0"]
+Helsinki->SAT_30 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 40.5, időtartam: 487.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="2459.0 [mp]",headlabel="2946.0 [mp]"]
+SAT_30->SAT_34 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 40.5, időtartam: 487.0 [mp] 
+ Optikai áteresztés kihasználtsága 34.7% Időtartam kihasználtsága: 62.0% ", taillabel="3457.0 [mp]",headlabel="4243.0 [mp]"]
+SAT_34->SAT_6 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 40.5, időtartam: 487.0 [mp] 
+ Optikai áteresztés kihasználtsága 40.3% Időtartam kihasználtsága: 99.6% ", taillabel="4744.0 [mp]",headlabel="5233.0 [mp]"]
+SAT_6->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 40.5, időtartam: 487.0 [mp] 
+ Optikai áteresztés kihasználtsága 70.8% Időtartam kihasználtsága: 93.1% ", taillabel="5233.0 [mp]",headlabel="5756.0 [mp]"]
+Helsinki->SAT_30 [color=Black label=" Overall Transmittance: 22.9, duration: 487.0 seconds 
+ Transmittance usage 56.4% Duration usage: 100.0% ", taillabel="2459.0",headlabel="2946.0"]
+SAT_30->SAT_35 [color=Black label=" Overall Transmittance: 22.9, duration: 487.0 seconds 
+ Transmittance usage 100.0% Duration usage: 66.0% ", taillabel="3087.0",headlabel="3825.0"]
+SAT_35->SAT_7 [color=Black label=" Overall Transmittance: 22.9, duration: 487.0 seconds 
+ Transmittance usage 19.5% Duration usage: 92.1% ", taillabel="3957.0",headlabel="4486.0"]
+SAT_7->Berlin [color=Black label=" Overall Transmittance: 22.9, duration: 487.0 seconds 
+ Transmittance usage 43.4% Duration usage: 95.5% ", taillabel="4486.0",headlabel="4996.0"]
+Helsinki->SAT_1 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 49.8, időtartam: 456.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 90.5% ", taillabel="3054.0 [mp]",headlabel="3558.0 [mp]"]
+SAT_1->SAT_13 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 49.8, időtartam: 456.0 [mp] 
+ Optikai áteresztés kihasználtsága 42.6% Időtartam kihasználtsága: 58.1% ", taillabel="3789.0 [mp]",headlabel="4574.0 [mp]"]
+SAT_13->SAT_33 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 49.8, időtartam: 456.0 [mp] 
+ Optikai áteresztés kihasználtsága 30.4% Időtartam kihasználtsága: 57.9% ", taillabel="4744.0 [mp]",headlabel="5532.0 [mp]"]
+SAT_33->SAT_5 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 49.8, időtartam: 456.0 [mp] 
+ Optikai áteresztés kihasználtsága 69.8% Időtartam kihasználtsága: 100.0% ", taillabel="5532.0 [mp]",headlabel="5988.0 [mp]"]
+SAT_5->Berlin [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 49.8, időtartam: 456.0 [mp] 
+ Optikai áteresztés kihasználtsága 87.9% Időtartam kihasználtsága: 87.5% ", taillabel="5988.0 [mp]",headlabel="6509.0 [mp]"]
+Helsinki->SAT_1 [color=Black label=" Overall Transmittance: 46.3, duration: 456.0 seconds 
+ Transmittance usage 98.7% Duration usage: 98.5% ", taillabel="3054.0",headlabel="3517.0"]
+SAT_1->SAT_29 [color=Black label=" Overall Transmittance: 46.3, duration: 456.0 seconds 
+ Transmittance usage 100.0% Duration usage: 81.7% ", taillabel="3517.0",headlabel="4075.0"]
+SAT_29->SAT_33 [color=Black label=" Overall Transmittance: 46.3, duration: 456.0 seconds 
+ Transmittance usage 39.7% Duration usage: 58.1% ", taillabel="4245.0",headlabel="5030.0"]
+SAT_33->SAT_5 [color=Black label=" Overall Transmittance: 46.3, duration: 456.0 seconds 
+ Transmittance usage 65.0% Duration usage: 100.0% ", taillabel="5532.0",headlabel="5988.0"]
+SAT_5->Berlin [color=Black label=" Overall Transmittance: 46.3, duration: 456.0 seconds 
+ Transmittance usage 81.8% Duration usage: 87.5% ", taillabel="5988.0",headlabel="6509.0"]
+}

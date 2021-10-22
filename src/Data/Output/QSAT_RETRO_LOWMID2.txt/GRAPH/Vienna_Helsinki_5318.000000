@@ -1,0 +1,31 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Vienna
+label = " Teljes időtartam: 3298.000 [másodperc] "
+
+Helsinki
+Vienna->SAT_6 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.4, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 51.4% Időtartam kihasználtsága: 20.8% ", taillabel="5318.0 [mp]",headlabel="5836.0 [mp]"]
+SAT_6->SAT_26 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.4, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 32.7% Időtartam kihasználtsága: 18.0% ", taillabel="5836.0 [mp]",headlabel="6435.0 [mp]"]
+SAT_26->SAT_22 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.4, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 56.2% Időtartam kihasználtsága: 100.0% ", taillabel="6435.0 [mp]",headlabel="6543.0 [mp]"]
+SAT_22->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.4, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 68.9% Időtartam kihasználtsága: 13.4% ", taillabel="6543.0 [mp]",headlabel="7348.0 [mp]"]
+SAT_5->SAT_9 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.4, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 70.5% Időtartam kihasználtsága: 28.8% ", taillabel="7348.0 [mp]",headlabel="7723.0 [mp]"]
+SAT_9->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 28.4, időtartam: 108.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 27.8% ", taillabel="8228.0 [mp]",headlabel="8616.0 [mp]"]
+Vienna->SAT_6 [color=Black label=" Overall Transmittance: 22.9, duration: 388.0 seconds 
+ Transmittance usage 41.4% Duration usage: 74.9% ", taillabel="5318.0",headlabel="5836.0"]
+SAT_6->SAT_26 [color=Black label=" Overall Transmittance: 22.9, duration: 388.0 seconds 
+ Transmittance usage 26.4% Duration usage: 64.8% ", taillabel="5836.0",headlabel="6435.0"]
+SAT_26->SAT_22 [color=Black label=" Overall Transmittance: 22.9, duration: 388.0 seconds 
+ Transmittance usage 21.0% Duration usage: 77.6% ", taillabel="6435.0",headlabel="6935.0"]
+SAT_22->SAT_9 [color=Black label=" Overall Transmittance: 22.9, duration: 388.0 seconds 
+ Transmittance usage 100.0% Duration usage: 52.6% ", taillabel="7023.0",headlabel="7761.0"]
+SAT_9->Helsinki [color=Black label=" Overall Transmittance: 22.9, duration: 388.0 seconds 
+ Transmittance usage 80.5% Duration usage: 100.0% ", taillabel="8228.0",headlabel="8616.0"]
+}

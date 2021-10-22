@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Budapest
+label = " Teljes időtartam: 3367.000 [másodperc] "
+
+Helsinki
+Budapest->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 107.0 [mp] 
+ Optikai áteresztés kihasználtsága 64.4% Időtartam kihasználtsága: 20.5% ", taillabel="6111.0 [mp]",headlabel="6634.0 [mp]"]
+SAT_5->SAT_25 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 107.0 [mp] 
+ Optikai áteresztés kihasználtsága 48.5% Időtartam kihasználtsága: 18.2% ", taillabel="6634.0 [mp]",headlabel="7223.0 [mp]"]
+SAT_25->SAT_21 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 107.0 [mp] 
+ Optikai áteresztés kihasználtsága 72.8% Időtartam kihasználtsága: 100.0% ", taillabel="7223.0 [mp]",headlabel="7330.0 [mp]"]
+SAT_21->SAT_4 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 107.0 [mp] 
+ Optikai áteresztés kihasználtsága 89.0% Időtartam kihasználtsága: 13.3% ", taillabel="7330.0 [mp]",headlabel="8135.0 [mp]"]
+SAT_4->SAT_16 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 107.0 [mp] 
+ Optikai áteresztés kihasználtsága 90.4% Időtartam kihasználtsága: 28.5% ", taillabel="8135.0 [mp]",headlabel="8510.0 [mp]"]
+SAT_16->Helsinki [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 36.7, időtartam: 107.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 23.2% ", taillabel="9017.0 [mp]",headlabel="9478.0 [mp]"]
+Budapest->SAT_5 [color=Black label=" Overall Transmittance: 28.4, duration: 388.0 seconds 
+ Transmittance usage 49.9% Duration usage: 74.2% ", taillabel="6111.0",headlabel="6634.0"]
+SAT_5->SAT_9 [color=Black label=" Overall Transmittance: 28.4, duration: 388.0 seconds 
+ Transmittance usage 24.3% Duration usage: 49.4% ", taillabel="6938.0",headlabel="7723.0"]
+SAT_9->Helsinki [color=Black label=" Overall Transmittance: 28.4, duration: 388.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="8228.0",headlabel="8616.0"]
+}

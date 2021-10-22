@@ -1,0 +1,21 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Rome
+label = " Teljes időtartam: 3715.000 [másodperc] "
+
+Vienna
+Rome->SAT_29 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 51.9, időtartam: 446.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.9% Időtartam kihasználtsága: 87.5% ", taillabel="2877.0 [mp]",headlabel="3387.0 [mp]"]
+SAT_29->SAT_33 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 51.9, időtartam: 446.0 [mp] 
+ Optikai áteresztés kihasználtsága 44.5% Időtartam kihasználtsága: 56.8% ", taillabel="4245.0 [mp]",headlabel="5030.0 [mp]"]
+SAT_33->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 51.9, időtartam: 446.0 [mp] 
+ Optikai áteresztés kihasználtsága 43.6% Időtartam kihasználtsága: 83.1% ", taillabel="5532.0 [mp]",headlabel="6069.0 [mp]"]
+SAT_5->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 51.9, időtartam: 446.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="6146.0 [mp]",headlabel="6592.0 [mp]"]
+Rome->SAT_29 [color=Black label=" Overall Transmittance: 31.6, duration: 305.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="2877.0",headlabel="3182.0"]
+SAT_29->Vienna [color=Black label=" Overall Transmittance: 31.6, duration: 305.0 seconds 
+ Transmittance usage 99.7% Duration usage: 88.7% ", taillabel="3182.0",headlabel="3526.0"]
+}

@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 2641.000 [másodperc] "
+
+Copenhagen
+Helsinki->SAT_49 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.8, időtartam: 310.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 72.9% ", taillabel="7258.0 [mp]",headlabel="7683.0 [mp]"]
+SAT_49->SAT_31 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.8, időtartam: 310.0 [mp] 
+ Optikai áteresztés kihasználtsága 77.0% Időtartam kihasználtsága: 40.9% ", taillabel="7683.0 [mp]",headlabel="8441.0 [mp]"]
+SAT_31->SAT_16 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.8, időtartam: 310.0 [mp] 
+ Optikai áteresztés kihasználtsága 78.4% Időtartam kihasználtsága: 38.9% ", taillabel="8441.0 [mp]",headlabel="9237.0 [mp]"]
+SAT_16->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.8, időtartam: 310.0 [mp] 
+ Optikai áteresztés kihasználtsága 94.4% Időtartam kihasználtsága: 100.0% ", taillabel="9237.0 [mp]",headlabel="9547.0 [mp]"]
+SAT_8->Copenhagen [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 34.8, időtartam: 310.0 [mp] 
+ Optikai áteresztés kihasználtsága 94.6% Időtartam kihasználtsága: 88.1% ", taillabel="9547.0 [mp]",headlabel="9899.0 [mp]"]
+Helsinki->SAT_49 [color=Black label=" Overall Transmittance: 31.4, duration: 376.0 seconds 
+ Transmittance usage 99.9% Duration usage: 100.0% ", taillabel="7258.0",headlabel="7634.0"]
+SAT_49->SAT_32 [color=Black label=" Overall Transmittance: 31.4, duration: 376.0 seconds 
+ Transmittance usage 100.0% Duration usage: 90.6% ", taillabel="7634.0",headlabel="8049.0"]
+SAT_32->SAT_7 [color=Black label=" Overall Transmittance: 31.4, duration: 376.0 seconds 
+ Transmittance usage 63.2% Duration usage: 48.4% ", taillabel="8641.0",headlabel="9418.0"]
+SAT_7->Copenhagen [color=Black label=" Overall Transmittance: 31.4, duration: 376.0 seconds 
+ Transmittance usage 59.9% Duration usage: 74.6% ", taillabel="10144.0",headlabel="10648.0"]
+}

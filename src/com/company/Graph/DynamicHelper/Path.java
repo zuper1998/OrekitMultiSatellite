@@ -12,7 +12,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import static Data.SimValues.entanglementGenHz;
 import static Data.SimValues.stepT;
 
 public class Path implements Serializable {

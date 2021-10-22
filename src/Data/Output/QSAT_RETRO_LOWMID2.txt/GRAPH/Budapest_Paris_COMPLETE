@@ -1,0 +1,251 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+label = " Budapest->Paris úvonal legjobb útvonalai "Budapest
+Paris
+Budapest->SAT_25 [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.9, időtartam: 62.0 [mp] 
+ Optikai áteresztés kihasználtsága 62.1% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="62.0 [mp]"]
+SAT_25->SAT_23 [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.9, időtartam: 62.0 [mp] 
+ Optikai áteresztés kihasználtsága 61.8% Időtartam kihasználtsága: 12.7% ", taillabel="62.0 [mp]",headlabel="549.0 [mp]"]
+SAT_23->SAT_30 [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.9, időtartam: 62.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 13.7% ", taillabel="1199.0 [mp]",headlabel="1652.0 [mp]"]
+SAT_30->Paris [color=blueviolet label=" Csatorna maximális optikai átersztése: 4.9, időtartam: 62.0 [mp] 
+ Optikai áteresztés kihasználtsága 21.3% Időtartam kihasználtsága: 19.1% ", taillabel="2079.0 [mp]",headlabel="2404.0 [mp]"]
+Budapest->SAT_25 [color=Black label=" Overall Transmittance: 4.2, duration: 60.0 seconds 
+ Transmittance usage 53.1% Duration usage: 96.8% ", taillabel="0.0",headlabel="62.0"]
+SAT_25->SAT_23 [color=Black label=" Overall Transmittance: 4.2, duration: 60.0 seconds 
+ Transmittance usage 65.1% Duration usage: 17.1% ", taillabel="62.0",headlabel="413.0"]
+SAT_23->SAT_32 [color=Black label=" Overall Transmittance: 4.2, duration: 60.0 seconds 
+ Transmittance usage 98.4% Duration usage: 15.7% ", taillabel="413.0",headlabel="795.0"]
+SAT_32->Paris [color=Black label=" Overall Transmittance: 4.2, duration: 60.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="795.0",headlabel="855.0"]
+Budapest->SAT_25 [color=chartreuse label=" Csatorna maximális optikai átersztése: 10.1, időtartam: 151.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="6513.0 [mp]",headlabel="6664.0 [mp]"]
+SAT_25->SAT_11 [color=chartreuse label=" Csatorna maximális optikai átersztése: 10.1, időtartam: 151.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 24.4% ", taillabel="6664.0 [mp]",headlabel="7282.0 [mp]"]
+SAT_11->SAT_8 [color=chartreuse label=" Csatorna maximális optikai átersztése: 10.1, időtartam: 151.0 [mp] 
+ Optikai áteresztés kihasználtsága 44.2% Időtartam kihasználtsága: 20.5% ", taillabel="8142.0 [mp]",headlabel="8880.0 [mp]"]
+SAT_8->Paris [color=chartreuse label=" Csatorna maximális optikai átersztése: 10.1, időtartam: 151.0 [mp] 
+ Optikai áteresztés kihasználtsága 22.2% Időtartam kihasználtsága: 33.3% ", taillabel="9704.0 [mp]",headlabel="10157.0 [mp]"]
+Budapest->SAT_25 [color=Black label=" Overall Transmittance: 9.2, duration: 151.0 seconds 
+ Transmittance usage 91.4% Duration usage: 100.0% ", taillabel="6513.0",headlabel="6664.0"]
+SAT_25->SAT_11 [color=Black label=" Overall Transmittance: 9.2, duration: 151.0 seconds 
+ Transmittance usage 91.2% Duration usage: 24.4% ", taillabel="6664.0",headlabel="7282.0"]
+SAT_11->SAT_1 [color=Black label=" Overall Transmittance: 9.2, duration: 151.0 seconds 
+ Transmittance usage 100.0% Duration usage: 24.7% ", taillabel="7812.0",headlabel="8423.0"]
+SAT_1->Paris [color=Black label=" Overall Transmittance: 9.2, duration: 151.0 seconds 
+ Transmittance usage 16.7% Duration usage: 29.1% ", taillabel="8895.0",headlabel="9414.0"]
+Budapest->SAT_2 [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 9.3, időtartam: 119.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 96.0% ", taillabel="8419.0 [mp]",headlabel="8543.0 [mp]"]
+SAT_2->Paris [color=darkgoldenrod1 label=" Csatorna maximális optikai átersztése: 9.3, időtartam: 119.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.3% Időtartam kihasználtsága: 100.0% ", taillabel="8543.0 [mp]",headlabel="8662.0 [mp]"]
+Budapest->SAT_29 [color=darkorange label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 176.0 [mp] 
+ Optikai áteresztés kihasználtsága 62.9% Időtartam kihasználtsága: 100.0% ", taillabel="3035.0 [mp]",headlabel="3211.0 [mp]"]
+SAT_29->SAT_15 [color=darkorange label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 176.0 [mp] 
+ Optikai áteresztés kihasználtsága 62.4% Időtartam kihasználtsága: 19.0% ", taillabel="3211.0 [mp]",headlabel="4135.0 [mp]"]
+SAT_15->SAT_5 [color=darkorange label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 176.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 28.9% ", taillabel="4664.0 [mp]",headlabel="5273.0 [mp]"]
+SAT_5->Paris [color=darkorange label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 176.0 [mp] 
+ Optikai áteresztés kihasználtsága 24.1% Időtartam kihasználtsága: 39.3% ", taillabel="5916.0 [mp]",headlabel="6364.0 [mp]"]
+Budapest->SAT_29 [color=Black label=" Overall Transmittance: 4.9, duration: 176.0 seconds 
+ Transmittance usage 33.4% Duration usage: 100.0% ", taillabel="3035.0",headlabel="3211.0"]
+SAT_29->SAT_15 [color=Black label=" Overall Transmittance: 4.9, duration: 176.0 seconds 
+ Transmittance usage 33.1% Duration usage: 19.0% ", taillabel="3211.0",headlabel="4135.0"]
+SAT_15->SAT_6 [color=Black label=" Overall Transmittance: 4.9, duration: 176.0 seconds 
+ Transmittance usage 100.0% Duration usage: 38.9% ", taillabel="4349.0",headlabel="4801.0"]
+SAT_6->Paris [color=Black label=" Overall Transmittance: 4.9, duration: 176.0 seconds 
+ Transmittance usage 16.7% Duration usage: 46.0% ", taillabel="5196.0",headlabel="5579.0"]
+Budapest->SAT_1 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 181.0 [mp] 
+ Optikai áteresztés kihasználtsága 59.3% Időtartam kihasználtsága: 95.3% ", taillabel="3136.0 [mp]",headlabel="3326.0 [mp]"]
+SAT_1->SAT_14 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 181.0 [mp] 
+ Optikai áteresztés kihasználtsága 40.3% Időtartam kihasználtsága: 24.5% ", taillabel="3419.0 [mp]",headlabel="4157.0 [mp]"]
+SAT_14->SAT_4 [color=firebrick2 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 181.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 29.8% ", taillabel="5452.0 [mp]",headlabel="6060.0 [mp]"]
+SAT_4->Paris [color=firebrick2 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 181.0 [mp] 
+ Optikai áteresztés kihasználtsága 59.0% Időtartam kihasználtsága: 100.0% ", taillabel="6957.0 [mp]",headlabel="7138.0 [mp]"]
+Budapest->SAT_1 [color=Black label=" Overall Transmittance: 7.5, duration: 103.0 seconds 
+ Transmittance usage 99.8% Duration usage: 100.0% ", taillabel="3136.0",headlabel="3239.0"]
+SAT_1->SAT_15 [color=Black label=" Overall Transmittance: 7.5, duration: 103.0 seconds 
+ Transmittance usage 100.0% Duration usage: 22.3% ", taillabel="3239.0",headlabel="3700.0"]
+SAT_15->SAT_5 [color=Black label=" Overall Transmittance: 7.5, duration: 103.0 seconds 
+ Transmittance usage 81.8% Duration usage: 16.9% ", taillabel="4664.0",headlabel="5273.0"]
+SAT_5->Paris [color=Black label=" Overall Transmittance: 7.5, duration: 103.0 seconds 
+ Transmittance usage 19.7% Duration usage: 23.0% ", taillabel="5916.0",headlabel="6364.0"]
+Budapest->SAT_1 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 7.5, időtartam: 100.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 95.2% ", taillabel="9209.0 [mp]",headlabel="9314.0 [mp]"]
+SAT_1->Paris [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 7.5, időtartam: 100.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.1% Időtartam kihasználtsága: 100.0% ", taillabel="9314.0 [mp]",headlabel="9414.0 [mp]"]
+Budapest->SAT_8 [color=deepskyblue4 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 203.0 [mp] 
+ Optikai áteresztés kihasználtsága 47.9% Időtartam kihasználtsága: 94.9% ", taillabel="3869.0 [mp]",headlabel="4083.0 [mp]"]
+SAT_8->SAT_13 [color=deepskyblue4 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 203.0 [mp] 
+ Optikai áteresztés kihasználtsága 40.3% Időtartam kihasználtsága: 27.5% ", taillabel="4206.0 [mp]",headlabel="4944.0 [mp]"]
+SAT_13->SAT_3 [color=deepskyblue4 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 203.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 33.4% ", taillabel="6239.0 [mp]",headlabel="6847.0 [mp]"]
+SAT_3->Paris [color=deepskyblue4 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 203.0 [mp] 
+ Optikai áteresztés kihasználtsága 48.2% Időtartam kihasználtsága: 100.0% ", taillabel="7701.0 [mp]",headlabel="7904.0 [mp]"]
+Budapest->SAT_8 [color=Black label=" Overall Transmittance: 8.1, duration: 108.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="3869.0",headlabel="3977.0"]
+SAT_8->SAT_14 [color=Black label=" Overall Transmittance: 8.1, duration: 108.0 seconds 
+ Transmittance usage 99.1% Duration usage: 21.2% ", taillabel="3977.0",headlabel="4487.0"]
+SAT_14->SAT_4 [color=Black label=" Overall Transmittance: 8.1, duration: 108.0 seconds 
+ Transmittance usage 88.4% Duration usage: 17.8% ", taillabel="5452.0",headlabel="6060.0"]
+SAT_4->Paris [color=Black label=" Overall Transmittance: 8.1, duration: 108.0 seconds 
+ Transmittance usage 17.4% Duration usage: 22.0% ", taillabel="6648.0",headlabel="7138.0"]
+Budapest->SAT_8 [color=darksalmon label=" Csatorna maximális optikai átersztése: 4.6, időtartam: 65.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 95.6% ", taillabel="10024.0 [mp]",headlabel="10092.0 [mp]"]
+SAT_8->Paris [color=darksalmon label=" Csatorna maximális optikai átersztése: 4.6, időtartam: 65.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="10092.0 [mp]",headlabel="10157.0 [mp]"]
+Budapest->SAT_28 [color=darkviolet label=" Csatorna maximális optikai átersztése: 10.3, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 95.6% ", taillabel="3877.0 [mp]",headlabel="4012.0 [mp]"]
+SAT_28->SAT_14 [color=darkviolet label=" Csatorna maximális optikai átersztése: 10.3, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 72.4% Időtartam kihasználtsága: 14.9% ", taillabel="4053.0 [mp]",headlabel="4921.0 [mp]"]
+SAT_14->SAT_3 [color=darkviolet label=" Csatorna maximális optikai átersztése: 10.3, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 44.9% Időtartam kihasználtsága: 17.5% ", taillabel="5781.0 [mp]",headlabel="6517.0 [mp]"]
+SAT_3->Paris [color=darkviolet label=" Csatorna maximális optikai átersztése: 10.3, időtartam: 129.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.4% Időtartam kihasználtsága: 100.0% ", taillabel="7775.0 [mp]",headlabel="7904.0 [mp]"]
+Budapest->SAT_28 [color=Black label=" Overall Transmittance: 4.3, duration: 63.0 seconds 
+ Transmittance usage 11.0% Duration usage: 14.3% ", taillabel="3877.0",headlabel="4318.0"]
+SAT_28->SAT_7 [color=Black label=" Overall Transmittance: 4.3, duration: 63.0 seconds 
+ Transmittance usage 98.7% Duration usage: 16.0% ", taillabel="4318.0",headlabel="4712.0"]
+SAT_7->Paris [color=Black label=" Overall Transmittance: 4.3, duration: 63.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="4712.0",headlabel="4775.0"]
+Budapest->SAT_7 [color=deeppink label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 225.0 [mp] 
+ Optikai áteresztés kihasználtsága 40.5% Időtartam kihasználtsága: 97.4% ", taillabel="4610.0 [mp]",headlabel="4841.0 [mp]"]
+SAT_7->SAT_12 [color=deeppink label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 225.0 [mp] 
+ Optikai áteresztés kihasználtsága 40.4% Időtartam kihasználtsága: 30.6% ", taillabel="4994.0 [mp]",headlabel="5730.0 [mp]"]
+SAT_12->SAT_2 [color=deeppink label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 225.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 36.9% ", taillabel="7025.0 [mp]",headlabel="7635.0 [mp]"]
+SAT_2->Paris [color=deeppink label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 225.0 [mp] 
+ Optikai áteresztés kihasználtsága 40.4% Időtartam kihasználtsága: 100.0% ", taillabel="8437.0 [mp]",headlabel="8662.0 [mp]"]
+Budapest->SAT_7 [color=Black label=" Overall Transmittance: 8.7, duration: 112.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="4610.0",headlabel="4722.0"]
+SAT_7->SAT_13 [color=Black label=" Overall Transmittance: 8.7, duration: 112.0 seconds 
+ Transmittance usage 99.7% Duration usage: 20.3% ", taillabel="4722.0",headlabel="5273.0"]
+SAT_13->SAT_3 [color=Black label=" Overall Transmittance: 8.7, duration: 112.0 seconds 
+ Transmittance usage 93.9% Duration usage: 18.4% ", taillabel="6239.0",headlabel="6847.0"]
+SAT_3->Paris [color=Black label=" Overall Transmittance: 8.7, duration: 112.0 seconds 
+ Transmittance usage 16.0% Duration usage: 21.7% ", taillabel="7389.0",headlabel="7904.0"]
+Budapest->SAT_27 [color=chartreuse2 label=" Csatorna maximális optikai átersztése: 13.3, időtartam: 175.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="4730.0 [mp]",headlabel="4905.0 [mp]"]
+SAT_27->SAT_13 [color=chartreuse2 label=" Csatorna maximális optikai átersztése: 13.3, időtartam: 175.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.6% Időtartam kihasználtsága: 21.8% ", taillabel="4905.0 [mp]",headlabel="5707.0 [mp]"]
+SAT_13->SAT_2 [color=chartreuse2 label=" Csatorna maximális optikai átersztése: 13.3, időtartam: 175.0 [mp] 
+ Optikai áteresztés kihasználtsága 58.0% Időtartam kihasználtsága: 23.7% ", taillabel="6568.0 [mp]",headlabel="7305.0 [mp]"]
+SAT_2->Paris [color=chartreuse2 label=" Csatorna maximális optikai átersztése: 13.3, időtartam: 175.0 [mp] 
+ Optikai áteresztés kihasználtsága 73.7% Időtartam kihasználtsága: 91.1% ", taillabel="8470.0 [mp]",headlabel="8662.0 [mp]"]
+Budapest->SAT_27 [color=Black label=" Overall Transmittance: 9.2, duration: 175.0 seconds 
+ Transmittance usage 69.5% Duration usage: 100.0% ", taillabel="4730.0",headlabel="4905.0"]
+SAT_27->SAT_13 [color=Black label=" Overall Transmittance: 9.2, duration: 175.0 seconds 
+ Transmittance usage 69.2% Duration usage: 21.8% ", taillabel="4905.0",headlabel="5707.0"]
+SAT_13->SAT_3 [color=Black label=" Overall Transmittance: 9.2, duration: 175.0 seconds 
+ Transmittance usage 100.0% Duration usage: 28.8% ", taillabel="6239.0",headlabel="6847.0"]
+SAT_3->Paris [color=Black label=" Overall Transmittance: 9.2, duration: 175.0 seconds 
+ Transmittance usage 17.0% Duration usage: 34.0% ", taillabel="7389.0",headlabel="7904.0"]
+Budapest->SAT_6 [color=firebrick3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 241.0 [mp] 
+ Optikai áteresztés kihasználtsága 36.5% Időtartam kihasználtsága: 100.0% ", taillabel="5357.0 [mp]",headlabel="5598.0 [mp]"]
+SAT_6->SAT_11 [color=firebrick3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 241.0 [mp] 
+ Optikai áteresztés kihasználtsága 40.4% Időtartam kihasználtsága: 32.7% ", taillabel="5781.0 [mp]",headlabel="6517.0 [mp]"]
+SAT_11->SAT_1 [color=firebrick3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 241.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 39.4% ", taillabel="7812.0 [mp]",headlabel="8423.0 [mp]"]
+SAT_1->Paris [color=firebrick3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 241.0 [mp] 
+ Optikai áteresztés kihasználtsága 36.4% Időtartam kihasználtsága: 98.4% ", taillabel="9169.0 [mp]",headlabel="9414.0 [mp]"]
+Budapest->SAT_6 [color=Black label=" Overall Transmittance: 8.3, duration: 108.0 seconds 
+ Transmittance usage 99.1% Duration usage: 100.0% ", taillabel="5357.0",headlabel="5465.0"]
+SAT_6->Paris [color=Black label=" Overall Transmittance: 8.3, duration: 108.0 seconds 
+ Transmittance usage 100.0% Duration usage: 94.7% ", taillabel="5465.0",headlabel="5579.0"]
+Budapest->SAT_32 [color=gold label=" Csatorna maximális optikai átersztése: 11.3, időtartam: 141.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 100.0% ", taillabel="568.0 [mp]",headlabel="709.0 [mp]"]
+SAT_32->Paris [color=gold label=" Csatorna maximális optikai átersztése: 11.3, időtartam: 141.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 96.6% ", taillabel="709.0 [mp]",headlabel="855.0 [mp]"]
+Budapest->SAT_26 [color=darkred label=" Csatorna maximális optikai átersztése: 12.1, időtartam: 169.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="5602.0 [mp]",headlabel="5771.0 [mp]"]
+SAT_26->SAT_12 [color=darkred label=" Csatorna maximális optikai átersztése: 12.1, időtartam: 169.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 23.3% ", taillabel="5771.0 [mp]",headlabel="6495.0 [mp]"]
+SAT_12->SAT_1 [color=darkred label=" Csatorna maximális optikai átersztése: 12.1, időtartam: 169.0 [mp] 
+ Optikai áteresztés kihasználtsága 52.8% Időtartam kihasználtsága: 22.9% ", taillabel="7355.0 [mp]",headlabel="8093.0 [mp]"]
+SAT_1->Paris [color=darkred label=" Csatorna maximális optikai átersztése: 12.1, időtartam: 169.0 [mp] 
+ Optikai áteresztés kihasználtsága 34.7% Időtartam kihasználtsága: 55.0% ", taillabel="9107.0 [mp]",headlabel="9414.0 [mp]"]
+Budapest->SAT_26 [color=Black label=" Overall Transmittance: 9.2, duration: 169.0 seconds 
+ Transmittance usage 76.4% Duration usage: 100.0% ", taillabel="5602.0",headlabel="5771.0"]
+SAT_26->SAT_12 [color=Black label=" Overall Transmittance: 9.2, duration: 169.0 seconds 
+ Transmittance usage 76.2% Duration usage: 23.3% ", taillabel="5771.0",headlabel="6495.0"]
+SAT_12->SAT_2 [color=Black label=" Overall Transmittance: 9.2, duration: 169.0 seconds 
+ Transmittance usage 100.0% Duration usage: 27.7% ", taillabel="7025.0",headlabel="7635.0"]
+SAT_2->Paris [color=Black label=" Overall Transmittance: 9.2, duration: 169.0 seconds 
+ Transmittance usage 16.0% Duration usage: 32.3% ", taillabel="8138.0",headlabel="8662.0"]
+Budapest->SAT_5 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.4% Időtartam kihasználtsága: 100.0% ", taillabel="6111.0 [mp]",headlabel="6235.0 [mp]"]
+SAT_5->Paris [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.9, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 96.1% ", taillabel="6235.0 [mp]",headlabel="6364.0 [mp]"]
+Budapest->SAT_4 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 148.0 [mp] 
+ Optikai áteresztés kihasználtsága 89.3% Időtartam kihasználtsága: 96.1% ", taillabel="1022.0 [mp]",headlabel="1176.0 [mp]"]
+SAT_4->SAT_9 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 148.0 [mp] 
+ Optikai áteresztés kihasználtsága 43.7% Időtartam kihasználtsága: 24.8% ", taillabel="1198.0 [mp]",headlabel="1795.0 [mp]"]
+SAT_9->SAT_7 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 148.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 24.2% ", taillabel="3089.0 [mp]",headlabel="3700.0 [mp]"]
+SAT_7->Paris [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 148.0 [mp] 
+ Optikai áteresztés kihasználtsága 88.7% Időtartam kihasználtsága: 100.0% ", taillabel="4627.0 [mp]",headlabel="4775.0 [mp]"]
+Budapest->SAT_4 [color=Black label=" Overall Transmittance: 4.5, duration: 65.0 seconds 
+ Transmittance usage 45.9% Duration usage: 44.5% ", taillabel="1022.0",headlabel="1168.0"]
+SAT_4->SAT_31 [color=Black label=" Overall Transmittance: 4.5, duration: 65.0 seconds 
+ Transmittance usage 99.9% Duration usage: 16.0% ", taillabel="1168.0",headlabel="1575.0"]
+SAT_31->Paris [color=Black label=" Overall Transmittance: 4.5, duration: 65.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="1575.0",headlabel="1640.0"]
+Budapest->SAT_4 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 10.6, időtartam: 132.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="6872.0 [mp]",headlabel="7004.0 [mp]"]
+SAT_4->Paris [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 10.6, időtartam: 132.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 98.5% ", taillabel="7004.0 [mp]",headlabel="7138.0 [mp]"]
+Budapest->SAT_31 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.8, időtartam: 125.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="1381.0 [mp]",headlabel="1506.0 [mp]"]
+SAT_31->Paris [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.8, időtartam: 125.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.4% Időtartam kihasználtsága: 93.3% ", taillabel="1506.0 [mp]",headlabel="1640.0 [mp]"]
+Budapest->SAT_3 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 193.0 [mp] 
+ Optikai áteresztés kihasználtsága 62.0% Időtartam kihasználtsága: 93.2% ", taillabel="1703.0 [mp]",headlabel="1910.0 [mp]"]
+SAT_3->SAT_16 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 193.0 [mp] 
+ Optikai áteresztés kihasználtsága 44.1% Időtartam kihasználtsága: 32.9% ", taillabel="1996.0 [mp]",headlabel="2582.0 [mp]"]
+SAT_16->SAT_6 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 193.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 31.6% ", taillabel="3876.0 [mp]",headlabel="4487.0 [mp]"]
+SAT_6->Paris [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 193.0 [mp] 
+ Optikai áteresztés kihasználtsága 62.4% Időtartam kihasználtsága: 100.0% ", taillabel="5386.0 [mp]",headlabel="5579.0 [mp]"]
+Budapest->SAT_3 [color=Black label=" Overall Transmittance: 5.4, duration: 78.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="1703.0",headlabel="1781.0"]
+SAT_3->SAT_9 [color=Black label=" Overall Transmittance: 5.4, duration: 78.0 seconds 
+ Transmittance usage 98.9% Duration usage: 22.7% ", taillabel="1781.0",headlabel="2125.0"]
+SAT_9->SAT_7 [color=Black label=" Overall Transmittance: 5.4, duration: 78.0 seconds 
+ Transmittance usage 58.1% Duration usage: 12.8% ", taillabel="3089.0",headlabel="3700.0"]
+SAT_7->Paris [color=Black label=" Overall Transmittance: 5.4, duration: 78.0 seconds 
+ Transmittance usage 27.4% Duration usage: 28.0% ", taillabel="4496.0",headlabel="4775.0"]
+Budapest->SAT_3 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 10.4, időtartam: 130.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.5% Időtartam kihasználtsága: 97.7% ", taillabel="7641.0 [mp]",headlabel="7774.0 [mp]"]
+SAT_3->Paris [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 10.4, időtartam: 130.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="7774.0 [mp]",headlabel="7904.0 [mp]"]
+Budapest->SAT_30 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 176.0 [mp] 
+ Optikai áteresztés kihasználtsága 61.0% Időtartam kihasználtsága: 100.0% ", taillabel="2204.0 [mp]",headlabel="2380.0 [mp]"]
+SAT_30->SAT_16 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 176.0 [mp] 
+ Optikai áteresztés kihasználtsága 60.8% Időtartam kihasználtsága: 18.2% ", taillabel="2380.0 [mp]",headlabel="3348.0 [mp]"]
+SAT_16->SAT_6 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 176.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 28.8% ", taillabel="3876.0 [mp]",headlabel="4487.0 [mp]"]
+SAT_6->Paris [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 176.0 [mp] 
+ Optikai áteresztés kihasználtsága 31.5% Időtartam kihasználtsága: 46.0% ", taillabel="5196.0 [mp]",headlabel="5579.0 [mp]"]
+Budapest->SAT_30 [color=Black label=" Overall Transmittance: 7.1, duration: 96.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="2204.0",headlabel="2300.0"]
+SAT_30->Paris [color=Black label=" Overall Transmittance: 7.1, duration: 96.0 seconds 
+ Transmittance usage 98.8% Duration usage: 92.3% ", taillabel="2300.0",headlabel="2404.0"]
+Budapest->SAT_2 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 184.0 [mp] 
+ Optikai áteresztés kihasználtsága 61.5% Időtartam kihasználtsága: 94.4% ", taillabel="2413.0 [mp]",headlabel="2608.0 [mp]"]
+SAT_2->SAT_15 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 184.0 [mp] 
+ Optikai áteresztés kihasználtsága 41.4% Időtartam kihasználtsága: 27.3% ", taillabel="2695.0 [mp]",headlabel="3370.0 [mp]"]
+SAT_15->SAT_5 [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 184.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 30.2% ", taillabel="4664.0 [mp]",headlabel="5273.0 [mp]"]
+SAT_5->Paris [color=goldenrod1 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 184.0 [mp] 
+ Optikai áteresztés kihasználtsága 61.2% Időtartam kihasználtsága: 100.0% ", taillabel="6180.0 [mp]",headlabel="6364.0 [mp]"]
+Budapest->SAT_2 [color=Black label=" Overall Transmittance: 4.9, duration: 282.0 seconds 
+ Transmittance usage 22.0% Duration usage: 100.0% ", taillabel="2413.0",headlabel="2695.0"]
+SAT_2->SAT_15 [color=Black label=" Overall Transmittance: 4.9, duration: 282.0 seconds 
+ Transmittance usage 22.0% Duration usage: 41.8% ", taillabel="2695.0",headlabel="3370.0"]
+SAT_15->SAT_6 [color=Black label=" Overall Transmittance: 4.9, duration: 282.0 seconds 
+ Transmittance usage 100.0% Duration usage: 62.4% ", taillabel="4349.0",headlabel="4801.0"]
+SAT_6->Paris [color=Black label=" Overall Transmittance: 4.9, duration: 282.0 seconds 
+ Transmittance usage 16.7% Duration usage: 73.6% ", taillabel="5196.0",headlabel="5579.0"]
+}

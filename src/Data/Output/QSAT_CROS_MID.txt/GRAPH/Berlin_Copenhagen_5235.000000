@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Berlin
+label = " Teljes időtartam: 2392.000 [másodperc] "
+
+Copenhagen
+Berlin->SAT_34 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 31.2, időtartam: 292.0 [mp] 
+ Optikai áteresztés kihasználtsága 78.9% Időtartam kihasználtsága: 74.9% ", taillabel="5235.0 [mp]",headlabel="5625.0 [mp]"]
+SAT_34->SAT_26 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 31.2, időtartam: 292.0 [mp] 
+ Optikai áteresztés kihasználtsága 79.0% Időtartam kihasználtsága: 50.0% ", taillabel="5625.0 [mp]",headlabel="6209.0 [mp]"]
+SAT_26->SAT_11 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 31.2, időtartam: 292.0 [mp] 
+ Optikai áteresztés kihasználtsága 78.4% Időtartam kihasználtsága: 40.1% ", taillabel="6209.0 [mp]",headlabel="6938.0 [mp]"]
+SAT_11->SAT_3 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 31.2, időtartam: 292.0 [mp] 
+ Optikai áteresztés kihasználtsága 90.7% Időtartam kihasználtsága: 100.0% ", taillabel="6938.0 [mp]",headlabel="7230.0 [mp]"]
+SAT_3->Copenhagen [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 31.2, időtartam: 292.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 73.6% ", taillabel="7230.0 [mp]",headlabel="7627.0 [mp]"]
+Berlin->SAT_34 [color=Black label=" Overall Transmittance: 28.3, duration: 282.0 seconds 
+ Transmittance usage 99.9% Duration usage: 100.0% ", taillabel="5235.0",headlabel="5517.0"]
+SAT_34->SAT_9 [color=Black label=" Overall Transmittance: 28.3, duration: 282.0 seconds 
+ Transmittance usage 57.1% Duration usage: 36.4% ", taillabel="6486.0",headlabel="7261.0"]
+SAT_9->SAT_1 [color=Black label=" Overall Transmittance: 28.3, duration: 282.0 seconds 
+ Transmittance usage 74.1% Duration usage: 79.4% ", taillabel="8384.0",headlabel="8739.0"]
+SAT_1->Copenhagen [color=Black label=" Overall Transmittance: 28.3, duration: 282.0 seconds 
+ Transmittance usage 100.0% Duration usage: 94.9% ", taillabel="8849.0",headlabel="9146.0"]
+}

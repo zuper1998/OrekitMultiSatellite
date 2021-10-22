@@ -18,7 +18,7 @@ public class  dataLoader {
             for(File file : Objects.requireNonNull(dir_out.listFiles(File::isFile))){
                 FileInputStream fis = null;
                 try {
-                    System.out.println(file);
+                    //System.out.println(file);
                     fis = new FileInputStream(file);
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     out.add ((AllPathsReturn) ois.readObject());

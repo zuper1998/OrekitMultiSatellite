@@ -1,0 +1,17 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Helsinki
+label = " Teljes időtartam: 4084.000 [másodperc] "
+
+Paris
+Helsinki->SAT_1 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 3.6, időtartam: 178.0 [mp] 
+ Optikai áteresztés kihasználtsága 23.3% Időtartam kihasználtsága: 100.0% ", taillabel="3054.0 [mp]",headlabel="3232.0 [mp]"]
+SAT_1->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 3.6, időtartam: 178.0 [mp] 
+ Optikai áteresztés kihasználtsága 15.7% Időtartam kihasználtsága: 24.1% ", taillabel="4206.0 [mp]",headlabel="4944.0 [mp]"]
+SAT_8->SAT_4 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 3.6, időtartam: 178.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 48.4% ", taillabel="6359.0 [mp]",headlabel="6727.0 [mp]"]
+SAT_4->Paris [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 3.6, időtartam: 178.0 [mp] 
+ Optikai áteresztés kihasználtsága 23.2% Időtartam kihasználtsága: 98.9% ", taillabel="6958.0 [mp]",headlabel="7138.0 [mp]"]
+}

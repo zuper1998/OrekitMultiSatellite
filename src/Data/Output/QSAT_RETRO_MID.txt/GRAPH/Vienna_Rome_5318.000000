@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Vienna
+label = " Teljes időtartam: 3550.000 [másodperc] "
+
+Rome
+Vienna->SAT_6 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 55.3, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 87.3% ", taillabel="5318.0 [mp]",headlabel="5836.0 [mp]"]
+SAT_6->SAT_26 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 55.3, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 63.7% Időtartam kihasználtsága: 75.5% ", taillabel="5836.0 [mp]",headlabel="6435.0 [mp]"]
+SAT_26->SAT_38 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 55.3, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 47.3% Időtartam kihasználtsága: 57.6% ", taillabel="6606.0 [mp]",headlabel="7391.0 [mp]"]
+SAT_38->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 55.3, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 83.9% Időtartam kihasználtsága: 100.0% ", taillabel="7892.0 [mp]",headlabel="8344.0 [mp]"]
+SAT_2->Rome [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 55.3, időtartam: 452.0 [mp] 
+ Optikai áteresztés kihasználtsága 96.2% Időtartam kihasználtsága: 86.3% ", taillabel="8344.0 [mp]",headlabel="8868.0 [mp]"]
+Vienna->SAT_6 [color=Black label=" Overall Transmittance: 22.9, duration: 250.0 seconds 
+ Transmittance usage 86.9% Duration usage: 100.0% ", taillabel="5318.0",headlabel="5568.0"]
+SAT_6->SAT_26 [color=Black label=" Overall Transmittance: 22.9, duration: 250.0 seconds 
+ Transmittance usage 26.4% Duration usage: 41.7% ", taillabel="5836.0",headlabel="6435.0"]
+SAT_26->SAT_37 [color=Black label=" Overall Transmittance: 22.9, duration: 250.0 seconds 
+ Transmittance usage 100.0% Duration usage: 33.9% ", taillabel="7023.0",headlabel="7761.0"]
+SAT_37->Rome [color=Black label=" Overall Transmittance: 22.9, duration: 250.0 seconds 
+ Transmittance usage 95.7% Duration usage: 75.8% ", taillabel="8856.0",headlabel="9186.0"]
+}
