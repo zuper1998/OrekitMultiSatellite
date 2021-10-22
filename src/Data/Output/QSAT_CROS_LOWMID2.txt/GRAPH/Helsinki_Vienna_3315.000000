@@ -3,17 +3,19 @@ layout=dot
 graph [ dpi = 100 ];
 rankdir=LR;
 Helsinki
-label = " Teljes időtartam: 3277.000 [másodperc] "
+label = " Teljes időtartam: 2519.000 [másodperc] "
 
 Vienna
-Helsinki->SAT_29 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 151.0 [mp] 
- Optikai áteresztés kihasználtsága 83.2% Időtartam kihasználtsága: 100.0% ", taillabel="3315.0 [mp]",headlabel="3466.0 [mp]"]
-SAT_29->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 151.0 [mp] 
- Optikai áteresztés kihasználtsága 83.0% Időtartam kihasználtsága: 22.6% ", taillabel="3466.0 [mp]",headlabel="4135.0 [mp]"]
-SAT_15->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 151.0 [mp] 
- Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 24.8% ", taillabel="4664.0 [mp]",headlabel="5273.0 [mp]"]
-SAT_5->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 151.0 [mp] 
- Optikai áteresztés kihasználtsága 16.0% Időtartam kihasználtsága: 28.9% ", taillabel="6069.0 [mp]",headlabel="6592.0 [mp]"]
+Helsinki->SAT_29 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.8, időtartam: 151.0 [mp] 
+ Optikai áteresztés kihasználtsága 88.5% Időtartam kihasználtsága: 100.0% ", taillabel="3315.0 [mp]",headlabel="3466.0 [mp]"]
+SAT_29->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.8, időtartam: 151.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.7% Időtartam kihasználtsága: 28.1% ", taillabel="3466.0 [mp]",headlabel="4003.0 [mp]"]
+SAT_15->SAT_7 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.8, időtartam: 151.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 40.4% ", taillabel="4003.0 [mp]",headlabel="4377.0 [mp]"]
+SAT_7->SAT_26 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.8, időtartam: 151.0 [mp] 
+ Optikai áteresztés kihasználtsága 74.6% Időtartam kihasználtsága: 22.4% ", taillabel="4756.0 [mp]",headlabel="5431.0 [mp]"]
+SAT_26->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.8, időtartam: 151.0 [mp] 
+ Optikai áteresztés kihasználtsága 79.4% Időtartam kihasználtsága: 82.1% ", taillabel="5650.0 [mp]",headlabel="5834.0 [mp]"]
 Helsinki->SAT_29 [color=Black label=" Overall Transmittance: 7.6, duration: 104.0 seconds 
  Transmittance usage 99.8% Duration usage: 97.2% ", taillabel="3315.0",headlabel="3422.0"]
 SAT_29->Vienna [color=Black label=" Overall Transmittance: 7.6, duration: 104.0 seconds 

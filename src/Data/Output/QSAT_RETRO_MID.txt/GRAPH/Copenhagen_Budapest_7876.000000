@@ -1,0 +1,27 @@
+digraph G{
+layout=dot
+graph [ dpi = 100 ];
+rankdir=LR;
+Copenhagen
+label = " Teljes időtartam: 2751.000 [másodperc] "
+
+Budapest
+Copenhagen->SAT_38 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.2% Időtartam kihasználtsága: 25.5% ", taillabel="7876.0 [mp]",headlabel="8362.0 [mp]"]
+SAT_38->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.3% Időtartam kihasználtsága: 28.4% ", taillabel="8362.0 [mp]",headlabel="8798.0 [mp]"]
+SAT_2->SAT_30 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.3% Időtartam kihasználtsága: 77.5% ", taillabel="8798.0 [mp]",headlabel="8958.0 [mp]"]
+SAT_30->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 75.5% Időtartam kihasználtsága: 10.8% ", taillabel="8958.0 [mp]",headlabel="10106.0 [mp]"]
+SAT_15->SAT_35 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="10106.0 [mp]",headlabel="10230.0 [mp]"]
+SAT_35->Budapest [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 37.6, időtartam: 124.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 31.2% ", taillabel="10230.0 [mp]",headlabel="10627.0 [mp]"]
+Copenhagen->SAT_38 [color=Black label=" Overall Transmittance: 35.6, duration: 70.0 seconds 
+ Transmittance usage 71.3% Duration usage: 14.4% ", taillabel="7876.0",headlabel="8362.0"]
+SAT_38->SAT_2 [color=Black label=" Overall Transmittance: 35.6, duration: 70.0 seconds 
+ Transmittance usage 99.8% Duration usage: 100.0% ", taillabel="8362.0",headlabel="8432.0"]
+SAT_2->Budapest [color=Black label=" Overall Transmittance: 35.6, duration: 70.0 seconds 
+ Transmittance usage 100.0% Duration usage: 16.4% ", taillabel="8432.0",headlabel="8858.0"]
+}

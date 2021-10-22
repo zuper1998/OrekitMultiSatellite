@@ -3,23 +3,21 @@ layout=dot
 graph [ dpi = 100 ];
 rankdir=LR;
 Rome
-label = " Teljes időtartam: 4095.000 [másodperc] "
+label = " Teljes időtartam: 2538.000 [másodperc] "
 
 Paris
-Rome->SAT_27 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 215.0 [mp] 
- Optikai áteresztés kihasználtsága 43.3% Időtartam kihasználtsága: 81.7% ", taillabel="4567.0 [mp]",headlabel="4830.0 [mp]"]
-SAT_27->SAT_12 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 215.0 [mp] 
- Optikai áteresztés kihasználtsága 18.4% Időtartam kihasználtsága: 17.7% ", taillabel="5016.0 [mp]",headlabel="6229.0 [mp]"]
-SAT_12->SAT_2 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 215.0 [mp] 
- Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 35.2% ", taillabel="7025.0 [mp]",headlabel="7635.0 [mp]"]
-SAT_2->Paris [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 215.0 [mp] 
- Optikai áteresztés kihasználtsága 43.3% Időtartam kihasználtsága: 100.0% ", taillabel="8447.0 [mp]",headlabel="8662.0 [mp]"]
-Rome->SAT_27 [color=Black label=" Overall Transmittance: 9.2, duration: 192.0 seconds 
- Transmittance usage 61.7% Duration usage: 100.0% ", taillabel="4567.0",headlabel="4759.0"]
-SAT_27->SAT_13 [color=Black label=" Overall Transmittance: 9.2, duration: 192.0 seconds 
- Transmittance usage 61.3% Duration usage: 20.3% ", taillabel="4759.0",headlabel="5707.0"]
-SAT_13->SAT_3 [color=Black label=" Overall Transmittance: 9.2, duration: 192.0 seconds 
- Transmittance usage 100.0% Duration usage: 31.6% ", taillabel="6239.0",headlabel="6847.0"]
-SAT_3->Paris [color=Black label=" Overall Transmittance: 9.2, duration: 192.0 seconds 
- Transmittance usage 17.0% Duration usage: 37.3% ", taillabel="7389.0",headlabel="7904.0"]
+Rome->SAT_27 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 35.7, időtartam: 449.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="4567.0 [mp]",headlabel="5016.0 [mp]"]
+SAT_27->SAT_12 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 35.7, időtartam: 449.0 [mp] 
+ Optikai áteresztés kihasználtsága 74.9% Időtartam kihasználtsága: 45.5% ", taillabel="5016.0 [mp]",headlabel="6002.0 [mp]"]
+SAT_12->SAT_4 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 35.7, időtartam: 449.0 [mp] 
+ Optikai áteresztés kihasználtsága 76.5% Időtartam kihasználtsága: 70.4% ", taillabel="6002.0 [mp]",headlabel="6640.0 [mp]"]
+SAT_4->Paris [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 35.7, időtartam: 449.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.6% Időtartam kihasználtsága: 96.6% ", taillabel="6640.0 [mp]",headlabel="7105.0 [mp]"]
+Rome->SAT_27 [color=Black label=" Overall Transmittance: 22.9, duration: 230.0 seconds 
+ Transmittance usage 99.5% Duration usage: 81.3% ", taillabel="4567.0",headlabel="4850.0"]
+SAT_27->SAT_2 [color=Black label=" Overall Transmittance: 22.9, duration: 230.0 seconds 
+ Transmittance usage 46.2% Duration usage: 29.7% ", taillabel="6281.0",headlabel="7055.0"]
+SAT_2->Paris [color=Black label=" Overall Transmittance: 22.9, duration: 230.0 seconds 
+ Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="8377.0",headlabel="8607.0"]
 }

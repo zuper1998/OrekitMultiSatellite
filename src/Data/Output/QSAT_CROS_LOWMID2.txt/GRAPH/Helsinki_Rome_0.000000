@@ -3,25 +3,27 @@ layout=dot
 graph [ dpi = 100 ];
 rankdir=LR;
 Helsinki
-label = " Teljes időtartam: 4226.000 [másodperc] "
+label = " Teljes időtartam: 3425.000 [másodperc] "
 
 Rome
-Helsinki->SAT_25 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 117.0 [mp] 
- Optikai áteresztés kihasználtsága 87.4% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="117.0 [mp]"]
-SAT_25->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 117.0 [mp] 
- Optikai áteresztés kihasználtsága 22.1% Időtartam kihasználtsága: 38.4% ", taillabel="369.0 [mp]",headlabel="674.0 [mp]"]
-SAT_5->SAT_22 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 117.0 [mp] 
- Optikai áteresztés kihasználtsága 22.1% Időtartam kihasználtsága: 14.1% ", taillabel="674.0 [mp]",headlabel="1506.0 [mp]"]
-SAT_22->SAT_28 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 117.0 [mp] 
- Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 19.1% ", taillabel="2301.0 [mp]",headlabel="2912.0 [mp]"]
-SAT_28->Rome [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 117.0 [mp] 
- Optikai áteresztés kihasználtsága 88.2% Időtartam kihasználtsága: 85.4% ", taillabel="4089.0 [mp]",headlabel="4226.0 [mp]"]
-Helsinki->SAT_25 [color=Black label=" Overall Transmittance: 7.5, duration: 88.0 seconds 
- Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="0.0",headlabel="88.0"]
-SAT_25->SAT_23 [color=Black label=" Overall Transmittance: 7.5, duration: 88.0 seconds 
- Transmittance usage 98.9% Duration usage: 19.1% ", taillabel="88.0",headlabel="549.0"]
-SAT_23->SAT_29 [color=Black label=" Overall Transmittance: 7.5, duration: 88.0 seconds 
- Transmittance usage 80.9% Duration usage: 14.4% ", taillabel="1514.0",headlabel="2125.0"]
-SAT_29->Rome [color=Black label=" Overall Transmittance: 7.5, duration: 88.0 seconds 
- Transmittance usage 13.7% Duration usage: 16.1% ", taillabel="2877.0",headlabel="3425.0"]
+Helsinki->SAT_25 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 13.8, időtartam: 144.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="0.0 [mp]",headlabel="144.0 [mp]"]
+SAT_25->SAT_11 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 13.8, időtartam: 144.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 17.1% ", taillabel="144.0 [mp]",headlabel="984.0 [mp]"]
+SAT_11->SAT_20 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 13.8, időtartam: 144.0 [mp] 
+ Optikai áteresztés kihasználtsága 84.0% Időtartam kihasználtsága: 17.2% ", taillabel="984.0 [mp]",headlabel="1819.0 [mp]"]
+SAT_20->SAT_29 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 13.8, időtartam: 144.0 [mp] 
+ Optikai áteresztés kihasználtsága 82.9% Időtartam kihasználtsága: 16.7% ", taillabel="2275.0 [mp]",headlabel="3135.0 [mp]"]
+SAT_29->Rome [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 13.8, időtartam: 144.0 [mp] 
+ Optikai áteresztés kihasználtsága 47.0% Időtartam kihasználtsága: 49.7% ", taillabel="3135.0 [mp]",headlabel="3425.0 [mp]"]
+Helsinki->SAT_25 [color=Black label=" Overall Transmittance: 13.2, duration: 144.0 seconds 
+ Transmittance usage 95.3% Duration usage: 100.0% ", taillabel="0.0",headlabel="144.0"]
+SAT_25->SAT_11 [color=Black label=" Overall Transmittance: 13.2, duration: 144.0 seconds 
+ Transmittance usage 97.8% Duration usage: 18.0% ", taillabel="144.0",headlabel="943.0"]
+SAT_11->SAT_2 [color=Black label=" Overall Transmittance: 13.2, duration: 144.0 seconds 
+ Transmittance usage 97.8% Duration usage: 23.3% ", taillabel="943.0",headlabel="1560.0"]
+SAT_2->SAT_29 [color=Black label=" Overall Transmittance: 13.2, duration: 144.0 seconds 
+ Transmittance usage 100.0% Duration usage: 21.3% ", taillabel="2393.0",headlabel="3070.0"]
+SAT_29->Rome [color=Black label=" Overall Transmittance: 13.2, duration: 144.0 seconds 
+ Transmittance usage 34.9% Duration usage: 40.6% ", taillabel="3070.0",headlabel="3425.0"]
 }

@@ -3,13 +3,13 @@ layout=dot
 graph [ dpi = 100 ];
 rankdir=LR;
 Helsinki
-label = " Teljes időtartam: 2032.000 [másodperc] "
+label = " Teljes időtartam: 879.000 [másodperc] "
 
 Vienna
-Helsinki->SAT_9 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 4.9, időtartam: 307.0 [mp] 
- Optikai áteresztés kihasználtsága 17.3% Időtartam kihasználtsága: 79.1% ", taillabel="8228.0 [mp]",headlabel="8616.0 [mp]"]
-SAT_9->SAT_8 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 4.9, időtartam: 307.0 [mp] 
- Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 67.5% ", taillabel="9071.0 [mp]",headlabel="9526.0 [mp]"]
-SAT_8->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 4.9, időtartam: 307.0 [mp] 
- Optikai áteresztés kihasználtsága 22.5% Időtartam kihasználtsága: 100.0% ", taillabel="9953.0 [mp]",headlabel="10260.0 [mp]"]
+Helsinki->SAT_9 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 17.5, időtartam: 252.0 [mp] 
+ Optikai áteresztés kihasználtsága 63.8% Időtartam kihasználtsága: 67.7% ", taillabel="8228.0 [mp]",headlabel="8600.0 [mp]"]
+SAT_9->SAT_1 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 17.5, időtartam: 252.0 [mp] 
+ Optikai áteresztés kihasználtsága 73.7% Időtartam kihasználtsága: 98.8% ", taillabel="8600.0 [mp]",headlabel="8855.0 [mp]"]
+SAT_1->Vienna [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 17.5, időtartam: 252.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 100.0% ", taillabel="8855.0 [mp]",headlabel="9107.0 [mp]"]
 }

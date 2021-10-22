@@ -3,19 +3,19 @@ layout=dot
 graph [ dpi = 100 ];
 rankdir=LR;
 Rome
-label = " Teljes időtartam: 3584.000 [másodperc] "
+label = " Teljes időtartam: 3980.000 [másodperc] "
 
 Copenhagen
-Rome->SAT_29 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 232.0 [mp] 
- Optikai áteresztés kihasználtsága 42.5% Időtartam kihasználtsága: 100.0% ", taillabel="2877.0 [mp]",headlabel="3109.0 [mp]"]
-SAT_29->SAT_15 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 232.0 [mp] 
- Optikai áteresztés kihasználtsága 58.7% Időtartam kihasználtsága: 22.6% ", taillabel="3109.0 [mp]",headlabel="4135.0 [mp]"]
-SAT_15->SAT_5 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 232.0 [mp] 
- Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 38.1% ", taillabel="4664.0 [mp]",headlabel="5273.0 [mp]"]
-SAT_5->Copenhagen [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 9.2, időtartam: 232.0 [mp] 
- Optikai áteresztés kihasználtsága 17.5% Időtartam kihasználtsága: 45.4% ", taillabel="5950.0 [mp]",headlabel="6461.0 [mp]"]
-Rome->SAT_29 [color=Black label=" Overall Transmittance: 7.3, duration: 111.0 seconds 
- Transmittance usage 18.9% Duration usage: 30.6% ", taillabel="2877.0",headlabel="3240.0"]
-SAT_29->Copenhagen [color=Black label=" Overall Transmittance: 7.3, duration: 111.0 seconds 
- Transmittance usage 100.0% Duration usage: 100.0% ", taillabel="3240.0",headlabel="3351.0"]
+Rome->SAT_29 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 21.0, időtartam: 227.0 [mp] 
+ Optikai áteresztés kihasználtsága 99.8% Időtartam kihasználtsága: 100.0% ", taillabel="2877.0 [mp]",headlabel="3104.0 [mp]"]
+SAT_29->SAT_4 [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 21.0, időtartam: 227.0 [mp] 
+ Optikai áteresztés kihasználtsága 42.4% Időtartam kihasználtsága: 29.3% ", taillabel="4706.0 [mp]",headlabel="5481.0 [mp]"]
+SAT_4->Copenhagen [color=dodgerblue3 label=" Csatorna maximális optikai átersztése: 21.0, időtartam: 227.0 [mp] 
+ Optikai áteresztés kihasználtsága 100.0% Időtartam kihasználtsága: 80.8% ", taillabel="6576.0 [mp]",headlabel="6857.0 [mp]"]
+Rome->SAT_29 [color=Black label=" Overall Transmittance: 13.7, duration: 261.0 seconds 
+ Transmittance usage 25.1% Duration usage: 47.6% ", taillabel="2877.0",headlabel="3425.0"]
+SAT_29->SAT_5 [color=Black label=" Overall Transmittance: 13.7, duration: 261.0 seconds 
+ Transmittance usage 100.0% Duration usage: 38.3% ", taillabel="4359.0",headlabel="5041.0"]
+SAT_5->Copenhagen [color=Black label=" Overall Transmittance: 13.7, duration: 261.0 seconds 
+ Transmittance usage 75.2% Duration usage: 100.0% ", taillabel="5815.0",headlabel="6076.0"]
 }
