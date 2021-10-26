@@ -8,11 +8,8 @@ import pandas as pd
 import os
 
 
-if not os.path.exists("images"):
-    os.mkdir("images")
 
-
-def visPlotly(File:path):
+def visPlotly(File:path,toprinst:path):
     #angle distance transmittance
 
     tr = []
@@ -42,12 +39,18 @@ def visPlotly(File:path):
     fig.update_layout(
     width=1000,
     )
-    fig.write_image(f"images/{os.path.basename(File)}.jpeg")
+    st = f"images/{os.path.basename(File)}.jpeg"
+    fig.write_image(os.path.join(toprinst,st),scale=3)
+
 
 
 
 
 for child in Path('.').iterdir():
-    if child.is_file():
-        print(f"{child.name}\n")
-        visPlotly(child)
+    if child.is_dir():
+        for child2 in child.iterdir(): 
+            if child2.is_dir() and child2.name == "EBITDATA":
+                for child3 in child2.iterdir(): 
+                    if child3.is_file():
+                        print(f"{child3.name}\n")
+                        visPlotly(child3,child2)

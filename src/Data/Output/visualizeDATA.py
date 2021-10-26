@@ -7,11 +7,10 @@ from plotly.subplots import make_subplots
 import pandas as pd
 import os
 
-if not os.path.exists("images"):
-    os.mkdir("images")
 
 
-def visPlotly(File:path):
+
+def visPlotly(File:path,toprint: path):
     #angle distance transmittance
     angle = []
     distance = []
@@ -33,9 +32,9 @@ def visPlotly(File:path):
     s_val = int(float(s[2]))
     fig = go.Figure()
     x_val = np.arange(s_val,s_val+len(angle))
-    fig.add_trace(go.Scatter(x= x_val, y=angle,name="Magassági szög"))
-    fig.add_trace(go.Scatter(x= x_val, y=distance,name="Távolság [km]",yaxis="y2"))
-    fig.add_trace(go.Scatter(x= x_val, y=tr,name="Optikai áteresztőképesség [%]",yaxis="y3"))
+    fig.add_trace(go.Scatter(x= x_val, y=angle,name="Magassági szög",line=dict(color="#0000FF")))
+    fig.add_trace(go.Scatter(x= x_val, y=distance,name="Távolság [km]",yaxis="y2",line=dict(color="#cc0000")))
+    fig.add_trace(go.Scatter(x= x_val, y=tr,name="Optikai áteresztőképesség [%]",yaxis="y3",line=dict(color="#008000")))
 
     # Create axis objects
 
@@ -46,19 +45,19 @@ def visPlotly(File:path):
     yaxis=dict(
         title="Magassági szög",
         titlefont=dict(
-            color="#1f77b4"
+            color="#0000FF"
         ),
         tickfont=dict(
-            color="#1f77b4"
+            color="#0000FF"
         )
     ),
     yaxis2=dict(
         title="Távolság [km]",
         titlefont=dict(
-            color="#FF0000"
+            color="#cc0000"
         ),
         tickfont=dict(
-            color="#FF0000"
+            color="#cc0000"
         ),
         anchor="free",
         overlaying="y",
@@ -68,10 +67,10 @@ def visPlotly(File:path):
     yaxis3=dict(
         title="Optikai áteresztőképesség [%]",
         titlefont=dict(
-            color="#9467bd"
+            color="#008000"
         ),
         tickfont=dict(
-            color="#9467bd"
+            color="#008000"
         ),
         anchor="x",
         overlaying="y",
@@ -80,7 +79,10 @@ def visPlotly(File:path):
     fig.update_layout(
     width=1000,
     )
-    fig.write_image(f"images/{os.path.basename(File)}.jpeg")
+    st = f"images/{os.path.basename(File)}.jpeg"
+
+    fig.write_image(os.path.join(toprint,st),scale=3)
+
     #fig.show()
     #fig.write_html('first_figure.html', auto_open=True)
 
@@ -137,10 +139,13 @@ def vis(File:path):
  
     plt.show()
 
-
-
-
 for child in Path('.').iterdir():
-    if child.is_file():
-        print(f"{child.name}\n")
-        visPlotly(child)
+    if child.is_dir():
+        for child2 in child.iterdir(): 
+            if child2.is_dir() and child2.name == "DATA":
+                for child3 in child2.iterdir(): 
+                    if child3.is_file():
+                        print(f"{child3.name}\n")
+                        visPlotly(child3,child2)
+                    
+

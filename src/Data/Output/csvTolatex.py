@@ -24,8 +24,8 @@ def generateAgreg(File:path):
 def visu(retro,cros):
     fig = go.Figure()
     x_val = ["Kicsit", "Közepes I.", "Közepes II.", "Nagy"]
-    fig.add_trace(go.Scatter(y= x_val, x=retro,name="Retrográd"))
-    fig.add_trace(go.Scatter(y= x_val, x=cros,name="Keresztpálya"))
+    fig.add_trace(go.Scatter(y= x_val, x=retro,name="Retrográd",mode='markers'))
+    fig.add_trace(go.Scatter(y= x_val, x=cros,name="Keresztpálya",mode='markers'))
 
 
     fig.update_layout(
